@@ -1,0 +1,117 @@
+﻿@using LaborServices.Model.Identity
+@using LaborServices.Utility
+@using LaborServices.Web.Helpers
+
+@{
+    /**/
+
+    var routeData = ViewContext.RouteData.Values;
+    string action = routeData["action"] as string;
+    string lang = routeData["lang"] as string;
+    var language = lang == "ar" ? Language.Arabic : Language.English;
+    var arrowDirection = lang == "ar" ? "fa-angle-double-left" : "fa-angle-double-right";
+    var IconDirection = lang == "ar" ? "left" : "right";
+}
+
+<!-- S T A R T  N A V B A R -->
+<section class="navBar">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            @if (lang == "ar")
+            {
+                <a class="navbar-brand d-lg-none" href="#"><img class="img-fluid" src="~/Images/frontEnd/logo.png" alt="..."></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>}
+            else
+            {
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand d-lg-none" href="#"><img class="img-fluid" src="~/Images/frontEnd/logo.png" alt="..."></a>}
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav pr-4 pr-lg-0">
+                    @{
+                        var dynamicNavBar = ViewBag.NavbarItems as List<ApplicationPage>;
+                        if (dynamicNavBar != null && dynamicNavBar.Count > 0)
+                        {
+                            @Html.Raw(Html.BuildMenuFrontEnd(dynamicNavBar, language))
+                        }
+                    }
+            
+                    @if (Request.IsAuthenticated)
+                    {
+                        dynamicNavBar = ViewBag.NavbarItems as List<ApplicationPage>;
+                        if (dynamicNavBar != null && dynamicNavBar.Where(a=>a.Order != 5000).ToList().Count > 0)
+                        {
+                            <li class="nav-item dropdown otherdropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa @arrowDirection d-lg-none d-xl-none"></i> @DbRes.T("Others", "HomeResources")
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                                    @Html.BuildNestedMenuFrontEnd(dynamicNavBar, language)
+
+                                </div>
+                            </li>
+                        }
+                    }
+                    @if (Request.IsAuthenticated)
+                    {
+                        using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <li class="nav-item  d-lg-none d-xl-none">
+                                @* <a href="javascript:document.getElementById('logoutForm').submit()"> تسجيل الخروج</a>*@
+                                <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out"></i>@DbRes.T("Logout", "HomeResources")</a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="nav-item d-lg-none d-xl-none">
+                            @* @Html.ActionLink("تسجيل الدخول", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink",@class= "nav-link" })*@
+                            @*<a class="nav-link" href="login.html"><i class="fa fa-angle-left"></i>تسجيل الدخول</a>*@
+
+                            <div id="choose">
+                                <a class="nav-link" href="@Url.Action("Register", "Account")"><i class="fa fa-user"></i>@DbRes.T("Register", "HomeResources")</a>
+                            </div>
+                            <a class="nav-link" href='@Url.Action("Login", "Account")'><i class="fa fa-sign-in"></i>@DbRes.T("Login", "HomeResources")</a>
+                        </li>
+                    }
+
+                    <li class="nav-item d-lg-none d-xl-none">
+                        <i class="fa fa-angle-@IconDirection"></i>
+                        @{
+                            routeData["lang"] = language == Language.Arabic ? "en" : "ar";
+                            var languageText = language == Language.Arabic ? "English" : "عربي";
+                        }
+                        <a href='@Url.Action(action, routeData)' class='nav-link'>@languageText</a>
+                        @{routeData["lang"] = lang;}
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</section>
+<!--		Start Social Static Bar	  -->
+<div class="nav-social">
+    <div>
+        <a href="tel:920033660" class="phone">
+            <i class="fa fa-phone"></i>
+            <span class="num">920033660</span>
+        </a>
+    </div>
+    <div>
+        <a href="https://twitter.com/abdalrecruit" class="twitter"><i class="fa fa-twitter"></i></a>
+    </div>
+    <div>
+        <a href="https://www.facebook.com/www.abdal.sa" class="facebook"><i class="fa fa-facebook"></i></a>
+    </div>
+    <div>
+        <a href="https://www.instagram.com/abdalrecruit" class="instagram"><i class="fa fa-instagram"></i></a>
+    </div>
+</div>
+
+<!--		End Social Static Bar	  -->

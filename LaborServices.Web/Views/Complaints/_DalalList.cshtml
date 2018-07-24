@@ -1,0 +1,29 @@
+﻿@using LaborServices.Web.Models
+@model List<CustomerTicket>
+@{
+    Layout = "";
+}
+
+@if (Model.Any())
+{
+    foreach (CustomerTicket item in Model)
+    {
+        <tr>
+            <td><a href="@Url.Action("DalalDetails","Complaints",new { id = item.Id })">@Html.DisplayFor(m => item.TicketNumber)</a></td>
+            <td>@Html.DisplayFor(m => item.ClientClosedCode)</td>
+            <td>@Html.DisplayFor(m => item.ProblemType)</td>
+            @*<td>@Html.DisplayFor(m => item.SectorType)</td>*@
+            <td>@Html.DisplayFor(m => item.Status)</td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="4" class="text-center alert alert-danger w-50 mt-4 mx-auto">
+            <span>@DbRes.T("NoComplaintsSpan", "ProfileResources")</span>
+        </td>
+    </tr>
+
+}
+

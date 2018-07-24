@@ -1,0 +1,230 @@
+﻿/*================================== old =================================================================*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    .switch input {
+        display: none;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+
+
+.acidjs-css3-treeview,
+.acidjs-css3-treeview * {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+    .acidjs-css3-treeview label[for]::before,
+    .acidjs-css3-treeview label span::before {
+        content: "\25b6";
+        display: inline-block;
+        margin: 2px 0 0;
+        width: 13px;
+        height: 13px;
+        vertical-align: top;
+        text-align: center;
+        color: #020202;
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+    .acidjs-css3-treeview li ul {
+        margin: 0 0 0 22px;
+    }
+
+    .acidjs-css3-treeview * {
+        vertical-align: middle;
+    }
+
+.acidjs-css3-treeview {
+    font: normal 15px/20px "Segoe UI", Arial, Sans-serif;
+}
+
+    .acidjs-css3-treeview li {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    .acidjs-css3-treeview input[type="checkbox"] {
+        display: none;
+    }
+
+    .acidjs-css3-treeview label {
+        cursor: pointer;
+    }
+
+        .acidjs-css3-treeview label[for]::before {
+            -webkit-transform: translatex(-24px);
+            -moz-transform: translatex(-24px);
+            -ms-transform: translatex(-24px);
+            -o-transform: translatex(-24px);
+            transform: translatex(-24px);
+        }
+
+        .acidjs-css3-treeview label span::before {
+            -webkit-transform: translatex(16px);
+            -moz-transform: translatex(16px);
+            -ms-transform: translatex(16px);
+            -o-transform: translatex(16px);
+            transform: translatex(16px);
+        }
+
+    .acidjs-css3-treeview input[type="checkbox"][id]:checked ~ label[for]::before {
+        content: "\25bc";
+    }
+
+    .acidjs-css3-treeview input[type="checkbox"][id]:not(:checked) ~ ul {
+        display: none;
+    }
+
+    .acidjs-css3-treeview label:not([for]) {
+        margin: 0 8px 0 0;
+    }
+
+    .acidjs-css3-treeview label span::before {
+        content: "";
+        /*border: solid 1px #1375b3;
+    color: #1375b3;
+    opacity: .50;*/
+    }
+
+/*.selectize-input input {
+    border: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+    .selectize-input input::-ms-expand {
+        display: none;
+    }*/
+
+
+
+/*.acidjs-css3-treeview label input:checked + span::before
+{
+    content: "\2714";
+    box-shadow: 0 0 2px rgba(0, 0, 0, .25) inset;
+    opacity: 1;
+}*/
+
+
+/*.treeview {
+    margin: 1px 0 0 -34px;
+    list-style: none;
+
+}
+
+.treeview ul { 
+}
+
+.treeview li {
+  background: url(http://jquery.bassistance.de/treeview/images/treeview-default-line.gif) 0 0 no-repeat;
+  padding: 2px 0 2px 16px;
+}
+
+.treeview > li:first-child > label {
+   style for the root element - IE8 supports :first-child
+  but not :last-child ..... 
+  
+}
+
+.treeview li.last {
+  background-position: 0 -1766px;
+}
+
+.treeview li > input {
+  height: 16px;
+  width: 16px;
+   hide the inputs but keep them in the layout with events (use opacity) 
+  opacity: 0;
+  filter: alpha(opacity=0);  internet explorer  
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; IE8
+}
+
+.treeview li > label {
+  background: url(https://www.thecssninja.com/demo/css_custom-forms/gr_custom-inputs.png) 0 -1px no-repeat;
+   move left to cover the original checkbox area 
+  margin-left: -20px;
+   pad the text to make room for image 
+  padding-left: 20px;
+}
+
+ Unchecked styles 
+
+.treeview .custom-unchecked {
+  background-position: 0 -1px;
+}
+.treeview .custom-unchecked:hover {
+  background-position: 0 -21px;
+}
+
+ Checked styles 
+
+.treeview .custom-checked { 
+  background-position: 0 -81px;
+}
+.treeview .custom-checked:hover { 
+  background-position: 0 -101px; 
+}
+
+ Indeterminate styles 
+
+.treeview .custom-indeterminate { 
+  background-position: 0 -141px; 
+}
+.treeview .custom-indeterminate:hover { 
+  background-position: 0 -121px; 
+}*/

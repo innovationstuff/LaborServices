@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Business Sector";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-righ" : "text-left";
+}
+
+@if (lang == "ar")
+{
+    <section class="works">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="header">
+                        <img src="~/Images/frontEnd/aamal.png" alt="...">
+                        <p>
+                            تقـدم ”أبـدال“ المـوارد البشـرية التـي تحتاجهـا المنشـآت المختلفـة فـي القطاعين العـام
+                            والخـاص خلال مـدة زمنيـة وجيـزة وذلـك عبـرنظـام التعاقـد التشـغيلي طويـل المـدى، مـن أجـل تحقيـق أهدافهـم التشـغيلية، مـا يسـاعد علـى منـع تعطل المشـاريع الناتـج عـن نقـص العمالة.
+                        </p>
+                    </div>
+                    <div class="body">
+                        <h2>خدماتنا</h2>
+                        <div class="p1">
+                            <h4>توفير الموارد البشرية للمنشآت</h4>
+                            <p>
+                                تقـدم ”أبـدال“ المـوارد البشـرية التـي تحتاجهـا المنشـآت المختلفـة فـي القطاعين العـام والخـاص خـلال مـدة زمنيـة وجيـزة وذلـك عبـر نظـام التعاقـد التشـغيلي طويـل المـدى، مـن أجـل تحقيـق أهدافهـم التشـغيلية، مـا يسـاعد علـى منـع تعثـر المشـاريع الناتـج عـن نقـص العمالة
+                            </p>
+                        </div>
+                        <div class="p2">
+                            <h4>توفير الموارد البشرية للمنشآت بعقود مؤقتة</h4>
+                            <p>
+                                تقـدم ”أبـدال“ المـوارد البشـرية التـي تحتاجهـا المنشـآت المختلفـة فـي القطاعين العـام والخـاص خـلال مـدة زمنيـة وجيـزة وذلـك عبـر نظـام التعاقــد التشــغيلي قصير المدى)مؤقــت(، مــن أجــل تحقيــق أهدافهــم التشــغيلية، مــا يســاعد علــى منــع تعطل المشــاريع الناتــج عــن نقــص العمالـة.
+                            </p>
+                        </div>
+                        <div class="p3">
+                            <h4>خدمات الوساطة في الاستقدام  للمنشآت</h4>
+                            <p>
+                                تقــدم ”أبــدال“ خدمــات الوســاطة فــي اســتقدام المــوارد البشــرية المنزليــة للعائلات التــي لديهــا  تأشيــراتهم الخاصــة، حيــث تقــوم الشــركة بجلــب ً الكــوادر وفقــا لمتطلباتهــم، خلال فتــرة زمنيــة وجيــزة.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leftPart col-md-4">
+                    <img class="img-fluid" src="~/Images/frontEnd/w.png" alt="...">
+                    <p>
+                        نؤمـن فـي ”أبـدال“ ً بـأن للعميـل حقوقـا ً يجـب أن يأخذهـا
+                        كاملـة، وأن للموظـف حقوقـا ً يجـب أن يأخذهـا كاملـة، وأن
+                        للمتعاقـد حقوقـا يجـب أن يأخذهـا كاملـة. وقـد عاهدنـا
+                        أنفسـنا علـى إعطـاء كل ذي حـق حقـه.
+                    </p>
+                    <div class="links">
+                        <a href="@Url.Action("BusinessSector","Lead")">تقديم طلب تسعير</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <section class="works">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="header">
+                        <img src="~/Images/frontEnd/aamal.png" alt="...">
+                        <p>
+                            ABDAL provides the human resources needed by the various establishments in the public and private sectors within a short period of time through the long-term operational contracting system in order to achieve their operational objectives, which helps to prevent the disruption of projects resulting from the shortage of labor.
+                        </p>
+                    </div>
+                    <div class="body">
+                        <h2>Our Services</h2>
+                        <div class="p1">
+                            <h4>Providing human resources for the establishments</h4>
+                            <p>
+                                ABDAL provides the human resources needed by the various establishments in the public and private sectors within a short period of time through the long-term operational contracting system in order to achieve their operational objectives, which helps to prevent the failure of projects resulting from the lack of labor
+                            </p>
+                        </div>
+                        <div class="p2">
+                            <h4>Provision of human resources for temporary contracts</h4>
+                            <p>
+                                ABDAL provides the human resources needed by the various establishments in the public and private sectors within a short period of time through the short-term (short-term) operational contracting system to achieve their operational objectives, which helps to prevent the disruption of projects resulting from the shortage of labor.
+                            </p>
+                        </div>
+                        <div class="p3">
+                            <h4>WASATA services in the recruitment of enterprises</h4>
+                            <p>
+                                ABDAL offers WASATA services in bringing home human resources to the establishments with their own visas. The company brings in cadres according to their requirements within a short period of time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leftPart col-md-4">
+                    <img class="img-fluid" src="~/Images/frontEnd/w.png" alt="...">
+                    <p>
+                        We believe in "ABDAL" that the customer has rights to take
+                        And that the employee has rights that he must take fully
+                        The contractor has rights that he must take in full. We have promised
+                        Ourselves to give everyone his right.
+                    </p>
+                    <div class="links">
+                        <a href="@Url.Action("BusinessSector","Lead")">Submit a pricing request</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+

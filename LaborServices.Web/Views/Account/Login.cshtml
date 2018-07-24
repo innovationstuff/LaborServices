@@ -1,0 +1,77 @@
+﻿@model  LoginViewModel
+@{
+                /**/
+
+                ViewBag.Title = DbRes.T("LogIn", "ProfileResources");
+}
+
+@{
+    var routeData = ViewContext.RouteData.Values;
+    string action = routeData["action"] as string;
+    string lang = routeData["lang"] as string;
+}
+<section class="loginPage">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-40 w-75">
+                        <div class="text-center">
+                            <div class="form-group h4 text-primary">@ViewBag.Title</div>
+                            @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.returnUrl }, FormMethod.Post, new { id = "frmLoginPage" }))
+                            {
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control rounded-0", placeholder = DbRes.T("Mobile", "ProfileResources") })
+                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control rounded-0", placeholder = DbRes.T("Password", "ProfileResources") })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group text-center">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <div class="checkbox">
+                                            @Html.CheckBoxFor(m => m.RememberMe)
+                                            @Html.LabelFor(m => m.RememberMe, DbRes.T("RememberMe", "ProfileResources"), new { @class = "noLine" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <input id="btnLogin" class="btn btn-lg btn-block btn-info" type="button" value="@DbRes.T("LoginBtn", "ProfileResources")" />
+                                </div>
+                                <div class="inputArea text-center">
+                                    @Html.ActionLink(DbRes.T("NotRegisteredYetRegisterNow", "ProfileResources"), "Register", "Account", null, new { @class = "regLink" })
+                                </div>
+                                <div class="inputArea ">
+                                    @Html.ActionLink(DbRes.T("ForgetyourpasswordLink", "ProfileResources"), "ForgotPassword", "Account", null, new { @class = "forgetPass" })
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(function () {
+
+            $("#btnLogin").click(function () {
+                var isCookieEnabled = checkCookie();
+                if (isCookieEnabled == false) {
+                    window.location.href = '/@lang/Account/EnableCookies?returnurl=/@lang/Account/login';
+                }
+                else {
+                    document.getElementById('frmLoginPage').submit();
+                }
+            });
+        });
+    </script>
+}
+

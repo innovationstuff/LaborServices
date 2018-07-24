@@ -1,0 +1,88 @@
+﻿
+<div id="panel-ui-tan-l5" class="panel panel-default">
+
+    <div class="panel-heading">
+
+        <span class="elipsis">
+            <!-- panel title -->
+            <strong>Menus</strong>
+        </span>
+
+        <!-- right options -->
+        <ul class="options pull-right list-inline">
+            <li><a href="#" class="opt panel_colapse" data-toggle="tooltip" title="Colapse" data-placement="bottom"></a></li>
+            <li><a href="#" class="opt panel_fullscreen hidden-xs" data-toggle="tooltip" title="Fullscreen" data-placement="bottom"><i class="fa fa-expand"></i></a></li>
+            <li><a href="#" class="opt panel_close" data-confirm-title="Confirm" data-confirm-message="Are you sure you want to remove this panel?" data-toggle="tooltip" title="Close" data-placement="bottom"><i class="fa fa-times"></i></a></li>
+            <li>
+                @using (Ajax.BeginForm("ListDrawer", "PagesAdmin", null, new AjaxOptions { UpdateTargetId = "DrawerList", LoadingElementId = "PagesSpinner" }, new { @class = "form-horizontal" }))
+                {
+                    <button type="submit" data-toggle="tooltip" title="refresh" data-placement="bottom" class="btn btn-info btn-xs"><i class="fa fa-refresh"></i></button>
+                }
+            </li>
+
+        </ul>
+        <!-- /right options -->
+    </div>
+
+    <div class="col-md-1 pull-right">
+        <i id="PagesSpinner" class="fa fa-spinner fa-2x fa-spin text-primary pull-right" style="display: none;"></i>
+    </div>
+    <!-- panel content -->
+    <div class="panel-body">
+        <div class="margin-bottom-20">
+            <button type="button" class="btn btn-3d btn-white" data-action="expand-all"><i class="et-chat"></i>Expand All</button>
+            <button type="button" class="btn btn-3d btn-blue" data-action="collapse-all"><i class="et-strategy"></i>Collapse All</button>
+            @using (Ajax.BeginForm("Reorder", "PagesAdmin", new { area = "admin" }, new AjaxOptions { HttpMethod = "POST" }))
+            {
+                @Html.TextArea("obk", "", new { id = "nestable_list_1_output", @class = "form-control margin-bottom10 hidden" })
+                <button type="submit" class="btn btn-3d btn-dirtygreen"><i class="et-caution"></i>save</button>
+            }
+        </div>
+        <div class="row" id="DrawerList">
+            @Html.Action("ListDrawer")
+        </div>
+        <!-- /panel content -->
+
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+            loadScript(plugin_path + "nestable/jquery.nestable.js", function () {
+
+
+                if (jQuery().nestable) {
+
+                    var updateOutput = function (e) {
+                        var list = e.length ? e : $(e.target),
+                            output = list.data('output');
+                        if (window.JSON) {
+                            output.val(window.JSON.stringify(list.nestable('serialize'))); //, null, 2));
+                        } else {
+                            output.val('JSON browser support required for this demo.');
+                        }
+                    };
+
+
+                    // Nestable list 1
+                    jQuery('#nestable_list_1').nestable({
+                        group: 1
+                    }).on('change', updateOutput);
+
+                    updateOutput(jQuery('#nestable_list_1').data('output', jQuery('#nestable_list_1_output')));
+
+                    // Expand All
+                    jQuery("button[data-action=expand-all]").bind("click", function () {
+                        jQuery('.dd').nestable('expandAll');
+                    });
+
+                    // Collapse All
+                    jQuery("button[data-action=collapse-all]").bind("click", function () {
+                        jQuery('.dd').nestable('collapseAll');
+                    });
+
+                }
+
+            });
+    </script>
+}

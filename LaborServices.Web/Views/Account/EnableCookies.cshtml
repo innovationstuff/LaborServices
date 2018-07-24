@@ -1,0 +1,179 @@
+﻿
+@{
+    ViewBag.Title = "EnableCookies";
+}
+
+
+<style>
+    .EnableCookies .container {
+        background-color: rgba(255, 255, 255, 0.89);
+        border-radius: 8px
+    }
+
+    .EnableCookies h2 {
+        font-size: 40px;
+        color: #003b71;
+    }
+
+    .EnableCookies img {
+        cursor: pointer
+    }
+</style>
+
+
+<section class="EnableCookies text-center my-5 ">
+    <div class="container">
+        <div>
+            <h2 class="py-4">قم بتفعيل الكوكيز في المتصفح</h2>
+            <p>لتتمكن من اجراء عملية الدفع من فضلك قم  بتفعيل الكوكيز(cookies) </p>
+            <p class="mb-3">اختر المتصفح لمعرفة الخطوات</p>
+            <div class="row">
+                <div class="col-6 col-md-3 my-4">
+                    <div data-toggle="modal" data-target="#chrome">
+                        <img class="img-fluid " src="~/Images/frontEnd/chrome.png" width="50%" />
+                    </div>
+                    <small>Google Chrome</small>
+
+                    <div class="modal fade" id="chrome" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"> خطوات تفعيل الكوكيز لجوجل كروم </h5>
+                                    <button type="button" class="mr-auto ml-0 close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <ol class="text-right">
+                                        <li>افتح متصفح Chrome</li>
+                                        <li> في أعلى اليسار، انقر على المزيد المزيدوبعد ذلك الإعدادات.</li>
+                                        <li> في أسفل القائمة، انقر على الإعدادات المتقدِّمة.</li>
+                                        <li> ضمن "الخصوصية والأمان"، انقر على إعدادات المحتوى.</li>
+                                        <li>انقر على ملفات تعريف الارتباط.</li>
+                                        <li>تشغيل ملفات تعريف الارتباط: بجوار "محظور"، شغِّل المفتاح. </li>
+                                    </ol>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">إغلاق</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--col-->
+
+                <div class="col-6 col-md-3  my-4">
+                    <div data-toggle="modal" data-target="#firefox">
+                        <img class="img-fluid " src="~/Images/frontEnd/firefox.png" width="50%" />
+                    </div>
+                    <small>Firefox</small>
+
+                    <div class="modal fade" id="firefox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel1"> خطوات تفعيل الكوكيز لفاير فوكس </h5>
+                                    <button type="button" class="mr-auto ml-0 close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <ol class="text-right">
+                                        <li>  افتح متصفح firefox</li>
+                                        <li> اضغط على زر قائمة فاير فوكس(☰) واختر الاختيارات</li>
+                                        <li>انقر على علامة تبويب الخصوصية ثم انقر على القائمة المنسدلة في قسم التاريخ. </li>
+                                        <li>اختر "استخدام الإعدادات المخصصة للتاريخ". </li>
+                                        <li>تحقق من مربع "قبول ملفات تعريف الارتباط من الموقع" للسماح لجميع ملفات تعريف الارتباط.</li>
+                                    </ol>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">إغلاق</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!--col-->
+
+                <div class="col-6 col-md-3  my-4">
+                    <div data-toggle="modal" data-target="#safari">
+                        <img class="img-fluid " src="~/Images/frontEnd/safari.png" width="50%" />
+                    </div>
+                    <small>Safari</small>
+
+                    <div class="modal fade" id="safari" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel2"> خطوات تفعيل الكوكيز لسفاري </h5>
+                                    <button type="button" class="mr-auto ml-0 close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <ol class="text-right">
+                                        <li>  افتح متصفح safari</li>
+                                        <li>انقر على قائمة سفاري واختر التفضيلات.</li>
+                                        <li> انقر على علامة تبويب الخصوصية.</li>
+                                        <li>حدد ملفات تعريف الارتباط المفضلة لديك : السماح دائما</li>
+                                    </ol>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">إغلاق</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--col-->
+
+
+                <div class="col-6 col-md-3 my-4">
+                    <div data-toggle="modal" data-target="#edge">
+                        <img class="img-fluid " src="~/Images/frontEnd/edge.png" width="50%" />
+                    </div>
+                    <small>microsoft edge</small>
+
+                    <div class="modal fade" id="edge" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel3"> خطوات تفعيل الكوكيز لإيدج </h5>
+                                    <button type="button" class="mr-auto ml-0 close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <ol class="text-right">
+                                        <li>  افتح متصفح Edge</li>
+                                        <li>انقر على قائمة سفاري واخترالإعدادات.</li>
+                                        <li> انقر على عرض الإعداتا المتقدمة.</li>
+                                        <li>من القائمة المنسدلة الخاصة بملفات الإرتباط اختر:عدم حظر ملفات الإرتباط</li>
+                                    </ol>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">إغلاق</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!--col-->
+
+                <div class="col-12 form-group text-center">
+                    <input id="btnCookiesEnabled" class="btn btn-lg btn-block btn-info w-50" type="button" value="@DbRes.T("Submit", "ProfileResources")" style="position:relative;margin:auto;" />
+                </div>
+            </div><!--row-->
+        </div><!--container-->
+</section>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(function () {
+
+            $("#btnCookiesEnabled").click(function () {
+                window.location.href = "@ViewBag.returnurl";
+            });
+        });
+    </script>
+}

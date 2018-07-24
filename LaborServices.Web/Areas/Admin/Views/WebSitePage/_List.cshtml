@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebSitePage>
+
+@{
+    Layout = "";
+    int pageNumber = (int)ViewBag.PageNumber;
+    int pageSize = (int)ViewBag.PageSize;
+    var row = pageNumber == 1 ? pageNumber : ((pageNumber * pageSize) - (pageSize - 1));
+}
+
+<div class="table-responsive">
+    <table class="table table-vcenter table-hover table-striped table-bordered">
+        <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.TitleEn)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.TitleAr)
+            </th>
+
+            <th class="text-center col-md-3"><i class="fa fa-flash"></i></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @(row++)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitleEn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitleAr)
+                </td>
+                <td class="text-center">
+                    <a href="@Url.Action("Edit", new { id = item.PageId })" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
+                    <a href="@Url.Action("Info", new { id = item.PageId })" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Info"><i class="fa fa-info"></i></a>
+                    <a href="@Url.Action("Delete", new { id = item.PageId })" class="btn btn-sm btn-danger modal-link" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times"></i></a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("List",
+    new { page }),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "WebSitePagesListList" }))

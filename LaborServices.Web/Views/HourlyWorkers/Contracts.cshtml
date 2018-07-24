@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Contracts";
+}
+
+<div class="row">
+    <div class="col mt-4 p-0">
+        <div class="bg-white text-dark rounded rounded-20px p-5" style="margin: auto;width: 97%;">
+            <div class="row text-left">
+
+                <div class="w-100">
+                    <h5 class="mb-3">Contracts</h5>
+
+                    @using (Ajax.BeginForm("UserContracts", "HourlyWorkers", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "contractList" }, new { @class = "form-horizontal w-100", id = "frmGetContracts" }))
+                    {
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                @Html.DropDownList("hourlyContractStatus", new List<SelectListItem>(), "All Contracts", new { @class = "form-control", tabindex = "-1" })
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col-12 col-md-12">
+                                <div id="contractList">
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        function InitSelectize(selector, selectizeObj, url, valueField, labelField, requestParams, onChangeFunc) {
+
+            var $selectEntity = selector.selectize({
+                selectOnTab: true,
+                valueField: valueField,
+                labelField: labelField,
+                searchField: labelField,
+                create: true,
+                onChange: function (value) {
+                    if (typeof onChangeFunc === "function") {
+                        onChangeFunc(value);
+                    }
+                }
+            });
+
+            if (url != '' && url != null) {
+
+                var selectizeInstance = $selectEntity[0].selectize;
+                selectizeInstance.clear();
+                selectizeInstance.load(function (callback) {
+                    $.ajax({
+                        url: '' + url + '',
+                        type: 'GET',
+                        data: requestParams,
+                        error: function (e) {
+                            console.error(e.responseText);
+                            callback();
+                        },
+                        success: function (result) {
+                            callback(JSON.parse(result));
+                        }
+                    });
+                });
+            }
+
+            return $selectEntity;
+        }
+        function OnHourlyContractStatusChange() {
+            $("#frmGetContracts").submit();
+        }
+
+        $(function () {
+            OnHourlyContractStatusChange();
+            InitSelectize($('#hourlyContractStatus'), "hourlyContractStatus", "@Url.Action("GetHourlyContractStatus")", 'key', 'value', null, OnHourlyContractStatusChange);
+
+        });
+    </script>
+}

@@ -1,0 +1,521 @@
+﻿@using LaborServices.Web.Models
+@model BusinessLeadViewModel
+@{
+    ViewBag.Title = "تقديم طلب قطاع اعمال";
+    
+}
+@{
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-righ" : "text-left";
+}
+<style>
+    @@media screen and (max-width:322px) and (min-width:318px) {
+        .BusinessSectorTable table {
+            margin-right: -16px;
+        }
+      
+
+    }
+</style>
+<section class="loginPage">
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-11 col-sm-10 col-md-9 col-lg-7 mt-4 p-0 mx-auto">
+                    <div class="bg-white text-dark rounded rounded-20px p-4 p-lg-4">
+                        <div class="form-group h4 text-primary text-center">@ViewBag.Title</div>
+                        @using (Html.BeginForm("BusinessSector", "Lead", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-group row">
+                                <div class="col-sm-12 inputArea">
+                                    @Html.DropDownListFor(m => m.CityId, new List<SelectListItem>(), DbRes.T("City_PH", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                                    @Html.ValidationMessageFor(m => m.CityId, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            @*<div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">@Html.DisplayNameFor(m => m.RegionName)</label>
+                                    <div class="col-sm-12 inputArea">
+                                        @Html.DropDownListFor(m => m.RegionName, new List<SelectListItem>(), "اختر المنطقة", new { @class = "form-control " + inputTextAlign })
+                                        @Html.ValidationMessageFor(m => m.RegionName, "", new { @class = "text-danger lblValidation" })
+                                    </div>
+                                </div>*@
+                            <div class="form-group row">
+                                <div class="col-sm-12 inputArea">
+                                    @Html.TextBoxFor(model => model.CompanyName, null, new { @class = "form-control", placeholder = DbRes.T("Company", "DalalResources") })
+                                    @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 inputArea">
+                                    @Html.DropDownListFor(m => m.IndustryCode, new List<SelectListItem>(), DbRes.T("CompanyActivity", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                                    @Html.ValidationMessageFor(m => m.IndustryCode, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 inputArea">
+                                    @Html.TextBoxFor(model => model.SalesPersonName, null, new { @class = "form-control", placeholder = DbRes.T("companyRep", "DalalResources") })
+                                    @Html.ValidationMessageFor(m => m.SalesPersonName, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 inputArea">
+                                    @Html.TextBoxFor(model => model.Mobile, null, new { @class = "form-control", placeholder = DbRes.T("Mobile", "ProfileResources") })
+                                    @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 inputArea">
+                                    @Html.TextBoxFor(model => model.Email, null, new { @class = "form-control", placeholder = DbRes.T("Email", "ProfileResources") })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 inputArea">
+                                    @Html.TextBoxFor(model => model.Address, null, new { @class = "form-control", placeholder = DbRes.T("Address Description", "DalalResources") })
+                                    @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 inputArea">
+                                    @Html.TextBoxFor(model => model.Job, null, new { @class = "form-control", placeholder = DbRes.T("Job", "DalalResources") })
+                                    @Html.ValidationMessageFor(m => m.Job, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            <div class="inputArea" style="display: none;">
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control " + inputTextAlign })
+                            </div>
+                            <div class="inputArea">
+                                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger lblValidation" })
+                            </div>
+                            <div class="BusinessSectorTable">
+                                <table class="table table-striped table-hover table-bordered table-sm table-responsive-sm" style="text-align:right; max-height: 178px;overflow-y: auto;" id="tblJobs">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="5" class="text-center">
+                                                
+                                                @DbRes.T("rJobs", "DalalResources")
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 25%;" class="text-center">
+                                                @DbRes.T("Job", "DalalResources")
+                                            </th>
+                                            <th style="width: 30%;" class="text-center">
+                                                @DbRes.T("Nationality", "DalalResources")
+                                            </th>
+                                            <th style="width: 20%;" class="text-center">
+                                                @DbRes.T("TotalNumber", "DalalResources")
+                                            </th>
+                                            <th style="width: 20%;" class="text-center">
+                                                @DbRes.T("Salary", "DalalResources")
+                                            </th>
+                                            <th style="width: 5%;" class="text-center">
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id='addr0'>
+                                            <td>
+                                                <input type="text" id="rJob" class="form-control" />
+                                            </td>
+                                            <td>
+                                                <select id="rNationality" class="form-control"></select>
+                                            </td>
+                                            <td>
+                                                <input type="number" id="rCount" class="form-control" />
+                                            </td>
+                                            <td>
+                                                <input type="number" id="rSalary" class="form-control" />
+                                            </td>
+                                            <td>
+                                                <span id='add_row' class='btn btn-primary btn-sm'><i class='fa fa-plus'></i></span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="form-group text-center">
+                                <input type="submit" class="btn btn-info" name="BtnSend" value="@DbRes.T("Send", "DalalResources")" />
+                            </div>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+@section scripts{
+    <script src="~/Scripts/selectize-ready.js"></script>
+    <script type="text/javascript">
+        var langu = "@lang";
+        function InitSelectize(selector, selectizeObj, url, valueField, labelField, requestParams, onChangeFunc) {
+
+            var $selectEntity = selector.selectize({
+                selectOnTab: true,
+                valueField: valueField,
+                labelField: labelField,
+                searchField: labelField,
+                create: false,
+                onChange: function (value) {
+                    if (typeof onChangeFunc === "function") {
+                        onChangeFunc(value);
+                    }
+                }
+            });
+
+            if (url != '' && url != null) {
+
+                var selectizeInstance = $selectEntity[0].selectize;
+                selectizeInstance.clear();
+                selectizeInstance.load(function (callback) {
+                    $.ajax({
+                        url: '' + url + '',
+                        type: 'GET',
+                        data: requestParams,
+                        error: function (e) {
+                            console.error(e.responseText);
+                            callback();
+                        },
+                        success: function (result) {
+                            callback(JSON.parse(result));
+                        }
+                    });
+                });
+            }
+
+            return $selectEntity;
+        }
+
+        $(function () {
+
+            var data = [];
+            var id = 1;
+            var $rNationalitySelect;
+            $("#add_row").click(function () {
+
+                var job = $("#rJob").val();
+                var nationality = $("#rNationality").val();
+                var empsCount = $("#rCount").val();
+                var salary = $("#rSalary").val();
+
+                if (!job || !nationality || empsCount <= 0 || salary <= 0) {
+                    return false;
+                }
+
+                data.push({ 'Id': id, 'job': job, 'nationality': nationality, 'empsCount': empsCount, 'salary': salary });
+
+                $("#tblJobs tr:last").after("" +
+                    "<tr><td>" + job + "</td>" +
+                    "<td>" + nationality + "</td>" +
+                    "<td>" + empsCount + "</td>" +
+                    "<td>" + salary + "</td>" +
+                    "<td><span  class='btn btn-danger btn-sm'>" +
+                    "<i class='fa fa-remove btnRemove' data-id='" + id + "'></i></span></td></tr>");
+                id += 1;
+
+                $("#Description").val(JSON.stringify(data, null, ' '));
+
+                $("#rJob").val("");
+                $("#rCount").val(0);
+                $("#rSalary").val(0);
+
+                var rNationalitySelect = $rNationalitySelect[0].selectize;
+                if (rNationalitySelect)
+                    rNationalitySelect.clear();
+            });
+
+            $("#tblJobs").on("click", ".btnRemove", function () {
+                $(this).closest("tr").remove();
+                var itemId = $(this).data("id");
+                data = data.filter(function (el) {
+                    return el.Id != itemId;
+                });
+                $("#Description").val(JSON.stringify(data, null, ' '));
+            });
+
+            //initlize dropdown lists
+            InitSelectize($('#CityId'), null, "@Url.Action("GetCities","Service")", 'key', 'value', null, null);
+            @*InitSelectize($('#RegionName'), null, "@Url.Action("GetRegions")", 'key', 'value', null, null);*@
+            InitSelectize($('#IndustryCode'), null, "@Url.Action("GetIndustryCodes")", 'key', 'value', null, null);
+            $rNationalitySelect = InitSelectize($('#rNationality'), null, "@Url.Action("GetLookup", new {url = "api/Nationality/QuickAll"})", 'value', 'value', null, null);
+
+            // Validate Form
+            var allValidate = $(".lblValidation");
+            $('input[type=submit][name=BtnSend]').click(function () {
+                var validData = true;
+                allValidate.text("");
+                if ($("#CityId").val().trim().length == 0) {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='CityId']").text("من فضلك اختر المدينة ");
+                        validData= false;
+                    }
+                    else {
+                        $("[data-valmsg-for='CityId']").text("please select city ");
+                        validData= false;
+
+                    }
+
+                }
+                if ($("#CompanyName").val().trim().length == 0) {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='CompanyName']").text("من فضلك ادخل اسم الشركة");
+                        validData= false;
+                    }
+                    else {
+                        $("[data-valmsg-for='CompanyName']").text("Please insert company name");
+                        validData= false;
+                    }
+                }
+                if ($("#IndustryCode").val().trim().length == 0) {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='IndustryCode']").text("من فضلك اختر نشاط الشركة");
+                        validData= false;
+                    }
+                    else {
+                        $("[data-valmsg-for='IndustryCode']").text("please select Industry Code");
+                        validData= false;
+                    }
+
+                }
+                if ($("#SalesPersonName").val().trim().length == 0) {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='SalesPersonName']").text("من فضلك ادخل ممثل الشركة");
+                        validData= false;
+                    }
+                    else {
+                        $("[data-valmsg-for='SalesPersonName']").text("please Insert Sales Person Name");
+                        validData= false;
+                    }
+
+                }
+
+                if ($("#Mobile").val().trim().length == 0) {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='Mobile']").text("من فضلك ادخل رقم الجوال");
+                        validData= false;
+                    }
+                    else {
+                        $("[data-valmsg-for='Mobile']").text("please Insert Mobile Number");
+                        validData= false;
+                    }
+
+                }
+
+                if ($("#Email").val().trim().length == 0) {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='Email']").text("من فضلك ادخل البريد الالكترونى");
+                        validData= false;
+                    }
+                    else {
+                        $("[data-valmsg-for='Email']").text("please insert Email");
+                        validData= false;
+                    }
+
+                }
+
+                if ($("#Address").val().trim().length == 0) {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='Address']").text("من فضلك ادخل العنوان");
+                        validData= false;
+                    }
+                    else {
+                        $("[data-valmsg-for='Address']").text("please insert Address");
+                        validData= false;
+                    }
+
+                }
+
+                if ($("#Job").val().trim().length == 0) {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='Job']").text("من فضلك ادخل الوظيفة");
+                        validData= false;
+                    }
+                    else {
+                        $("[data-valmsg-for='Job']").text("please insert job");
+                        validData= false;
+                    }
+
+                }
+
+                //if ($("#Description").val().trim().length == 0) {
+                //    if (langu == "ar") {
+                //        $(allValidate[8]).text("Description");
+                //        return false;
+                //    }
+                //    else {
+                //        $(allValidate[8]).text("Description");
+                //        return false;
+                //    }
+
+                //}
+
+                //$("#rJob").each(function (index) {
+                //    if ($(this).val().trim().length == 0) {
+                //        if (langu == "ar") {
+                //            //$(this).attr("required", "");
+                //            $("[data-valmsg-for='Description']").text("ادخل المهن المطلوبة");
+                //                //text("ادخل المهن المطلوبة");
+                //            validData= false;
+                //        }
+                //        else {
+                //          //  $(this).attr("required", "");
+                //            $("[data-valmsg-for='Description']").text("Enter the required professions");
+                //            validData= false;
+                //        }
+                //    }
+                //    });
+
+                if (!validData) {
+                    return false;
+                }
+
+            });
+            // if ($("#CompanyName")
+            $("#CompanyName").keyup(function () {
+                if ($(this).val().trim().length > 0) {
+                    $("[data-valmsg-for='CompanyName']").text("");
+                }
+                else {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='CompanyName']").text("من فضلك ادخل اسم الشركة");
+                        return false;
+                    }
+                    else {
+                        $("[data-valmsg-for='CompanyName']").text("Please insert company name");
+                        return false;
+                    }
+
+                }
+            });
+
+            $("#SalesPersonName").keyup(function () {
+                if ($(this).val().trim().length > 0) {
+                    $("[data-valmsg-for='SalesPersonName']").text("");
+                }
+                else {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='SalesPersonName']").text("من فضلك ادخل ممثل الشركة");
+                        return false;
+                    }
+                    else {
+                        $("[data-valmsg-for='SalesPersonName']").text("please Insert Sales Person Name");
+                        return false;
+                    }
+
+                }
+            });
+            $("#Mobile").keyup(function () {
+                if ($(this).val().trim().length > 0) {
+                    $("[data-valmsg-for='Mobile']").text("");
+                }
+                else {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='Mobile']").text("من فضلك ادخل رقم الجوال");
+                        return false;
+                    }
+                    else {
+                        $("[data-valmsg-for='Mobile']").text("please Insert Mobile Number");
+                        return false;
+                    }
+
+                }
+            });
+
+            $("#Email").keyup(function () {
+                if ($(this).val().trim().length > 0) {
+                    $("[data-valmsg-for='Email']").text("");
+                }
+                else {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='Email']").text("من فضلك ادخل البريد الالكترونى");
+                        return false;
+                    }
+                    else {
+                        $("[data-valmsg-for='Email']").text("please insert Email");
+                        return false;
+                    }
+
+                }
+            });
+
+            $("#Job").keyup(function () {
+                if ($(this).val().trim().length > 0) {
+                    $("[data-valmsg-for='Job']").text("");
+                }
+                else {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='Job']").text("من فضلك ادخل الوظيفة");
+                        return false;
+                    }
+                    else {
+                        $("[data-valmsg-for='Job']").text("please insert job");
+                        return false;
+                    }
+
+                }
+            });
+
+
+            $("#Address").keyup(function () {
+                if ($(this).val().trim().length > 0) {
+                    $("[data-valmsg-for='Address']").text("");
+                }
+                else {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='Address']").text("من فضلك ادخل العنوان");
+                        return false;
+                    }
+                    else {
+                        $("[data-valmsg-for='Address']").text("please insert Address");
+                        return false;
+                    }
+
+                }
+            });
+            $("#CityId").change(function () {
+                if ($(this).val().trim().length > 0) {
+                    $("[data-valmsg-for='CityId']").text("");
+                }
+                else {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='CityId']").text("من فضلك اختر المدينة");
+                    }
+                    else {
+                        $("[data-valmsg-for='CityId']").text("please Insert City");
+
+                    }
+
+                }
+            });
+
+            $("#IndustryCode").change(function () {
+                if ($(this).val().trim().length > 0) {
+                    $("[data-valmsg-for='IndustryCode']").text("");
+                }
+                else {
+                    if (langu == "ar") {
+                        $("[data-valmsg-for='IndustryCode']").text("من فضلك اختر نشاط الشركة");
+                        return false;
+                    }
+                    else {
+                        $("[data-valmsg-for='IndustryCode']").text("please select Industry Code");
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

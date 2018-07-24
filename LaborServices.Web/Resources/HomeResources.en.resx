@@ -1,0 +1,598 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<root>
+   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+      <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+      <xsd:element name="root" msdata:IsDataSet="true">
+         <xsd:complexType>
+            <xsd:choice maxOccurs="unbounded">
+               <xsd:element name="metadata">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" use="required" type="xsd:string" />
+                     <xsd:attribute name="type" type="xsd:string" />
+                     <xsd:attribute name="mimetype" type="xsd:string" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="assembly">
+                  <xsd:complexType>
+                     <xsd:attribute name="alias" type="xsd:string" />
+                     <xsd:attribute name="name" type="xsd:string" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="data">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                        <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                     <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                     <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="resheader">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" />
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:choice>
+         </xsd:complexType>
+      </xsd:element>
+   </xsd:schema>
+   <resheader name="resmimetype">
+      <value>text/microsoft-resx</value>
+   </resheader>
+   <resheader name="version">
+      <value>2.0</value>
+   </resheader>
+   <resheader name="reader">
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <data name="AboutCompany" xml:space="preserve">
+      <value>About Company</value>
+   </data>
+   <data name="AboutCompany" xml:space="preserve">
+      <value>About Company</value>
+   </data>
+   <data name="AboutCompany" xml:space="preserve">
+      <value>About Company</value>
+   </data>
+   <data name="AboutCompany" xml:space="preserve">
+      <value>About Company</value>
+   </data>
+   <data name="AboutCompany" xml:space="preserve">
+      <value>About Company</value>
+   </data>
+   <data name="AboutUs" xml:space="preserve">
+      <value>About Us</value>
+   </data>
+   <data name="AboutUs" xml:space="preserve">
+      <value>About Us</value>
+   </data>
+   <data name="AboutUs" xml:space="preserve">
+      <value>About Us</value>
+   </data>
+   <data name="AboutUs" xml:space="preserve">
+      <value>About Us</value>
+   </data>
+   <data name="AboutUs" xml:space="preserve">
+      <value>About Us</value>
+   </data>
+   <data name="BusinessSector" xml:space="preserve">
+      <value>Business Sector</value>
+   </data>
+   <data name="BusinessSector" xml:space="preserve">
+      <value>Business Sector</value>
+   </data>
+   <data name="BusinessSector" xml:space="preserve">
+      <value>Business Sector</value>
+   </data>
+   <data name="BusinessSector" xml:space="preserve">
+      <value>Business Sector</value>
+   </data>
+   <data name="BusinessSector" xml:space="preserve">
+      <value>Business Sector</value>
+   </data>
+   <data name="ChangePass" xml:space="preserve">
+      <value>Change Password?</value>
+   </data>
+   <data name="ChangePass" xml:space="preserve">
+      <value>Change Password?</value>
+   </data>
+   <data name="CompanyAddress" xml:space="preserve">
+      <value>Head Office: Northern Ring - Exit 7, 6709 Osman Ibn Affan, Al Falah District, Saudi Arabia.</value>
+   </data>
+   <data name="CompanyAddress" xml:space="preserve">
+      <value>Head Office: Northern Ring - Exit 7, 6709 Osman Ibn Affan, Al Falah District, Saudi Arabia.</value>
+   </data>
+   <data name="CompanyAddress" xml:space="preserve">
+      <value>Head Office: Northern Ring - Exit 7, 6709 Osman Ibn Affan, Al Falah District, Saudi Arabia.</value>
+   </data>
+   <data name="CompanyAddress" xml:space="preserve">
+      <value>Head Office: Northern Ring - Exit 7, 6709 Osman Ibn Affan, Al Falah District, Saudi Arabia.</value>
+   </data>
+   <data name="CompanyAddress" xml:space="preserve">
+      <value>Head Office: Northern Ring - Exit 7, 6709 Osman Ibn Affan, Al Falah District, Saudi Arabia.</value>
+   </data>
+   <data name="ContactUs" xml:space="preserve">
+      <value>Contact Us</value>
+   </data>
+   <data name="ContactUs" xml:space="preserve">
+      <value>Contact Us</value>
+   </data>
+   <data name="ContactUs" xml:space="preserve">
+      <value>Contact Us</value>
+   </data>
+   <data name="ContactUs" xml:space="preserve">
+      <value>Contact Us</value>
+   </data>
+   <data name="ContactUs" xml:space="preserve">
+      <value>Contact Us</value>
+   </data>
+   <data name="Credentials" xml:space="preserve">
+      <value>Credentials</value>
+   </data>
+   <data name="Credentials" xml:space="preserve">
+      <value>Credentials</value>
+   </data>
+   <data name="Credentials" xml:space="preserve">
+      <value>Credentials</value>
+   </data>
+   <data name="Credentials" xml:space="preserve">
+      <value>Credentials</value>
+   </data>
+   <data name="Credentials" xml:space="preserve">
+      <value>Credentials</value>
+   </data>
+   <data name="ForgetPass" xml:space="preserve">
+      <value>Forget Password?</value>
+   </data>
+   <data name="ForgetPass" xml:space="preserve">
+      <value>Forget Password?</value>
+   </data>
+   <data name="ForgetPass" xml:space="preserve">
+      <value>Forget Password?</value>
+   </data>
+   <data name="ForgetPass" xml:space="preserve">
+      <value>Forget Password?</value>
+   </data>
+   <data name="ForgetPass" xml:space="preserve">
+      <value>Forget Password?</value>
+   </data>
+   <data name="Home" xml:space="preserve">
+      <value>Home</value>
+   </data>
+   <data name="Home" xml:space="preserve">
+      <value>Home</value>
+   </data>
+   <data name="Home" xml:space="preserve">
+      <value>Home</value>
+   </data>
+   <data name="Home" xml:space="preserve">
+      <value>Home</value>
+   </data>
+   <data name="Home" xml:space="preserve">
+      <value>Home</value>
+   </data>
+   <data name="ImportantLinks" xml:space="preserve">
+      <value>Important Links</value>
+   </data>
+   <data name="ImportantLinks" xml:space="preserve">
+      <value>Important Links</value>
+   </data>
+   <data name="ImportantLinks" xml:space="preserve">
+      <value>Important Links</value>
+   </data>
+   <data name="ImportantLinks" xml:space="preserve">
+      <value>Important Links</value>
+   </data>
+   <data name="ImportantLinks" xml:space="preserve">
+      <value>Important Links</value>
+   </data>
+   <data name="Individual_AbdalHeaderDesc" xml:space="preserve">
+      <value>ABDAL Company provides home-based employment to suit individual needs, from private driver and home help to nurse, private chef and farmer.</value>
+   </data>
+   <data name="Individual_AbdalHeaderDesc" xml:space="preserve">
+      <value>ABDAL Company provides home-based employment to suit individual needs, from private driver and home help to nurse, private chef and farmer.</value>
+   </data>
+   <data name="Individual_AbdalHeaderDesc" xml:space="preserve">
+      <value>ABDAL Company provides home-based employment to suit individual needs, from private driver and home help to nurse, private chef and farmer.</value>
+   </data>
+   <data name="Individual_AbdalHeaderDesc" xml:space="preserve">
+      <value>ABDAL Company provides home-based employment to suit individual needs, from private driver and home help to nurse, private chef and farmer.</value>
+   </data>
+   <data name="Individual_AbdalHeaderDesc" xml:space="preserve">
+      <value>ABDAL Company provides home-based employment to suit individual needs, from private driver and home help to nurse, private chef and farmer.</value>
+   </data>
+   <data name="Individual_DalaDescDtails" xml:space="preserve">
+      <value>Service for specified hours and specific days according to the agreement with the client, does not require the establishment of employment at the client, during which the delivery of employment to the customer to start calculating the time of service since the arrival of employment to the client's home.</value>
+   </data>
+   <data name="Individual_DalaDescDtails" xml:space="preserve">
+      <value>Service for specified hours and specific days according to the agreement with the client, does not require the establishment of employment at the client, during which the delivery of employment to the customer to start calculating the time of service since the arrival of employment to the client's home.</value>
+   </data>
+   <data name="Individual_DalaDescDtails" xml:space="preserve">
+      <value>Service for specified hours and specific days according to the agreement with the client, does not require the establishment of employment at the client, during which the delivery of employment to the customer to start calculating the time of service since the arrival of employment to the client's home.</value>
+   </data>
+   <data name="Individual_DalaDescDtails" xml:space="preserve">
+      <value>Service for specified hours and specific days according to the agreement with the client, does not require the establishment of employment at the client, during which the delivery of employment to the customer to start calculating the time of service since the arrival of employment to the client's home.</value>
+   </data>
+   <data name="Individual_DalaDescDtails" xml:space="preserve">
+      <value>Service for specified hours and specific days according to the agreement with the client, does not require the establishment of employment at the client, during which the delivery of employment to the customer to start calculating the time of service since the arrival of employment to the client's home.</value>
+   </data>
+   <data name="Individual_DalalTitle" xml:space="preserve">
+      <value>Domestic labor hourly service</value>
+   </data>
+   <data name="Individual_DalalTitle" xml:space="preserve">
+      <value>Domestic labor hourly service</value>
+   </data>
+   <data name="Individual_DalalTitle" xml:space="preserve">
+      <value>Domestic labor hourly service</value>
+   </data>
+   <data name="Individual_DalalTitle" xml:space="preserve">
+      <value>Domestic labor hourly service</value>
+   </data>
+   <data name="Individual_DalalTitle" xml:space="preserve">
+      <value>Domestic labor hourly service</value>
+   </data>
+   <data name="Individual_EnaihDescDetails" xml:space="preserve">
+      <value>Home care for the elderly and people with special needs, and the service of private health facilities.</value>
+   </data>
+   <data name="Individual_EnaihDescDetails" xml:space="preserve">
+      <value>Home care for the elderly and people with special needs, and the service of private health facilities.</value>
+   </data>
+   <data name="Individual_EnaihDescDetails" xml:space="preserve">
+      <value>Home care for the elderly and people with special needs, and the service of private health facilities.</value>
+   </data>
+   <data name="Individual_EnaihDescDetails" xml:space="preserve">
+      <value>Home care for the elderly and people with special needs, and the service of private health facilities.</value>
+   </data>
+   <data name="Individual_EnaihDescDetails" xml:space="preserve">
+      <value>Home care for the elderly and people with special needs, and the service of private health facilities.</value>
+   </data>
+   <data name="Individual_EnaihTitle" xml:space="preserve">
+      <value>Home nursing service</value>
+   </data>
+   <data name="Individual_EnaihTitle" xml:space="preserve">
+      <value>Home nursing service</value>
+   </data>
+   <data name="Individual_EnaihTitle" xml:space="preserve">
+      <value>Home nursing service</value>
+   </data>
+   <data name="Individual_EnaihTitle" xml:space="preserve">
+      <value>Home nursing service</value>
+   </data>
+   <data name="Individual_EnaihTitle" xml:space="preserve">
+      <value>Home nursing service</value>
+   </data>
+   <data name="Individual_TadbeerDescDetails" xml:space="preserve">
+      <value>Human resources to work in the homes of citizens and residents of the various professions of different nationalities. With the availability of well-trained contracting personnel, they understand the local culture and the requirements of domestic work. The company is responsible for the management of contracted employees.</value>
+   </data>
+   <data name="Individual_TadbeerDescDetails" xml:space="preserve">
+      <value>Human resources to work in the homes of citizens and residents of the various professions of different nationalities. With the availability of well-trained contracting personnel, they understand the local culture and the requirements of domestic work. The company is responsible for the management of contracted employees.</value>
+   </data>
+   <data name="Individual_TadbeerDescDetails" xml:space="preserve">
+      <value>Human resources to work in the homes of citizens and residents of the various professions of different nationalities. With the availability of well-trained contracting personnel, they understand the local culture and the requirements of domestic work. The company is responsible for the management of contracted employees.</value>
+   </data>
+   <data name="Individual_TadbeerDescDetails" xml:space="preserve">
+      <value>Human resources to work in the homes of citizens and residents of the various professions of different nationalities. With the availability of well-trained contracting personnel, they understand the local culture and the requirements of domestic work. The company is responsible for the management of contracted employees.</value>
+   </data>
+   <data name="Individual_TadbeerDescDetails" xml:space="preserve">
+      <value>Human resources to work in the homes of citizens and residents of the various professions of different nationalities. With the availability of well-trained contracting personnel, they understand the local culture and the requirements of domestic work. The company is responsible for the management of contracted employees.</value>
+   </data>
+   <data name="Individual_TadbeerTitle" xml:space="preserve">
+      <value>Domestic labor service per month</value>
+   </data>
+   <data name="Individual_TadbeerTitle" xml:space="preserve">
+      <value>Domestic labor service per month</value>
+   </data>
+   <data name="Individual_TadbeerTitle" xml:space="preserve">
+      <value>Domestic labor service per month</value>
+   </data>
+   <data name="Individual_TadbeerTitle" xml:space="preserve">
+      <value>Domestic labor service per month</value>
+   </data>
+   <data name="Individual_TadbeerTitle" xml:space="preserve">
+      <value>Domestic labor service per month</value>
+   </data>
+   <data name="Individual_WasatahDescDetails" xml:space="preserve">
+      <value>WASATA services in the recruitment of human resources for the home facilities with their own visas, where the company to bring cadres according to their requirements, within a short period of time.</value>
+   </data>
+   <data name="Individual_WasatahDescDetails" xml:space="preserve">
+      <value>WASATA services in the recruitment of human resources for the home facilities with their own visas, where the company to bring cadres according to their requirements, within a short period of time.</value>
+   </data>
+   <data name="Individual_WasatahTitle" xml:space="preserve">
+      <value>Services of intermediary in the employment of personnel.</value>
+   </data>
+   <data name="Individual_WasatahTitle" xml:space="preserve">
+      <value>Services of intermediary in the employment of personnel.</value>
+   </data>
+   <data name="Individual_WasatahTitle" xml:space="preserve">
+      <value>Services of intermediary in the employment of personnel.</value>
+   </data>
+   <data name="Individual_WasatahTitle" xml:space="preserve">
+      <value>Services of intermediary in the employment of personnel.</value>
+   </data>
+   <data name="Individual_WasatahTitle" xml:space="preserve">
+      <value>Services of intermediary in the employment of personnel.</value>
+   </data>
+   <data name="Individuals" xml:space="preserve">
+      <value>Individuals</value>
+   </data>
+   <data name="Individuals" xml:space="preserve">
+      <value>Individuals</value>
+   </data>
+   <data name="Individuals" xml:space="preserve">
+      <value>Individuals</value>
+   </data>
+   <data name="Individuals" xml:space="preserve">
+      <value>Individuals</value>
+   </data>
+   <data name="Individuals" xml:space="preserve">
+      <value>Individuals</value>
+   </data>
+   <data name="Login" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="Login" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="Login" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="Login" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="Login" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="Login_Short" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="Login_Short" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="Login_Short" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="Login_Short" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="Login_Short" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="Logout" xml:space="preserve">
+      <value>Logout</value>
+   </data>
+   <data name="Logout" xml:space="preserve">
+      <value>Logout</value>
+   </data>
+   <data name="Logout" xml:space="preserve">
+      <value>Logout</value>
+   </data>
+   <data name="Logout" xml:space="preserve">
+      <value>Logout</value>
+   </data>
+   <data name="MailingList" xml:space="preserve">
+      <value>Mailing List</value>
+   </data>
+   <data name="MailingList" xml:space="preserve">
+      <value>Mailing List</value>
+   </data>
+   <data name="MailingList" xml:space="preserve">
+      <value>Mailing List</value>
+   </data>
+   <data name="MailingList" xml:space="preserve">
+      <value>Mailing List</value>
+   </data>
+   <data name="MailingList" xml:space="preserve">
+      <value>Mailing List</value>
+   </data>
+   <data name="MasterContactUs" xml:space="preserve">
+      <value>Contact Us</value>
+   </data>
+   <data name="MasterContactUs" xml:space="preserve">
+      <value>Contact Us</value>
+   </data>
+   <data name="MasterContactUs" xml:space="preserve">
+      <value>Contact Us</value>
+   </data>
+   <data name="MasterContactUs" xml:space="preserve">
+      <value>Contact Us</value>
+   </data>
+   <data name="MasterContactUs" xml:space="preserve">
+      <value>Contact Us</value>
+   </data>
+   <data name="MedicalSector" xml:space="preserve">
+      <value>Medical Sector</value>
+   </data>
+   <data name="MedicalSector" xml:space="preserve">
+      <value>Medical Sector</value>
+   </data>
+   <data name="MedicalSector" xml:space="preserve">
+      <value>Medical Sector</value>
+   </data>
+   <data name="MedicalSector" xml:space="preserve">
+      <value>Medical Sector</value>
+   </data>
+   <data name="MedicalSector" xml:space="preserve">
+      <value>Medical Sector</value>
+   </data>
+   <data name="MyAccount" xml:space="preserve">
+      <value>My Account</value>
+   </data>
+   <data name="MyAccount" xml:space="preserve">
+      <value>My Account</value>
+   </data>
+   <data name="MyAccount" xml:space="preserve">
+      <value>My Account</value>
+   </data>
+   <data name="MyAccount" xml:space="preserve">
+      <value>My Account</value>
+   </data>
+   <data name="OurBranches" xml:space="preserve">
+      <value>Our Branches</value>
+   </data>
+   <data name="OurBranches" xml:space="preserve">
+      <value>Our Branches</value>
+   </data>
+   <data name="OurBranches" xml:space="preserve">
+      <value>Our Branches</value>
+   </data>
+   <data name="OurBranches" xml:space="preserve">
+      <value>Our Branches</value>
+   </data>
+   <data name="OurBranches" xml:space="preserve">
+      <value>Our Branches</value>
+   </data>
+   <data name="OurMissions" xml:space="preserve">
+      <value>Our Missions</value>
+   </data>
+   <data name="OurMissions" xml:space="preserve">
+      <value>Our Missions</value>
+   </data>
+   <data name="OurMissions" xml:space="preserve">
+      <value>Our Missions</value>
+   </data>
+   <data name="OurMissions" xml:space="preserve">
+      <value>Our Missions</value>
+   </data>
+   <data name="OurPrograms_DalalDesc" xml:space="preserve">
+      <value>The visit duration starts from 4 hours.</value>
+   </data>
+   <data name="OurPrograms_DalalDesc" xml:space="preserve">
+      <value>The visit duration starts from 4 hours.</value>
+   </data>
+   <data name="OurPrograms_DalalDesc" xml:space="preserve">
+      <value>The visit duration starts from 4 hours.</value>
+   </data>
+   <data name="OurPrograms_DalalDesc" xml:space="preserve">
+      <value>The visit duration starts from 4 hours.</value>
+   </data>
+   <data name="OurPrograms_EnaihDesc" xml:space="preserve">
+      <value>Enaih</value>
+   </data>
+   <data name="OurPrograms_EnaihDesc" xml:space="preserve">
+      <value>Enaih</value>
+   </data>
+   <data name="OurPrograms_EnaihDesc" xml:space="preserve">
+      <value>Enaih</value>
+   </data>
+   <data name="OurPrograms_EnaihDesc" xml:space="preserve">
+      <value>Enaih</value>
+   </data>
+   <data name="OurPrograms_EnaihDesc" xml:space="preserve">
+      <value>Enaih</value>
+   </data>
+   <data name="OurPrograms_JahezDesc" xml:space="preserve">
+      <value>Jahez for business</value>
+   </data>
+   <data name="OurPrograms_JahezDesc" xml:space="preserve">
+      <value>Jahez for business</value>
+   </data>
+   <data name="OurPrograms_JahezDesc" xml:space="preserve">
+      <value>Jahez for business</value>
+   </data>
+   <data name="OurPrograms_JahezDesc" xml:space="preserve">
+      <value>Jahez for business</value>
+   </data>
+   <data name="OurPrograms_TadbeerDesc" xml:space="preserve">
+      <value>Tadbeer Domestic worker</value>
+   </data>
+   <data name="OurPrograms_TadbeerDesc" xml:space="preserve">
+      <value>Tadbeer Domestic worker</value>
+   </data>
+   <data name="OurPrograms_TadbeerDesc" xml:space="preserve">
+      <value>Tadbeer Domestic worker</value>
+   </data>
+   <data name="OurPrograms_TadbeerDesc" xml:space="preserve">
+      <value>Tadbeer Domestic worker</value>
+   </data>
+   <data name="OurPrograms_TadbeerDesc" xml:space="preserve">
+      <value>Tadbeer Domestic worker</value>
+   </data>
+   <data name="OurServices" xml:space="preserve">
+      <value>Our Services</value>
+   </data>
+   <data name="OurServices" xml:space="preserve">
+      <value>Our Services</value>
+   </data>
+   <data name="OurServices" xml:space="preserve">
+      <value>Our Services</value>
+   </data>
+   <data name="OurServices" xml:space="preserve">
+      <value>Our Services</value>
+   </data>
+   <data name="OurServices" xml:space="preserve">
+      <value>Our Services</value>
+   </data>
+   <data name="Profile" xml:space="preserve">
+      <value>Profile</value>
+   </data>
+   <data name="Profile" xml:space="preserve">
+      <value>Profile</value>
+   </data>
+   <data name="Profile" xml:space="preserve">
+      <value>Profile</value>
+   </data>
+   <data name="Profile" xml:space="preserve">
+      <value>Profile</value>
+   </data>
+   <data name="Profile" xml:space="preserve">
+      <value>Profile</value>
+   </data>
+   <data name="Register" xml:space="preserve">
+      <value>Register</value>
+   </data>
+   <data name="Register" xml:space="preserve">
+      <value>Register</value>
+   </data>
+   <data name="Register" xml:space="preserve">
+      <value>Register</value>
+   </data>
+   <data name="Register" xml:space="preserve">
+      <value>Register</value>
+   </data>
+   <data name="Register" xml:space="preserve">
+      <value>Register</value>
+   </data>
+   <data name="RegisterMailingList" xml:space="preserve">
+      <value>Subscribe to the mailing list</value>
+   </data>
+   <data name="RegisterMailingList" xml:space="preserve">
+      <value>Subscribe to the mailing list</value>
+   </data>
+   <data name="RegisterMailingList" xml:space="preserve">
+      <value>Subscribe to the mailing list</value>
+   </data>
+   <data name="RegisterMailingList" xml:space="preserve">
+      <value>Subscribe to the mailing list</value>
+   </data>
+   <data name="RegisterMailingList" xml:space="preserve">
+      <value>Subscribe to the mailing list</value>
+   </data>
+   <data name="Signup" xml:space="preserve">
+      <value>Sign up</value>
+   </data>
+   <data name="Signup" xml:space="preserve">
+      <value>Sign up</value>
+   </data>
+   <data name="Signup" xml:space="preserve">
+      <value>Sign up</value>
+   </data>
+   <data name="Signup" xml:space="preserve">
+      <value>Sign up</value>
+   </data>
+   <data name="Signup" xml:space="preserve">
+      <value>Sign up</value>
+   </data>
+</root>

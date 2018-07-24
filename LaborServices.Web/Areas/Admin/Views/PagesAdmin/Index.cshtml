@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ApplicationPage>
+@{
+    ViewBag.Title = "Pages";
+}
+<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+
+<div id="panel-ui-tan-l5" class="panel panel-default">
+
+    <div class="panel-heading">
+
+        <span class="elipsis">
+            <!-- panel title -->
+            <strong>Menus Preview</strong>
+        </span>
+
+        <!-- right options -->
+        <ul class="options pull-right list-inline">
+            <li><a href="#" class="opt panel_colapse" data-toggle="tooltip" title="Colapse" data-placement="bottom"></a></li>
+            <li><a href="#" class="opt panel_fullscreen hidden-xs" data-toggle="tooltip" title="Fullscreen" data-placement="bottom"><i class="fa fa-expand"></i></a></li>
+            <li><a href="#" class="opt panel_close" data-confirm-title="Confirm" data-confirm-message="Are you sure you want to remove this panel?" data-toggle="tooltip" title="Close" data-placement="bottom"><i class="fa fa-times"></i></a></li>
+            <li>
+                @using (Ajax.BeginForm("ListDrawer", "PagesAdmin", null, new AjaxOptions { UpdateTargetId = "DrawerList"}, new { @class = "form-horizontal" }))
+                {
+                <button type="submit" data-toggle="tooltip" title="refresh" data-placement="bottom" class="btn btn-info btn-xs"><i class="fa fa-refresh"></i></button>
+                }
+            </li>
+
+        </ul>
+        <!-- /right options -->
+    </div>
+
+    <!-- panel content -->
+    <div class="panel-body noradius padding-20">
+        <div class="acidjs-css3-treeview" id="DrawerList">
+            @Html.Action("ListDrawer")
+        </div>
+
+    </div>
+</div>
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+
+        <span class="elipsis">
+            <!-- panel title -->
+            <strong>Menus</strong>
+        </span>
+
+        <!-- right options -->
+        <ul class="options pull-right list-inline">
+            <li><a href="#" class="opt panel_colapse" data-toggle="tooltip" title="Colapse" data-placement="bottom"></a></li>
+            <li><a href="#" class="opt panel_fullscreen hidden-xs" data-toggle="tooltip" title="Fullscreen" data-placement="bottom"><i class="fa fa-expand"></i></a></li>
+            <li><a href="#" class="opt panel_close" data-confirm-title="Confirm" data-confirm-message="Are you sure you want to remove this panel?" data-toggle="tooltip" title="Close" data-placement="bottom"><i class="fa fa-times"></i></a></li>
+            <li><a href="@Url.Action("Create")" class="btn btn-primary btn-xs white"><i class="fa fa-plus"></i>&nbsp;&nbsp;Create</a> </li>
+        </ul>
+        <!-- /right options -->
+    </div>
+    <div class="panel-body">
+
+        <div class="block full">
+            @using (Ajax.BeginForm("List", "PagesAdmin", null, new AjaxOptions { UpdateTargetId = "PagesList", LoadingElementId = "PagesSpinner" }, new { @class = "form-horizontal" }))
+            {
+                <div id="PagesList">
+                    @Html.Action("List")
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+}

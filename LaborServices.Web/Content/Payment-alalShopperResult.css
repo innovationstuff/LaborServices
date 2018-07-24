@@ -1,0 +1,33 @@
+﻿.loginPage .h3 {
+    margin-left: 50px;
+    display: inline-block;
+}
+
+.loginPage .price {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(48, 93, 140, 0.6);
+    padding-top: 22px;
+    line-height: 16px;
+    transform: scale(.9);
+}
+
+@media screen and (max-width:575px) {
+
+    .loginPage .h3 {
+        margin-left: 0;
+        display: block;
+    }
+
+}
+
+
+@media screen and (max-width:891px) {
+
+    .loginPage .alert {
+        width: 100% !important
+    }
+}
+

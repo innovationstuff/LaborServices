@@ -1,0 +1,61 @@
+﻿@using LaborServices.Web.Models
+@model DomesticInvoice
+
+@{
+    ViewBag.Title = "Bank Transfer";
+}
+
+@section css{
+    @Styles.Render("~/Content/site-pay-online")
+}
+
+<section class="pay-online">
+    <div class="container">
+        <div class="content my-5 text-center px-1">
+            <h2 class="pt-4 mb-3">@DbRes.T("BankTransfer", "Payment")</h2>
+            <p class="price mx-auto text-white mt-0 mt-md-3 mb-0"><b class="d-block">@Html.DisplayFor(m => Model.InvoiceAmount)</b><small>@DbRes.T("SaudiCurrencyShort", "Shared")</small></p>
+            <p class="d-block mb-5 mb-3">@DbRes.T("Invoice", "Shared") <B>@Html.DisplayFor(m => Model.Number)</B></p>
+            <p>
+                <b>@DbRes.T("DearCustomer", "Shared") </b>
+                @Html.DisplayFor(m => Model.Customer)
+            </p>
+            <p>@DbRes.T("PleaseUploadBankTransferStatementFortheInvoice", "Payment") @DbRes.T("Invoice", "Shared")  <b>@Html.DisplayFor(m => Model.Number)</b> </p>
+
+            <div class="w-50 mx-auto p-2 tabelContainer">
+                @Html.Partial("_DomesticInvoiceDetails", Model)
+            </div>
+
+            <div class="mx-auto p-2 ">
+                <div> <b>رجاء تسديد المبغ على حساب</b></div>
+                <div> رقم حساب الراجحى : 678608010012228</div>
+                <div>
+                    :ايبان
+                </div>
+                <div>
+                    SA2780000678608010012228
+                </div>
+                <div>
+                    ورفع صورة التحويل للتمكن من تفعيل العقد
+                </div>
+
+            </div>
+            @using (Html.BeginForm("IndividualBankTransfer", "Pay", FormMethod.Post, new { enctype = "multipart/form-data", lang = ViewBag.LangCode }))
+            {
+                @Html.HiddenFor(m => m.Id)
+                <div class="form-group mt-1" dir="ltr">
+                    <div class="custumInpFile"><i class="fa fa-cloud-upload fa-lg mt-1"></i> @DbRes.T("UploadBankTransferStatement", "Payment") </div>
+                    <input type="file" class="form-control-file w-50 mx-auto" id="BankFile" name="BankFile">
+                    <button type="submit" class="btn btn-primary mb-2 mt-4">@DbRes.T("SubmitBtn", "Shared")</button>
+                </div>
+
+            }
+
+            <p class="pb-3 pt-3">@DbRes.T("ThanksForChoosingUs", "Shared")</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+

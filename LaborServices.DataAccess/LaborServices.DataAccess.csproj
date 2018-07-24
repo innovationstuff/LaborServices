@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5EAD5E0-EE31-4991-AAC6-19E48D93D8DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LaborServices.DataAccess</RootNamespace>
+    <AssemblyName>LaborServices.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configurations\EntityBaseConfiguration.cs" />
+    <Compile Include="DbFactory.cs" />
+    <Compile Include="EntityBaseRepository.cs" />
+    <Compile Include="Helpers\IDbFactory.cs" />
+    <Compile Include="Helpers\IEntityBaseRepository.cs" />
+    <Compile Include="Helpers\IUnitOfWork.cs" />
+    <Compile Include="LaborServicesDbContext.cs" />
+    <Compile Include="Migrations\201711011551061_RemoveColumnsFromAppUser.cs" />
+    <Compile Include="Migrations\201711011551061_RemoveColumnsFromAppUser.Designer.cs">
+      <DependentUpon>201711011551061_RemoveColumnsFromAppUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711061428306_AddAgent_AgentSheet_AgentSheetRecord.cs" />
+    <Compile Include="Migrations\201711061428306_AddAgent_AgentSheet_AgentSheetRecord.Designer.cs">
+      <DependentUpon>201711061428306_AddAgent_AgentSheet_AgentSheetRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711071246516_MakeIdentity.cs" />
+    <Compile Include="Migrations\201711071246516_MakeIdentity.Designer.cs">
+      <DependentUpon>201711071246516_MakeIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711071441227_AccountTypeColumn.cs" />
+    <Compile Include="Migrations\201711071441227_AccountTypeColumn.Designer.cs">
+      <DependentUpon>201711071441227_AccountTypeColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711121146469_MakeDateTimeNullable.cs" />
+    <Compile Include="Migrations\201711121146469_MakeDateTimeNullable.Designer.cs">
+      <DependentUpon>201711121146469_MakeDateTimeNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711141028184_NullableCreatedOnInAppUser.cs" />
+    <Compile Include="Migrations\201711141028184_NullableCreatedOnInAppUser.Designer.cs">
+      <DependentUpon>201711141028184_NullableCreatedOnInAppUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711160823395_NewTbl_Candidate.cs" />
+    <Compile Include="Migrations\201711160823395_NewTbl_Candidate.Designer.cs">
+      <DependentUpon>201711160823395_NewTbl_Candidate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711160931232_NewCol_Candidate_CrmCandidateId.cs" />
+    <Compile Include="Migrations\201711160931232_NewCol_Candidate_CrmCandidateId.Designer.cs">
+      <DependentUpon>201711160931232_NewCol_Candidate_CrmCandidateId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711160943591_RenameCol_AgentSheetRecord_AuthorizationNumber.cs" />
+    <Compile Include="Migrations\201711160943591_RenameCol_AgentSheetRecord_AuthorizationNumber.Designer.cs">
+      <DependentUpon>201711160943591_RenameCol_AgentSheetRecord_AuthorizationNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712091921229_ApplicationGroupAndApplicationUserGroup.cs" />
+    <Compile Include="Migrations\201712091921229_ApplicationGroupAndApplicationUserGroup.Designer.cs">
+      <DependentUpon>201712091921229_ApplicationGroupAndApplicationUserGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712131620347_addPageRoles.cs" />
+    <Compile Include="Migrations\201712131620347_addPageRoles.Designer.cs">
+      <DependentUpon>201712131620347_addPageRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712211016388_menuSelfRelations.cs" />
+    <Compile Include="Migrations\201712211016388_menuSelfRelations.Designer.cs">
+      <DependentUpon>201712211016388_menuSelfRelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712222115474_NamesUpdated.cs" />
+    <Compile Include="Migrations\201712222115474_NamesUpdated.Designer.cs">
+      <DependentUpon>201712222115474_NamesUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712230621159_addOrdercolumnPages.cs" />
+    <Compile Include="Migrations\201712230621159_addOrdercolumnPages.Designer.cs">
+      <DependentUpon>201712230621159_addOrdercolumnPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712230626449_addActiveFlagePage.cs" />
+    <Compile Include="Migrations\201712230626449_addActiveFlagePage.Designer.cs">
+      <DependentUpon>201712230626449_addActiveFlagePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712270805278_createManay2ManyMenusRelationship.cs" />
+    <Compile Include="Migrations\201712270805278_createManay2ManyMenusRelationship.Designer.cs">
+      <DependentUpon>201712270805278_createManay2ManyMenusRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801130801154_addUserType.cs" />
+    <Compile Include="Migrations\201801130801154_addUserType.Designer.cs">
+      <DependentUpon>201801130801154_addUserType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801210655109_addSliderTable.cs" />
+    <Compile Include="Migrations\201801210655109_addSliderTable.Designer.cs">
+      <DependentUpon>201801210655109_addSliderTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801210748201_addImageNameToSlider.cs" />
+    <Compile Include="Migrations\201801210748201_addImageNameToSlider.Designer.cs">
+      <DependentUpon>201801210748201_addImageNameToSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802180500233_addcrmUserId.cs" />
+    <Compile Include="Migrations\201802180500233_addcrmUserId.Designer.cs">
+      <DependentUpon>201802180500233_addcrmUserId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803120724500_CreateWebsitePages.cs" />
+    <Compile Include="Migrations\201803120724500_CreateWebsitePages.Designer.cs">
+      <DependentUpon>201803120724500_CreateWebsitePages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803120732429_ChangeWebsitePage_DescriptionColumnType.cs" />
+    <Compile Include="Migrations\201803120732429_ChangeWebsitePage_DescriptionColumnType.Designer.cs">
+      <DependentUpon>201803120732429_ChangeWebsitePage_DescriptionColumnType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803120739497_ChangeWebsitePage_DescriptionColumnTypeMax.cs" />
+    <Compile Include="Migrations\201803120739497_ChangeWebsitePage_DescriptionColumnTypeMax.Designer.cs">
+      <DependentUpon>201803120739497_ChangeWebsitePage_DescriptionColumnTypeMax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803180649092_AddSettingTable.cs" />
+    <Compile Include="Migrations\201803180649092_AddSettingTable.Designer.cs">
+      <DependentUpon>201803180649092_AddSettingTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803180653090_AddSettingTbl.cs" />
+    <Compile Include="Migrations\201803180653090_AddSettingTbl.Designer.cs">
+      <DependentUpon>201803180653090_AddSettingTbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803180659214_AddSettingTblIsEditableColumn.cs" />
+    <Compile Include="Migrations\201803180659214_AddSettingTblIsEditableColumn.Designer.cs">
+      <DependentUpon>201803180659214_AddSettingTblIsEditableColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LaborServices.Model\LaborServices.Entity.csproj">
+      <Project>{66afc234-5c85-4d96-80ee-bfefb7eb19fb}</Project>
+      <Name>LaborServices.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LaborServices.Utility\LaborServices.Utility.csproj">
+      <Project>{ffb7307e-ffe8-4c8a-b967-a4d254dd7e4b}</Project>
+      <Name>LaborServices.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711011551061_RemoveColumnsFromAppUser.resx">
+      <DependentUpon>201711011551061_RemoveColumnsFromAppUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711061428306_AddAgent_AgentSheet_AgentSheetRecord.resx">
+      <DependentUpon>201711061428306_AddAgent_AgentSheet_AgentSheetRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711071246516_MakeIdentity.resx">
+      <DependentUpon>201711071246516_MakeIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711071441227_AccountTypeColumn.resx">
+      <DependentUpon>201711071441227_AccountTypeColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711121146469_MakeDateTimeNullable.resx">
+      <DependentUpon>201711121146469_MakeDateTimeNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141028184_NullableCreatedOnInAppUser.resx">
+      <DependentUpon>201711141028184_NullableCreatedOnInAppUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711160823395_NewTbl_Candidate.resx">
+      <DependentUpon>201711160823395_NewTbl_Candidate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711160931232_NewCol_Candidate_CrmCandidateId.resx">
+      <DependentUpon>201711160931232_NewCol_Candidate_CrmCandidateId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711160943591_RenameCol_AgentSheetRecord_AuthorizationNumber.resx">
+      <DependentUpon>201711160943591_RenameCol_AgentSheetRecord_AuthorizationNumber.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712091921229_ApplicationGroupAndApplicationUserGroup.resx">
+      <DependentUpon>201712091921229_ApplicationGroupAndApplicationUserGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712131620347_addPageRoles.resx">
+      <DependentUpon>201712131620347_addPageRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712211016388_menuSelfRelations.resx">
+      <DependentUpon>201712211016388_menuSelfRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712222115474_NamesUpdated.resx">
+      <DependentUpon>201712222115474_NamesUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712230621159_addOrdercolumnPages.resx">
+      <DependentUpon>201712230621159_addOrdercolumnPages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712230626449_addActiveFlagePage.resx">
+      <DependentUpon>201712230626449_addActiveFlagePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712270805278_createManay2ManyMenusRelationship.resx">
+      <DependentUpon>201712270805278_createManay2ManyMenusRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801130801154_addUserType.resx">
+      <DependentUpon>201801130801154_addUserType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801210655109_addSliderTable.resx">
+      <DependentUpon>201801210655109_addSliderTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801210748201_addImageNameToSlider.resx">
+      <DependentUpon>201801210748201_addImageNameToSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802180500233_addcrmUserId.resx">
+      <DependentUpon>201802180500233_addcrmUserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803120724500_CreateWebsitePages.resx">
+      <DependentUpon>201803120724500_CreateWebsitePages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803120732429_ChangeWebsitePage_DescriptionColumnType.resx">
+      <DependentUpon>201803120732429_ChangeWebsitePage_DescriptionColumnType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803120739497_ChangeWebsitePage_DescriptionColumnTypeMax.resx">
+      <DependentUpon>201803120739497_ChangeWebsitePage_DescriptionColumnTypeMax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803180649092_AddSettingTable.resx">
+      <DependentUpon>201803180649092_AddSettingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803180653090_AddSettingTbl.resx">
+      <DependentUpon>201803180653090_AddSettingTbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803180659214_AddSettingTblIsEditableColumn.resx">
+      <DependentUpon>201803180659214_AddSettingTblIsEditableColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SqlResources\2017_11_26_CreateSPQuery_SP_MergeAgentCandidatesWithCrm.sql" />
+    <EmbeddedResource Include="SqlResources\2017_11_26_CreateTableType_Candidate_SqlType__Down.sql" />
+    <EmbeddedResource Include="SqlResources\2017_11_26_CreateTableType_Candidate_SqlType__UP.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,60 @@
+﻿@model LaborServices.Model.About
+
+<style>
+	.form-group .form-control {
+		margin-bottom: 25px;
+	}
+
+	.redBorder, .redBorder:focus, .redBorder:active, .redBorder::selection {
+		border: 1px solid red;
+	}
+</style>
+<div id="getForm">
+	<div>
+		@using (Ajax.BeginForm("Create", "About", "", new AjaxOptions { OnSuccess = "success" }, new { enctype = "multipart/form-data", id = "MyForm" }))
+		{
+			@Html.AntiForgeryToken()
+			<div class="" id="create">
+				@Html.HiddenFor(x => x.Type, new { value = ViewBag.Typ })
+				@Html.HiddenFor(x => x.ImgUrl, new { @class = "ImgUrltxt" })
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.TitleAr)
+							@Html.TextBoxFor(x => x.TitleAr, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.TitleAr) })
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.TitleEN)
+							@Html.TextBoxFor(x => x.TitleEN, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.TitleEN) })
+						</div>
+					</div>
+					@if ((int?)ViewBag.Typ == 1)
+					{
+						<div class="form-group">
+							<div class="col-md-10">
+								<input type="file" class="form-control" name="ImgFile" />
+							</div>
+						</div>
+					}
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.DescriptionAr)
+							@Html.TextAreaFor(x => x.DescriptionAr, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.DescriptionAr) })
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.DescriptionEN)
+							@Html.TextAreaFor(x => x.DescriptionEN, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.DescriptionEN) })
+						</div>
+					</div>
+				</div>
+				<div class="text-right">
+					<input type="submit" id="btnSave" class="btn btn-primary" style="width:90px;" value="حفظ" />
+				</div>
+			</div>
+		}
+	</div>
+</div>

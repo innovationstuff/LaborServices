@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Payment is Success";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+
+@{
+    if (lang == "ar")
+    {
+        <section class="loginPage">
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col mt-4 p-0">
+                            <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-50">
+                                <div class="text-center">
+                                    <h2 style="color:forestgreen;">تمت عملية الدفع بنجاح</h2>
+                                    <p>
+                                       سيتم التحويل بعد <span id="countdown" style="color:darkred; font-size:25px;font-weight:bold;">5</span> seconds
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                var seconds = 5;
+
+                function countdown() {
+                    seconds = seconds - 1;
+                    if (seconds < 0) {
+                        window.location = "/@(lang)/HourlyWorkers/Details/@(ViewBag.id)";
+                    } else {
+                        document.getElementById("countdown").innerHTML = seconds;
+                        window.setTimeout("countdown()", 1000);
+                    }
+                }
+
+                countdown();
+
+            </script>
+        </section>
+    }
+
+    else
+    {
+        <section class="loginPage">
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col mt-4 p-0">
+                            <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-50">
+                                <div class="text-center">
+                                    <h2 style="color:forestgreen;">Payment Success</h2>
+                                    <p>
+                                        Redirecting after <span id="countdown" style="color:darkred; font-size:25px;font-weight:bold;">5</span> seconds
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                var seconds = 5;
+
+                function countdown() {
+                    seconds = seconds - 1;
+                    if (seconds < 0) {
+                        window.location = "/@(lang)/HourlyWorkers/Details/ @(ViewBag.id)";
+                    } else {
+                        document.getElementById("countdown").innerHTML = seconds;
+                        window.setTimeout("countdown()", 1000);
+                    }
+                }
+
+                countdown();
+
+            </script>
+        </section>
+    }
+}

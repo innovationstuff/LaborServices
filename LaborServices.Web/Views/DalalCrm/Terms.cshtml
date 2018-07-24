@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Terms";
+    var approved = (ViewBag.approved as Nullable<bool>) ?? false;
+
+}
+
+@section css{
+    @Styles.Render("~/Content/site-DalalCrm-Terms")
+}
+
+
+<section class="Terms text-right my-5 ">
+    <div class="container">
+        <div class="content p-4 ">
+            <h2 class=" text-center pb-5 pt-4 mb-2">@DbRes.T("TermsDataTitle", "DalalResources")</h2>
+
+            @using (Html.BeginForm("Terms", "DalalCrm", FormMethod.Post))
+            {
+
+                @Html.Raw(DbRes.T("TermsData", "DalalResources"))
+
+                @Html.Hidden("id")
+                <br />
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label text-center"></label>
+                    <div class="col-sm-8 termsDiv">
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBox("approved", approved)
+                                <b>  @DbRes.T("TermsConfirm", "DalalResources")      @DbRes.T("Terms", "DalalResources") </b>
+                            </label>
+
+                            <input disabled class="btn btn-lg btn-primary " type="submit" value="@DbRes.T("NextBtn", "Shared")" name="nextBtn" id="nextBtn" />
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            }
+        </div><!--content-->
+    </div><!--container-->
+</section>
+@section scripts{
+    <script>
+        var checkIfUserApprovedTerms = function (_thisCheckBox) {
+            _thisCheckBox = _thisCheckBox || $('#approved')[0];
+            if (_thisCheckBox.checked)
+                $('#nextBtn').removeAttr('disabled');
+            else
+                $('#nextBtn').attr('disabled', 'disabled');
+        };
+
+        checkIfUserApprovedTerms();
+
+        $(function () {
+            $('#approved').change(function (a) {
+                checkIfUserApprovedTerms(this);
+            });
+        });
+
+    </script>
+
+}
+
+
+

@@ -1,0 +1,12 @@
+﻿
+.errorTest .content {
+    background-color: rgba(255, 255, 255, 0.89);
+    border-radius: 8px
+}
+
+.errorTest .backBtn {
+    padding: 10px 15px;
+    color: #fff;
+    background: #5eb3e4;
+    border-radius: 5px;
+}

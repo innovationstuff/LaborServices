@@ -1,0 +1,122 @@
+﻿@using LaborServices.Web.Models
+@model DomesticInvoice
+
+@{
+    var routeData = ViewContext.RouteData.Values;
+    ViewBag.Title = "Online Payment";
+    var CheckoutId = ViewBag.CheckoutId as string;
+
+    var uri = HttpContext.Current.Request.Url;
+    string urlDomain = uri.Scheme + "://" + uri.Host + ":" + uri.Port + "/" + ViewBag.LangCode;
+}
+
+@section css{
+    @Styles.Render("~/Content/site-pay-online")
+}
+
+@*<script>
+    var wpwlOptions = {
+        style: "card",
+        paymentTarget: "_top"
+    }
+</script>*@
+
+<script src="https://oppwa.com/v1/paymentWidgets.js?checkoutId=@CheckoutId">
+
+</script>
+
+
+<script>
+    var wpwlOptions = {
+        iframeStyles: {
+            'card-number-placeholder': {
+                'color': '#ff0000',
+                'font-size': '16px',
+                'font-family': 'monospace'
+            },
+            'cvv-placeholder': {
+                'color': '#0000ff',
+                'font-size': '16px',
+                'font-family': 'Arial'
+            }
+        },
+        style: "card",
+        paymentTarget:"_top",
+        locale: "en"
+    }
+</script>
+@*<script>
+    var wpwlOptions = {
+        locale: "en"
+    }
+</script>*@
+<script async src="https://oppwa.com/v1/paymentWidgets.js?checkoutId=@CheckoutId"></script>
+
+<section class="pay-online">
+    <div class="container">
+        <div class="content my-5 text-center">
+            <h2 class="pt-4 mb-3">@DbRes.T("PayOnline", "Payment")</h2>
+            <p class="price mx-auto text-white mt-0 mt-md-3 mb-0"><b class="d-block">@Html.DisplayFor(m => Model.InvoiceAmount)</b><small>@DbRes.T("SaudiCurrencyShort", "Shared")</small></p>
+            <p class="d-block mb-5 mb-3">@DbRes.T("Invoice", "Shared") <B>@Html.DisplayFor(m => Model.Number)</B></p>
+
+
+            <p>
+                <b>@DbRes.T("DearCustomer", "Shared") </b>
+                @Html.DisplayFor(m => Model.Customer)
+            </p>
+            <p>@DbRes.T("PleasePayOnlineForThe", "Payment") @DbRes.T("Invoice", "Shared")  <b>@Html.DisplayFor(m => Model.Number)</b> </p>
+            <div class="row">
+                <div class="col  p-0">
+                    <div class="text-dark rounded rounded-20px m-auto w-md-50">
+                        <div class="text-center">
+                            <div class="wpwl-container col-lg-12" style="direction:ltr !important;">
+                                <form action="@urlDomain/Pay/Individual/OnlineResponse?InvoiceId=@Model.Id" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-50 mx-auto p-2 ">
+                @Html.Partial("_DomesticInvoiceDetails", Model)
+            </div>
+
+
+            <div class="text-center mt-3">
+                <span class="d-block d-sm-block d-md-inline">
+                    جميع البيانات محمية من
+                </span>
+                <img src="~/Images/frontEnd/HyperPay-Logo.png" width="90px" />
+
+                <img src="~/Images/frontEnd/Sama-Logo.png" width="140px" />
+            </div>
+
+            <div class="alert alert-danger w-50 mt-4 mx-auto">
+                تأكد من وجود علامة القفل <i class="fa fa-lock"></i> بجانب رابط الموقع
+            </div>
+
+            <p class="pb-3 pt-3">@DbRes.T("ThanksForChoosingUs", "Shared")</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    function getStatus() {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("StatuesRequestRequest", "Payment")',
+
+            success: function (res) {
+                console.log(res);
+
+
+            }, error: function () {
+                alert("Error Occured!!!");
+            }
+        });
+    }
+</script>
+
+
+
+

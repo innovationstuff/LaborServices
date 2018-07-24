@@ -1,0 +1,368 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+@{
+    var routeData = ViewContext.RouteData.Values;
+    string action = routeData["action"] as string;
+    string lang = routeData["lang"] as string;
+}
+@if (lang == "ar")
+{
+    <section class="about">
+        <div class="container">
+            <div class="part1">
+                <h2>عن الشركة</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="sec1">
+                            <h4>النشأة</h4>
+                            <p>
+                                ”أبـدال“ شـركة سـعودية مسـاهمة مغلقـة، يقـع مقرهـا الرئيسى فـي مدينـة الريـاض، ويبلـغ
+                                رأسـمالها 100 مليـون ريـال سـعودي. حصلـت الشـركة علـى ترخيـص رسـمي مـن وزارة العمـل
+                                بالمملكـة العربيـة السـعودية فـي مجـال الأستقدام والتوظيـف. وتتخصـص الشـركة فـي توفـير
+                                القـوى العاملـة الأجنبية للشـركات والمؤسسـات فـي القطاعـات المختلفـة بالمملكـة، إضافـة
+                                إلـى تقديـم خدمـات العمالـة المنزليـة وتنفيـذ أعمـال الوسـاطة فـي هـذا المجـال.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec2">
+                            <h4>العراقة</h4>
+                            <p>
+                                ”أبـدال“ ً فـي الواقـع ليسـت شـركة وليـدة، فقـد قامـت علـى خبرات عريقـة مـن مسـتثمرين فـي
+                                مجـال المقاولات والطـرق والصيانـة والتشـغيل والاستثمارات الماليـة والاستثمارات العقاريـة،
+                                وهـذا التنـوع فـي المجالات والخبرات منـح شـركة أبـدال القدرة علـى فهـم متطلبـات واحتياجـات
+                                العملاء و تلبيتهـا علـى الوجـه الاكمل لمواكبـة تطلعاتهـم وخططهـم الاستراتيجية بمـا يتماشى
+                                مـع رؤيـة المملكـة العربيـة السـعودية 2030.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec3">
+                            <h4>قصة "إبدال"</h4>
+                            <p>
+                                اخترنا اســم ”أبــدال“ ً الذى دومــا نبــذل قصــارى جهدنــا لإيجاد بدائــل متنوعــة ومتميــزة فــي
+                                إدارة المــوارد البشـرية مـن أجـل مسـاعدة عملائنا علـى تحقيـق أهدافهـم وتطلعاتهـم. إن
+                                مهمتنـا هـي تزويـد عملائنا بخيـارات متعـددة قـدر الإمكان، تفتـح لأعمالهم آفاقـا للتطـور
+                                والأزدهار.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part2">
+                <div class="header">
+                    <h2>قيم الشركة</h2>
+                    <p>
+                        تتمحور القيم الأساسية في “أبدال” حول الإحترام بمفهومة الواسع ومعانيه السامية، حيث تشمل هذه القيم وفقاً لذلك كلاً مما يلي:
+                    </p>
+                </div>
+                <div class="btm">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_1.png" alt="...">
+                            <h4>احترام التواصل</h4>
+                            <p>
+                                احترامنا للعميـل يعنـي إطلاعـه بـكل وضـوح علـى كامـل مراحـل العمـل ومسـتوى الإنجاز فـي كل مرحلـة. لكـي يبقـى
+                                عميلنـا علـى اطـلاع تـام بمـا يحصـل فـي مشـروعه، مـن خلال فريـق خدمـة العملاء، وعبـر القنـوات الإلكترونية المتاحـة.
+                                كمــا أن جميــع إدارات ”أبــدال“ ً ، مرتبطــة مــع بعضهــا البعــض ارتباطــا ً وثيقــا لتســهيل التبــادل الحــر والســريع للمعلومــات
+                                الموثوقـة الأفكار البنـاءة والمفيـدة بهـدف تطويـر العمـل.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_2.png" alt="...">
+                            <h4>احترام الحقوق</h4>
+                            <p>
+                                نؤمن في “أبدال” بأن للعميل حقوقاً يجب أن يأخذها كاملة، وأن للموظف حقوقاً يجب أن يأخذها كاملة، وأن للمتعاقد حقوقاً يجب
+                                أن يأخذها كاملة. وقد عاهدنا أنفسنا على إعطاء كل ذي حق حقه.
+                                أســس متينــة مــن الصــدق والنزاهــة واحترام الــذات.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_3.png" alt="...">
+                            <h4>احترام العمل الجماعي</h4>
+                            <p>
+                                وجِــدت ”أبــدال“ مــن أجــل مســاعدة المجتمــع
+                                عبر ممارســة الأنشطة التــي مــن شــأنها
+                                تحســن مســتوى حيــاة أفــراده والبعــد عــن كل
+                                الأنشطة التــي مــن شــأنها إلحــاق الضــرر
+                                بهــم أو بمحيطهــم.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_4.png" alt="...">
+                            <h4>احترام الوقت</h4>
+                            <p>
+                                للوقـت أهميـة كبرى فـي منظومـة العمـل فـي
+                                ”أبـدال“ ً فهـو مـورد لا يعـوض أبـدا. لـذا كان تقديرنـا
+                                لـه بحجـم أهميتـه.ولقـد بنيت ً الإســراتيجية العامــة
+                                للعمــل فــي الشــركة بإعطــاء الوقــت نصيبــا ً وافــرا ً
+                                مــن االهتمــام  فبــدون اســتثماره جيــدالا يمكــن
+                                أن تحقــق الشـركة أهدافهـا.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_5.png" alt="...">
+                            <h4>احترام الشفافية</h4>
+                            <p>
+                                نعــي فــي ”أبــدال“ ً أهميــة تقديــم معلومــات
+                                صادقــة للعميــل، لــذا كان التعامــل مبنياً دائماً
+                                علــى المصداقيــة والوضــوح لأننا نرغــب فــي
+                                بنــاء علاقة طويلــة الأمد مــع عملائنا مبنيــة علــى
+                                أســس متينــة مــن الصــدق والنزاهــة واحترام الــذات.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_6.png" alt="...">
+                            <h4>احترام المجتمع</h4>
+                            <p>
+                                وجِــدت ”أبــدال“ مــن أجــل مســاعدة المجتمــع
+                                عبر ممارســة الأنشطة التــي مــن شــأنها
+                                تحسين مســتوى حيــاة أفــراده والبعــد عــن كل
+                                الأنشطة التــي مــن شــأنها إلحــاق الضــرر
+                                بهــم أو بمحيطهــم.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part3">
+                <h2>لماذا أبدال؟</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="sec1">
+                            <h4>الدقة في الإختيار</h4>
+                            <p>
+                                لدينـا أسـاليب دقيقـة نتبعهـا فـي إدارة عمليـة التوظيـف الدولـي، وذلـك بهـدف
+                                اختيـار الموظفـين المناسـبين لأهداف عملائنا وتطلعاتهـم. وتبـدأ عمليـة الأختيار
+                                مـن تحديـد السيـر الذاتيـة المناسـبة، ثـم إجـراء المقابلات الشـخصية لأختيار أفضـل
+                                المرشحين بالتنسـيق مـع العميـل.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec2">
+                            <h4>التواصل الفعال</h4>
+                            <p>
+                                عميـل ”أبـدال“ ً يحـاط علمـا ً علـى الـدوام بـكل تقـدم يحـدث فـي مراحـل العمـل، حيـث
+                                أن هنـاك فريقاً مختصاً مهمتـه التواصـل المسـتمر مـع العميـل والتنســيق معــه
+                                وتقديــم كافــة المعلومــات والخدمــات إليــه. لــذا فــإن التوقيــع مــع ”أبــدال“ يعــد
+                                بدايــة رحلــة عمليــة مليئــة بالراحــة والأهتمام والأنجاز.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec3">
+                            <h4>العمل على مدار الساعة</h4>
+                            <p>
+                                إدارة علاقات العملاء لدينـا لا تعـرف النـوم، فنحـن فـي ”أبـدال“ نعمـل علـى مـدار
+                                السـاعة لضمـان توفيـر الخدمـات اللازمة للموظفـين المتعاقديـن، ً خصوصـا فـي
+                                الحالات الطارئـة، إذ نقـوم عنهـم بمـا تقتضيـه علينـا واجبـات عملنـا.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec4">
+                            <h4>ولاء الموظف للعميل</h4>
+                            <p>
+                                يواجــه كثـيـر مــن العملاء إشــكالية كبـيـرة فــي إدارة موظفيهــم المتعاقديــن أثنــاء العمــل، وذلــك لأسباب تعــود فــي مجملهــا إلــى قلــة الولاء
+                                ً للعميـل. لكننـا فـي أبـدال أدركنـا مبكـرا هـذه الإشكالية الإدارية، ولدينـا كافـة الاختياطات الضروريـة لمنـع حصـول أي سـلوكيات مـن هـذا النـوع.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec5">
+                            <h4>إدارة علاقات العملاء باحترافية</h4>
+                            <p>
+                                نعمــل باســتمرار لضمــان إدارة علاقتنا بعملائنا وبموظفيهــم بأحترافية، ونلتــزم بالتعامــل المهنــي مــع كافــة الأمور المتعلقــة بهــم
+                                وبأعمالهـم وذلـك عبـر ً تخصيـص مديـر علاقة لـكل عميـل. إن أهـم مـا نسـعى إلـى تحقيقـه دومـا هـو حصـول عملائنـا علـى أفضـل خدمـات
+                                الاستقدام والتشــغيل بشــكل احترافى ومريــح.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <section class="about">
+        <div class="container">
+            <div class="part1">
+                <h2>ِAbout Company</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="sec1">
+                            <h4>Creation</h4>
+                            <p>
+                                "Abdal" is a Saudi closed joint stock company headquartered in Riyadh,
+                                Its capital is SR 100 million. The company obtained an official license from the Ministry of Labor
+                                Saudi Arabia in the field of recruitment and employment. The company specializes in providing
+                                Foreign Manpower of Companies and Establishments in the Various Sectors of the Kingdom
+                                To provide domestic labor services and carry out mediation work in this area.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec2">
+                            <h4>The legacy</h4>
+                            <p>
+                                "Abdal" is in fact not a nascent company, it has built on the experience of long-standing investors
+                                Contracting, roads, maintenance, operation, financial investments and real estate investments,
+                                This diversity of fields and expertise will give the company a replacement ability to understand the requirements and needs
+                                Customers to meet their expectations and strategic plans in line with their expectations
+                                With the vision of Saudi Arabia 2030.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec3">
+                            <h4>Abdal's Story</h4>
+                            <p>
+                                We chose the name "Abdal" who always tries our best to find a variety of alternatives in
+                                Managing human resources in order to help our clients achieve their goals and aspirations.
+                                Our mission is to provide our customers with as many options as possible, which opens up their business for development
+                                And prosperity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part2">
+                <div class="header">
+                    <h2>Company Values</h2>
+                    <p>
+                        The basic values ​​of "Abdal" revolve around respect for his broad sense and his lofty meanings, where these values ​​include each of the following:
+                    </p>
+                </div>
+                <div class="btm">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_1.png" alt="...">
+                            <h4>Respect for communication</h4>
+                            <p>
+                                Our respect for the customer means that he is clearly informed of the entire stages of the work and the level of completion at each stage. To help
+                                our client be fully aware of what is happening in his project, Through the customer service team, and through the electronic channels available.
+                                All Abdal departments are closely linked to facilitate free and rapid exchange of information
+                                Reliable constructive and useful ideas aimed at developing work.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_2.png" alt="...">
+                            <h4>Respect for rights</h4>
+                            <p>
+                                We believe in "Abdal" that the customer has rights that he must take in full, that the employee has rights that he must take in full, and that the contractor has rights that must
+                                take it full. We have committed ourselves to giving everyone his right.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_3.png" alt="...">
+                            <h4>Respect for teamwork</h4>
+                            <p>
+                                "Abdal" is found in order to help the community
+                                through the activities excersing that would
+                                improve the standard of living of its members and distance from each
+                                activities that would harm
+                                or their surroundings.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_4.png" alt="...">
+                            <h4>Respect time</h4>
+                            <p>
+                                Time is of great importance in the system of work in
+                                "Abdal" is a resource that is never compensated. So we appreciated
+                                its importance has been built. The general strategy has been built
+                                to work in the company by giving time a good share
+                                of interest without a good investment can be
+                                to achieve the company's objectives.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_5.png" alt="...">
+                            <h4>Respect for transparency</h4>
+                            <p>
+                                In Abdal, we recognize the importance of providing information
+                                honest customer, so the deal was always built
+                                on the credibility and clarity we want to
+                                build a long term relationship with our customers based on
+                                solid foundations of honesty, integrity and self-esteem.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="~/Images/frontEnd/about_6.png" alt="...">
+                            <h4>Respect for the community</h4>
+                            <p>
+                                "Abdal" is found in order to help the community
+                                through the activities excersing that would
+                                improve the standard of living of its members and distance from each
+                                activities that would harm
+                                or their surroundings.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part3">
+                <h2>Why Abdal ?</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="sec1">
+                            <h4>Precision in selection</h4>
+                            <p>
+                                We have precise methods of managing the international recruitment process, With the aim of
+                                choosing the right employees for our clients' goals and aspirations. The selection process begins
+                                from identifying the appropriate CVs, and then interviewing for a better choice
+                                candidates are in coordination with the client.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec2">
+                            <h4>Effective communication</h4>
+                            <p>
+                                A "Abdal" customer is constantly informed of all progress in the work stages, where
+                                that there is a specialized team tasked with continuous communication with the client and coordination with him
+                                and provide all information and services to it. Therefore, the signature with "Abdal" is considered
+                                the beginning of a practical journey full of comfort, attention and achievement.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec3">
+                            <h4>Work Round-The-Clock</h4>
+                            <p>
+                                Our CRM employees does not know how to sleep
+                                to ensure the provision of services to contracted personnel, In particular
+                                emergency situations, as we do as our duties dictate.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec4">
+                            <h4>Employee loyalty to the customer</h4>
+                            <p>
+                                Many clients face significant problems in managing their contracted employees during work, due in part to a lack of loyalty
+                                for the client. But in the replacement we realized early this administrative problem, and we have all the necessary commitments to prevent any behaviors of this kind.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="sec5">
+                            <h4>Professional CRM</h4>
+                            <p>
+                                We are constantly working to ensure that our relationship with our clients and their staff is managed professionally and we are committed to dealing professionally with all matters related to them
+                                and their work by assigning a relationship manager to each client. The most important thing we always strive to achieve is to get our customers the best services
+                                recruitment and operation in a professional and comfortable manner.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

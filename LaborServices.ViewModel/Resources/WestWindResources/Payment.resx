@@ -1,0 +1,118 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<root>
+   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+      <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+      <xsd:element name="root" msdata:IsDataSet="true">
+         <xsd:complexType>
+            <xsd:choice maxOccurs="unbounded">
+               <xsd:element name="metadata">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" use="required" type="xsd:string" />
+                     <xsd:attribute name="type" type="xsd:string" />
+                     <xsd:attribute name="mimetype" type="xsd:string" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="assembly">
+                  <xsd:complexType>
+                     <xsd:attribute name="alias" type="xsd:string" />
+                     <xsd:attribute name="name" type="xsd:string" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="data">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                        <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                     <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                     <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="resheader">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" />
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:choice>
+         </xsd:complexType>
+      </xsd:element>
+   </xsd:schema>
+   <resheader name="resmimetype">
+      <value>text/microsoft-resx</value>
+   </resheader>
+   <resheader name="version">
+      <value>2.0</value>
+   </resheader>
+   <resheader name="reader">
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <data name="BankTransfer" xml:space="preserve">
+      <value>تحويل بنكي</value>
+   </data>
+   <data name="BankTransferIsUploaded" xml:space="preserve">
+      <value>تم رفع التحويل البنكي</value>
+   </data>
+   <data name="ChoosePaymentMethod" xml:space="preserve">
+      <value>أختر طريقة الدفع</value>
+   </data>
+   <data name="FailedPaymentOperation" xml:space="preserve">
+      <value>فشل فى عملية دفع</value>
+   </data>
+   <data name="InvoiceAmount" xml:space="preserve">
+      <value>قيمة الفاتورة</value>
+   </data>
+   <data name="InvoiceIsPaidBefore" xml:space="preserve">
+      <value>هذه الفاتورة تم دفعها من قبل</value>
+   </data>
+   <data name="InvoiceIsPaidBeforeMsg" xml:space="preserve">
+      <value>لقد تم دفع قيمة هذه الفاتورة من قبل</value>
+   </data>
+   <data name="PaymentOperationDoneSuccessfully" xml:space="preserve">
+      <value>تمت عملية الدفع بنجاح</value>
+   </data>
+   <data name="PaymentOperationFailed" xml:space="preserve">
+      <value>لقد فشلت عملية الدفع</value>
+   </data>
+   <data name="PayOnline" xml:space="preserve">
+      <value>الدفع عبر الأنترنت</value>
+   </data>
+   <data name="PleaseChooseYourPreferredPaymentMethodForthe" xml:space="preserve">
+      <value>من فضلك أختر طريقة الدفع المفضة ل</value>
+   </data>
+   <data name="PleasePayOnlineForThe" xml:space="preserve">
+      <value>من فضلك أدفع عبر الأنترنت ل</value>
+   </data>
+   <data name="PleaseUploadBankTransferStatementFortheInvoice" xml:space="preserve">
+      <value>يرجى تحميل بيان التحويل المصرفي ل</value>
+   </data>
+   <data name="ProblemInUploadingBankTransfer" xml:space="preserve">
+      <value>مشكلة فى التحويل البنكي</value>
+   </data>
+   <data name="ProblemInUploadingBankTransferMsg" xml:space="preserve">
+      <value>حدثت مشكلة فى رفع التحويل البنكي</value>
+   </data>
+   <data name="SuccessPaymentOperation" xml:space="preserve">
+      <value>تم الدفع</value>
+   </data>
+   <data name="TotalCost" xml:space="preserve">
+      <value>التكلفة الكلية</value>
+   </data>
+   <data name="UploadBankTransferStatement" xml:space="preserve">
+      <value>قم بتحميل بيان التحويل البنكي</value>
+   </data>
+   <data name="UploadedBankTransferMsg" xml:space="preserve">
+      <value>لقد تم رفع التحويل البنكي بنجاح</value>
+   </data>
+</root>

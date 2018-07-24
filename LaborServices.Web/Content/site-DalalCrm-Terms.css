@@ -1,0 +1,13 @@
+﻿.Terms .content {
+    background-color: rgba(255, 255, 255, 0.89);
+    border-radius: 8px
+}
+
+.Terms h2 {
+    font-size: 40px;
+    color: #003b71;
+}
+
+.Terms .btn-primary {
+    background-color: #5EB3E4
+}

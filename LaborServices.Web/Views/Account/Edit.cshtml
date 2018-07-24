@@ -1,0 +1,140 @@
+﻿@model LaborServices.Web.Models.ContactViewModel
+@{
+    ViewBag.Title = "Edit Profile";
+}
+
+
+<section class="regPage">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-40">
+                        <div class="text-center">
+                            <div class="form-group h4 text-primary">@ViewBag.Title</div>
+
+                            @using (Ajax.BeginForm("Edit", "Account", null, new AjaxOptions { OnSuccess = "OnEditSuccess", OnBegin = "fakeLoaderFadeIn", OnComplete = "fakeLoaderFadeOut" }))
+                            {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.ContactId)
+                        @Html.HiddenFor(m => m.MobilePhone)
+                        @Html.HiddenFor(m => m.FullName)
+
+                        <div class="form-group row" id="editMessage">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.Email, new { @class = "col-lg-3 col-form-label form-control-label" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.JobTitle, new { @class = "col-lg-3 col-form-label form-control-label" })
+                            @Html.TextBoxFor(m => m.JobTitle, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.JobTitle, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.CityId, new { @class = "col-lg-3 col-form-label form-control-label" })
+                            @Html.DropDownListFor(model => model.CityId, new List<SelectListItem>(), "Select a city", new { @class = "form-control", data_selected = Model.CityId })
+                            @Html.ValidationMessageFor(m => m.CityId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.NationalityId, new { @class = "col-lg-3 col-form-label form-control-label" })
+                            @Html.DropDownListFor(model => model.NationalityId, new List<SelectListItem>(), "Select a nationality", new { @class = "form-control", data_selected = Model.NationalityId })
+                            @Html.ValidationMessageFor(m => m.NationalityId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.GenderId, new { @class = "col-lg-3 col-form-label form-control-label" })
+                            @Html.DropDownListFor(model => model.GenderId, new List<SelectListItem>(), "Select a gender", new { @class = "form-control", data_selected = Model.GenderId })
+                            @Html.ValidationMessageFor(m => m.GenderId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.RegionId, new { @class = "col-lg-3 col-form-label form-control-label" })
+                            @Html.DropDownListFor(model => model.RegionId, new List<SelectListItem>(), "Select a region", new { @class = "form-control", data_selected = Model.RegionId })
+                            @Html.ValidationMessageFor(m => m.RegionId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.IdNumber, new { @class = "col-lg-3 col-form-label form-control-label" })
+                            @Html.TextBoxFor(m => m.IdNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.IdNumber, "", new { @class = "text-danger" })
+                        </div>
+
+                            <div class="form-group text-center">
+                                <input class="btn btn-lg btn-block btn-info" type="submit" value="@DbRes.T("Register", "ProfileResources")">
+                            </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/corejs")
+<script type="text/javascript">
+        function InitSelectize(selector, selectizeObj, url, valueField, labelField, requestParams, onChangeFunc) {
+
+        var $selectEntity = selector.selectize({
+            selectOnTab: true,
+            valueField: valueField,
+            labelField: labelField,
+            searchField: labelField,
+            create: false,
+            onChange: function(value) {
+                if (typeof onChangeFunc === "function") {
+                    onChangeFunc(value);
+                }
+            }
+        });
+
+        if (url != '' && url != null) {
+
+            var selectizeInstance = $selectEntity[0].selectize;
+            selectizeInstance.clear();
+            selectizeInstance.load(function(callback) {
+                $.ajax({
+                    url: '' + url + '',
+                    type: 'GET',
+                    data: requestParams,
+                    error: function(e) {
+                        console.error(e.responseText);
+                        callback();
+                    },
+                    success: function(result) {
+                        callback(JSON.parse(result));
+                        selectizeInstance.setValue(selector.data("selected"));
+                    }
+                });
+            });
+        }
+
+        return $selectEntity;
+    }
+
+        function OnEditSuccess(response) {
+            if (response.success) {
+                $("#editMessage").empty()
+                    .html(
+                        '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+response.message+'</div>');
+            } else {
+
+                $("#editMessage").empty().html(
+                    '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+response.message+'</div>');
+            }
+        }
+        InitSelectize($('#CityId'), @Html.NameFor(model => model.CityId),"@Url.Action("GetLookup", "Account", new {url = "api/city/QuickAll"})",'key','value');
+        InitSelectize($('#NationalityId'),@Html.NameFor(model => model.NationalityId), "@Url.Action("GetLookup", "Account", new {url = "api/Nationality/QuickAll"})", 'key', 'value');
+        InitSelectize($('#GenderId'),@Html.NameFor(model => model.GenderId), "@Url.Action("GetLookup", "Account", new {url = "api/contact/Genders"})", 'key', 'value');
+        InitSelectize($('#RegionId'),@Html.NameFor(model => model.RegionId), "@Url.Action("GetLookup", "Account", new {url = "api/general/Regions"})", 'key', 'value');
+</script>

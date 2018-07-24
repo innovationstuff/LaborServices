@@ -1,0 +1,155 @@
+﻿@model RegisterViewModel
+@{
+    ViewBag.Title = DbRes.T("CreateNewAccount", "ProfileResources");
+}
+
+@{
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+}
+
+<section class="regPage">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-40">
+                        <div class="text-center">
+                            <div class="form-group h4 text-primary">@ViewBag.Title</div>
+
+                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "regForm", role = "form", id = "registerForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group">
+                                    @*<div class="input-group " dir="ltr">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">+966</div>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "ex 051 XXX XXXX" })
+                                        </div>*@
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control rounded-0", placeholder = "ex 051 XXX XXXX" })
+
+                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                    <span id="UserName-error1" class="text-danger field-validation-error"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control rounded-0", placeholder = DbRes.T("Email", "ProfileResources") })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control rounded-0", placeholder = DbRes.T("FirstName", "ProfileResources") })
+                                    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control rounded-0", placeholder = DbRes.T("MiddleName", "ProfileResources") })
+                                    @Html.ValidationMessageFor(m => m.MiddleName, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control rounded-0", placeholder = DbRes.T("LastName", "ProfileResources") })
+                                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control rounded-0", placeholder = DbRes.T("Password", "ProfileResources") })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control rounded-0", placeholder = DbRes.T("ConfirmPassword", "ProfileResources") })
+                                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                </div>
+
+
+                                <div class="form-group text-center">
+                                    <input id="inputRegister" class="btn btn-lg btn-block btn-info" type="submit" value="@DbRes.T("Register", "ProfileResources")">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    document.getElementById("registerForm").onsubmit = function () { myFunction() };
+  
+    function myFunction() {
+            var langValue = '@lang';
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("CheckPhoneNumber", "Account")',
+            data : {phonenumber : document.getElementById("UserName").value},
+            success: function (res) {
+                console.log(res);
+                debugger
+                if (res.valid == false) {
+                    document.getElementById("UserName-error1").innerHTML = langValue == 'ar' ? 'تم أدخال هذا الرقم من قبل' : 'This phone number already exists';
+                    document.getElementById("UserName").focus();
+                    return false;
+                }
+
+            }, error: function () {
+                alert("Error Occured!!!");
+            }
+        });
+            //// length
+            //if (document.getElementById("FirstName").value.length < 2) {
+            //    document.getElementById("FirstName-error").innerHTML = langValue == 'ar' ? 'يجب ان يكون الإسم الأول حرفين على الاقل' : 'First name must be at least 2 characters long';
+            //    document.getElementById("FirstName").focus();
+            //    return false;
+            //}
+          
+            //if (document.getElementById("MiddleName").value.length < 2) {
+            //    document.getElementById("MiddleName-error").innerHTML = langValue == 'ar' ? 'يجب ان يكون الإسم الاوسط حرفين على الاقل' : 'Middle name must be at least 2 characters long';
+            //    document.getElementById("MiddleName").focus();
+            //    return false;
+            //}
+
+            //if (document.getElementById("LastName").value.length < 2) {
+            //    document.getElementById("LastName-error").innerHTML = langValue == 'ar' ? 'يجب ان يكون الإسم الأخير حرفين على الاقل' : 'Last name must be at least 2 characters long';
+            //    document.getElementById("LastName").focus();
+            //    return false;
+            //}
+
+            ////characters
+            //var alphaExp = /^[a-zA-Z\u0600-\u06FF]+$/;
+            //if (!document.getElementById("FirstName").value.match(alphaExp)) {
+               
+            //    document.getElementById("FirstName-error").innerHTML = langValue == 'ar' ? 'يجب أن يكون الإسم الأول حروف عربية او أنجليزية فقط' : 'First name must be Arabic or English characters only';
+            //    inputtext.focus();
+            //    return false;
+            //}
+       
+            //if (!document.getElementById("MiddleName").value.match(alphaExp)) {
+
+            //    document.getElementById("MiddleName-error").innerHTML = langValue == 'ar' ? 'يجب أن يكون الإسم الاوسط حروف عربية او أنجليزية فقط' : 'Middle name must be Arabic or English characters only';
+            //    inputtext.focus();
+            //    return false;
+            //}
+
+            //if (!document.getElementById("LastName").value.match(alphaExp)) {
+
+            //    document.getElementById("LastName-error").innerHTML = langValue == 'ar' ? 'يجب أن يكون الأخير الأول حروف عربية او أنجليزية فقط' : 'Last name must be Arabic or English characters only';
+            //    inputtext.focus();
+            //    return false;
+            //}
+
+
+    }
+
+</script>

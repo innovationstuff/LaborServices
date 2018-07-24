@@ -1,0 +1,33 @@
+﻿@model  LaborServices.Web.Models.SliderViewModel
+
+
+@if (File.Exists(Server.MapPath(Model.SliderImageUrl)))
+{
+    <div class="row">
+        <div class="text-center">
+            <img src="@Url.Content(Model.SliderImageUrl)" class="img-thumbnail" />
+        </div>
+    </div>
+}
+
+<dl class="dl-horizontal">
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Slider.Title)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Slider.Title)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Slider.Link)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Slider.Link)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Slider.Description)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Slider.Description)
+    </dd>
+</dl>

@@ -1,0 +1,436 @@
+﻿@model LaborServices.Web.Models.ContactViewModel
+@{
+    ViewBag.Title = "استكمال البيانات الشخصية";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+}
+<style>
+    ::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
+</style>
+<section class="regPage">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-40">
+                        <div class="text-center">
+                            <div class="form-group h4 text-primary">من فضلك قم باستكمال البيانات الشخصية لإنشاء العقد</div>
+                            @using (Html.BeginForm("CompleteProfile", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "complete-profile-form", @class = "regForm", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.HiddenFor(m => m.ContactId, Model.ContactId)
+                                @Html.HiddenFor(m => m.MobilePhone, Model.MobilePhone)
+                                @*@Html.HiddenFor(m => m.FullName, Model.FullName)*@
+
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.FullName, new { @class = "form-control rounded-0", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                                </div>
+
+                                if (string.IsNullOrEmpty(Model.Email))
+                                {
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control rounded-0", placeholder = DbRes.T("Email", "ProfileResources") })
+                                        @*@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })*@
+                                    </div>
+                                }
+                                else
+                                {
+                                    @Html.HiddenFor(m => m.Email)
+                                }
+
+                                @*if (string.IsNullOrEmpty(Model.JobTitle))
+                                    {
+                                                            <div class="form-group">
+                                                                @Html.TextBoxFor(m => m.JobTitle, new { @class = "form-control rounded-0", placeholder = DbRes.T("JobTitle", "ProfileResources") })
+                                                                @Html.ValidationMessageFor(m => m.JobTitle, "", new { @class = "text-danger" })
+                                                            </div>
+                                    }
+                                    else
+                                    {
+                                                            @Html.HiddenFor(m => m.JobTitle)
+                                    }*@
+
+                                if (string.IsNullOrEmpty(Model.NationalityId))
+                                {
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.NationalityId, new List<SelectListItem>(), DbRes.T("SelectNationality", "ProfileResources"), new { @class = "form-control", data_selected = Model.NationalityId })
+                                        @Html.ValidationMessageFor(m => m.NationalityId, "", new { @class = "text-danger" })
+                                    </div>
+                                }
+                                else
+                                {
+                                    @Html.HiddenFor(m => m.NationalityId)
+                                }
+
+                                if (string.IsNullOrEmpty(Model.CityId))
+                                {
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.CityId, new List<SelectListItem>(), DbRes.T("SelectCity", "ProfileResources"), new { @class = "form-control", data_selected = Model.CityId })
+                                        @Html.ValidationMessageFor(m => m.CityId, "", new { @class = "text-danger" })
+                                    </div>
+                                }
+                                else
+                                {
+                                    @Html.HiddenFor(m => m.CityId)
+                                }
+
+                                @*if (string.IsNullOrEmpty(Model.RegionId))
+                                    {
+                                                            <div class="form-group">
+                                                                @Html.DropDownListFor(model => model.RegionId, new List<SelectListItem>(), DbRes.T("Region_PH", "ProfileResources"), new { @class = "form-control", data_selected = Model.RegionId })
+                                                                @Html.ValidationMessageFor(m => m.RegionId, "", new { @class = "text-danger" })
+                                                            </div>
+                                    }
+                                    else
+                                    {
+                                                            @Html.HiddenFor(m => m.RegionId)
+                                    }*@
+
+                                @*@Html.HiddenFor(m => m.RegionId)*@
+
+                                if (!Model.GenderId.HasValue)
+                                {
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.GenderId, new List<SelectListItem>(), DbRes.T("Gender_PH", "ProfileResources"), new { @class = "form-control", data_selected = Model.GenderId })
+                                        @Html.ValidationMessageFor(m => m.GenderId, "", new { @class = "text-danger" })
+                                    </div>
+                                }
+                                else
+                                {
+                                    @Html.HiddenFor(m => m.GenderId)
+                                }
+
+
+                                if (!Model.IdNumber.HasValue)
+                                {
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.IdNumber, new { @class = "form-control rounded-0", placeholder = DbRes.T("IdNumber", "ProfileResources") })
+                                        @Html.ValidationMessageFor(m => m.IdNumber, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            <span id="errorLbl" class="text-danger field-validation-error"></span>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    @Html.HiddenFor(m => m.IdNumber)
+                                }
+
+                                <div class="form-group text-center">
+                                    <input class="btn btn-lg btn-block btn-info" type="submit" name="SaveBtn" value="@DbRes.T("SubmitBtn", "Shared")">
+                                </div>
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section scripts{
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script type="text/javascript">
+
+        var districtId = '',
+            nationalityId = '',
+            cityId = '',
+            $citySelect,
+            $districtSelect,
+            $nationalitySelect;
+        var langu = "@lang";
+        function InitSelectize(selector, selectizeObj, url, valueField, labelField, requestParams, onChangeFunc) {
+
+            var $selectEntity = selector.selectize({
+                selectOnTab: true,
+                valueField: valueField,
+                labelField: labelField,
+                searchField: labelField,
+                create: false,
+                onChange: function(value) {
+                    if (typeof onChangeFunc === "function") {
+                        onChangeFunc(value);
+                    }
+                }
+            });
+
+            if (url != '' && url != null) {
+
+                var selectizeInstance = $selectEntity[0].selectize;
+                selectizeInstance.clearOptions();
+                selectizeInstance.load(function(callback) {
+                    $.ajax({
+                        url: '' + url + '',
+                        type: 'GET',
+                        data: requestParams,
+                        error: function(e) {
+                            console.error(e.responseText);
+                            callback();
+                        },
+                        success: function(result) {
+                            callback(JSON.parse(result));
+
+                            if ($(selector).attr('id') == 'CityId') {
+                                selectizeInstance.setValue(localStorage.getItem('selectedContractCity'));
+                            }
+                            else if ($(selector).attr('id') == 'NationalityId') {
+                                //selectizeInstance.setValue("1e0ff838-292f-e311-b3fd-00155d010303");
+                                selectizeInstance.setValue(selector.data("selected"));
+
+                            }
+                            else {
+                                selectizeInstance.setValue(selector.data("selected"));
+                            }
+                        }
+                    });
+                });
+            }
+
+            return $selectEntity;
+        }
+
+        $(function () {
+
+
+            $('input[type=submit][name=SaveBtn]').click(function () {
+                if ($("#IdNumber").val().trim().length == 10) {
+                    $("#errorLbl").text("");
+                }
+                else {
+                    if ($("#HouseType").val() == 1) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية يجب ال يكون عشرة ارقام");
+                            return false;
+                        }
+                        else {
+                            $("#errorLbl").text("the Id number must be 10 digits");
+                            return false;
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+
+
+                }
+
+                if($("#NationalityId").text() == "السعودية")
+                {
+                    if ($("#IdNumber").val().charAt(0) != 1) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية السعودى يجب ان يبدا ب 1");
+                            return false;
+                        }
+                        else {
+                            $("#errorLbl").text("Saudi Id number must start with 1");
+                            return false;
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+                else
+                {
+                    if ($("#IdNumber").val().charAt(0) != 2) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية الغير سعودى يجب ان يبدا ب 2");
+                            return false;
+                        }
+                        else {
+                            $("#errorLbl").text("Non Saudi Id number must start with 2");
+                            return false;
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+                if($("#NationalityId").text() == "السعودية")
+                {
+                    if ($("#IdNumber").val().charAt(0) != 1) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية السعودى يجب ان يبدا ب 1");
+                            return false;
+                        }
+                        else {
+                            $("#errorLbl").text("Saudi Id number must start with 1");
+                            return false;
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+                else
+                {
+                    if ($("#IdNumber").val().charAt(0) != 2) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية الغير سعودى يجب ان يبدا ب 2");
+                            return false;
+                        }
+                        else {
+                            $("#errorLbl").text("Non Saudi Id number must start with 2");
+                            return false;
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+            });
+        
+            $("#IdNumber").keyup(function () {
+                debugger
+                if ($(this).val().trim().length == 10) {
+                    $("#errorLbl").text("");
+                }
+                else {
+                    if ($("#HouseType").val() == 1) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية يجب ال يكون عشرة ارقام");
+                        }
+                        else {
+                            $("#errorLbl").text("the Id number must be 10 digits");
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+
+
+                }
+
+                if($("#NationalityId").text() == "السعودية")
+                {
+                    if ($(this).val().charAt(0) != 1) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية السعودى يجب ان يبدا ب 1");
+                        }
+                        else {
+                            $("#errorLbl").text("Saudi Id number must start with 1");
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+                else
+                {
+                    if ($(this).val().charAt(0) != 2) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية الغير سعودى يجب ان يبدا ب 2");
+                        }
+                        else {
+                            $("#errorLbl").text("Non Saudi Id number must start with 2");
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+            });
+            $('#NationalityId').on('change', function() {
+                debugger
+                if($("#NationalityId").text() == "السعودية")
+                {
+                    if ($("#IdNumber").val().charAt(0) != 1) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية السعودى يجب ان يبدا ب 1");
+                        }
+                        else {
+                            $("#errorLbl").text("Saudi Id number must start with 1");
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+                else
+                {
+                    if ($("#IdNumber").val().charAt(0) != 2) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية الغير سعودى يجب ان يبدا ب 2");
+                        }
+                        else {
+                            $("#errorLbl").text("Non Saudi Id number must start with 2");
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+            });
+            @{
+if (string.IsNullOrEmpty(Model.CityId))
+{
+                 <text>
+            InitSelectize($('#CityId'), @Html.NameFor(model => model.CityId), "@Url.Action("GetLookup", "Account", new {url = "api/city/QuickAll"})", 'key', 'value');
+            var selectElement = $('#CityId').eq(0);
+            var selectize = selectElement.data('selectize');
+            if (!!selectize) selectize.setValue(localStorage.getItem('selectedContractCity'));
+
+                 </text>
+             }
+            if (string.IsNullOrEmpty(Model.NationalityId))
+             {
+                 <text>
+            InitSelectize($('#NationalityId'),@Html.NameFor(model => model.NationalityId), "@Url.Action("GetLookup", new {url = "api/Nationality/QuickAll"})", 'key', 'value');
+                 </text>
+             }
+            if (!Model.GenderId.HasValue)
+             {
+                 <text>
+                   InitSelectize($('#GenderId'),@Html.NameFor(model => model.GenderId), "@Url.Action("GetLookup", "Account", new {url = "api/contact/Genders"})", 'key', 'value');
+                 </text>
+             }
+            @*if (string.IsNullOrEmpty(Model.RegionId))
+             {
+                 <text>
+                   InitSelectize($('#RegionId'),@Html.NameFor(model => model.RegionId), "@Url.Action("GetLookup", "Account", new {url = "api/general/Regions"})", 'key', 'value');
+                 </text>
+              }*@
+            }
+
+
+            //jQuery.validator.addMethod("validateRequiredSelectize", function (value, element, params) {
+            //    var selectizedObj = $(element).data('selectize');
+            //    return selectizedObj.getValue();
+            //}, jQuery.validator.format("Required"));
+
+            //$("#CityId").rules("add", {
+            //    validateRequiredSelectize: true,
+            //});
+
+            //var form = $("#complete-profile-form");
+            //form.removeData('validator');
+            //form.removeData('unobtrusiveValidation');
+            //$.validator.unobtrusive.parse(form);
+
+        });
+
+
+    </script>
+
+}

@@ -1,0 +1,15 @@
+ ================= Scripts ===================================================================================================================
+
+ 1- For javascript file naming to any index page>>									site-{area}-{controloller} 
+
+ 2- For javascript file naming to any action page>>									site-{area}-{controloller}-{action}
+
+ 3- For general javascript file name >>												site-general
+
+ 4- For general javascript file name naming for special actions >>					site-general-{action}
+
+ 5- js files under folder															Scripts/{Area} or Scripts/General
+
+ 6- For javascript files naming to the used controls customization>>				control-{controlName}
+
+ ===============================================================================================================================================

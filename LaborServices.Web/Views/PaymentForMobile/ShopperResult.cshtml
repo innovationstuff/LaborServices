@@ -1,0 +1,150 @@
+﻿@model LaborServices.Web.Models.ContractViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMobile.cshtml";
+}
+
+@section css{
+    @Styles.Render("~/Content/Payment-alalShopperResult")
+}
+
+
+@{
+    var routeData = ViewContext.RouteData.Values;
+    string action = routeData["action"] as string;
+    string lang = routeData["lang"] as string;
+
+
+
+    var uri = HttpContext.Current.Request.Url;
+    string urlDomain = uri.Scheme + "://" + uri.Host + ":" + uri.Port + "/" + lang;
+}
+
+@*<script src="https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=@Session["CheckoutId"]">*@
+@*<script>
+    var wpwlOptions = {
+        style: "card",
+        paymentTarget:"_top"
+    }
+</script>*@
+<script src="https://oppwa.com/v1/paymentWidgets.js?checkoutId=@Session["CheckoutId"]">
+
+</script>
+
+<script>
+    var wpwlOptions = {
+        iframeStyles: {
+            'card-number-placeholder': {
+                'color': '#ff0000',
+                'font-size': '16px',
+                'font-family': 'monospace'
+            },
+            'cvv-placeholder': {
+                'color': '#0000ff',
+                'font-size': '16px',
+                'font-family': 'Arial'
+            }
+        },
+        style: "card",
+        paymentTarget:"_top",
+        locale: "en"
+    }
+</script>
+<script>
+    var langu=@lang;
+     @*var wpwlOptions = {
+         locale: "en"
+     }>*@
+</script
+@*<script async src="https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=@Session["CheckoutId"]"></script>*@
+<script async src="https://oppwa.com/v1/paymentWidgets.js?checkoutId=@Session["CheckoutId"]"></script>
+
+<style>
+    /*
+    .loginPage .h3 {
+        margin-left: 50px;
+        display: inline-block;
+    }
+    .loginPage .price {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: rgba(48, 93, 140, 0.6);
+        padding-top: 22px;
+        line-height: 16px;
+        transform: scale(.9);
+    }
+
+    @@media screen and (max-width:575px) {
+
+        .loginPage .h3 {
+            margin-left: 0;
+            display: block;
+        }
+        */
+</style>
+
+<section class="loginPage">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-5 mx-3 w-md-50">
+                        <div class="text-center">
+                            <div class="form-group h3 text-primary">@DbRes.T("PayOnline", "DalalResources")</div>
+                            <p class="price mx-auto text-white mt-0 mt-md-3 mb-0"><b class="d-block">@Html.DisplayFor(m => Model.FinalPrice)</b><small>@DbRes.T("SaudiCurrencyShort", "Shared")</small></p>
+                            <p class="d-block mb-5 mb-3">عقد <B>@Html.DisplayFor(m => Model.ContractNum)</B></p>
+
+                            <p><b>@DbRes.T("DearCustomer", "Shared") </b>  @Html.DisplayFor(m => Model.Customer)</p>
+                            <p>@DbRes.T("PleasePayOnlineForContract", "DalalResources") <b>@Html.DisplayFor(m => Model.ContractNum)</b> </p>
+
+                            <div class="wpwl-container col-lg-12" style="direction:ltr !important;">
+                                @* @Session["CheckoutId"]*@
+
+                                @*<form action="https://hyperpay.docs.oppwa.com/tutorials/integration-guide" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>*@
+                                <form action="@urlDomain/PaymentForMobile/Status" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>
+
+                            </div>
+                            @*<input type="button" value="Status" onclick="getStatus()" />*@
+
+                            <div class="text-center mt-3">
+                                <span class="d-block d-sm-block d-md-inline">
+                                    جميع البيانات محمية من
+                                </span>
+                                <img src="~/Images/frontEnd/HyperPay-Logo.png" width="90px"/>  
+                                
+                                <img src="~/Images/frontEnd/Sama-Logo.png" width="140px"/>
+                            </div>
+                            
+                            <div class="alert alert-danger w-50 mt-4 mx-auto">
+                                تأكد من وجود علامة القفل <i class="fa fa-lock"></i> بجانب رابط الموقع
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    function getStatus() {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("StatuesRequestRequest", "Payment")',
+
+            success: function (res) {
+                console.log(res);
+
+
+            }, error: function () {
+                alert("Error Occured!!!");
+            }
+        });
+    }
+</script>
+
+

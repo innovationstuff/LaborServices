@@ -1,0 +1,74 @@
+﻿@using LaborServices.Web.Models
+@model ResultMessageVM
+
+@{
+    ViewBag.Title = Model.Title;
+
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+
+@Html.HiddenFor(a => a.RedirectTimeout)
+@Html.HiddenFor(a => a.UrlToRedirect)
+@Html.Hidden("redirectable", (Model.IsWithAutoRedirect ? 1 : 0))
+
+<section class="loginPage">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-50">
+                        <div class="text-center">
+                            <h2 class="text-success">@Model.Title <i class="fa fa-check-circle"></i></h2>
+
+                            @Html.Raw(Model.Message)
+
+                            @Html.Raw(Model.HtmlContent)
+
+                            @if (Model.IsWithAutoRedirect)
+    {
+                        <p>
+                            @DbRes.T("RedirectMsg", "Shared")
+                            <span id="countdown-span" style="color:darkred; font-size:25px;font-weight:bold;">
+                                @(Model.RedirectTimeout < 1 ? 5 : Model.RedirectTimeout)
+                            </span>
+                            @DbRes.T("Seconds", "Shared")
+                        </p>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+@section scripts{
+    <script type="text/javascript">
+        var redirectable = $('#redirectable').val();
+
+        var redirectTimeOutVal = $('#RedirectTimeout').val();
+
+        var countdown = function () {
+            redirectTimeOutVal = redirectTimeOutVal - 1;
+
+            if (redirectTimeOutVal) {
+                $("#countdown-span").html(redirectTimeOutVal);
+                window.setTimeout("countdown()", 1000);
+            }
+            else
+                window.location = $('#UrlToRedirect').val();
+        };
+
+        $(function () {
+            if (redirectable)
+                countdown();
+        });
+
+    </script>
+}

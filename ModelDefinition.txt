@@ -1,0 +1,55 @@
+public class RequestHourlyPricing
+    {
+
+        public string NationalityId { get; set; }
+        public string Days { get; set; }
+        public string ContractStartDate { get; set; }
+        public string NoOfMonths { get; set; }
+        public string DistrictId { get; set; }
+        public int NoOfVisits { get; set; }
+        public int HoursCount { get; set; }
+        public int Empcount { get; set; }
+        public int Weeklyvisits { get; set; }
+        public string CityId { get; set; }
+    }
+
+// =====================================================
+
+ public class Contact
+    {
+        public string ContactId { get; set; }
+        public string MobilePhone { get; set; }
+        public string FullName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+
+	}
+
+// ===================================================
+
+ public class HourlyPricing
+    {
+        public string HourePrice { get; set; }
+        public string hourlypricingId { get; set; }
+        public string Name { get; set; }
+        public string VisitCount { get; set; }
+        public string VisitPrice { get; set; }
+        public string Discount { get; set; }
+        public string Hours { get; set; }
+        public string NoOfMonths { get; set; }
+        public string TotalVisit { get; set; }
+        public string TotalPrice { get; set; }
+        public string MonthVisits { get; set; }
+        public string Shift { get; set; }
+        public string NationalityId { get; set; }
+        public string NationalityName { get; set; }
+        public string VersionNumber { get; set; }
+        public bool? IsAvailable { get; set; }
+        public string MonthelyPrice { get; set; }
+        public string TotalbeforeDiscount { get; set; }
+
+}
+
+// ==========================================================================
+

@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Terms";
+    Layout = "";
+}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">@DbRes.T("TermsDataTitle", "DalalResources")</h4>
+</div>
+
+<div class="modal-body" style="height: 250px;overflow-y: auto;">
+    <div style="text-align: right; font-size: 10pt; line-height: 180%" dir="rtl" data-resource-id="TermsData" data-resource-set="Resources">
+        @Html.Raw(DbRes.T("TermsData", "DalalResources"))
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">@DbRes.T("CloseBtn", "Shared")</button>
+</div>
+
+<script src="~/LocalizationAdmin/scripts/ww.resourceEditor.js"></script>
+<script type="text/javascript">
+    ww.resourceEditor.showResourceIcons({
+        adminUrl: '/Translator',
+        //editorWindowOpenOptions: "height=600,width=900,top=20,left=20"
+        editorWindowOpenOptions: ""
+    });
+    //var toggleEditMode = false;
+    //$("#EditResources").click(function () {
+    //    toggleEditMode = !toggleEditMode;
+    //    if (true)
+    //        ww.resourceEditor.showResourceIcons({
+    //            adminUrl: "/Translator/",
+    //            editorWindowOpenOptions: "height=600,width=900,top=20,left=20"
+    //        });
+    //    else
+    //        ww.resourceEditor.removeResourceIcons();
+    //});
+</script>

@@ -1,0 +1,23 @@
+﻿@model  Setting
+
+@{
+    Layout = "";
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="modalLabel">@Model.SettingName </h4>
+</div>
+
+
+<div class="modal-body">
+    @Html.Partial("_InfoContent")
+</div>
+
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+
+
+

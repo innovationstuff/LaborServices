@@ -1,0 +1,22 @@
+﻿@model  WebSitePage
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.TitleEn)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TitleEn)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.TitleAr)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.TitleAr)
+    </dd>
+    <dt>
+        @Html.Raw(Model.DescriptionEn)
+    </dt>
+    <dt>
+        @Html.Raw(Model.DescriptionAr)
+    </dt>
+</dl>

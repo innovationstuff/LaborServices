@@ -1,0 +1,75 @@
+﻿<aside id="aside">
+    <nav id="sideNav">
+        <!-- MAIN MENU -->
+        <ul class="nav nav-list">
+            <li class="@Html.IsActionActive("Home", "Index")">
+                <!-- dashboard -->
+                <a class="dashboard" href="#">
+                    <i class="main-icon fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+            </li>           
+            
+            <li class="@Html.IsActive("Slider")">     
+                <a class="dashboard" href="@Url.Action("Index", "Slider", new {area = "Admin"})">
+                    <i class="main-icon fa fa-photo"></i> <span>Slider</span>
+                </a>
+            </li>             
+            
+            @*<li class="@Html.IsActive("WebSitePage")">     
+                <a class="dashboard" href="@Url.Action("Index", "WebSitePage", new {area = "Admin"})">
+                    <i class="main-icon fa fa-photo"></i> <span>WebSite Pages</span>
+                </a>
+            </li>*@          
+
+            <li class="@Html.IsActive("GroupsAdmin,RolesAdmin,UsersAdmin,PagesAdmin")">
+                <a href="#">
+                    <i class="fa fa-menu-arrow pull-right"></i>
+                    <i class="main-icon fa fa-table"></i> <span>Security</span>
+                </a>
+                <ul>
+                    <!-- submenus -->
+                    <li class="@Html.IsActive("GroupsAdmin")"><a href="@Url.Action("Index", "GroupsAdmin", new { area = "Admin" })">Groups(Teams)</a></li>
+                    <li class="@Html.IsActive("RolesAdmin") "><a href="@Url.Action("Index", "RolesAdmin", new { area = "Admin" })">Roles</a></li>
+                    <li class="@Html.IsActive("UsersAdmin") "><a href="@Url.Action("Index", "UsersAdmin", new { area = "Admin" })">Users</a></li>
+                    <li class="@Html.IsActive("PagesAdmin") "><a href="@Url.Action("Index", "PagesAdmin", new { area = "Admin" })">Pages</a></li>
+                    @*<li>
+                        <a href="#">
+                            <i class="fa fa-menu-arrow pull-right"></i>
+                            Datatables
+                        </a>
+                        <ul>
+                            <li><a href="tables-datatable-managed.html">Managed Datatables</a></li>
+                            <li><a href="tables-datatable-editable.html">Editable Datatables</a></li>
+                            <li><a href="tables-datatable-advanced.html">Advanced Datatables</a></li>
+                        </ul>
+                    </li>*@
+                </ul>
+            </li>
+
+			<!-- Not Finished  -->
+			<li class="">
+				<a href="#">
+					<i class="fa fa-menu-arrow pull-right"></i>
+					<i class="main-icon fa fa-info"></i> <span>About</span>
+				</a>
+				<ul>
+					<!-- submenus -->
+					<li class=""><a href="@Url.Action("WhoAreWe", "About", new { area = "Admin" })">Who Are We</a></li>
+					<li class=""><a href="@Url.Action("CompanyValues", "About", new { area = "Admin" })">Company Values</a></li>
+					<li class=""><a href="@Url.Action("WhyAbdal", "About", new { area = "Admin" })">Why Abdal</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="dashboard" href="@Url.Action("Index", "Team", new {area = "Admin"})">
+					<i class="main-icon fa fa-users"></i> <span>Team</span>
+				</a>
+			</li>
+			<li>
+				<a class="dashboard" href="@Url.Action("Index", "Branches", new {area = "Admin"})">
+					<i class="main-icon fa fa-briefcase"></i> <span>Branches</span>
+				</a>
+			</li>
+        </ul>
+    </nav>
+    <span id="asidebg"><!-- aside fixed background --></span>
+</aside>

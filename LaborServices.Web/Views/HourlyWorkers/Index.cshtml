@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "Service Agreement";
+    var routeData = ViewContext.RouteData.Values;
+
+    string lang = routeData["lang"] as string;
+
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-righ" : "text-left";
+}
+
+@if (lang == "ar")
+{
+    <section class="regPage">
+        <div class="content">
+            <div class="container text-right">
+                <div class="row">
+                    <div class="col mt-4 p-0">
+                        <div class="bg-white text-dark rounded rounded-20px p-4 p-lg-5" style="margin: auto;width: 97%;">
+                            <div class="row @(inputTextdirection)">
+
+
+                                <div class="col">
+                                    <div class="text-center"><img src="~/Images/frontEnd/dalal.png" alt="دلال" /></div>
+                                    <div class="pt-3">
+                                        لراحتكم طورت شركة أبدال السعودية للتوظيف خدمة العمالة المؤقتة <span class="text-dalal font-weight-bold">( دلال )</span> الغير مقيمة  بالساعة حيث وفرت الشركة عمالة مؤهلة ومدربة بالساعة تتوافق مع احتياجاتكم وبتكلفة مناسبة وبشكل يحترم خصوصيتكم وطبيعة المجتمع السعودي ويضمن توصيل الخدمة إلى موقعكم وفق الوقت الذي يناسبكم والمتفق عليه
+
+                                    </div>
+                                    <div class="hh1 text-primary mt-3"><i class="fa fa-star text-warning"></i>&nbsp;مميزات خدمة دلال</div>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check text-primary"></i>&nbsp;عمالة مؤهلة ومدربة بالساعة</li>
+                                        <li><i class="fa fa-check text-primary"></i>&nbsp;تتوافق مع احتياجاتكم</li>
+                                        <li><i class="fa fa-check text-primary"></i>&nbsp;بتكلفة مناسبة</li>
+                                        <li><i class="fa fa-check text-primary"></i>&nbsp;بشكل يحترم خصوصيتكم وطبيعة المجتمع السعودي</li>
+                                        <li><i class="fa fa-check text-primary"></i>&nbsp;يضمن توصيل الخدمة إلى موقعكم وفق الوقت الذي يناسبكم والمتفق عليه</li>
+                                    </ul>
+                                </div>
+                                <div class="col">
+
+                                    <div class="alert alert-light text-center rounded-20px border p-5 mt-3">
+                                        <div class="clearfix"><img src="~/Images/frontEnd/family.jpg" alt="عوائل فقط" /></div>
+                                        @Html.Raw(DbRes.T("DalalFamilyWarning", "DalalResources"))
+
+                                        @*<div class="my-3 h5 text-dark">
+                This service is provided
+                <span class="text-primary">
+                    for families only
+                </span> In the absence of a lady at home we apologize for the service
+            </div>*@
+
+                                        <div class="my-3">
+                                            @Html.ActionLink(DbRes.T("AcceptBtn", "Shared"), "Create", "HourlyWorkers", new { area = "" }, new { @class = "btn btn-lg btn-info mb-1" })
+                                            @Html.ActionLink(DbRes.T("CancelBtn", "Shared"), "Index", "Home", new { area = "" }, new { @class = "btn btn-lg btn-outline-secondary mb-1" })
+                                        </div>
+                                    </div>
+
+                                    @Html.Raw(DbRes.T("DalalAdditionalWarning", "DalalResources"))
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <section class="regPage">
+        <div class="content">
+            <div class="container text-right">
+                <div class="row">
+                    <div class="col mt-4 p-0">
+                        <div class="bg-white text-dark rounded rounded-20px p-4 p-lg-5" style="margin: auto;width: 97%;">
+                            <div class="row @(inputTextdirection)">
+
+
+                                <div class="col">
+                                    <div class="text-center"><img src="~/Images/frontEnd/dalal.png" alt="DALAL" /></div>
+                                    <div class="pt-3">
+                                        For your convenience, Saudi Arabian ABDAL Company has developed a temporary employment service <span class="text-dalal font-weight-bold">( DALAL )</span> Non-resident hourly, the company provided qualified and trained workers in an hour to meet your needs and at an appropriate cost and in a manner that respects your privacy and the nature of the Saudi community and ensures the delivery of the service to your site at the time that suits you and agreed upon
+
+                                    </div>
+                                    <div class="hh1 text-primary mt-3"><i class="fa fa-star text-warning"></i>&nbsp;DALAL Service Features</div>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check text-primary"></i>&nbsp;Qualified and hourly workers</li>
+                                        <li><i class="fa fa-check text-primary"></i>&nbsp;Matches your needs</li>
+                                        <li><i class="fa fa-check text-primary"></i>&nbsp;At an appropriate cost</li>
+                                        <li><i class="fa fa-check text-primary"></i>&nbsp;In a manner that respects your privacy and the nature of Saudi society</li>
+                                        <li><i class="fa fa-check text-primary"></i>&nbsp;Ensures that the service is delivered to your site at the time that suits you</li>
+                                    </ul>
+                                </div>
+                                <div class="col">
+
+                                    <div class="alert alert-light text-center rounded-20px border p-5 mt-3">
+                                        <div class="clearfix"><img src="~/Images/frontEnd/family.jpg" alt="Only families" /></div>
+                                        @Html.Raw(DbRes.T("DalalFamilyWarning", "DalalResources"))
+
+                                        @*<div class="my-3 h5 text-dark">
+                This service is provided
+                <span class="text-primary">
+                    for families only
+                </span> In the absence of a lady at home we apologize for the service
+            </div>*@
+
+                                        <div class="my-3">
+                                            @Html.ActionLink(DbRes.T("AcceptBtn", "Shared"), "Create", "HourlyWorkers", new { area = "" }, new { @class = "btn btn-lg btn-info mb-1" })
+                                            @Html.ActionLink(DbRes.T("CancelBtn", "Shared"), "Index", "Home", new { area = "" }, new { @class = "btn btn-lg btn-outline-secondary mb-1" })
+                                        </div>
+                                    </div>
+
+                                    @Html.Raw(DbRes.T("DalalAdditionalWarning", "DalalResources"))
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+

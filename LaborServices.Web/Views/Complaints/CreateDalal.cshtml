@@ -1,0 +1,117 @@
+﻿@model LaborServices.Web.Models.CustomerTicket
+@{
+    ViewBag.Title = "Create Dalal";
+}
+<section class="complains">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>@DbRes.T("hdrComplaintsSpan", "ProfileResources")</h3>
+                @using (Html.BeginForm("CreateDalal", "Complaints", FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.ContactId)
+                    @Html.HiddenFor(m => m.SectorTypeId)
+
+
+                    <div class="form-group">
+                        @Html.DropDownListFor(model => model.ProblemTypeId, new List<SelectListItem>(), DbRes.T("SelectProblemType", "DalalResources"), new { @class = "form-control", data_selected = Model.ProblemTypeId })
+                        @Html.ValidationMessageFor(m => m.ProblemTypeId, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.DropDownListFor(model => model.ContractId, new List<SelectListItem>(), DbRes.T("SelectContract", "DalalResources"), new { @class = "form-control", data_selected = Model.ContractId })
+                        @Html.ValidationMessageFor(m => m.ContractId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group" style="display: none;" id="empIdContainer">
+                        @Html.DropDownListFor(model => model.EmployeeId, new List<SelectListItem>(), DbRes.T("SelectWorker", "DalalResources"), new { @class = "form-control", data_selected = Model.EmployeeId })
+                        @Html.ValidationMessageFor(m => m.EmployeeId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="ta form-group">
+                        @Html.TextAreaFor(m => m.ProblemDetails)
+                        @Html.ValidationMessageFor(m => m.ProblemDetails, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="submit"><button type="submit">@DbRes.T("CreateComplaintButton", "DalalResources")</button></div>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                }
+            </div>
+            <div class="col-sm-6">
+                <img class="img-fluid" src="~/Images/frontEnd/complains.png">
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    <script type="text/javascript">
+
+        function InitSelectize(selector, selectizeObj, url, valueField, labelField, requestParams, onChangeFunc) {
+
+            var $selectEntity = selector.selectize({
+                selectOnTab: true,
+                valueField: valueField,
+                labelField: labelField,
+                searchField: labelField,
+                create: false,
+                onChange: function(value) {
+                    if (typeof onChangeFunc === "function") {
+                        onChangeFunc(value);
+                    }
+                }
+            });
+
+            if (url != '' && url != null) {
+
+                var selectizeInstance = $selectEntity[0].selectize;
+                selectizeInstance.clear();
+                selectizeInstance.load(function(callback) {
+                    $.ajax({
+                        url: '' + url + '',
+                        type: 'GET',
+                        data: requestParams,
+                        error: function(e) {
+                            console.error(e.responseText);
+                            callback();
+                        },
+                        success: function(result) {
+                            callback(JSON.parse(result));
+                            selectizeInstance.setValue(selector.data("selected"));
+                        }
+                    });
+                });
+            }
+
+            return $selectEntity;
+        }
+
+        function OnProblemTypeChange(value) {
+            var workerProblemType = 100000009;
+            if (value && value == workerProblemType) {
+                $("#empIdContainer").show();
+                InitSelectize($('#EmployeeId'), @Html.NameFor(model => model.EmployeeId),"@Url.Action("GetCustomerServedWorkers", "Complaints")",'key','value');
+            } else {
+                $("#empIdContainer").hide();
+            }
+        }
+
+        function OnContractChange(value) {
+            var contractValue = value;
+            var workerProblemType = $('#ProblemTypeId').val();
+            if (workerProblemType && workerProblemType == 100000009) {
+                $("#empIdContainer").show();
+                InitSelectize($('#EmployeeId'), @Html.NameFor(model => model.EmployeeId),"@Url.Action("GetCustomerServedWorkers", "Complaints")",'key','value');
+            } else {
+                $("#empIdContainer").hide();
+            }
+        }
+
+        $(function() {
+            InitSelectize($('#ProblemTypeId'), @Html.NameFor(model => model.ProblemTypeId),"@Url.Action("GetProblemTypes", "Complaints")",'key','value',null,OnProblemTypeChange);
+            InitSelectize($('#ContractId'), @Html.NameFor(model => model.ContractId), "@Url.Action("GetUserContracts", "Complaints")", 'key', 'value', null, OnContractChange);
+        });
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

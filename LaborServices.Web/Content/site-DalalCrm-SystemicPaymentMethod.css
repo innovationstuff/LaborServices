@@ -1,0 +1,47 @@
+﻿.SystemicPaymentMethod .content {
+    background-color: rgba(255, 255, 255, 0.89);
+    border-radius: 8px
+}
+
+.SystemicPaymentMethod h2 {
+    font-size: 40px;
+    color: #003b71;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+.SystemicPaymentMethod .btn-primary {
+    background-color: #5EB3E4
+}
+
+.SystemicPaymentMethod .btn-gray {
+    background-color: #818285;
+    color: #fff
+}
+
+.SystemicPaymentMethod .btn {
+    transition: .2s
+}
+
+    .SystemicPaymentMethod .btn:hover {
+        box-shadow: 1px 1px 6px #212121
+    }
+
+.SystemicPaymentMethod .price {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(48, 93, 140, 0.6);
+    padding-top: 22px;
+    line-height: 16px;
+    transform: scale(.9);
+}
+
+@media screen and (max-width:575px) {
+
+    .SystemicPaymentMethod h2 {
+        margin-left: 0;
+        display: block;
+    }
+}

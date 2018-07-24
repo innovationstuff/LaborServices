@@ -1,0 +1,118 @@
+﻿@using LaborServices.Web.Models
+
+@model HomeViewModel
+@{
+    ViewBag.Title = "Home Page";
+    var mainSliderCount = Model.MainSlider.Count;
+}
+
+<div class="slider01">
+    <div class="container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+                @for (int i = 0; i < mainSliderCount; i++)
+                {
+                    <li data-target="#carouselExampleIndicators" data-slide-to="@i" @(i == 0 ? " class='active'" : "")></li>
+                }
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                @foreach (SliderViewModel slider in Model.MainSlider)
+                {
+                    <div class='carousel-item @(Model.MainSlider.First() == slider ? "active" : "" )'>
+                        <img class="d-block w-100" src='@Url.Content(slider.SliderImageUrl)' alt="First slide">
+                        <div class="carousel-caption d-flex h-100 align-items-center flex-column justify-content-center">
+                            <h3 class="animated fadeInUp">@slider.Slider.Title</h3>
+                            @if (!string.IsNullOrEmpty(slider.Slider.Description))
+                            {
+                                <p class="animated fadeInUp">
+                                    @slider.Slider.Description
+                                </p>
+                            }
+                            @if (!string.IsNullOrEmpty(slider.Slider.Link))
+                            {
+                                <a class="animated fadeInUp" href="@slider.Slider.Link">المزيد</a>
+                            }
+                        </div>
+
+                    </div>
+                }
+            </div>
+            @if (mainSliderCount > 1)
+            {
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            }
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <!-- twitter -->
+        <div class="col-xs-12 col-sm-12 col-md-6 ad ">
+            <h4 class="text-right">قطاع الأفراد</h4>
+            <div class="rowx">
+                <a href="@Url.Action("Index","HourlyWorkers")">
+                    <img src="@Url.Content("~/Images/frontEnd/service01.png")" class="img-fluid">
+                </a>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6 ad">
+            <h4 class="text-right">قطاع الأفراد</h4>
+            <div class="rowx">
+                <a href="@Url.Action("Index","HourlyWorkers")">
+                    <img src="@Url.Content("~/Images/frontEnd/service02.png")" class="img-fluid">
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 ad">
+            <h4 class="text-right">قطاع الأعمال</h4>
+            <div class="rowx">
+                <a href="@Url.Action("Soon","Home")">
+                    <img src="@Url.Content("~/Images/frontEnd/service03.png")" class="img-fluid">
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 ad">
+            <h4 class="text-right">قطاع الأعمال</h4>
+            <div class="rowx">
+                <a href="@Url.Action("Soon","Home")">
+                    <img src="@Url.Content("~/Images/frontEnd/service04.png")" class="img-fluid">
+                </a>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12  mt-5 p-0">
+            <div class="a-ad" style="margin :auto; width :97%;">
+                <div class="ad" style="background-color:  #fff;border-radius: 20px;height: 379px;">
+                    <h4 class="text-center" style="color: #356793; background: #fff">
+                        <i class="fa fa-twitter"></i>
+                        أخبارنا على تويتر
+                    </h4>
+                    <div class="row" style="height: 200px;overflow-y: scroll;direction:ltr;    width: 90%; margin: auto;">
+                        <a class="twitter-timeline" href="https://twitter.com/AbdalRecruit?ref_src=twsrc%5Etfw">Tweets by AbdalRecruit</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+
+                    <div class="text-center  mt-5">
+                        <a href="#" class="btn btn-primary text-center">
+                            <p style="margin: 0;font-size: 0.9em">
+                                &nbsp;للمزيد من اخبارنا &nbsp;AbdalRecTwit@@ &nbsp;
+                                <i class="fa fa-twitter"></i>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@model WebSitePage
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="page-profile">
+    @using (Html.BeginForm())
+    {
+        <div class="modal-body">
+            @Html.Partial("_EditContent")
+        </div>
+    }
+</div>
+@section scripts
+{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckfinder/ckfinder.js"></script>
+}

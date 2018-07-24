@@ -1,0 +1,65 @@
+﻿@model  LaborServices.Web.Models.VerifyPhoneNumberViewModel
+@{
+    ViewBag.Title = DbRes.T("VerifyPhoneNumber", "ProfileResources");
+}
+
+@{
+    ViewBag.Title = "Contact";
+    var routeData = ViewContext.RouteData.Values;
+    string action = routeData["action"] as string;
+    string lang = routeData["lang"] as string;
+}
+
+<section class="loginPage">
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-40">
+                        <div class="text-center">
+                            <div class="form-group h4 text-primary" id="status">@ViewBag.Status</div>
+                            @using (Ajax.BeginForm("ReGenrateCode", "Manage", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "status" }))
+                            {
+                                @Html.HiddenFor(m => Model.UserId, new { id = "cUserId" })
+                                @Html.HiddenFor(m => Model.PhoneNumber, new { id = "cPhoneNumber" })
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i> اعادة ارسال
+                                </button>
+                                if (lang == "ar")
+                                {
+                                    <span style="font-size:10px;color:red;display:block;padding:5px;">اذا لم يصلك كود تفعيل علي جوالك , تحقق من بريدك الالكتروني</span>
+                                }
+                                else
+                                {
+                                    <span style="font-size:10px;color:red;display:block;padding:5px;">If there is no code sent to your mobile , Please check your email.</span>
+                                }
+                            }
+
+                            @using (Html.BeginForm("VerifyPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.HiddenFor(m => Model.UserId)
+                                @Html.HiddenFor(m => Model.PhoneNumber)
+                                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.Code, new { @class = "form-control rounded-0", placeholder = "Code" })
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <input type="submit" class="btn btn-lg btn-block btn-info" value="@DbRes.T("Submit", "ProfileResources")" />
+                                </div>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

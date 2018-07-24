@@ -1,0 +1,48 @@
+﻿@model LaborServices.Model.Team
+@using (Ajax.BeginForm("Edit", "Team", new AjaxOptions { OnSuccess = "EditingModal", HttpMethod = "post", UpdateTargetId = "divEditing" }))
+{
+	<div class="modal-dialog" role="document" id="divEditing">
+		<div class="modal-content">
+			<div class="modal-header text-left">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3>Edit</h3>
+			</div>
+
+			@Html.AntiForgeryToken()
+			@Html.HiddenFor(x => x.Id, new { @class = "EditingIDClass" })
+			<div class="" id="Edit">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.NameAr)
+							@Html.TextBoxFor(x => x.NameAr, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.NameAr) })
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.NameEn)
+							@Html.TextBoxFor(x => x.NameEn, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.NameEn) })
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.DescriptionAr)
+							@Html.TextAreaFor(x => x.DescriptionAr, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.DescriptionAr) })
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.DescriptionEn)
+							@Html.TextAreaFor(x => x.DescriptionEn, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.DescriptionEn) })
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" id="closeModal" data-dismiss="modal" aria-hidden="true">Cancel</button>
+					<button class="btn btn-primary" id="btnSaveEditing" type="submit"><i class="icon-trash icon-white"></i> Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+<script src="~/Scripts/about.js"></script>

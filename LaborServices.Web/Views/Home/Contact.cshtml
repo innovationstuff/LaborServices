@@ -1,0 +1,241 @@
+﻿@using LaborServices.Model.Identity
+@using LaborServices.Utility
+@using LaborServices.Web.Helpers
+@{
+    ViewBag.Title = "Contact";
+    var routeData = ViewContext.RouteData.Values;
+    string action = routeData["action"] as string;
+    string lang = routeData["lang"] as string;
+    var language = lang == "ar" ? Language.Arabic : Language.English;
+    var IconDirection = lang == "ar" ? "left" : "right";
+    var IconDirect = lang == "ar" ? "right" : "left";
+}
+
+@if (lang == "ar")
+{
+    <section class="branches">
+        <div class="container">
+            <div class="row">
+                <div class="@IconDirect col-sm-6">
+                    <h3>فرع الرياض</h3>
+                    <p><i class="fa fa-map-marker"></i>العنوان : الطريق الدائري الشمالي</p>
+                    <p style="direction:ltr;">حي التعاون , الرياض 12478</p>
+                    <p>المملكة العربية السعودية</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:920033660" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    @*<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.369577393002!2d46.7024798851152!3d24.782795354469567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd0287de8f77%3A0x4315df4eee215a35!2sAbdal+Recruitment+Company!5e0!3m2!1sar!2seg!4v1523444922468" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>*@
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.369577392966!2d46.698102514349195!3d24.7827953544708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd0287de8f77%3A0x4315df4eee215a35!2sAbdal+Recruitment+Company!5e0!3m2!1sen!2seg!4v1524124996018" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+                <div class="@IconDirect col-sm-6">
+                    <h3>فرع حائل</h3>
+                    <p><i class="fa fa-map-marker"></i>العنوان : حائل - طريق الملك فيصل</p>
+                    <p style="direction:ltr;">حي العزيزية</p>
+                    <p>المملكة العربية السعودية</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:0595783322" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18092.277971103744!2d41.724110237343204!3d27.516116753574728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2seg!4v1523717597543" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+                <div class="@IconDirect col-sm-6">
+                    <h3>فرع القصيم</h3>
+                    <p><i class="fa fa-map-marker"></i>القصيم - محافظة عنيزة </p>
+                    <p style="direction:ltr;">حي الفاخرية - شارع زامل عبدالله السليم</p>
+                    <p>المملكة العربية السعودية</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:0595783322" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.009409085217!2d43.98369188509316!3d26.06594890230224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1581edad4eabcefd%3A0x660cdf8f70a72018!2z2LTYsdmD2Kkg2KPYqNiv2KfZhCDZhNmE2KXYs9iq2YLYr9in2YU!5e0!3m2!1sar!2seg!4v1523717177872" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+                <div class="@IconDirect col-sm-6">
+                    <h3>فرع الدمام</h3>
+                    <p><i class="fa fa-map-marker"></i>المنطقة الشرقية – الدمام </p>
+                    <p style="direction:ltr;">كورنيش الدمام - شارع الخليج - أبراج النخيل - الدور الخامس</p>
+                    <p>المملكة العربية السعودية</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:0138349629" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.971391820036!2d50.12610378508609!3d26.45665108594321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fbbe7c4d9ac9%3A0xf9f5051f6d65a6bf!2z2KPYqNix2KfYrCDYp9mE2YbYrtmK2YTYjCDYp9mE2LTYp9i32KYg2KfZhNi02LHZgtmK2Iwg2KfZhNiv2YXYp9mFIDMyNDEz2Iwg2KfZhNiz2LnZiNiv2YrYqQ!5e0!3m2!1sar!2seg!4v1523717783487"  height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+                <div class="@IconDirect col-sm-6">
+                    <h3>فرع الخرج</h3>
+                    <p><i class="fa fa-map-marker"></i>الخرج  </p>
+                    <p style="direction:ltr;">طريق ابي بكر الصديق _ بجوار بنك ساب بتجاه الشمال - الدور الأول</p>
+                    <p>المملكة العربية السعودية</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:0591584296" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.497958948799!2d47.31885708512552!3d24.154263079144997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e254f13d378556d%3A0x8071d2d65d71f7ad!2z2LfYsdmK2YIg2KPYqNmKINio2YPYsSDYp9mE2LXYr9mK2YLYjCDYp9mE2K7YsdisINin2YTYs9i52YjYr9mK2Kk!5e0!3m2!1sar!2seg!4v1523718093057" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+
+                <div class="@IconDirect col-sm-6">
+                    <h3>فرع جدة</h3>
+                    <p><i class="fa fa-map-marker"></i>مدينة جدة </p>
+                    <p style="direction:ltr;">شارع التحلية  - مركز بن حمران – الدور السابع – مكتب 702B -</p>
+                    <p>المملكة العربية السعودية</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:0126583498" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.7161572219475!2d39.18349798516495!3d21.557951274877656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d005105b1d6b%3A0xca8110bad50e13ef!2z2LTYp9ix2Lkg2KfZhNij2YXZitixINmF2K3ZhdivINio2YYg2LnYqNiv2KfZhNi52LLZitiy2Iwg2KzYr9ipINin2YTYs9i52YjYr9mK2Kk!5e0!3m2!1sar!2seg!4v1523718301697" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+}
+else
+{
+    <section class="branches">
+        <div class="container">
+            <div class="row">
+                <div class="left col-sm-6">
+                    <h3>Riyadh Branch</h3>
+                    <p><i class="fa fa-map-marker"></i>Address: Northern Ring Branch Rd</p>
+                    <p>At Taawun, Riyadh 12478 </p>
+                    <p>Saudi Arabia</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:920033660" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    @*<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.369577393002!2d46.7024798851152!3d24.782795354469567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd0287de8f77%3A0x4315df4eee215a35!2sAbdal+Recruitment+Company!5e0!3m2!1sar!2seg!4v1523444922468" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>*@
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.369577392966!2d46.698102514349195!3d24.7827953544708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd0287de8f77%3A0x4315df4eee215a35!2sAbdal+Recruitment+Company!5e0!3m2!1sen!2seg!4v1524124996018" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+                <div class="@IconDirect col-sm-6">
+                    <h3>Hail Branch</h3>
+                    <p><i class="fa fa-map-marker"></i>Address: Hail - King Faisal Road</p>
+                    <p style="direction:ltr;">Alaaziziyah District</p>
+                    <p>Saudi Arabia</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:0595783322" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18092.277971103744!2d41.724110237343204!3d27.516116753574728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2seg!4v1523717597543" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+                <div class="@IconDirect col-sm-6">
+                    <h3>Qassim Branch</h3>
+                    <p><i class="fa fa-map-marker"></i>Qassim - Onaiza Governorate </p>
+                    <p style="direction:ltr;">Al-Fakhriya District - Zamil Abdullah Al-Saleem Street</p>
+                    <p>Saudi Arabia</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:0595783322" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.009409085217!2d43.98369188509316!3d26.06594890230224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1581edad4eabcefd%3A0x660cdf8f70a72018!2z2LTYsdmD2Kkg2KPYqNiv2KfZhCDZhNmE2KXYs9iq2YLYr9in2YU!5e0!3m2!1sar!2seg!4v1523717177872" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+                <div class="@IconDirect col-sm-6">
+                    <h3>Dammam Branch</h3>
+                    <p><i class="fa fa-map-marker"></i>Eastern Region - Dammam </p>
+                    <p style="direction:ltr;">Dammam Corniche - Al Khaleej Street - Al Nakheel Towers - Fifth Floor</p>
+                    <p>Saudi Arabia</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:0138349629" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.971391820036!2d50.12610378508609!3d26.45665108594321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fbbe7c4d9ac9%3A0xf9f5051f6d65a6bf!2z2KPYqNix2KfYrCDYp9mE2YbYrtmK2YTYjCDYp9mE2LTYp9i32KYg2KfZhNi02LHZgtmK2Iwg2KfZhNiv2YXYp9mFIDMyNDEz2Iwg2KfZhNiz2LnZiNiv2YrYqQ!5e0!3m2!1sar!2seg!4v1523717783487" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+                <div class="@IconDirect col-sm-6">
+                    <h3>Al-Kharj Branch</h3>
+                    <p><i class="fa fa-map-marker"></i>Al-Kharj  </p>
+                    <p style="direction:ltr;">Abu Bakr Al-Siddiq Road - next to SABB Bank towards North - First Floor</p>
+                    <p>Saudi Arabia</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:0591584296" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.497958948799!2d47.31885708512552!3d24.154263079144997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e254f13d378556d%3A0x8071d2d65d71f7ad!2z2LfYsdmK2YIg2KPYqNmKINio2YPYsSDYp9mE2LXYr9mK2YLYjCDYp9mE2K7YsdisINin2YTYs9i52YjYr9mK2Kk!5e0!3m2!1sar!2seg!4v1523718093057" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+
+                <div class="@IconDirect col-sm-6">
+                    <h3>Jeddah Branch</h3>
+                    <p><i class="fa fa-map-marker"></i>Jeddah city</p>
+                    <p style="direction:ltr;">Tahlia Street - Bin Hamran Center - 7th Floor - Office B-702</p>
+                    <p>Saudi Arabia</p>
+                    <div class="social">
+                        <a class="fa fa-twitter" href="https://twitter.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-facebook" href="https://www.facebook.com/www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-instagram" href="https://www.instagram.com/abdalrecruit" target="_blank"></a>
+                        <a class="fa fa-globe" href="https://www.abdal.sa" target="_blank"></a>
+                        <a class="fa fa-phone" href="tel:0126583498" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="@IconDirection col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.7161572219475!2d39.18349798516495!3d21.557951274877656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d005105b1d6b%3A0xca8110bad50e13ef!2z2LTYp9ix2Lkg2KfZhNij2YXZitixINmF2K3ZhdivINio2YYg2LnYqNiv2KfZhNi52LLZitiy2Iwg2KzYr9ipINin2YTYs9i52YjYr9mK2Kk!5e0!3m2!1sar!2seg!4v1523718301697" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+}

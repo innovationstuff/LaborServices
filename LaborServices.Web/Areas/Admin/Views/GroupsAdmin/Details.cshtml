@@ -1,0 +1,85 @@
+﻿@using LaborServices.Entity.Identity
+@model LaborServices.Model.Identity.ApplicationGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-profile">
+
+    <div class="row">
+
+        <!-- COL 1 -->
+        <div class="col-md-8 col-lg-6">
+            <section class="panel">
+                <div class="panel-body noradius padding-10">
+
+                    <!-- About -->
+                    <h3 class="text-black">
+                        @Html.DisplayFor(model => model.Name)
+                    </h3>
+                    <p class="size-12">
+                        @Html.DisplayFor(model => model.Description)
+                    </p>
+                    <!-- /About -->
+
+                    <hr class="half-margins" />
+
+                    <h6>Actions</h6>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+
+                </div>
+            </section>
+        </div><!-- /COL 1 -->
+
+        <div class="col-md-12 col-lg-3">
+
+            <!-- groups  -->
+            <section class="panel panel-default">
+                <header class="panel-heading">
+                    <h2 class="panel-title elipsis">
+                        <i class="fa fa-rss"></i> users in this group
+                    </h2>
+                </header>
+
+                <div class="panel-body noradius padding-10">
+                    @if (ViewBag.UserCount != 0)
+                    {
+                        <ul class="bullet-list list-unstyled">
+                            @foreach (ApplicationUser user in ViewBag.Users)
+                            {
+                                <li><h3>@user.UserName</h3></li>
+                            }
+                        </ul>
+                    }
+                </div>
+
+            </section>
+            <section class="panel panel-default">
+                <header class="panel-heading">
+                    <h2 class="panel-title elipsis">
+                        <i class="fa fa-rss"></i> groups roles
+                    </h2>
+                </header>
+
+                <div class="panel-body noradius padding-10">
+                   @if (ViewBag.PermissionsCount != 0)
+                   {
+                        <ul class="bullet-list list-unstyled">
+                            @foreach (var item in ViewBag.RolesList)
+                            {
+                                <li><h3>@item</h3></li>
+                            }
+                        </ul>
+                    }
+                </div>
+
+            </section>
+
+        </div><!-- /COL 3 -->
+
+
+    </div>
+
+</div>

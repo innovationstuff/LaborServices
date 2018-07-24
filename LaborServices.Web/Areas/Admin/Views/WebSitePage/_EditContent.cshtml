@@ -1,0 +1,61 @@
+﻿@model WebSitePage
+@{
+    Layout = "";
+}
+
+<div class="row">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.PageId)
+    @Html.HiddenFor(model => model.PageName)
+    @Html.ValidationSummary(true)
+    <div class="col-md-12 col-lg-12">
+        <section class="panel">
+            <div class="panel-heading panel-heading-transparent">
+                <strong>Edit @Model.TitleEn (@Model.TitleAr)</strong>
+            </div>
+            <div class="panel-body noradius padding-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TitleEn)
+                    @Html.TextBoxFor(model => model.TitleEn, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TitleEn)
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TitleAr)
+                    @Html.TextBoxFor(model => model.TitleAr, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TitleAr)
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DescriptionEn)
+                    @Html.TextAreaFor(model => model.DescriptionEn, new { @class = "ckeditor" })
+                    @Html.ValidationMessageFor(model => model.DescriptionEn)
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DescriptionAr)
+                    @Html.TextAreaFor(model => model.DescriptionAr, new { @class = "ckeditor" })
+                    @Html.ValidationMessageFor(model => model.DescriptionAr)
+                </div>
+                        
+                <hr class="half-margins" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                        @Html.ActionLink("Back to List", "Index")
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div><!-- /COL 1 -->
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $.validator.setDefaults({ ignore: '' });
+        $.validator.unobtrusive.parse($("form"));
+    });
+</script>

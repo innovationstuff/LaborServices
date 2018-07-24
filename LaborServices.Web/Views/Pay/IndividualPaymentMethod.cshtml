@@ -1,0 +1,39 @@
+﻿@using LaborServices.Web.Models
+@model DomesticInvoice
+
+@{
+    ViewBag.Title = "Payment Method";
+}
+@section css{
+    @Styles.Render("~/Content/site-payment-PaymentMethod")
+}
+
+
+<section class="PaymentMethod text-center my-5 ">
+    <div class="container">
+        <div class="content pb-5">
+            <h2 class="pt-4 mb-3">@DbRes.T("ChoosePaymentMethod", "Payment")</h2>
+            <p class="price mx-auto text-white mt-0 mt-md-3 mb-0"><b class="d-block">@Html.DisplayFor(m => Model.InvoiceAmount)</b><small>@DbRes.T("SaudiCurrencyShort", "Shared")</small></p>
+            <p class="d-block mb-5 mb-3">@DbRes.T("Invoice", "Shared") <B>@Html.DisplayFor(m => Model.Number)</B></p>
+
+            <p><b>@DbRes.T("DearCustomer", "Shared") </b> 
+            @Html.DisplayFor(m => Model.Customer)
+            </p>
+            <p>@DbRes.T("PleaseChooseYourPreferredPaymentMethodForthe", "Payment") @DbRes.T("Invoice", "Shared") <b>@Html.DisplayFor(m => Model.Number)</b> </p>
+
+
+
+            <a href='@Url.Action("IndividualOnlinePayment","Pay",new { id = Model.Id , lang = ViewBag.LangCode })' class='btn btn-primary btn-lg border-0 my-1'>
+                @DbRes.T("PayOnline", "Payment") &nbsp;&nbsp;<i class='fa fa-cc-visa'></i>
+            </a>
+
+            <a href='@Url.Action("IndividualBankTransfer","Pay",new { id = Model.Id, lang = ViewBag.LangCode  })' class='btn btn-gray btn-lg border-0 my-1 mr-sm-4 mr-0'>
+                @DbRes.T("BankTransfer", "Payment") &nbsp;&nbsp;<i class='fa fa-money'></i>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+

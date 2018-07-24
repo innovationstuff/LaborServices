@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Dalal";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+<section>
+    <div class="content portal-content">
+        <div class="container">
+            @using (Ajax.BeginForm("DalalList", "Complaints", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "ulCompliants" }, new { id = "frmGetComplaints" }))
+            {
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-5" style="margin: auto;width: 97%;">
+
+                        <div class="row">
+                            <!--<div class="col-3 col-md-3 col-sm-3"></div>-->
+
+                            <div class="col-12">
+                                @Html.DropDownList("status", new List<SelectListItem>(), DbRes.T("SelectStatus", "Shared"), new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-lg-3 col-md-4 mb-4 mb-md-0">
+                                <div class="w-100 btn-group btn-group-toggle btn-group-vertical" data-toggle="buttons">
+                                    <label class="btn btn-lg btn-primary active">
+                                        <input type="radio" name="SectorType" id="Dalal" autocomplete="off" checked data-link="@Url.Action("Dalal","Complaints")">
+                                        @DbRes.T("DalalComplaints", "ProfileResources")
+
+                                    </label>
+                                    <label class="btn  btn-lg btn-secondary ">
+                                        <input type="radio" name="SectorType" id="Individual" autocomplete="off" data-link="@Url.Action("Soon","Home")">
+                                        @DbRes.T("IndividualsComplaints", "ProfileResources")
+
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-9 col-md-8">
+                                <h3 class="portal-panel-header">
+                                    @DbRes.T("hdrComplaintsSpan", "ProfileResources")
+                                </h3>
+
+                                <a href="@Url.Action("CreateDalal","Complaints")"><span class="portal-panel-add"><i class="fa fa-plus"></i></span></a>
+                                <div class="border p-2 mb-4">
+                                    <div class="panel-body">
+                                        <table class="table table-sm table-bordered table-hover table-responsive-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="row">@DbRes.T("TicketNumberTH", "ProfileResources")</th>
+                                                    <th scope="row">@DbRes.T("ClientClosedCodeTH", "ProfileResources")</th>
+                                                    <th scope="row">@DbRes.T("ProblemTypeTH", "ProfileResources")</th>
+                                                    @*<th scope="row">@DbRes.T("SectorTypeTH", "ProfileResources")</th>*@
+                                                    <th scope="row">@DbRes.T("StatusTH", "ProfileResources")</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="ulCompliants"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script type="text/javascript">
+        function InitSelectize(selector, selectizeObj, url, valueField, labelField, requestParams, onChangeFunc) {
+
+            var $selectEntity = selector.selectize({
+                selectOnTab: true,
+                valueField: valueField,
+                labelField: labelField,
+                searchField: labelField,
+                create: false,
+                onChange: function (value) {
+                    if (typeof onChangeFunc === "function") {
+                        onChangeFunc(value);
+                    }
+                }
+            });
+
+            if (url != '' && url != null) {
+
+                var selectizeInstance = $selectEntity[0].selectize;
+                selectizeInstance.clear();
+                selectizeInstance.load(function (callback) {
+                    $.ajax({
+                        url: '' + url + '',
+                        type: 'GET',
+                        data: requestParams,
+                        error: function (e) {
+                            console.error(e.responseText);
+                            callback();
+                        },
+                        success: function (result) {
+                            callback(JSON.parse(result));
+                        }
+                    });
+                });
+            }
+
+            return $selectEntity;
+        }
+        function OnStatusChange() {
+            $("#frmGetComplaints").submit();
+        }
+
+
+        $(function () {
+            InitSelectize($('#status'), "status", "@Url.Action("GetStatus")", 'key', 'value', null, OnStatusChange);
+            $("#frmGetComplaints").submit();
+            $('[ name="SectorType"]').change(function(value) {
+                window.location.href = $(this).data("link");
+            });
+        });
+    </script>
+}

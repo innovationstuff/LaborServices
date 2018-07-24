@@ -1,0 +1,232 @@
+﻿@using LaborServices.Web.Models
+@model ServiceContractPerHour
+
+@{
+    var routeData = ViewContext.RouteData.Values;
+    ViewBag.Title = "SystemicPayOnline";
+    var CheckoutId = ViewBag.CheckoutId as string;
+    string lang = routeData["lang"] as string;
+}
+
+@section css{
+    @Styles.Render("~/Content/site-DalalCrm-SystemicPayOnline")
+}
+
+<style>    /*
+    .SystemicPayOnline h2 {
+        font-size: 40px;
+        color: #003b71;
+    }
+
+    .SystemicPayOnline .content {
+        background-color: rgba(255, 255, 255, 0.89);
+        border-radius: 8px
+    }
+
+    .SystemicPayOnline input[type=file] {
+        background-color: rgba(48, 93, 140, 0.24);
+        opacity: 0;
+        z-index: 6;
+        position: relative
+    }
+
+    .SystemicPayOnline .custumInpFile {
+        position: relative;
+        width: 50%;
+        height: 40px;
+        z-index: 5;
+        top: 35px;
+        left: 25%;
+        background-color: rgba(48, 93, 140, 0.5);
+        line-height: 40px;
+        color: #fff
+    }
+
+    .SystemicPayOnline .btn-primary {
+        background-color: #5EB3E4;
+        border: none
+    }*/
+</style>
+
+@*<script>
+    var wpwlOptions = {
+        style: "card",
+        paymentTarget:"_top"
+    }
+</script>*@
+
+<script src="https://oppwa.com/v1/paymentWidgets.js?checkoutId=@CheckoutId">
+
+</script>
+
+<script>
+    var wpwlOptions = {
+        iframeStyles: {
+            'card-number-placeholder': {
+                'color': '#ff0000',
+                'font-size': '16px',
+                'font-family': 'monospace'
+            },
+            'cvv-placeholder': {
+                'color': '#0000ff',
+                'font-size': '16px',
+                'font-family': 'Arial'
+            }
+        },
+        style: "card",
+        paymentTarget:"_top",
+        locale: "en"
+    }
+</script>
+
+<script>
+   var langu=@lang;
+    //var wpwlOptions = {
+    //    locale: "en"
+    //}
+</script>
+<script async src="https://oppwa.com/v1/paymentWidgets.js?checkoutId=@CheckoutId"></script>
+
+<style>
+    .SystemicPayOnline h2 {
+        margin-left: 30px;
+        display: inline-block;
+    }
+
+    .SystemicPayOnline .price {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: rgba(48, 93, 140, 0.6);
+        padding-top: 22px;
+        line-height: 16px;
+        transform: scale(.9);
+    }
+
+    @@media screen and (max-width:575px) {
+
+        .SystemicPayOnline h2 {
+            margin-left: 0;
+            display: block;
+        }
+    }
+</style>
+
+<section class="SystemicPayOnline">
+    <div class="container">
+        <div class="content my-5 text-center">
+            <h2 class="pt-4 mb-3"> @DbRes.T("PayOnline", "DalalResources")</h2>
+            <p class="price mx-auto text-white mt-0 mt-md-3 mb-0"><b class="d-block">@Html.DisplayFor(m => Model.HourlyPricingCost.NetPrice)</b><small>@DbRes.T("SaudiCurrencyShort", "Shared")</small></p>
+            <p class="d-block mb-5 mb-3">عقد <B>@Html.DisplayFor(m => Model.ContractNum)</B></p>
+
+
+            <p><b>@DbRes.T("DearCustomer", "Shared") </b>  @Html.DisplayFor(m => Model.Customer)</p>
+            <p>@DbRes.T("PleasePayOnlineForContract", "DalalResources") <b>@Html.DisplayFor(m => Model.ContractNum)</b> </p>
+            <div class="row">
+                <div class="col  p-0">
+                    <div class="text-dark rounded rounded-20px m-auto w-md-50">
+                        <div class="text-center">
+                            @*<div class="form-group h4 text-primary">@DbRes.T("ShopperResultHeader", "DalalResources")</div>*@
+                            <div class="wpwl-container col-lg-12" style="direction:ltr !important;">
+                                <form action="http://localhost:51876/@lang/DalalCrm/PaymentStatus?contractId=@Model.ContractId" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>
+                                @*<form action="@Url.Action("Status","Payment", new { lang= lang})" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>*@
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-50 mx-auto p-2 ">
+                <table class="table table-bordered border-black table-sm table-hover text-right">
+                    <tbody>
+                        @*<tr>
+                                <td>@DbRes.T("ContractNum", "DalalResources")</td>
+                                <td>@Html.DisplayFor(m => Model.ContractNum)</td>
+                            </tr>*@
+                        <tr>
+                            <td>@DbRes.T("Total Price + Vat", "DalalResources")</td>
+                            <td><b> @Html.DisplayFor(m => Model.HourlyPricingCost.NetPrice) <span class="smallText"> @DbRes.T("SaudiCurrencyShort", "Shared") </span> </b></td>
+                        </tr>
+                        <tr>
+                            <td>@DbRes.T("ContractDuration", "DalalResources")</td>
+                            <td>@Html.DisplayFor(m => Model.ContractDurationName)</td>
+                        </tr>
+                        <tr>
+                            <td>@DbRes.T("WorkersNum", "DalalResources")</td>
+                            <td>@Html.DisplayFor(m => Model.NumOfWorkers)</td>
+                        </tr>
+                        <tr>
+                            <td>@DbRes.T("VisitsNum", "DalalResources")</td>
+                            <td>@Html.DisplayFor(m => Model.NumOfVisits)</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="pb-3 pt-3">@DbRes.T("ThanksForChoosingUs", "Shared")</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    function getStatus() {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("StatuesRequestRequest", "Payment")',
+
+            success: function (res) {
+                console.log(res);
+
+
+            }, error: function () {
+                alert("Error Occured!!!");
+            }
+        });
+    }
+</script>
+
+
+@section scripts{
+
+    @*<script src="https://oppwa.com/v1/paymentWidgets.js?checkoutId=@CheckoutId"></script>
+         <script>
+             var wpwlOptions = {
+                 style: "card",
+                 iframeStyles: {
+                     'card-number-placeholder': {
+                         'color': '#ff0000',
+                         'font-size': '16px',
+                         'font-family': 'monospace'
+                     },
+                     'cvv-placeholder': {
+                         'color': '#0000ff',
+                         'font-size': '16px',
+                         'font-family': 'Arial'
+                     }
+                 },
+                 locale: "en"
+             };
+
+        var langu=@lang;
+
+         function getStatus() {
+             $.ajax({
+                 type: "GET",
+                 url: '@Url.Action("StatuesRequestRequest", "Payment")',
+
+                 success: function (res) {
+                     console.log(res);
+
+
+                 }, error: function () {
+                     alert("Error Occured!!!");
+                 }
+             });
+         }
+         </script>*@
+
+}
+

@@ -1,0 +1,41 @@
+﻿// ------- DONE -------- ------- Hamamsy ------- 1- DDl Style for selectize : ignore all selectize style		
+2- User Rate Dalal Shifts
+3- Security of Api and Register/ Login from Api
+// ------- DONE -------- ------- Fadl ------- 4- Add profile page and edit profile pages.
+5- English version of website is not working
+// ------- DONE -------- ------- Fadl ------- 6- Add complaints page with create new one
+7- add new contract button in contracts page
+// ------- DONE -------- ------- Fadl ------- 8- remove contact us and add our branches under about
+// ------- DONE -------- ------- Fadl ------- 9- add profile and logout under my account
+10- add promotions with add new contract (Business Development and Design)
+// ------- DONE -------- ------- Hamamsy ------- 11- If no Discount, don't display after discount section
+// ------- DONE -------- ------- Hamamsy ------- 12- In location step , display text boxes (Bulding no , ....) and apply business (api)           
+// ------- DONE -------- ------- Ramadan ------- 13- Assign Task to designers:: design of lang, log out buttons
+14- Create Available Shifts new implementation
+// ------- M Abd Elrahman ------- 15- lead page : remove region(done), remove email validation (there is no email  validation), + btn in bottom (not possible), resize send btn(how ?) and display friendly msg after submit(done)
+16- عند الدفع قم بحفظ المبلغ المدفوع وتفاصيله في ال Labor DB  
+		تحسبا لوجود مشكلة قد تحدث عند ارسال البيانات ال crm api
+// ------- DONE -------- ------- Hamamsy ------- 17- Contract Details Translation & design
+18- Contract List Design & Translation
+// ------- DONE -------- ------- Hamamsy ------- 19- Bundle globalize for site.css 
+// ------- DONE -------- ------- Hamamsy ------- 20- DDL design in complaints
+21- Contracts List Link Where ?
+// ------- Ramadan ------- 22- display Fake Loader in the step of creating contract
+// ------- DONE -------- ------- Hamamsy ------- 23- btn next, prev disappear in the step of visits timing in case of multiple apppointments  and check table scroll
+// ------- Ramadan ------- 24- disable calender textbox and appear in top and check in mobile , fire when on click txtbox not only icon, adjust icon design, try jquery ui instead of bootstrap calender 
+// ------- Fadl ------- 25- Transfer fadl local translation to test server
+26- Apply Availability Validation on ui 
+// ------- DONE -------- ------- Ramadan ------- 27- Add SA (ريال سعودي) for prices
+28- wrong prices of Contract details in creating contract
+29- Problem in api Get Packages of Indonisia (review screen shots from ramadan)
+30- In new create available shifts >>> Apply validation changes of 8-hours working (لو المطلوب 8 ساعات وهي اشتغلت في اليوم دة && والعكس .. لو اشتغلت 8 ساعات ومطلوب تشتغل في اليوم دة)
+31- Exception Logger
+32- Requests Logger
+// ------- Gehad ------- 33- design ddl in business sector
+34- Business of payment
+
+
+
+
+
+

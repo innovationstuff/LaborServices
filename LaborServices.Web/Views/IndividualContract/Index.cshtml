@@ -1,0 +1,274 @@
+﻿@using LaborServices.Web.Models
+@model List<AvailableNumber>
+@{
+    ViewBag.Title = "Index";
+    int nationalityIndex = 1;
+    int professionIndex = 1;
+
+}
+
+<!--		Start Select	  -->
+<section class="select">
+    <div class="container">
+        <div class="row">
+            <div class="header">
+                <h2>@DbRes.T("AddressHeader", "IndividualContractResources")</h2>
+                <p>@DbRes.T("AddressSubHeader", "IndividualContractResources") </p>
+            </div>
+        </div>
+        @foreach (AvailableNumber item in Model)
+        {
+            <div>
+                <div class="details row">
+                    <div class="b col-md-5">
+                        <div>
+                            <img class="img-fluid" src="~/Images/frontEnd/@(item.nationalityId).png" alt="...">
+                            <p>@item.nationality</p>
+                        </div>
+                    </div>
+                    <div class="c col-md-7">
+                        @foreach (professionCount item1 in item.professionCounts)
+                        {
+                            <label class="sel form-check-label" for="con-@nationalityIndex-@professionIndex" data-target-details="profession-details-@nationalityIndex-@professionIndex">
+                                <img class="img-fluid" src="~/Images/frontEnd/@(item1.professionId).png" alt="...">
+                                <div class="des">
+                                    <span>
+                                        @item1.profession
+                                    </span>
+                                    <input class="form-check-input" type="radio" name="contry1" id="con-@nationalityIndex-@professionIndex" value="option1">
+                                    <p>@DbRes.T("AvailableNumber", "IndividualContractResources"): @item1.count</p>
+                                </div>
+                            </label>
+                            professionIndex++;
+                        }
+
+
+                    </div>
+                </div>
+                @{
+                    professionIndex = 1;
+                }
+                @foreach (professionCount item1 in item.professionCounts)
+                {
+                    <div class="prices" id="profession-details-@nationalityIndex-@professionIndex">
+                        <div class="container">
+                            <div class="header">
+                                <h3>@item1.profession</h3>
+                                <p>@item1.profession</p>
+                            </div>
+                            <input type="hidden" value="@nationalityIndex" id='nationalityIndex' class='h_v'>
+                            <input type="hidden" value="@professionIndex" id='professionIndex' class='h_v'>
+                            <input type="hidden" value="@item.nationalityId" id='nationality' class='h_v'>
+                            <input type="hidden" value="@item1.professionId" id='profession' class='h_v'>
+                            <div id="carouselPrices" class="carouselPrices-@nationalityIndex-@professionIndex">
+                          
+                            </div>
+
+                            <div class="Buttons">
+                                <button class="btn btn-danger next">@DbRes.T("NextBtn", "Shared")</button>
+                                <button class="btn btn-danger prev">@DbRes.T("PrevBtn", "Shared")</button>
+                            </div>
+                        </div><!-- container -->
+                    </div><!-- prices -->
+
+                    professionIndex++;
+
+                }
+
+            </div>
+
+                        nationalityIndex++;
+                        professionIndex = 1;
+                    }
+
+
+
+    </div>
+</section>
+<!--		End Select	  -->
+
+
+@section scripts{
+    <script>
+
+        $('.sel').click(function () {
+            var detailsDiv = $('#' + $(this).data('target-details'))
+            var nationalityIndex = detailsDiv.find('#nationalityIndex').val();
+            var professionIndex = detailsDiv.find('#professionIndex').val();
+            var nationalityId = detailsDiv.find('#nationality').val();
+            var professionId = detailsDiv.find('#profession').val();
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetIndivPrices", "IndividualContract")',
+                data: {
+                    "nationalityId": nationalityId,
+                    "professionId": professionId
+                },
+                success: function (res) {
+                    console.log(res);
+                  
+                    debugger
+                    var len = res.length;
+                    var htmltext = "";
+                    if (len == 1) {
+                        for (var i = 0, keys = Object.keys(res), l = keys.length; i < l; i++) {
+                            var url = "/employee/Index?nationalityId=" + res[i].NationalityId + "&professionId=" + res[i].ProfessionId + "&packageId=" + res[i].Id;
+                           htmltext += "<div class=\"selected\"><div class=\"Baqa-item card text-center baqa" + res[i].everyMonth + "\"><div class=\"TitleBlock\">";
+                            htmltext += res[i].typeName;
+                            htmltext += "</div><div class=\"BodyBlock\"><div class=\"PriceBlock\"><h2>";
+                            htmltext += res[i].periodAmount;
+                            htmltext += "  </h2><p class=\"text-right\">@DbRes.T("SaudiCurrencyShort", "Shared")</p></div><ul class=\"BContent p-0\"><li class=\"row no-gutters\"><p class=\"col\">@DbRes.T("AdvancePayment", "Shared")</p><p class=\"col\">";
+                            htmltext += res[i].prePaid;
+                            htmltext += "  </p><p class=\"col\">@DbRes.T("SaudiCurrencyShort", "Shared")</p></li><li class=\"row no-gutters\"><p class=\"col\">@DbRes.T("Monthly", "Shared")</p><p class=\"col\"> ";
+                            htmltext += res[i].monthelyPaid;
+                            htmltext += " </p><p class=\"col\"> @DbRes.T("SaudiCurrencyShort", "Shared")</p></li></ul><p class=\"text-right\"><a class=\"reserve\" href=\""+url+"\">@DbRes.T("ReserveNow", "Shared")</a></p></div></div></div>"
+                        }
+                    }
+                    if (len == 2) {
+                        var url = "/employee/Index?nationalityId=" + res[i].NationalityId + "&professionId=" + res[i].ProfessionId + "&packageId=" + res[i].Id;
+                        for (var i = 0, keys = Object.keys(res), l = keys.length; i < l; i++) {
+                             if (i == 0) {
+                                htmltext += "<div class=\"selected\"><div class=\"Baqa-item card text-center baqa" + res[i].everyMonth + "\"><div class=\"TitleBlock\">";
+                            }
+                            else if (i == 1) {
+                                htmltext += "<div class=\"next\"><div class=\"Baqa-item card text-center baqa" + res[i].everyMonth + "\"><div class=\"TitleBlock\">";
+                            }
+
+                            htmltext += res[i].typeName;
+                            htmltext += "</div><div class=\"BodyBlock\"><div class=\"PriceBlock\"><h2>";
+                            htmltext += res[i].periodAmount;
+                            htmltext += "  </h2><p class=\"text-right\">@DbRes.T("SaudiCurrencyShort", "Shared") </p></div><ul class=\"BContent p-0\"><li class=\"row no-gutters\"><p class=\"col\">@DbRes.T("AdvancePayment", "Shared")</p><p class=\"col\">";
+                            htmltext += res[i].prePaid;
+                            htmltext += "  </p><p class=\"col\">@DbRes.T("SaudiCurrencyShort", "Shared")</p></li><li class=\"row no-gutters\"><p class=\"col\">@DbRes.T("Monthly", "Shared")</p><p class=\"col\"> ";
+                            htmltext += res[i].monthelyPaid;
+                            htmltext += " </p><p class=\"col\"> @DbRes.T("SaudiCurrencyShort", "Shared")</p></li></ul><p class=\"text-right\"><a class=\"reserve\"  href=\"" + url + "\">@DbRes.T("ReserveNow", "Shared")</a></p></div></div></div>"
+                        }
+                    }
+                    if (len == 3) {
+                        var url = "/employee/Index?nationalityId=" + res[i].NationalityId + "&professionId=" + res[i].ProfessionId + "&packageId=" + res[i].Id;
+                        for (var i = 0, keys = Object.keys(res), l = keys.length; i < l; i++) {
+                           if (i == 0) {
+                                htmltext += "<div class=\"prev\"><div class=\"Baqa-item card text-center baqa" + res[i].everyMonth + "\"><div class=\"TitleBlock\">";
+                            }
+                            else if (i == 1) {
+                                htmltext += "<div class=\"selected\"><div class=\"Baqa-item card text-center baqa" + res[i].everyMonth + "\"><div class=\"TitleBlock\">";
+                            }
+                            else if (i == 2) {
+                                htmltext += "<div class=\"next\"><div class=\"Baqa-item card text-center baqa" + res[i].everyMonth + "\"><div class=\"TitleBlock\">";
+                            }
+
+                            htmltext += res[i].typeName;
+                            htmltext += "</div><div class=\"BodyBlock\"><div class=\"PriceBlock\"><h2>";
+                            htmltext += res[i].periodAmount;
+                            htmltext += "  </h2><p class=\"text-right\">@DbRes.T("SaudiCurrencyShort", "Shared") </p></div><ul class=\"BContent p-0\"><li class=\"row no-gutters\"><p class=\"col\">@DbRes.T("AdvancePayment", "Shared")</p><p class=\"col\">";
+                            htmltext += res[i].prePaid;
+                            htmltext += "  </p><p class=\"col\">@DbRes.T("SaudiCurrencyShort", "Shared")</p></li><li class=\"row no-gutters\"><p class=\"col\">@DbRes.T("Monthly", "Shared")</p><p class=\"col\"> ";
+                            htmltext += res[i].monthelyPaid;
+                            htmltext += " </p><p class=\"col\"> @DbRes.T("SaudiCurrencyShort", "Shared")</p></li></ul><p class=\"text-right\"><a class=\"reserve\"  href=\"" + url + "\">@DbRes.T("ReserveNow", "Shared")</a></p></div></div></div>"
+                        }
+                    }
+                    else{
+
+                        for (var i = 0, keys = Object.keys(res), l = keys.length; i < l; i++) {
+                            debugger;
+                            var url = "/employee/Index?nationalityId=" + res[i].NationalityId + "&professionId=" + res[i].ProfessionId + "&packageId=" + res[i].Id;
+                            if (i == 0) {
+                                htmltext += "<div class=\"hideLeft\"><div class=\"Baqa-item card text-center baqa" + res[i].EveryMonth + "\"><div class=\"TitleBlock\">";
+                            }
+                            else if (i == 1) {
+                                htmltext += "<div class=\"prev\"><div class=\"Baqa-item card text-center baqa" + res[i].EveryMonth + "\"><div class=\"TitleBlock\">";
+                            }
+                            else if (i == 2) {
+                                htmltext += "<div class=\"selected\"><div class=\"Baqa-item card text-center baqa" + res[i].EveryMonth + "\"><div class=\"TitleBlock\">";
+                            }
+                            else if (i == 3) {
+                                htmltext += "<div class=\"next\"><div class=\"Baqa-item card text-center baqa" + res[i].EveryMonth + "\"><div class=\"TitleBlock\">";
+                            }
+                            else if (i == 4) {
+                                htmltext += "<div class=\"hideRight\"><div class=\"Baqa-item card text-center baqa" + res[i].EveryMonth + "\"><div class=\"TitleBlock\">";
+                            }
+                            else {
+                                htmltext += "<div class=\"hideRight\"><div class=\"Baqa-item card text-center baqa" + res[i].everyMonth + "\"><div class=\"TitleBlock\">";
+                            }
+                            htmltext += res[i].TypeName;
+                            htmltext += "</div><div class=\"BodyBlock\"><div class=\"PriceBlock\"><h2>";
+                            htmltext += res[i].PeriodAmount;
+                            htmltext += "  </h2><p class=\"text-right\">@DbRes.T("SaudiCurrencyShort", "Shared") </p></div><ul class=\"BContent p-0\"><li class=\"row no-gutters\"><p class=\"col\">@DbRes.T("AdvancePayment", "Shared")</p><p class=\"col\">";
+                            htmltext += res[i].PrePaid;
+                            htmltext += "  </p><p class=\"col\">@DbRes.T("SaudiCurrencyShort", "Shared")</p></li><li class=\"row no-gutters\"><p class=\"col\">@DbRes.T("Monthly", "Shared")</p><p class=\"col\"> ";
+                            htmltext += res[i].MonthelyPaid;
+                            htmltext += " </p><p class=\"col\"> @DbRes.T("SaudiCurrencyShort", "Shared")</p></li></ul><p class=\"text-right\"><a class=\"reserve\" href=\"" + url + "\">@DbRes.T("ReserveNow", "Shared")</a></p></div></div></div>"
+                        }
+                    }
+
+                    $('.carouselPrices-' + nationalityIndex + '-' + professionIndex).html(htmltext);
+                    detailsDiv.slideDown();
+                    $('html, body').animate({ scrollTop: detailsDiv.offset().top - 20 + 'px' });
+
+                }, error: function () {
+                    alert("Error Occured!!!");
+                }
+            });
+
+            //$(this).parents('.details').next('.prices').slideDown();
+            //$('html, body').animate({ scrollTop: $(this).parents('.details').next('.prices').offset().top - 20 + 'px' });
+        });
+
+        function moveToSelected(element) {
+
+            if (element === "next") {
+                var selected = $(".selected").next();
+            } else if (element === "prev") {
+                var selected = $(".selected").prev();
+            } else {
+                var selected = element;
+            }
+
+            var next = $(selected).next();
+            var prev = $(selected).prev();
+            var prevSecond = $(prev).prev();
+            var nextSecond = $(next).next();
+
+            $(selected).removeClass().addClass("selected");
+
+            $(prev).removeClass().addClass("prev");
+            $(next).removeClass().addClass("next");
+
+            $(nextSecond).removeClass().addClass("hideRight");
+            $(prevSecond).removeClass().addClass("hideLeft");
+
+        }
+
+        // Eventos teclado
+        $(document).keydown(function (e) {
+            switch (e.which) {
+                case 37: // left
+                    moveToSelected('prev');
+                    break;
+
+                case 38: // right
+                    moveToSelected('next');
+                    break;
+
+                default: return;
+            }
+            e.preventDefault();
+        });
+
+        //  $('#carouselPrices div').click(function() {
+        //    moveToSelected($(this));
+        //  });
+
+        $('.prev').click(function () {
+            moveToSelected('prev');
+        });
+
+        $('.next').click(function () {
+            moveToSelected('next');
+        });
+
+
+
+    </script>
+
+}

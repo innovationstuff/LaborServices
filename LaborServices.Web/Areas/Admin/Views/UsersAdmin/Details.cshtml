@@ -1,0 +1,82 @@
+﻿@model  LaborServices.Entity.Identity.ApplicationUser
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-profile">
+
+    <div class="row">
+
+        <!-- COL 1 -->
+        <div class="col-md-8 col-lg-6">
+            <section class="panel">
+                <div class="panel-body noradius padding-10">
+
+                    @*<figure class="margin-bottom-10">
+                        <!-- image -->
+                        <img class="img-responsive" src="assets/images/demo/9_full.jpg" alt="" />
+                    </figure><!-- /image -->*@
+                    <!-- progress bar -->
+                    @*<h6 class="progress-head">Profile Completion <span class="pull-right">60%</span></h6>
+                    <div class="progress progress-xs">
+                        <div class="progress-bar" role="progressbar" style="width: 60%;"></div>
+                    </div>*@
+                    <!-- /progress bar -->
+                    <!-- updated -->
+                    @*<ul class="list-unstyled size-13">
+                        <li class="text-gray"><i class="fa fa-check"></i> Update Your Birthday</li>
+                        <li class="text-gray"><i class="fa fa-check"></i> Update Profile Picture</li>
+                        <li>Confirm Your Account</li>
+                        <li>Update Your Address</li>
+                    </ul>*@
+                    <!-- /updated -->
+
+                    <hr class="half-margins" />
+
+                    <!-- About -->
+                    <h3 class="text-black">
+                        @Html.DisplayFor(model => model.Name)
+                    </h3>
+                    @*<p class="size-12">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam tincidunt erat volutpat.</p>*@
+                    <!-- /About -->
+
+                    <hr class="half-margins" />
+
+                    <h6>Actions</h6>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+
+                </div>
+            </section>
+        </div><!-- /COL 1 -->
+
+        <div class="col-md-12 col-lg-3">
+
+            <!-- groups  -->
+            <section class="panel panel-default">
+                <header class="panel-heading">
+                    <h2 class="panel-title elipsis">
+                        <i class="fa fa-rss"></i> user groups
+                    </h2>
+                </header>
+
+                <div class="panel-body noradius padding-10">
+                    @if (ViewBag.GroupNames.Count != 0)
+                    {
+                        <ul class="bullet-list list-unstyled">
+                            @foreach (var item in ViewBag.GroupNames)
+                            {
+                                <li><h3>@item</h3></li>
+                            }
+                        </ul>
+                    }
+                </div>
+
+            </section>
+
+        </div><!-- /COL 3 -->
+
+
+    </div>
+
+</div>

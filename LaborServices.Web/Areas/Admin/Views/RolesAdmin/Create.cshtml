@@ -1,0 +1,122 @@
+﻿@model LaborServices.Web.Areas.Admin.Models.RoleViewModel
+
+@{
+    ViewBag.Title = "Create new Role";
+}
+
+<div class="page-profile">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="row">
+
+            <!-- COL 1 -->
+            <div class="col-md-12 col-lg-12">
+                <section class="panel">
+                    <div class="panel-heading panel-heading-transparent">
+                        <strong>@ViewBag.Title</strong>
+                    </div>
+                    <div class="panel-body noradius padding-10">
+
+                        <fieldset>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(m => m.Role.Name)
+                                        @Html.TextBoxFor(m => m.Role.Name, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Role.Name)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <hr class="half-margins" />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                                @Html.ActionLink("Back to List", "Index")
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <section class="panel panel-default">
+                    <header class="panel-heading">
+                        <h2 class="panel-title elipsis">
+                            <i class="fa fa-rss"></i> role Pages
+                        </h2>
+                    </header>
+
+                    <div class="panel-body noradius padding-20">
+                        <!-- Tabs Right -->
+                        <div id="panel-misc-portlet-l2" class="panel panel-default">
+
+                            <div class="panel-heading">
+
+                                <span class="elipsis">
+                                    <!-- panel title -->
+                                    <strong>pages</strong>
+                                </span>
+
+                                <!-- tabs nav -->
+                                <ul class="nav nav-tabs pull-right">
+                                    @foreach (PageGroupsViewModel page in Model.PageGroupsViewModels)
+                                    {
+                                       <li class='@(Model.PageGroupsViewModels.First() == page?"active":"")'>
+                                            <!-- TAB 1 -->
+                                            <a href="#@page.GroupName" data-toggle="tab">@page.GroupName<span class="label label-green">@page.GroupsCount</span></a>
+                                        </li>
+                                    }
+
+                                </ul>
+                                <!-- /tabs nav -->
+
+                            </div>
+
+                            <!-- panel content -->
+                            <div class="panel-body">
+
+                                <!-- tabs content -->
+                                <div class="tab-content transparent">
+                                    
+                                    @foreach (PageGroupsViewModel page in Model.PageGroupsViewModels)
+                                    {
+                                        <div id="@page.GroupName" class='tab-pane @(Model.PageGroupsViewModels.First() == page?"active":"")'>
+                                            
+                                            @foreach (var item in page.PageList)
+                                            {
+                                                <div class="col-md-3">
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" name="selectedPages" value="@item.Value" checked="@item.Selected"/>
+                                                        <i></i>@item.Text
+                                                    </label>
+                                                </div>
+                                            }
+                                        </div>
+                                        <!-- /TAB 1 CONTENT -->
+                                    }
+                                </div>
+                                <!-- /tabs content -->
+
+                            </div>
+                            <!-- /panel content -->
+
+                        </div>
+                        <!-- /Tabs Right -->
+                    </div>
+                </section>
+
+            </div><!-- /COL 1 -->
+        </div>
+    }
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

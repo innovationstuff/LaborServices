@@ -1,0 +1,491 @@
+﻿@using LaborServices.Web.Models
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--		Start Order	  -->
+<section class="order">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-3">
+                <div class="right">
+                    <h3>@DbRes.T("DetailsHeader", "EmployeeResources")</h3>
+                    <ul class="mainUl">
+
+                        <li>
+                            المهنة<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="career" id="career1" value="option1">
+                                    <label class="form-check-label" for="career1">
+                                        الكل
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="career" id="career2" value="option2">
+                                    <label class="form-check-label" for="career2">
+                                        الوظيفة منزلية
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="career" id="career3" value="option3">
+                                    <label class="form-check-label" for="career3">
+                                        عاملة نظافة
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="career" id="career4" value="option4">
+                                    <label class="form-check-label" for="career4">
+                                        سائق خاص
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            الجنسية<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="nationality" id="nationality1" value="option1">
+                                    <label class="form-check-label" for="nationality1">
+                                        الكل
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="nationality" id="nationality2" value="option2">
+                                    <label class="form-check-label" for="nationality2">
+                                        فلبين
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="nationality" id="nationality3" value="option3">
+                                    <label class="form-check-label" for="nationality3">
+                                        أندونيسيا
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="nationality" id="nationality4" value="option4">
+                                    <label class="form-check-label" for="nationality4">
+                                        الهند
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            النوع<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="kind" id="kind1" value="option1">
+                                    <label class="form-check-label" for="kind1">
+                                        الكل
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="kind" id="kind2" value="option2">
+                                    <label class="form-check-label" for="kind2">
+                                        ذكر
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="kind" id="kind3" value="option3">
+                                    <label class="form-check-label" for="kind3">
+                                        أنثي
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            الخبرة<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="experience" id="experience1" value="option1">
+                                    <label class="form-check-label" for="experience1">
+                                        لا فرق
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="experience" id="experience2" value="option2">
+                                    <label class="form-check-label" for="experience2">
+                                        سبق له العمل
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="experience" id="experience3" value="option3">
+                                    <label class="form-check-label" for="experience3">
+                                        لم يسبق له العمل
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            الديانة<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="religion" id="religion1" value="option1">
+                                    <label class="form-check-label" for="religion1">
+                                        الكل
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="religion" id="religion2" value="option2">
+                                    <label class="form-check-label" for="religion2">
+                                        مسلم
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="religion" id="religion3" value="option3">
+                                    <label class="form-check-label" for="religion3">
+                                        مسيحي
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="religion" id="religion4" value="option4">
+                                    <label class="form-check-label" for="religion4">
+                                        أخري
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            الحالة الإجتماعية<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status1" value="option1">
+                                    <label class="form-check-label" for="status1">
+                                        الكل
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status2" value="option2">
+                                    <label class="form-check-label" for="status2">
+                                        أعزب / عزباء
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status3" value="option3">
+                                    <label class="form-check-label" for="status3">
+                                        متزوج / متزوجة
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status4" value="option4">
+                                    <label class="form-check-label" for="status4">
+                                        مطلق / مطلقة
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status5" value="option5">
+                                    <label class="form-check-label" for="status5">
+                                        أرمل / أرملة
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            العمر<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="age" id="age1" value="option1">
+                                    <label class="form-check-label" for="age1">
+                                        غير محدد
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="age" id="age2" value="option2">
+                                    <label class="form-check-label" for="age2">
+                                        أكبر من
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="age" id="age3" value="option3">
+                                    <label class="form-check-label" for="age3">
+                                        أكبر من أو يساوي
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="age" id="age4" value="option4">
+                                    <label class="form-check-label" for="age4">
+                                        أصغر من
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="age" id="age5" value="option5">
+                                    <label class="form-check-label" for="age5">
+                                        أصغر من أو يساوي
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="age" id="age6" value="option6">
+                                    <label class="form-check-label" for="age6">
+                                        يساوي
+                                    </label>
+                                </li>
+                                <li><input class="form-control" type="number" placeholder="أكتب الرقم هنا..."></li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            الوزن<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="weight" id="weight1" value="option1">
+                                    <label class="form-check-label" for="weight1">
+                                        غير محدد
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="weight" id="weight2" value="option2">
+                                    <label class="form-check-label" for="weight2">
+                                        أكبر من
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="weight" id="weight3" value="option3">
+                                    <label class="form-check-label" for="weight3">
+                                        أكبر من أو يساوي
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="weight" id="weight4" value="option4">
+                                    <label class="form-check-label" for="weight4">
+                                        أصغر من
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="weight" id="weight5" value="option5">
+                                    <label class="form-check-label" for="weight5">
+                                        أصغر من أو يساوي
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="weight" id="weight6" value="option6">
+                                    <label class="form-check-label" for="weight6">
+                                        يساوي
+                                    </label>
+                                </li>
+                                <li><input class="form-control" type="number" placeholder="أكتب الرقم هنا..."></li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            الطول<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="length" id="length1" value="option1">
+                                    <label class="form-check-label" for="length1">
+                                        غير محدد
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="length" id="length2" value="option2">
+                                    <label class="form-check-label" for="length2">
+                                        أكبر من
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="length" id="length3" value="option3">
+                                    <label class="form-check-label" for="length3">
+                                        أكبر من أو يساوي
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="length" id="length4" value="option4">
+                                    <label class="form-check-label" for="length4">
+                                        أصغر من
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="length" id="length5" value="option5">
+                                    <label class="form-check-label" for="length5">
+                                        أصغر من أو يساوي
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="length" id="length6" value="option6">
+                                    <label class="form-check-label" for="length6">
+                                        يساوي
+                                    </label>
+                                </li>
+                                <li><input class="form-control" type="number" placeholder="أكتب الرقم هنا..."></li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            إجادة الطبخ والتنظيف<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="cook" id="cook1" value="option1">
+                                    <label class="form-check-label" for="cook1">
+                                        غير محدد
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="cook" id="cook2" value="option2">
+                                    <label class="form-check-label" for="cook2">
+                                        نعم
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="cook" id="cook3" value="option3">
+                                    <label class="form-check-label" for="cook3">
+                                        لا
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            إجادة المعاملة مع الأطفال<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="baby" id="baby1" value="option1">
+                                    <label class="form-check-label" for="baby1">
+                                        غير محدد
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="baby" id="baby2" value="option2">
+                                    <label class="form-check-label" for="baby2">
+                                        نعم
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="baby" id="baby3" value="option3">
+                                    <label class="form-check-label" for="baby3">
+                                        لا
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            إجادة اللغة الإنجليزية<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="language" id="language1" value="option1">
+                                    <label class="form-check-label" for="language1">
+                                        غير محدد
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="language" id="language2" value="option2">
+                                    <label class="form-check-label" for="language2">
+                                        نعم
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="language" id="language3" value="option3">
+                                    <label class="form-check-label" for="language3">
+                                        لا
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            إجادة معاملة كبار السن<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="old" id="old1" value="option1">
+                                    <label class="form-check-label" for="old1">
+                                        غير محدد
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="old" id="old2" value="option2">
+                                    <label class="form-check-label" for="old2">
+                                        نعم
+                                    </label>
+                                </li>
+                                <li class="form-check">
+                                    <input class="form-check-input" type="radio" name="old" id="old3" value="option3">
+                                    <label class="form-check-label" for="old3">
+                                        لا
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            الحد الأقصي للعرض<i class="fa fa-angle-right"></i>
+                            <ul class="subUl">
+                                <li class="form-group">
+                                    <input class="form-control" type="number" placeholder="أكتب الرقم هنا...">
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="submit"><button class="btn btn-success" type="submit">عرض</button></li>
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="left col-md-8 col-lg-9">
+                <div class="row">
+                    @foreach (Employee item in Model)
+                    {
+                        <div class="col-xl-6">
+                            <div class="iCard">
+                                <div class="photo">
+                                    <img class="img-fluid" src="@LaborServices.Web.Helpers.SharedClass.EmployeeImagesUrl@item.Image">
+                                    <span class="name">@item.Name</span>
+                                    <span class="job">@item.JobTitle</span>
+                                </div>
+                                <div class="des">
+                                    <div>@DbRes.T("EmployeeNumber", "EmployeeResources"): @item.EmployeeId</div>
+                                    <div>@DbRes.T("Nationality", "DalalResources"): @item.Nationality</div>
+                                    <div>@DbRes.T("Religion", "EmployeeResources"): @item.Region</div>
+                                    <div>@DbRes.T("Skills", "EmployeeResources"): @item.Skills</div>
+                                    <div>@DbRes.T("IdNumber", "ProfileResources"): @item.IdNumber</div>
+                                    <div class="submit"><button class="btn btn-success">@DbRes.T("CreateContract", "EmployeeResources")</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--		End Order	  -->
+
+@section scripts{
+
+    <script>
+
+        $(window).resize(function () {
+            'use strict';
+            if ($(window).width() <= 767) {
+                $('.order .right .mainUl li').on('click', function () {
+                    $(this).children('.order .right .mainUl li i').toggleClass('fa fa-angle-down');
+                    $(this).children('.order .right .mainUl li i').toggleClass('fa fa-angle-left');
+                });
+            }
+
+        });
+
+    </script>
+}

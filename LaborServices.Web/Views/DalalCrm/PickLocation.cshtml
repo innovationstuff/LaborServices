@@ -1,0 +1,250 @@
+﻿@using LaborServices.Web.Models
+@model PickCustomerLocationViewModel
+
+@{
+    ViewBag.Title = "PickLocation";
+
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+
+<style>
+    .PickLocation .container {
+        background-color: rgba(255, 255, 255, 0.89);
+        border-radius: 8px
+    }
+</style>
+<section class="PickLocation">
+    <div class="container">
+
+        <div class="py-4">
+            <p class="text-right text-danger"> <b class="text-dark">عزيزي العميل : </b> برجاءتفعيل خاصية تحديد الموقع في جوالك اولا قبل الضغط علي ارسال الموقع</p>
+
+            @using (Html.BeginForm("PickLocation", "DalalCrm", FormMethod.Post))
+            {
+                @Html.HiddenFor(model => model.Latitude)
+                @Html.HiddenFor(model => model.Longitude)
+                @Html.HiddenFor(model => model.ContractId)
+
+
+
+
+                <div class="col-12 col-lg-12">
+
+                    <div id="AreaMap" style="width: 100%; height: 600px;">
+                    </div>
+                </div>
+
+
+                @*<div class="form-group row" style="margin-top:20px;">
+                    @Html.LabelFor(m => m.HouseType, DbRes.T("House Type", "DalalResources"), new { @class = "col-sm-4 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(model => model.HouseType, new List<SelectListItem>(), DbRes.T("Select House Type", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                        @Html.ValidationMessageFor(m => m.HouseType, "", new { @class = "text-danger lblValidation" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.HouseNo, DbRes.T("House No", "DalalResources"), new { @class = "col-sm-4 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.EditorFor(model => model.HouseNo, new { htmlAttributes = new { @class = "form-control  rounded-0 " + inputTextAlign, placeholder = DbRes.T("Enter House No", "DalalResources"), required = (string)null } })
+                        @Html.ValidationMessageFor(m => m.HouseNo, "", new { @class = "text-danger lblValidation" })
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.FloorNo, DbRes.T("Floor No", "DalalResources"), new { @class = "col-sm-4 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(model => model.FloorNo, new List<SelectListItem>(), DbRes.T("Select Floor No", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                        @Html.ValidationMessageFor(m => m.FloorNo, "", new { @class = "text-danger lblValidation" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.AddressNotes, DbRes.T("Address Description", "DalalResources"), new { @class = "col-sm-4 col-form-label" })
+                    <div class="col-sm-8">
+                        @Html.EditorFor(model => model.AddressNotes, new { htmlAttributes = new { @class = "form-control  rounded-0 " + inputTextAlign, placeholder = DbRes.T("Address Description PH", "DalalResources"), @required = "" } })
+                        @Html.ValidationMessageFor(m => m.AddressNotes, "", new { @class = "text-danger lblValidation" })
+                    </div>
+                </div>*@
+
+                <div class=" col-12 col-lg-12  margin-top-10">
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label"></label>
+                        <div class="col-sm-8 inputArea @inputTextdirection" style="direction:ltr !important;">
+                            <input class="btn btn-lg btn-primary " type="submit" value="@DbRes.T("NextBtn", "Shared")" name="nextBtn" id="nextBtn" />
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+            @*<div id="AreaMap">
+                    <img class="img-fluid" src="~/Images/map1.jpg" />
+                </div>*@
+        </div>
+
+
+    </div><!--container-->
+</section>
+
+
+
+@section scripts
+{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVq-Rrv_-2ijJ26kkT4mFs3_LsHxkhVp0&libraries=places&language=@lang"></script>
+    @Scripts.Render("~/bundles/locationpicker")
+    <script type="text/javascript">
+        var modelVal = {
+            Latitude: $('#Latitude').val(),
+            Longitude: $('#Longitude').val(),
+            ContractId: $('#ContractId').val(),
+        }
+        var markers = [];
+        var map;
+        var langu = "@lang";
+
+        function placeMarker(lat, lng) {
+            clearMarkers();
+            map.setCenter({
+                lat: lat,
+                lng: lng
+            });
+
+            var mPosition = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+
+            var marker = new google.maps.Marker({
+                position: mPosition,
+                map: map
+            });
+            markers.push(marker);
+            modelVal["Latitude"] = lat;
+            modelVal["Longitude"] = lng;
+        }
+
+        function clearMarkers() {
+            for (var i = 0; i < this.markers.length; i++) {
+                this.markers[i].setMap(null);
+            }
+            this.markers = new Array();
+        }
+
+        function CenterControl(controlDiv) {
+            // Set CSS for the control border.
+            var controlUI = document.createElement('div');
+            controlUI.style.backgroundColor = '#fff';
+            controlUI.style.border = '2px solid #fff';
+            controlUI.style.borderRadius = '3px';
+            controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+            controlUI.style.cursor = 'pointer';
+            controlUI.style.marginBottom = '22px';
+            controlUI.style.textAlign = 'center';
+            controlUI.id = 'currentLoc';
+            if (langu == "ar") {
+                controlUI.title = 'اضغط لتحديد موقعك';
+            }
+            else {
+                controlUI.title = 'Click to select your location';
+
+            }
+
+            controlDiv.appendChild(controlUI);
+
+            // Set CSS for the control interior.
+            var controlText = document.createElement('div');
+            controlText.style.color = 'rgb(25,25,25)';
+            controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+            controlText.style.fontSize = '16px';
+            controlText.style.lineHeight = '38px';
+            controlText.style.paddingLeft = '5px';
+            controlText.style.paddingRight = '5px';
+            if (langu == "ar") {
+                controlText.innerHTML = 'تحديد موقعى الحالى <i class="fa fa-crosshairs"></i>';
+
+            }
+            else {
+                controlText.innerHTML = 'Determine your current location<i class="fa fa-crosshairs"></i>';
+
+            }
+            controlUI.appendChild(controlText);
+
+            // Setup the click event listeners: simply set the map.
+            controlUI.addEventListener('click', function () {
+                getCurrentLocation();
+            });
+        }
+
+        function getCurrentLocation() {
+            navigator.geolocation.getCurrentPosition(function (location) {
+                $("#Latitude").val(location.coords.latitude);
+                $("#Longitude").val(location.coords.longitude);
+                clearMarkers();
+                placeMarker(location.coords.latitude, location.coords.longitude);
+                var geocoder = new google.maps.Geocoder;
+                geocodeLatLng(geocoder, map, location.coords.latitude, location.coords.longitude);
+            });
+        }
+
+        function geocodeLatLng(geocoder, map, latitude, longitude) {
+            var latlng = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
+            geocoder.geocode({ 'location': latlng }, function (results, status) {
+                if (status === 'OK') {
+                    if (results[0]) {
+                        $("#Location").val(results[0].formatted_address);
+                    } else {
+                        window.alert('No results found');
+                    }
+                } else {
+                    window.alert('Geocoder failed due to: ' + status);
+                }
+            });
+        }
+
+        function initMap() {
+            var lat1 = 0;
+            var lng1 = 0;
+
+            if (lat1 == 0 && lng1 == 0) {
+                if (modelVal && modelVal["Latitude"]) {
+                    lat1 = parseFloat(modelVal["Latitude"]);
+                    lng1 = parseFloat(modelVal["Longitude"]);
+                } else {
+                    lat1 = 24.7136;
+                    lng1 = 46.6753;
+                }
+            }
+
+            InitializeLocationPicker($("#AreaMap"), lat1, lng1);
+            map = $('#AreaMap').locationpicker('map').map;
+
+            var geocoder = new google.maps.Geocoder;
+            geocodeLatLng(geocoder, map, lat1, lng1);
+
+            var centerControlDiv = document.createElement('div');
+            var centerControl = new CenterControl(centerControlDiv);
+
+            centerControlDiv.index = 1;
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+
+            google.maps.event.addListener(map, 'click', function (event) {
+                $("#Latitude").val(event.latLng.lat());
+                $("#Longitude").val(event.latLng.lng());
+                clearMarkers();
+                placeMarker(event.latLng.lat(), event.latLng.lng());
+            });
+        }
+
+
+        $(function () {
+            initMap();
+		});
+
+    </script>
+}
+
+

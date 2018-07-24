@@ -1,0 +1,192 @@
+﻿@model LaborServices.Web.Models.IndexViewModel
+@{
+    ViewBag.Title = DbRes.T("ManageYourAccount", "ProfileResources");
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+@if (lang == "ar")
+{
+    <section class="contactData">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col mt-5 p-0">
+                        <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-50">
+                            <div class="text-center">
+                                <div class="form-group h4 text-primary">@ViewBag.Title</div>
+                                <div class="alert alert-successiful w-100 m-auto " role="alert">@ViewBag.StatusMessage</div>
+
+                                <div class="form-group text-center">
+                                    <p style="margin-top:10px;">
+                                        رقم الهاتف: @(Model.PhoneNumber ?? "None")
+                                        @*[
+                                            @if (Model.PhoneNumber != null)
+                                            {
+                                                @Html.ActionLink(DbRes.T("Change", "ProfileResources"), "AddPhoneNumber")
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink(DbRes.T("Add", "ProfileResources"), "AddPhoneNumber")
+                                            }
+                                            ]*@
+                                    </p>
+
+                                    <p>
+                                        @if (Model.HasPassword)
+                                        {
+                                            @Html.ActionLink(DbRes.T("ChangeYourPassword", "ProfileResources"), "ChangePassword")
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink(DbRes.T("PickPassword", "ProfileResources"), "SetPassword")
+                                        }
+                                    </p>
+
+                                    @*@if (Model.TwoFactor)
+                                        {
+                                            using (Html.BeginForm("DisableTFA", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                            {
+                                                <p>
+                                                    @Html.AntiForgeryToken()
+                                                    Two factor is currently enabled:
+                                                    <input type="submit" value="Disable" class="btn btn-info" />
+                                                </p>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            using (Html.BeginForm("EnableTFA", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <p>
+                                                    Two factor is currently disabled:
+                                                    <input type="submit" value="Enable" class="btn btn-info" />
+                                                </p>
+                                            }
+                                        }*@
+                                    @*@if (Model.BrowserRemembered)
+                                        {
+                                            using (Html.BeginForm("ForgetBrowser", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <p>
+                                                    Browser is curently remembered for two factor:
+                                                    <input type="submit" value="Forget Browser" class="btn btn-info" />
+                                                </p>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            using (Html.BeginForm("RememberBrowser", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <p>
+                                                    Browser is curently not remembered for two factor:
+                                                    <input type="submit" value="Remember Browser" class="btn btn-info" />
+                                                </p>
+                                            }
+                                        }*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <section class="contactData">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col mt-5 p-0">
+                        <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-50">
+                            <div class="text-center">
+                                <div class="form-group h4 text-primary">@ViewBag.Title</div>
+                                <div class="alert alert-successiful w-100 m-auto " role="alert">@ViewBag.StatusMessage</div>
+
+                                <div class="form-group text-center">
+                                    <p style="margin-top:10px;">
+                                        Phone Number: @(Model.PhoneNumber ?? "None")
+                                        @*[
+                                            @if (Model.PhoneNumber != null)
+                                            {
+                                                @Html.ActionLink(DbRes.T("Change", "ProfileResources"), "AddPhoneNumber")
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink(DbRes.T("Add", "ProfileResources"), "AddPhoneNumber")
+                                            }
+                                            ]*@
+                                    </p>
+
+                                    <p>
+                                        @if (Model.HasPassword)
+                                        {
+                                            @Html.ActionLink(DbRes.T("ChangeYourPassword", "ProfileResources"), "ChangePassword")
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink(DbRes.T("PickPassword", "ProfileResources"), "SetPassword")
+                                        }
+                                    </p>
+
+                                    @*@if (Model.TwoFactor)
+                                        {
+                                            using (Html.BeginForm("DisableTFA", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                            {
+                                                <p>
+                                                    @Html.AntiForgeryToken()
+                                                    Two factor is currently enabled:
+                                                    <input type="submit" value="Disable" class="btn btn-info" />
+                                                </p>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            using (Html.BeginForm("EnableTFA", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <p>
+                                                    Two factor is currently disabled:
+                                                    <input type="submit" value="Enable" class="btn btn-info" />
+                                                </p>
+                                            }
+                                        }*@
+                                    @*@if (Model.BrowserRemembered)
+                                        {
+                                            using (Html.BeginForm("ForgetBrowser", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <p>
+                                                    Browser is curently remembered for two factor:
+                                                    <input type="submit" value="Forget Browser" class="btn btn-info" />
+                                                </p>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            using (Html.BeginForm("RememberBrowser", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <p>
+                                                    Browser is curently not remembered for two factor:
+                                                    <input type="submit" value="Remember Browser" class="btn btn-info" />
+                                                </p>
+                                            }
+                                        }*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}

@@ -1,0 +1,249 @@
+﻿@model LaborServices.Web.Models.ContactViewModel
+
+@{
+    ViewBag.Title = "user details";
+}
+
+@{
+    var routeData = ViewContext.RouteData.Values;
+    string action = routeData["action"] as string;
+    string lang = routeData["lang"] as string;
+}
+
+<section>
+
+    <div class="content profile">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-5" style="margin: auto;width: 97%;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="c1">
+                                    <h3>@DbRes.T("AboutUserSpan", "ProfileResources")</h3>
+                                    <a href="@Url.Action("EditProfile","Account")"><span class="editSpan"><i class="fa fa-pencil-square-o"></i></span></a>
+                                    <p>
+                                        <i class="fa fa-user" style="margin:5px;"></i>
+                                        <span id="spanUserName">@Model.FullName</span>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-phone-square" style="margin:5px;"></i>
+                                        <span id="spanUserMobile">@Model.MobilePhone</span>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-envelope" style="margin:5px;"></i>
+                                        <span id="spanUserEmail">@Model.Email</span>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-briefcase" style="margin:5px;"></i>
+                                        <span id="spanUserJob">@Model.JobTitle</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="c1">
+                                    <h3>
+                                        <i id="contractsPlusIcon" class="fa fa-caret-down"></i>
+                                        @DbRes.T("hdrContractsSpan", "ProfileResources")
+                                    </h3>
+                                    <a href="@Url.Action("Create","HourlyWorkers")"><span class="addContractSpan"><i class="fa fa-plus"></i></span></a>
+                                    <div class="border p-2 mb-4">
+                                        <div class="panel-body">
+                                            <table class="table table-sm table-bordered table-hover table-responsive-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="row">@DbRes.T("ContractNumTH", "ProfileResources")</th>
+                                                        <th scope="row">@DbRes.T("FinalPriceTH", "ProfileResources")</th>
+                                                        <th scope="row">@DbRes.T("StatusNameTH", "ProfileResources")</th>
+                                                        <th scope="row">@DbRes.T("ContractDateTH", "ProfileResources")</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="ulContracts"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <span id="spanNoContracts" class="spanNoResult">@DbRes.T("NoContractsSpan", "ProfileResources")</span>
+                                </div>
+                                <div class="c2">
+                                    <h3>
+                                        <i id="complaintsPlusIcon" class="fa fa-caret-down"></i>
+                                        @DbRes.T("hdrComplaintsSpan", "ProfileResources")
+                                    </h3>
+
+                                    <a href="@Url.Action("CreateDalal","Complaints")"><span class="addComplaintSpan"><i class="fa fa-plus"></i></span></a>
+                                    <div class="border p-2 mb-4">
+                                        <div class="panel-body">
+                                            <table class="table table-sm table-bordered table-hover table-responsive-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="row">@DbRes.T("TicketNumberTH", "ProfileResources")</th>
+                                                        <th scope="row">@DbRes.T("ClientClosedCodeTH", "ProfileResources")</th>
+                                                        <th scope="row">@DbRes.T("SectorTypeTH", "ProfileResources")</th>
+                                                        <th scope="row">@DbRes.T("StatusTH", "ProfileResources")</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="ulCompliants"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <span id="spanNoComplaints" class="spanNoResult">@DbRes.T("NoComplaintsSpan", "ProfileResources")</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Scripts.Render("~/bundles/jquery")
+@section scripts{
+    <script type="text/javascript">
+
+        function LoadUserData(Result) {
+            var userData = Result;
+            if (userData != null) {
+
+            }
+        }
+
+        function LoadAllUserContracts(Result) {
+            var contracts = Result;
+
+            var row = "";
+
+            if (contracts != null && contracts.length > 0) {
+                $("#contractsPlusIcon").show();
+                $("#spanNoContracts").hide();
+
+                $.each(contracts, function (index, item) {
+                    row += '<tr>';
+
+                    row += '<td>';
+                    row += '<a href="/@lang/HourlyWorkers/Details/' + item.ContractId + '">' + item.ContractNum + '</a>';
+                    row += '</td>';
+
+                    row += '<td>';
+                    row += '<span>' + item.FinalPrice + '</span>';
+                    row += '</td>';
+
+                    row += '<td>';
+                    row += '<span>' + item.StatusName + '</span>';
+                    row += '</td>';
+
+                    row += '<td>';
+                    row += '<span>' + item.CreatedOnText + '</span>';
+                    row += '</td>';
+
+                    row += '</tr>';
+                });
+                $("#ulContracts").html(row);
+            }
+            else {
+                $("#contractsPlusIcon").hide();
+                $("#spanNoContracts").css('display','inline-block');
+            }
+        }
+
+        function LoadAllUserComplaints(Result) {
+            debugger;
+            var complaints = Result;
+            var row = "";
+
+            if (complaints != null && complaints.length > 0) {
+                $("#complaintsPlusIcon").show();
+                $("#spanNoComplaints").hide();
+
+                $.each(complaints, function (index, item) {
+                    row += '<tr>';
+
+                    row += '<td>';
+                    row += '<a href="/@lang/Complaints/DalalDetails/' + item.Id + '">' + item.TicketNumber + '</a>';
+                    row += '</td>';
+
+                    row += '<td>';
+                    row += '<span>' + item.ClientClosedCode + '</span>';
+                    row += '</td>';
+
+                    row += '<td>';
+                    row += '<span>' + item.SectorType + '</span>';
+                    row += '</td>';
+
+                    row += '<td>';
+                    row += '<span>' + item.Status + '</span>';
+                    row += '</td>';
+
+                    row += '</tr>';
+                });
+                $("#ulCompliants").html(row);
+            }
+            else {
+                $("#complaintsPlusIcon").hide();
+                $("#spanNoComplaints").css('display', 'inline-block');
+            }
+        }
+
+        $(function () {
+
+            $("#spanNoContracts").css('display', 'none');
+            $("#spanNoComplaints").css('display', 'none');
+
+            $.ajax({
+                url:"@Url.Action("GetUserDetails")",
+                type: 'GET',
+                data: null,
+                error: function (e) {
+                    if (e.status == 200 && e.responseText == "") {
+                        LoadUserData(null);
+                    }
+                    else {
+                        console.error(e.responseText);
+                    }
+                },
+                success: function (result) {
+                    console.log(result);
+                    LoadUserData(JSON.parse(result));
+                }
+            });
+
+            $.ajax({
+                url:"@Url.Action("GetUserHourlyContracts")",
+                type: 'GET',
+                data: null,
+                error: function (e) {
+                    if (e.status == 200 && e.responseText == "") {
+                        LoadAllUserContracts(null);
+                    }
+                    else {
+                        console.error(e.responseText);
+                    }
+                },
+                success: function (result) {
+                    console.log(result);
+                    LoadAllUserContracts(result);
+                }
+            });
+
+            $.ajax({
+                url:"@Url.Action("GetUserComplaints")",
+                type: 'GET',
+                data: null,
+                error: function (e) {
+                    debugger;
+                    if (e.status == 200 && e.responseText == "") {
+                        LoadAllUserComplaints(null);
+                    }
+                    else {
+                        console.error(e.responseText);
+                    }
+                },
+                success: function (result) {
+                    debugger;
+                    console.log(result);
+                    LoadAllUserComplaints(result);
+                }
+            });
+        });
+    </script>
+}

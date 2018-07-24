@@ -1,0 +1,230 @@
+﻿@model  LaborServices.Web.Models.ServiceContractPerHour
+@using LaborServices.Web.Helpers
+@{
+    ViewBag.Title = "Details of contract number :" + Model.ContractNum;
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+    string inputdirection = lang == "ar" ? "rtl" : "ltr";
+
+}
+<style>
+    @@media print {
+       .do-not-print, .top, .navBar, .nav-social,.footer {
+            display: none;
+        }
+    }
+   
+</style>
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col mt-4 p-0">
+                <div class="bg-white text-dark rounded rounded-20px p-4 p-lg-5" style="margin: auto;width: 97%;">
+                    <div class="row @inputTextAlign">
+                        <div class="col-12 text-center mb-3"><img src="~/Images/frontEnd/dalal.png" alt="دلال" /></div>
+                        <div class="col-12 col-lg-12">
+                            <div class="p-2 bg-info text-white text-center"><span class="d-lg-none">(4)</span>&nbsp;@DbRes.T("ContractBasicInfo", "DalalResources")</div>
+
+                            <!-- ===== S T A R T  ===== -->
+                            <div class="border p-2 mb-4">
+                                <div class="panel-body">
+                                    <table class="table table-sm table-bordered table-hover">
+                                        <tbody>
+                                            <tr class="do-not-print">
+                                                @if (Model.StatusCode == "100000006")
+                                                {
+
+                                                    <td colspan="4" class="mt-3 p-2 bg-white text-white text-center">
+                                                        <a href="@Url.Action("PaymentMethod","Payment",new { area="",id=Model.ContractId})" class="btn btn-lg btn-info">
+                                                            @DbRes.T("PayBtn", "Shared")  <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                                        </a>
+                                                    </td>
+
+                                                }
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row" class="p-2 bg-info text-gray text-center">رقم العقد</th>
+                                                <td class="p-2 bg-info text-gray text-center"> @Html.DisplayFor(m => Model.ContractNum)</td>
+                                                @{
+                                                    if (Model.StatusCode == "100000006")
+                                                    {
+                                                        <th scope="row" class="p-2 bg-warning text-white text-center">الحالة </th>
+                                                        <td class="p-2 bg-warning text-white text-center">@Html.DisplayFor(m => Model.StatusName)</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <th scope="row" class="p-2 bg-success text-white text-center">الحالة </th>
+                                                        <td class="p-2 bg-success text-white text-center">@Html.DisplayFor(m => Model.StatusName)</td>
+                                                    }
+                                                }
+                                                
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">@DbRes.T("City", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.City)</td>
+                                                <th scope="row">@DbRes.T("District", "DalalResources")</th>
+                                                <td> @Html.DisplayFor(m => Model.District)</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">@DbRes.T("Nationality", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.Nationality)</td>
+                                                <th scope="row">@DbRes.T("Status", "Shared")</th>
+                                                <td>@Html.DisplayFor(m => Model.StatusName)</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">@DbRes.T("Shift", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.ShiftName)</td>
+                                                <th scope="row">@DbRes.T("SelectedDays", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.SelectedDays)</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">@DbRes.T("VisitsNum", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.NumOfVisits)</td>
+                                                <th scope="row">@DbRes.T("ContractDuration", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.ContractDurationName)</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">@DbRes.T("StartDay", "DalalResources")</th>
+                                                <td>@Model.StartDay.ToDateTimeString()</td>
+                                                <th scope="row">@DbRes.T("WorkersNum", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.NumOfWorkers)</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">@DbRes.T("Rate", "DalalResources")</th>
+                                                <td colspan="3">@Html.SuperStars(Model.UserRate ?? 0)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- ===== E N D  ===== -->
+
+                            <div class="p-2 bg-info text-white text-center">&nbsp;@DbRes.T("PackageDetails", "DalalResources")</div>
+
+                            <!-- ===== S T A R T  ===== -->
+                            <div class="border p-2 mb-4 ">
+                                <div class="panel-body">
+                                    <table class="table table-bordered table-sm table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">@DbRes.T("Hourly Pricing", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.HourlyPricingName)</td>
+                                                <th scope="row">@DbRes.T("Contract_NetPackagePrice", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.FinalPrice)<span class="smallText"> SAR </span></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">@DbRes.T("Price Before Discount", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.HourlyPricingCost.TotalPriceBeforeDiscount)<span class="smallText"> SAR </span></td>
+                                                <th scope="row">@DbRes.T("Contract_PackagePriceAfterDiscount", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.HourlyPricingCost.TotalPriceAfterDiscount)<span class="smallText"> SAR </span></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">@DbRes.T("Vat Rate (%)", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.HourlyPricingCost.VatRate) %</td>
+                                                <th scope="row">@DbRes.T("Vat Amount", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.HourlyPricingCost.VatAmount)<span class="smallText"> SAR </span></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">@DbRes.T("Total Price + Vat", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.HourlyPricingCost.TotalPriceWithVat)<span class="smallText"> SAR </span></td>
+                                                <th scope="row">@DbRes.T("Contract_NetPackagePrice", "DalalResources")</th>
+                                                <td>@Html.DisplayFor(m => Model.HourlyPricingCost.NetPrice)<span class="smallText"> SAR </span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- ===== E N D  ===== -->
+
+
+                            <div class="p-2 bg-info text-white text-center do-not-print">&nbsp;@DbRes.T("Visits Timing", "DalalResources")</div>
+
+                            <div class="border p-2 mb-4 do-not-print">
+                                <div class="panel-body">
+                                    <div id="accordion" class="text-center">
+
+                                        @if (Model.HourlyAppointments != null && Model.HourlyAppointments.Any())
+                                        {
+                                            foreach (var item in Model.HourlyAppointments)
+                                            {
+
+                                                <div class="card">
+
+                                                    <a class="card-link" data-toggle="collapse" data-parent="#accordion" href="#@item.Id" dir="@(inputdirection)">
+                                                        <div class="card-header ">
+                                                            <h3>
+                                                                <i class="fa fa-angle-double-down position-absolute p-2 ml-2" style="left:0;"></i>
+                                                                <span class="badge badge-info"> @(DateTime.Parse(item.ShiftStart).ToDateTimeString())</span>
+                                                                <span class="badge badge-info">@(DateTime.Parse(item.ShiftEnd).ToDateTimeString()) </span>
+                                                                <span class="badge badge-success"> @item.StatusName</span>
+                                                            </h3>
+                                                        </div>
+                                                    </a>
+
+                                                    <div id="@item.Id" class="collapse">
+                                                        <div class="card-body">
+                                                            <ul class="list-unstyled">
+                                                                <li>@item.EmpName</li>
+                                                                <li>@item.CarName</li>
+                                                                <li>@Html.SuperStars(@item.Rate ?? 0)</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <p class="list-group-item">@DbRes.T("No Visits Timing now", "DalalResources")</p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border p-2 mb-4 do-not-print">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <div id="map" class="embed-responsive-item"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        function initMap() {
+            var latP= @(string.IsNullOrEmpty(Model.Latitude)? "24.7136" : Model.Latitude);
+            var lngP= @(string.IsNullOrEmpty(Model.Longitude)? "46.6753" : Model.Longitude);
+
+            var pos = {lat: latP, lng: lngP};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                scaleControl: true,
+                zoom: 14,
+                center: pos
+            });
+
+            var infowindow = new google.maps.InfoWindow;
+            infowindow.setContent("<b>موقع الخدمة</b>");
+
+            var marker = new google.maps.Marker({map: map, position: pos});
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVq-Rrv_-2ijJ26kkT4mFs3_LsHxkhVp0&callback=initMap&language=@lang" async defer>
+    </script>
+}

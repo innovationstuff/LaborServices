@@ -1,0 +1,106 @@
+﻿@model LaborServices.Web.Models.SliderViewModel
+@{
+    Layout = "";
+}
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.Slider.Id)
+@Html.HiddenFor(model => model.Slider.ImageName)
+<div class="form-horizontal">
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Slider.Title, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Slider.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Slider.Title)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Slider.Link, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Slider.Link, new { @class = "form-control" } )
+            @Html.ValidationMessageFor(model => model.Slider.Link)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Slider.Description, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Slider.Description, new { @class = "form-control" } )
+            @Html.ValidationMessageFor(model => model.Slider.Description)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SliderImage, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-11">
+                    @if (Model.IsImageExist)
+                    {
+                        <div id="ImageContent">
+                            <img src="@Url.Content(Model.SliderImageUrl)" class="img-thumbnail" />
+                            <a id="ChangeSliderImage" class="btn btn-link">Change</a>
+                            <a id="CancelSliderImage" class="btn btn-link" style="display: none;">Cancel</a>
+                        </div>
+                    }
+                    @Html.TextBoxFor(model => model.SliderImage, new { type = "file", @class = "form-control" })
+                </div>
+                <div class="col-md-1">
+                    <i class="fa fa-info fa-2x pull-right" data-toggle="tooltip" data-placement="top" title="Please select  1920 x 1280 pixel  image."></i>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(model => model.SliderImage, "", new { @class = "text-danger", id = "SliderImageValidation" })
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $.validator.setDefaults({ ignore: '' });
+        $.validator.unobtrusive.parse($("form"));
+
+        var image = {
+            input: "#SliderImage",
+            change: "#ChangeSliderImage",
+            cancel: "#CancelSliderImage",
+            validation: "#SliderImageValidation",
+        };
+
+        if (@Json.Encode(Model.IsImageExist) && !$(image).hasClass("input-validation-error"))
+        {
+            $(image.input).rules("remove", "required");
+            $(image.input).hide();
+        }
+
+        if ($(image.input).hasClass("input-validation-error")) {
+            $(image.change).hide();
+            $(image.cancel).show();
+        }
+
+        $(image.change).click(function () {
+            $(this).hide();
+            $(image.validation).show();
+
+            $(image.input).rules("add", { required: true, messages: { required: "The Image field is required." } });
+            $(image.input).show();
+
+            $(image.cancel).show();
+        });
+
+        $(image.cancel).click(function () {
+            $(image.change).show();
+            $(image.validation).hide();
+
+            $(image.input).rules("remove", "required");
+
+            var file = $(image.input);
+            file.replaceWith(file = file.clone(true));
+
+            file.hide();
+            $(this).hide();
+        });
+    });
+</script>

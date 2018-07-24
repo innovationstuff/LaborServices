@@ -1,0 +1,122 @@
+﻿@model LaborServices.Web.Areas.Admin.Models.GroupViewModel
+
+@{
+    ViewBag.Title = "Create new group";
+}
+
+<div class="page-profile">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="row">
+
+            <!-- COL 1 -->
+            <div class="col-md-8 col-lg-6">
+                <section class="panel">
+                    <div class="panel-heading panel-heading-transparent">
+                        <strong>@ViewBag.Title</strong>
+                    </div>
+                    <div class="panel-body noradius padding-10">
+
+                        <fieldset>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-7 col-sm-7">
+                                        @Html.LabelFor(model => model.Group.Name)
+                                        @Html.TextBoxFor(model => model.Group.Name, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Group.Name)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12">
+                                        @Html.LabelFor(model => model.Group.Description)
+                                        @Html.TextAreaFor(model => model.Group.Description, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Group.Description)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <hr class="half-margins" />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                                @Html.ActionLink("Back to List", "Index")
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div><!-- /COL 1 -->
+
+            <div class="col-md-12 col-lg-3">
+
+                <!-- roles  -->
+                <section class="panel panel-default">
+                    <header class="panel-heading">
+                        <h2 class="panel-title elipsis">
+                            <i class="fa fa-rss"></i> group roles
+                        </h2>
+                    </header>
+
+                    <div class="panel-body noradius padding-10">
+
+                        <ul class="bullet-list list-unstyled">
+                            @foreach (var item in Model.RolesList)
+                            {
+                                if (!String.Equals(item.Text, b: AppConstants.AdminRoleName, comparisonType: StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    <li>
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="selectedRoles" value="@item.Value" checked="@item.Selected" />
+                                            <i></i>@item.Text
+                                        </label>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+
+                </section>     
+            
+                <!-- users  -->
+                <section class="panel panel-default">
+                    <header class="panel-heading">
+                        <h2 class="panel-title elipsis">
+                            <i class="fa fa-rss"></i> group users
+                        </h2>
+                    </header>
+
+                    <div class="panel-body noradius padding-10">
+
+                        <ul class="bullet-list list-unstyled">
+                            @foreach (var item in Model.UsersList)
+                            {
+                               <li>
+                                   <label class="checkbox">
+                                       <input type="checkbox" name="selectedUsers" value="@item.Value" checked="@item.Selected" />
+                                       <i></i>@item.Text
+                                   </label>
+                               </li>
+                            }
+                        </ul>
+                    </div>
+
+                </section>
+
+            </div><!-- /COL 2 -->
+        </div>
+    }
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

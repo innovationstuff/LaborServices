@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Works";
+}
+
+<div class="breadcrumb">
+    <h1 class="container">أعمالنا</h1>
+</div>
+<section class="works">
+    <div class="container">
+        <div class="portfolio-filter text-center ">
+            <button type="button" class="mix_btn control" data-mixitup-control data-filter="all">جميع الأعمال
+            </button>
+            <button type="button" class="mix_btn control" data-mixitup-control data-filter=".web">المواقع
+            </button>
+            <button type="button" class="mix_btn control" data-mixitup-control data-filter=".app">تطبيقات الموبايل
+            </button>
+        </div>
+        <select id="filter-select " class="optionSelect">
+            <option value="*">جميع الأعمال</option>
+            <option value=".web">المواقع</option>
+            <option value=".app">تطبيقات الموبايل</option>
+        </select>
+        <div class="row mixit_area">
+            <div class="mix web col-md-4 ">
+                <div class="workItem">
+                    <div class="workThumb">
+                        <img class="img-fluid"
+                             src='@Url.Content("~/Images/frontEnd/post01.jpg")'>
+                        <div class="overlay">
+                            <h4>موقع شركة ابدال</h4>
+                            <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن
+                                التركيز</p>
+                            <a href="#">المذيد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mix web col-md-4 ">
+                <div class="workItem">
+                    <div class="workThumb">
+                        <img class="img-fluid"
+                             src='@Url.Content("~/Images/frontEnd/post02.jpg")'>
+                        <div class="overlay">
+                            <h4>موقع شركة ابدال</h4>
+                            <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن
+                                التركيز</p>
+                            <a href="#">المذيد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mix app col-md-4 ">
+                <div class="workItem">
+                    <div class="workThumb">
+                        <img class="img-fluid"
+                             src='@Url.Content("~/Images/frontEnd/post03.jpg")'>
+                        <div class="overlay">
+                            <h4>موقع شركة ابدال</h4>
+                            <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن
+                                التركيز</p>
+                            <a href="#">المذيد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mix app col-md-4 ">
+                <div class="workItem">
+                    <div class="workThumb">
+                        <img class="img-fluid"
+                             src='@Url.Content("~/Images/frontEnd/post01.jpg")'>
+                        <div class="overlay">
+                            <h4>موقع شركة ابدال</h4>
+                            <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن
+                                التركيز</p>
+                            <a href="#">المذيد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mix web col-md-4 ">
+                <div class="workItem">
+                    <div class="workThumb">
+                        <img class="img-fluid"
+                             src='@Url.Content("~/Images/frontEnd/post02.jpg")'>
+                        <div class="overlay">
+                            <h4>موقع شركة ابدال</h4>
+                            <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن
+                                التركيز</p>
+                            <a href="#">المذيد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,112 @@
+﻿@model LaborServices.Web.Models.HourlyWorkersViewModel
+@{
+    ViewBag.Title = "جدول الزيارات المتوقعة";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col mt-4 p-0">
+                <div class="bg-white text-dark rounded rounded-20px p-4 p-lg-5" style="margin: auto;width: 97%;">
+                    <div class="row text-left">
+                        <div class="col-12 text-center mb-3"><img src="~/Images/frontEnd/dalal.png" alt="دلال" /></div>
+                        <div class="col-12 col-sm-10 col-lg-8">
+                            <div class="p-2 bg-info text-white text-center"><span class="d-lg-none">(2)</span>&nbsp;@DbRes.T("ExpectedVisitsAppointment", "DalalResources") </div>
+                            <!-- ===== S T A R T  ===== -->
+                            <div class="border p-2 mb-4">
+                                <div class="panel-body panel-scroll" style="height:300px">
+                                    @*<div class="scrollbar scrollbarStyle">*@
+                                    <table class="table table-sm table-striped table-hover" id="sample-table-1">
+
+                                        <tbody>
+                                            @foreach (var item in Model.ConfirmTimeTableList)
+                        {
+                            <tr><td class="text-center">@item</td></tr>
+    }
+                                        </tbody>
+                                    </table>
+                                    @*</div>*@
+                                </div>
+                                <!-- ===== E N D  ===== -->
+                                <!-- ===== S T A R T  F O R M ===== -->
+
+
+                                @using (Html.BeginForm("Next", "HourlyWorkers", FormMethod.Post))
+            {
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">&nbsp;</label>
+                        <div class="col-sm-8 @inputTextdirection" style="direction:ltr !important;">
+                            <input class="btn btn-lg btn-info" type="submit" value="@DbRes.T("NextBtn", "Shared")" name="BtnNext" />
+                            <input class="btn btn-lg btn-outline-secondary" type="submit" value="@DbRes.T("PrevBtn", "Shared")" name="BtnPrevious" />
+                        </div>
+                    </div>
+
+}
+
+                            </div>
+                        </div>
+
+                        <div class="col-2 col-lg-4 d-none d-sm-block">
+                            <div class="">
+                                <!-- ------------------------- -->
+                                <div id="smartwizard" class="sw-main sw-theme-dots">
+                                    <ul class="nav nav-tabs step-anchor">
+                                        <li >
+                                            <a href="#step-1">
+                                                <span class="d-lg-none">&nbsp;</span>
+                                                <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")  ( 1 )<br><small>@DbRes.T("StepOneDesc", "DalalResources") </small></span>
+                                            </a>
+                                        </li>
+                                        <li class="active">
+                                            <a href="#step-2">
+                                                <span class="d-lg-none">&nbsp;</span>
+                                                <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 2 )<br><small>@DbRes.T("StepTwoDesc", "DalalResources") </small></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#step-3">
+                                                <span class="d-lg-none">&nbsp;</span>
+                                                <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 3 )<br><small>@DbRes.T("StepThreeDesc", "DalalResources") </small></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#step-4">
+                                                <span class="d-lg-none">&nbsp;</span>
+                                                <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 4 )<br><small>@DbRes.T("StepFourDesc", "DalalResources") </small></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#step-5">
+                                                <span class="d-lg-none">&nbsp;</span>
+                                                <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 5 )<br><small>@DbRes.T("StepFiveDesc", "DalalResources") </small></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#step-6">
+                                                <span class="d-lg-none">&nbsp;</span>
+                                                <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 6 )<br><small>@DbRes.T("StepSixDesc", "DalalResources") </small></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- ------------------------- -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    window.localStorage.setItem('modelVal', '@Html.Raw(Json.Encode(Model))');
+    var modelVal = JSON.parse(window.localStorage.getItem('modelVal'));
+
+    if (modelVal == null) {
+        window.location.replace('@Url.Action("Create")');
+    }
+</script>

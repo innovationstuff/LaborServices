@@ -1,0 +1,57 @@
+﻿@using LaborServices.Utility
+@{
+    var routeData = ViewContext.RouteData.Values;
+    string action = routeData["action"] as string;
+    string lang = routeData["lang"] as string;
+    var language = lang == "ar" ? Language.Arabic : Language.English;
+    var styleFiles = language == Language.Arabic ? "~/FrontEnd/rtlCss" : "~/FrontEnd/css";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ابدال التوظيف للاستقدام والخدمات العمالية</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    @Styles.Render(styleFiles)
+    @RenderSection("css", required: false)
+</head>
+
+<body>
+    <!--fake loader start-->
+    <div id="fakeLoader"></div>
+    <!--fake loader end-->
+    <!--		Start Top Part	  -->
+
+    <div class="">
+        <div class="">
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/frontEnd")
+    @Scripts.Render("~/bundles/corejs")
+    @*<script src="~/LocalizationAdmin/scripts/ww.resourceEditor.js"></script>*@
+    <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Scripts/CheckCookie.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            $("#btnFormLogin").click(function () {
+                var isCookieEnabled = checkCookie();
+            if (isCookieEnabled == false) {
+                window.location.href = '/@lang/Account/EnableCookies?returnurl=/@lang/Account/login';
+            }
+            else {
+                document.getElementById('frmLogin').submit();
+            }
+            });
+        });
+
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

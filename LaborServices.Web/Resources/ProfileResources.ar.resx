@@ -1,0 +1,271 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<root>
+   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+      <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+      <xsd:element name="root" msdata:IsDataSet="true">
+         <xsd:complexType>
+            <xsd:choice maxOccurs="unbounded">
+               <xsd:element name="metadata">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" use="required" type="xsd:string" />
+                     <xsd:attribute name="type" type="xsd:string" />
+                     <xsd:attribute name="mimetype" type="xsd:string" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="assembly">
+                  <xsd:complexType>
+                     <xsd:attribute name="alias" type="xsd:string" />
+                     <xsd:attribute name="name" type="xsd:string" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="data">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                        <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                     <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                     <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="resheader">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" />
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:choice>
+         </xsd:complexType>
+      </xsd:element>
+   </xsd:schema>
+   <resheader name="resmimetype">
+      <value>text/microsoft-resx</value>
+   </resheader>
+   <resheader name="version">
+      <value>2.0</value>
+   </resheader>
+   <resheader name="reader">
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <data name="AboutUserSpan" xml:space="preserve">
+      <value>عن المستخدم</value>
+   </data>
+   <data name="Add" xml:space="preserve">
+      <value>اضافة</value>
+   </data>
+   <data name="AddPhoneNumber" xml:space="preserve">
+      <value>اضافة رقم الهاتف</value>
+   </data>
+   <data name="Anerrorhasoccurred" xml:space="preserve">
+      <value>حدث خطأ ما</value>
+   </data>
+   <data name="Change" xml:space="preserve">
+      <value>تغير</value>
+   </data>
+   <data name="ChangePassword" xml:space="preserve">
+      <value>تغير كلمة المرور</value>
+   </data>
+   <data name="ChangeYourPassword" xml:space="preserve">
+      <value>تغير كلمة المرور</value>
+   </data>
+   <data name="ClickHereToLogIn" xml:space="preserve">
+      <value>اضغط هنا لتسجيل الدخول</value>
+   </data>
+   <data name="ClientClosedCodeTH" xml:space="preserve">
+      <value>كود الغلق</value>
+   </data>
+   <data name="ConfirmPassword" xml:space="preserve">
+      <value>اعادة كلمة المرور</value>
+   </data>
+   <data name="ContactTH" xml:space="preserve">
+      <value>العميل</value>
+   </data>
+   <data name="ContractDateTH" xml:space="preserve">
+      <value>تاريخ العقد</value>
+   </data>
+   <data name="ContractNumTH" xml:space="preserve">
+      <value>رقم العقد</value>
+   </data>
+   <data name="ContractTH" xml:space="preserve">
+      <value>العقد</value>
+   </data>
+   <data name="CreateNewAccount" xml:space="preserve">
+      <value>تسجيل حساب جديد</value>
+   </data>
+   <data name="DalalComplaints" xml:space="preserve">
+      <value>شكاوى دلال</value>
+   </data>
+   <data name="EditProfile" xml:space="preserve">
+      <value>تعديل البيانات</value>
+   </data>
+   <data name="EditProfileBtn" xml:space="preserve">
+      <value>تعديل</value>
+   </data>
+   <data name="Email" xml:space="preserve">
+      <value>البريد الالكتروني</value>
+   </data>
+   <data name="EnterVerificationCode" xml:space="preserve">
+      <value>ادخال كود التحقق</value>
+   </data>
+   <data name="FinalPriceTH" xml:space="preserve">
+      <value>السعر النهائي</value>
+   </data>
+   <data name="FirstName" xml:space="preserve">
+      <value>الإسم الأول</value>
+   </data>
+   <data name="ForgetyourpasswordLink" xml:space="preserve">
+      <value>نسيت كلمة المرور؟</value>
+   </data>
+   <data name="ForgotYourPassword" xml:space="preserve">
+      <value>نسيت رقمك السرى؟</value>
+   </data>
+   <data name="Gender_PH" xml:space="preserve">
+      <value>اختر النوع</value>
+   </data>
+   <data name="hdrComplaintsSpan" xml:space="preserve">
+      <value>الشكاوي</value>
+   </data>
+   <data name="hdrContractsSpan" xml:space="preserve">
+      <value>العقود</value>
+   </data>
+   <data name="IdNumber" xml:space="preserve">
+      <value>رقم الهوية</value>
+   </data>
+   <data name="IndividualsComplaints" xml:space="preserve">
+      <value>شكاوى الأفراد</value>
+   </data>
+   <data name="JobTitle" xml:space="preserve">
+      <value>المسمى الوظيفي</value>
+   </data>
+   <data name="LastName" xml:space="preserve">
+      <value>الإسم الأخير</value>
+   </data>
+   <data name="LogIn" xml:space="preserve">
+      <value>تسجيل الدخول</value>
+   </data>
+   <data name="LoginBtn" xml:space="preserve">
+      <value>الدخول</value>
+   </data>
+   <data name="ManageYourAccount" xml:space="preserve">
+      <value>ادارة الحساب الخاص بك</value>
+   </data>
+   <data name="MiddleName" xml:space="preserve">
+      <value>الإسم الأوسط</value>
+   </data>
+   <data name="Mobile" xml:space="preserve">
+      <value>رقم الهاتف</value>
+   </data>
+   <data name="Name" xml:space="preserve">
+      <value>الاسم</value>
+   </data>
+   <data name="NewPassword" xml:space="preserve">
+      <value>الرقم السرى الجديد</value>
+   </data>
+   <data name="NoComplaintsSpan" xml:space="preserve">
+      <value>لا يوجد شكاوي حالية للمستخدم.</value>
+   </data>
+   <data name="NoContractsSpan" xml:space="preserve">
+      <value>لا يوجد عقود حالية للمستخدم.</value>
+   </data>
+   <data name="NotRegisteredYetRegisterNow" xml:space="preserve">
+      <value>لم تسجل بعد؟ سجل الان</value>
+   </data>
+   <data name="Number" xml:space="preserve">
+      <value>رقم الهاتف</value>
+   </data>
+   <data name="OldPassword" xml:space="preserve">
+      <value>الرقم السرى القديم</value>
+   </data>
+   <data name="Password" xml:space="preserve">
+      <value>كلمة المرور</value>
+   </data>
+   <data name="PhoneNumber" xml:space="preserve">
+      <value>رقم الجوال</value>
+   </data>
+   <data name="phonenumberverified" xml:space="preserve">
+      <value>تم التحقق من رقم الجوال بنجاح</value>
+   </data>
+   <data name="PickPassword" xml:space="preserve">
+      <value>اختر كلمة المرور</value>
+   </data>
+   <data name="ProblemTypeTH" xml:space="preserve">
+      <value>نوع المشكلة</value>
+   </data>
+   <data name="Profile" xml:space="preserve">
+      <value>الصفحة الشخصية</value>
+   </data>
+   <data name="Region_PH" xml:space="preserve">
+      <value>اختر المنطقة</value>
+   </data>
+   <data name="Register" xml:space="preserve">
+      <value>تسجيل</value>
+   </data>
+   <data name="RememberMe" xml:space="preserve">
+      <value>تذكرنى ؟</value>
+   </data>
+   <data name="Reset" xml:space="preserve">
+      <value>تغيير</value>
+   </data>
+   <data name="ResetPassword" xml:space="preserve">
+      <value>اعادة تعيين كلمة المرور</value>
+   </data>
+   <data name="ResetPasswordConfirmation" xml:space="preserve">
+      <value>تأكيد تغير كلمة المرور</value>
+   </data>
+   <data name="SectorTypeTH" xml:space="preserve">
+      <value>اسم القطاع</value>
+   </data>
+   <data name="SelectCity" xml:space="preserve">
+      <value>اختر مدينة</value>
+   </data>
+   <data name="SelectNationality" xml:space="preserve">
+      <value>اختر جنسية</value>
+   </data>
+   <data name="SendCodeBySms" xml:space="preserve">
+      <value>أرسال الكود عبر الرسالة النصية</value>
+   </data>
+   <data name="SendVerificationCode" xml:space="preserve">
+      <value>ارسال كود التحقق</value>
+   </data>
+   <data name="StatusNameTH" xml:space="preserve">
+      <value>حالة العقد</value>
+   </data>
+   <data name="StatusTH" xml:space="preserve">
+      <value>الحالة</value>
+   </data>
+   <data name="Submit" xml:space="preserve">
+      <value>تم</value>
+   </data>
+   <data name="TicketNumberTH" xml:space="preserve">
+      <value>رقم الشكوى</value>
+   </data>
+   <data name="VerifyPhoneNumber" xml:space="preserve">
+      <value>التحقق من رقم التليفون</value>
+   </data>
+   <data name="Yourpasswordhasbeenchanged" xml:space="preserve">
+      <value>تم تغير كلمة المرور الخاصة بك</value>
+   </data>
+   <data name="YourPasswordHasBeenReset" xml:space="preserve">
+      <value>تم تغير كلمة المرور</value>
+   </data>
+   <data name="Yourpasswordhasbeenset" xml:space="preserve">
+      <value>تم تعيين كلمة المرور الخاصة بك</value>
+   </data>
+   <data name="Yourphonenumberwasremoved." xml:space="preserve">
+      <value>تم حذف رقم جوالك بنجاح</value>
+   </data>
+   <data name="Yourtwofactorproviderhasbeenset" xml:space="preserve">
+      <value>تم تعيين خاصية التحقق من عاملين</value>
+   </data>
+</root>

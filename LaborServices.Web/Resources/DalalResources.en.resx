@@ -1,0 +1,370 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<root>
+   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+      <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+      <xsd:element name="root" msdata:IsDataSet="true">
+         <xsd:complexType>
+            <xsd:choice maxOccurs="unbounded">
+               <xsd:element name="metadata">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" use="required" type="xsd:string" />
+                     <xsd:attribute name="type" type="xsd:string" />
+                     <xsd:attribute name="mimetype" type="xsd:string" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="assembly">
+                  <xsd:complexType>
+                     <xsd:attribute name="alias" type="xsd:string" />
+                     <xsd:attribute name="name" type="xsd:string" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="data">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                        <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                     <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                     <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="resheader">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" />
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:choice>
+         </xsd:complexType>
+      </xsd:element>
+   </xsd:schema>
+   <resheader name="resmimetype">
+      <value>text/microsoft-resx</value>
+   </resheader>
+   <resheader name="version">
+      <value>2.0</value>
+   </resheader>
+   <resheader name="reader">
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <data name="Address Description" xml:space="preserve">
+      <value>Address</value>
+   </data>
+   <data name="Address Description PH" xml:space="preserve">
+      <value>Ex: Beside school ....</value>
+   </data>
+   <data name="AvaialbleDays" xml:space="preserve">
+      <value>Avaialble Days</value>
+   </data>
+   <data name="BankTransfer" xml:space="preserve">
+      <value>Bank Transfer</value>
+   </data>
+   <data name="BankTransferIsUploaded" xml:space="preserve">
+      <value>Bank Transfer Statement was uploaded successfully!</value>
+   </data>
+   <data name="BankTransferIsUploadedBefore" xml:space="preserve">
+      <value>Bank Transfer Statement Was Uploaded Before!</value>
+   </data>
+   <data name="CancelledContractMsg" xml:space="preserve">
+      <value>This Contract is cancelled ..  If there is any problem please contact us</value>
+   </data>
+   <data name="ChooseLocation" xml:space="preserve">
+      <value>Choose your location</value>
+   </data>
+   <data name="ChoosePackage" xml:space="preserve">
+      <value>Choose Package</value>
+   </data>
+   <data name="ChoosePaymentMethod" xml:space="preserve">
+      <value>Choose Payment Method</value>
+   </data>
+   <data name="City" xml:space="preserve">
+      <value>City</value>
+   </data>
+   <data name="City_PH" xml:space="preserve">
+      <value>Select a City</value>
+   </data>
+   <data name="CityId" xml:space="preserve">
+      <value>City</value>
+   </data>
+   <data name="Company" xml:space="preserve">
+      <value>Company</value>
+   </data>
+   <data name="CompanyActivity" xml:space="preserve">
+      <value>Company Activity</value>
+   </data>
+   <data name="companyRep" xml:space="preserve">
+      <value>company's representative</value>
+   </data>
+   <data name="Contract_FinishRequestAlert" xml:space="preserve">
+      <value>Well done! Successfully contracted</value>
+   </data>
+   <data name="Contract_NetPackagePrice" xml:space="preserve">
+      <value>Net Package Price</value>
+   </data>
+   <data name="Contract_PackagePriceAfterDiscount" xml:space="preserve">
+      <value>Package Price After Discount</value>
+   </data>
+   <data name="ContractBasicInfo" xml:space="preserve">
+      <value>Basic Information</value>
+   </data>
+   <data name="ContractDuration" xml:space="preserve">
+      <value>Contract Duration</value>
+   </data>
+   <data name="ContractDuration_PH" xml:space="preserve">
+      <value>Select Contract Duration</value>
+   </data>
+   <data name="ContractIsCancelled" xml:space="preserve">
+      <value>Contract Is Cancelled</value>
+   </data>
+   <data name="ContractRequestHeader" xml:space="preserve">
+      <value>Hourly Worker Request</value>
+   </data>
+   <data name="CreateComplaintButton" xml:space="preserve">
+      <value>Create</value>
+   </data>
+   <data name="DalalAdditionalWarning" xml:space="preserve">
+      <value>&lt;div class="my-3 h5 text-dark"&gt;
+                                        &lt;span class="text-primary"&gt;
+                                            In Ramadan
+                                        &lt;/span&gt;
+
+                                        &lt;ul&gt;
+                                            &lt;li&gt;
+                                                &amp;emsp;&amp;nbsp;	 Morning shift starts between 10:30 AM , 12:30 PM
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                &amp;emsp;&amp;nbsp;	  Evening shift starts between 8:00 PM , 10:00 PM
+
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/div&gt;</value>
+   </data>
+   <data name="DalalFamilyWarning" xml:space="preserve">
+      <value>&lt;div class="my-3 h5 text-dark"&gt;
+                                        This service is provided
+                                        &lt;span class="text-primary"&gt;
+                                            for families only
+                                        &lt;/span&gt; In the absence of a lady at home we apologize for the service
+                                    &lt;/div&gt;</value>
+   </data>
+   <data name="District" xml:space="preserve">
+      <value>District</value>
+   </data>
+   <data name="District_PH" xml:space="preserve">
+      <value>Select a District</value>
+   </data>
+   <data name="ExpectedVisitsAppointment" xml:space="preserve">
+      <value>Expected Visits Appointment</value>
+   </data>
+   <data name="HoursNum" xml:space="preserve">
+      <value>Number of Hours</value>
+   </data>
+   <data name="HoursNum_PH" xml:space="preserve">
+      <value>Select Number of Hours</value>
+   </data>
+   <data name="Job" xml:space="preserve">
+      <value>Job</value>
+   </data>
+   <data name="LeadCreationSuccess" xml:space="preserve">
+      <value>Order creation success</value>
+   </data>
+   <data name="Nationality" xml:space="preserve">
+      <value>Nationality</value>
+   </data>
+   <data name="Nationality_PH" xml:space="preserve">
+      <value>Select a Nationality</value>
+   </data>
+   <data name="PackageDetails" xml:space="preserve">
+      <value>Package Details</value>
+   </data>
+   <data name="PackageType" xml:space="preserve">
+      <value>Shift</value>
+   </data>
+   <data name="PaymentOperationDoneSuccessfully" xml:space="preserve">
+      <value>Payment Operation has been Done Successfully .. Thank you.</value>
+   </data>
+   <data name="PayOnline" xml:space="preserve">
+      <value>Pay Online</value>
+   </data>
+   <data name="PleaseChooseYourPreferredPaymentMethodFortheContract" xml:space="preserve">
+      <value>Please Choose Your Preferred Payment Method for the contract</value>
+   </data>
+   <data name="PleasePayOnlineForContract" xml:space="preserve">
+      <value>Please Pay Online For Contract</value>
+   </data>
+   <data name="PleaseUploadBankTransferStatementFortheContract" xml:space="preserve">
+      <value>Please Upload Bank Transfer Statement For the Contract</value>
+   </data>
+   <data name="PromotionCode" xml:space="preserve">
+      <value>Promotion Code</value>
+   </data>
+   <data name="PromotionCodePH" xml:space="preserve">
+      <value>Enter Promotion Code</value>
+   </data>
+   <data name="rJobs" xml:space="preserve">
+      <value>required jobs</value>
+   </data>
+   <data name="Salary" xml:space="preserve">
+      <value>Salary</value>
+   </data>
+   <data name="SelectContract" xml:space="preserve">
+      <value>Select Contract</value>
+   </data>
+   <data name="SelectedDays" xml:space="preserve">
+      <value>Selected Days</value>
+   </data>
+   <data name="SelectProblemType" xml:space="preserve">
+      <value>Select Problem Type</value>
+   </data>
+   <data name="SelectWorker" xml:space="preserve">
+      <value>Select worker</value>
+   </data>
+   <data name="Send" xml:space="preserve">
+      <value>Send</value>
+   </data>
+   <data name="ShopperResultHeader" xml:space="preserve">
+      <value>Please Choose Payment Type</value>
+   </data>
+   <data name="StartDay" xml:space="preserve">
+      <value>Start Day</value>
+   </data>
+   <data name="Step" xml:space="preserve">
+      <value>Step</value>
+   </data>
+   <data name="StepFiveDesc" xml:space="preserve">
+      <value>Enter personal data (if incomplete)</value>
+   </data>
+   <data name="StepFourDesc" xml:space="preserve">
+      <value>See the contract details and complete the contract</value>
+   </data>
+   <data name="StepOneDesc" xml:space="preserve">
+      <value>Choose location data, time of visits, available days and nationality of workers</value>
+   </data>
+   <data name="StepSixDesc" xml:space="preserve">
+      <value>Pay and enjoy our service</value>
+   </data>
+   <data name="StepThreeDesc" xml:space="preserve">
+      <value>Locate the map and exact address</value>
+   </data>
+   <data name="StepTwoDesc" xml:space="preserve">
+      <value>View the expected schedule of visits</value>
+   </data>
+   <data name="SuccessMessageContract" xml:space="preserve">
+      <value>Note: You only have 3 hours to pay during the cancellation of the contract automatically</value>
+   </data>
+   <data name="SuccessPaymentOperation" xml:space="preserve">
+      <value>Successfull Payment Operation</value>
+   </data>
+   <data name="Terms" xml:space="preserve">
+      <value>Terms?</value>
+   </data>
+   <data name="TermsConfirm" xml:space="preserve">
+      <value>Agree to</value>
+   </data>
+   <data name="TermsData" xml:space="preserve">
+      <value>&lt;div style="text-align:center; font-weight:bold"&gt;
+                   شروط وسياسات برنامج دلال
+                    &lt;/div&gt;
+                &lt;br /&gt;
+                &lt;br /&gt;
+&lt;p&gt;
+ 1-	يحق للعميل تأجيل موعد الزيارة التي تم سداد قيمتها ،  وذلك عن طريق تقديم طلب قبل 48 ساعة من الموعد المراد تأجيله بحد اقصى ( مرة واحد لباقة 4 زيارات ) ، (  مرتان لباقة 8 زيارات ) ، (  3 مرات لباقة 12 زيارة )              ( 4 مرات لباقة 24 زيارة ) ، ( 5 مرات لباقة 36 زيارة ) ، (  6 مرات لباقة 48 زيارة ) . مع ضرورة الالتزام بعدم انقطاع الزيارات لفترة تزيد عن (15) يوم.
+&lt;/p&gt;
+
+&lt;p&gt;
+ 2-  يحق للعميل تجميد الزيارات التي تم سداد قيمتها لمدة مماثلة لمدة الباقة.بشرط تحديد تاريخ إستنفاذ الزيارات .
+&lt;/p&gt;
+
+&lt;p&gt;
+ 3-	يتم جدولة الزيارات حسب الامكانية ويتم إعداده وفقا لقواعد و أحكام و إجراءات شركة ابدال التوظيف للاستقدام 
+&lt;/p&gt;
+
+&lt;p&gt;
+ 4-	يحق للعميل تثبيت العاملة ولكن بعد إخطار شركة ابدال بذلك وبشرط إمكانية توفير نفس العاملة ،  ولا يجوز إلغاء الزيارة بسبب عدم حضور نفس العاملة.
+&lt;/p&gt;
+
+&lt;p&gt;
+5-	في حالة الرغبة بتأجيل الزيارة خلال اقل من 48 ساعة او الالغاء تعتبر الزيارة منفذة ولا يحق للعميل استرداد قيمتها.
+&lt;/p&gt;
+&lt;p&gt;
+ 6-	يجب إستلام العاملة من طرف العميل لتبدأ الزيارة خلال 15 دقيقة بحد أقصي من وصول سيارة الشركة لمقر العميل ، ولا يجوز عدم استقبال العاملة خلال هذه الفترة.
+&lt;/p&gt;
+&lt;div&gt;
+7-	تمتد فترة التوزيع : 
+&lt;ul&gt;
+&lt;li&gt;
+&amp;emsp;&amp;nbsp;	 للزيارات الصباحية  من 07:30 الى 10:00 
+&lt;/li&gt;
+&lt;li&gt;
+&amp;emsp;&amp;nbsp;	الزيارات المسائية	 من 15:30 الى 18:00
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;p&gt;
+ 8-	يجب تسليم العاملة للمشرفة بعد انتهاء الزيارة بحد أقصي بـ 15 دقيقة من وصول سيارة الشركة.
+&lt;/p&gt;
+&lt;p&gt;
+9-	عند تأجيل الزيارة الصباحية او المسائية يتم التأجيل لنفس الفترة المتعاقد عليها.
+&lt;/p&gt;
+&lt;p&gt;
+10-	في حالة عدم وجود سيدة بمنزل العميل عند وصول العاملة تعتبر الزيارة ملغاة و لا تسترد قيمتها.
+&lt;/p&gt;
+&lt;p&gt;
+11-	الاعتداء على العاملة او المشرفة ( إعتداء لفظي  او إعتداء جسدي )  جريمة يعاقب عليها القانون بالسجن لمدة تصل الى 10 سنوات و غرامة مالية تصل الى مليون ريال وفقا للأنظمة السارية داخل المملكة العربية السعودية  ، و في حال وجود تقصير أو خطأ من قبل العاملة فيحق للعميل أخذ حقه من خلال التواصل على الرقم الموحد لشركة و رفع شكوى بالوقائع .
+&lt;/p&gt;
+&lt;p&gt;
+12-	في حالة عدم رضاء العميل عن مستوي الخدمة المقدمة خلال الساعة الاولى من الزيارة، يقوم بالاتصال بمشرفة التوزيع و يتم تعويضه بزيارة بديلة  في نفس الوقت أو  في موعد اجل، وفقا لإمكانية توفير العاملة من قبل شركة ابدال  و الاتفاق مع العميل .
+&lt;/p&gt;
+&lt;p&gt;
+13-	يلتزم العميل بالمحافظة على ممتلكاته الخاصة ، ويكون مسؤول عن المحافظة على الممتلكات الثمينة والمجوهرات وغيرها من المقتنيات الخاصة ، و في حالة رغبة العميل الإبلاغ عن أي مفقودات يكون خلال 24 ساعة كحد أقصي من تاريخ الزيارة ، ويتم التعامل مع البلاغ وفقا للإجراءات النظامية داخل المملكة العربية السعودية وعن طريق الجهات والسلطات الرسمية داخل المملكة .
+&lt;/p&gt;
+&lt;p&gt;
+14- يجب ان تتم الخدمة في المكان الذي تم تحديده مع حجز الباقة ولا يجوز تحويل الزيارات لعميل آخر او مكان آخر.
+&lt;/p&gt;</value>
+   </data>
+   <data name="TermsDataTitle" xml:space="preserve">
+      <value>Dalal Terms</value>
+   </data>
+   <data name="TotalContractDuration" xml:space="preserve">
+      <value>Total Contract Duration</value>
+   </data>
+   <data name="TotalNumber" xml:space="preserve">
+      <value>Total Number</value>
+   </data>
+   <data name="UploadBankTransferStatement" xml:space="preserve">
+      <value>Upload Bank Transfer Statement</value>
+   </data>
+   <data name="UploadedBankTransferBeforeMsg" xml:space="preserve">
+      <value>The Bank Transfer Statement was uploaded before ... If there was any problem, please contact us.</value>
+   </data>
+   <data name="UploadedBankTransferMsg" xml:space="preserve">
+      <value>Bank Transfer Statement has been uploaded successfully... Thank you!</value>
+   </data>
+   <data name="VisitsNum" xml:space="preserve">
+      <value>Number of Visits</value>
+   </data>
+   <data name="VisitsNum_PH" xml:space="preserve">
+      <value>Select Number of Visits</value>
+   </data>
+   <data name="WorkersNum" xml:space="preserve">
+      <value>Number of Workers</value>
+   </data>
+   <data name="WorkersNum_PH" xml:space="preserve">
+      <value>Select Number of Workers</value>
+   </data>
+   <data name="YourContractNum" xml:space="preserve">
+      <value>Your Contract Number</value>
+   </data>
+</root>

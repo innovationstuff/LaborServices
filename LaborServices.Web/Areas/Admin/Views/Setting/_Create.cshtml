@@ -1,0 +1,122 @@
+﻿@model Setting
+@{
+    Layout = "";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    var language = lang == "ar" ? Language.Arabic : Language.English;
+}
+
+
+@using (Html.BeginForm())
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="modalLabel">Create New</h4>
+    </div>
+
+    <div class="modal-body">
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SettingDataType, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.SettingDataType, SelectListUtility.GetSettingType(language), " Select type of setting value", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SettingDataType)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SettingName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SettingName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SettingName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SettingDescription, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.SettingDescription, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SettingDescription)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SettingValue, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.SettingValue, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SettingValue)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        @Html.CheckBox("CreateAnother")
+        @Html.Label("CreateAnother", "Create another")
+
+        <button type="submit" class="btn btn-primary" id="sbmtBtn">Create</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        $.validator.setDefaults({ ignore: '' });
+        $.validator.unobtrusive.parse($("form"));
+        var dataTypesEnum = @(Html.EnumToString<DataTypes,byte>());
+        var path = '@Url.Content("~/Scripts/")';
+        var $select;
+        loadScript(path + "selectize.js", function () {
+            loadScript(path + "selectize-ready.js", function () {
+                $('#SettingDataType').selectize({
+                    selectOnTab: true,
+                    valueField: 'Value',
+                    labelField: 'Text',
+                    searchField: ['Text', 'Value'],
+                    onChange: function (value) {
+                        $("#SettingValue").val("");
+                        if($select){
+                            var control = $select[0].selectize;
+                            if(control)  control.destroy();
+                        }
+                        if (value) {
+                            switch (parseInt(value)) {
+                                case dataTypesEnum.Integer:
+                                case dataTypesEnum.Fraction:
+                                    $("#SettingValue").attr('type','number');
+                                    break;
+                                case dataTypesEnum.SingleText:
+                                        $("#SettingValue").attr('type','text');
+                                    break;
+                                case dataTypesEnum.Date:
+                                         $("#SettingValue").attr('type','date');
+                                    break;
+                                case dataTypesEnum.Password:
+                                    $("#SettingValue").attr('type','password');
+                                    break;
+                                case dataTypesEnum.Boolean:
+                                    $("#SettingValue").attr('type','checkbox');
+                                    break;
+                                case dataTypesEnum.MultiText:
+                                    {
+                                        $("#SettingValue").attr('type','text');
+                                        $select = $("#SettingValue").selectize({
+                                            delimiter: ',',
+                                            persist: false,
+                                            create: function (input) {
+                                                return { value: input,text: input}
+                                            }
+                                        });
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    });
+</script>

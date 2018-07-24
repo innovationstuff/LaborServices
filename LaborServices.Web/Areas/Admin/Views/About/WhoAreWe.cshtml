@@ -1,0 +1,27 @@
+﻿
+@{
+	ViewBag.Title = "WhoAreWe";
+}
+<style>
+	.field-validation-error { color: red }
+</style>
+
+<div class="panel panel-default">
+	<div class="header text-left panel-heading">
+		<span class="h3">Who Are We</span>
+	</div>
+	<div class="text-right">
+		<a onclick="$('#divCreate').slideToggle();" class="btn btn-primary btn-xs white"><i class="fa fa-plus"></i>&nbsp;&nbsp;Create</a>
+	</div>
+	<div style="margin:30px auto;">
+		<div id="divCreate" style="display:none">
+			@Html.Action("Create", new { Type = 0 })
+		</div>
+	</div>
+	@Ajax.ActionLink("getList", "List", new { Type = 0 }, new AjaxOptions { UpdateTargetId = "Aboutlist" }, new { style = "display:none;", id = "getAllList" })
+
+	<div class="Aboutlist" id="Aboutlist">
+		@Html.Action("List", "About", new { Type = 0 })
+	</div>
+</div>
+<script src="~/Scripts/about.js"></script>

@@ -1,0 +1,150 @@
+﻿
+@model LaborServices.Web.Areas.Admin.Models.PagesViewModel
+
+@{
+    ViewBag.Title = "Edit " + Model.Page.NameEn + "|" + Model.Page.NameAr;
+}
+<div class="page-profile">
+    @using (Html.BeginForm())
+    {
+
+        <div class="row">
+
+            <!-- COL 1 -->
+            <div class="col-md-12 col-lg-12">
+                <section class="panel">
+                    <div class="panel-heading panel-heading-transparent">
+                        <strong>@ViewBag.Title</strong>
+                    </div>
+                    <div class="panel-body noradius padding-10">
+                        @Html.ValidationSummary(true)
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Page.ApplicationPageId)
+                        @Html.HiddenFor(model => model.Page.NamesUpdated)
+                        @Html.HiddenFor(model => model.Page.Area)
+
+                        <fieldset>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(model => model.Page.NameEn)
+                                        @Html.EditorFor(model => model.Page.NameEn, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Page.NameEn)
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(model => model.Page.NameAr)
+                                        @Html.EditorFor(model => model.Page.NameAr, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Page.NameAr)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(model => model.Page.Controller)
+                                        @Html.EditorFor(model => model.Page.Controller, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Page.Controller)
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(model => model.Page.Action)
+                                        @Html.EditorFor(model => model.Page.Action, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Page.Action)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(model => model.Page.ImageClass)
+                                        @Html.EditorFor(model => model.Page.ImageClass, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Page.ImageClass)
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(model => model.Page.PageUrl)
+                                        @Html.EditorFor(model => model.Page.PageUrl, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Page.PageUrl)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(model => model.Page.NoteAr)
+                                        @Html.TextAreaFor(model => model.Page.NoteAr, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Page.NoteAr)
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(model => model.Page.NoteEn)
+                                        @Html.TextAreaFor(model => model.Page.NoteEn, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Page.NoteEn)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(model => model.Page.LinkTarget)
+                                        @Html.DropDownListFor(model => model.Page.LinkTarget, SelectListUtility.GetLinksTargetList(), "How link will open", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Page.LinkTarget)
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        @Html.LabelFor(model => model.Page.Order)
+                                        @Html.DropDownListFor(model => model.Page.Order, SelectListUtility.GetSortList(), "Select a sort value", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Page.Order)
+                                    </div>
+                                </div>
+
+                                <hr class="half-margins" />
+
+                                <div class="form-group">
+                                    <div class="col-md-5 col-sm-5">
+                                        @Html.LabelFor(model => model.Page.IsBaseParent)
+                                        @Html.EditorFor(model => model.Page.IsBaseParent, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Page.IsBaseParent)
+                                    </div>
+                                    <div class="col-md-5 col-sm-5">
+                                        @Html.LabelFor(model => model.Page.Active)
+                                        @Html.EditorFor(model => model.Page.Active, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Page.Active)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <hr class="half-margins" />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                                @Html.ActionLink("Back to List", "Index")
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <section class="panel panel-default">
+                    <header class="panel-heading">
+                        <h2 class="panel-title elipsis">
+                            <i class="fa fa-rss"></i>  Child Pages
+                        </h2>
+                    </header>
+
+                    <div class="panel-body noradius padding-20">
+
+                        @foreach (var item in Model.ChildernPagesList)
+                        {
+                            <div class="col-md-4">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="childernPages" value="@item.Value" checked="@item.Selected" />
+                                    <i></i> @item.Text
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </section>
+
+            </div><!-- /COL 1 -->
+        </div>
+    }
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $.validator.setDefaults({ ignore: '' });
+            $.validator.unobtrusive.parse($("form"));
+        });
+    </script>
+}

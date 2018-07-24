@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "UploadBankApproval";
+}
+<style>
+    .UploadBankApproval h2 {
+        font-size: 40px;
+        color: #003b71;
+    }
+
+    .UploadBankApproval .content {
+        background-color: rgba(255, 255, 255, 0.89);
+        border-radius:8px
+    }
+
+    .UploadBankApproval input[type=file] {
+        background-color: rgba(48, 93, 140, 0.24);
+        opacity: 0;
+        z-index: 6;
+      position:relative
+    }
+
+    /*@@media screen and (max-width:530px){
+      .UploadBankApproval  input[type=file]{
+          width:80%!important;
+         }
+    }*/
+    .UploadBankApproval .custumInpFile {
+        position: relative;
+        width: 50%;
+        height: 40px;
+        z-index: 5;
+        top: 35px;
+        left: 25%;
+        background-color: rgba(48, 93, 140, 0.5);
+        line-height: 40px;
+        color: #fff
+    }
+    .UploadBankApproval .btn-primary {
+        background-color: #5EB3E4;
+        border:none
+    }
+</style>
+
+
+<section class="UploadBankApproval">
+    <div class="container">
+        <div class="content my-5 text-center">
+            <h2 class="py-4">رفع صورة التحويل</h2>
+            <!-- <img class="img-fluid mb-3 p-3 pr-4" width="200" src="~/Images/frontEnd/logo.png" /> -->
+
+            <p><b>عزيزي العميل : </b>  مزنه عبدالرحمن</p>
+            <p>نرجوا من سعادتكم رفع صورة التحويل البنكى الخاص بالعقد .</p>
+
+            <!---  <ul class="list-unstyled my-4">
+          <li>
+              رقم العقد :
+              <span id="">DLAL0003466</span>
+          </li>
+          <li>
+              مدة التعاقد :
+              <span id=""> 1 Week</span>
+          </li>
+          <li>
+              عدد العاملات :
+              <span id=""> 2</span>
+          </li>
+          <li>
+              الزيارات الاسبوعية :
+              <span id=""> 1 زيارة اسبوعيا</span>
+          </li>
+          <li>
+              إجمالى المستحق دفعه شامل الضريبة:
+              <span id="">294.00 ريال</span>
+          </li>
+      </ul>-->
+
+        
+            <div class="w-50 mx-auto p-2 ">
+                <table class="table table-bordered border-black table-sm table-hover text-right">
+                    <tbody>
+                        <tr>
+                            <td>رقم العقد</td>
+                            <td>DLAL0003466</td>
+                        </tr>
+                        <tr>
+                            <td>مدة التعاقد</td>
+                            <td>1 Week </td>
+                        </tr>
+                        <tr>
+                            <td>عدد العاملات</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>الزيارات الاسبوعية</td>
+                            <td>1 زيارة اسبوعيا</td>
+                        </tr>
+                        <tr>
+                            <td>إجمالى المستحق دفعه شامل الضريبة</td>
+                            <td><b> 294.00 ريال</b></td>
+                     </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <form method="" action="">
+                <div class="form-group mt-1" dir="ltr">
+                    <div class="custumInpFile"><i class="fa fa-cloud-upload fa-lg mt-1"></i> إختيار صورة العقد </div>
+                    <input type="file" class="form-control-file w-50 mx-auto" id="">
+                    <button type="submit" class="btn btn-primary mb-2 mt-4">إرفع الصورة</button>
+
+                </div>
+            </form>
+
+
+            <p class="pb-3 pt-3">شكرا لاختياركم شركتنا شركة ابدال للإستقدام</p>
+
+
+
+
+        </div><!--content-->
+    </div><!--container-->
+</section>
+
+
+

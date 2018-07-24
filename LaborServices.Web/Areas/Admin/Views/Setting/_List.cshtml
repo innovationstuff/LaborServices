@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Setting>
+
+@{
+    Layout = "";
+    int pageNumber = (int)ViewBag.PageNumber;
+    int pageSize = (int)ViewBag.PageSize;
+    var row = pageNumber == 1 ? pageNumber : ((pageNumber * pageSize) - (pageSize - 1));
+}
+
+<div class="table-responsive">
+    <table class="table table-vcenter table-hover table-striped table-bordered">
+        <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.SettingName)
+            </th>
+            <th class="text-center col-md-3"><i class="fa fa-flash"></i></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @(row++)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SettingName)
+                </td>
+                <td class="text-center">
+                    @if (item.IsEditable)
+                    {
+                        <a href="@Url.Action("Edit", new {id = item.SettingId})" class="btn btn-sm btn-success modal-link" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
+                    }
+                    <a href="@Url.Action("Info", new {id = item.SettingId})" class="btn btn-sm btn-info modal-link" data-toggle="tooltip" data-placement="top" title="Info"><i class="fa fa-info"></i></a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("List",
+    new { page}),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "SettingList" }))

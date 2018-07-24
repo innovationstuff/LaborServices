@@ -1,0 +1,49 @@
+﻿@{
+    var routeData = ViewContext.RouteData.Values;
+    string action = (string)ViewContext.RouteData.Values["action"];
+
+    var lang = (string)routeData["lang"];
+    var language = lang == "ar" ? Language.Arabic : Language.English;
+    string languageFlag = Language.English.ToString();
+}
+<ul class="nav pull-right">
+
+    <!-- USER OPTIONS -->
+    <li class="dropdown pull-left">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <img class="user-avatar" alt="" src='@Url.Content("~/images/noavatar.jpg")' height="34" />
+            <span class="user-name">
+                <span class="hidden-xs">
+                    @if (Request.IsAuthenticated)
+                    { @User.Identity.GetUserName() }
+                    <i class="fa fa-angle-down"></i>
+                </span>
+            </span>
+        </a>
+
+        <ul class="dropdown-menu hold-on-click">
+            @if (Request.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    <li>
+                        @Html.AntiForgeryToken()
+                    </li>
+                    <li>
+                        <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off">logout</i></a>
+                    </li>
+                }
+            }
+            <li>
+                @{
+                    routeData["lang"] = language == Language.Arabic ? "en" : "ar";
+                    languageFlag = language == Language.Arabic ? @Url.Content("~/Images/flags/us.png") : @Url.Content("~/Images/flags/sa.png");
+                }
+                <a href='@Url.Action(action, routeData)' class='lang @routeData["lang"]'><img src="@languageFlag"/></a>
+                @{routeData["lang"] = lang;}
+            </li>
+           
+        </ul>
+    </li>
+    <!-- /USER OPTIONS -->
+</ul>

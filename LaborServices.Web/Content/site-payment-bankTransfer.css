@@ -1,0 +1,68 @@
+﻿.SystemicBankTransfer h2 {
+    font-size: 40px;
+    color: #003b71;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+.SystemicBankTransfer .content {
+    background-color: rgba(255, 255, 255, 0.89);
+    border-radius: 8px
+}
+
+.SystemicBankTransfer input[type=file] {
+    background-color: rgba(48, 93, 140, 0.24);
+    opacity: 0;
+    z-index: 6;
+    position: relative
+}
+
+.SystemicBankTransfer .custumInpFile {
+    position: relative;
+    width: 50%;
+    height: 40px;
+    z-index: 5;
+    top: 35px;
+    left: 25%;
+    background-color: rgba(48, 93, 140, 0.6);
+    line-height: 40px;
+    color: #fff
+}
+
+.SystemicBankTransfer .btn-primary {
+    background-color: #5EB3E4;
+    border: none
+}
+.SystemicBankTransfer .price {
+    display:inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(48, 93, 140, 0.6);
+    padding-top: 22px;
+    line-height: 16px;
+    transform: scale(.9);
+    
+}
+@media screen and (max-width:575px) {
+    .tabelContainer {
+        width: 90% !important;
+    }
+    .SystemicBankTransfer h2 {
+     
+        margin-left: 0;
+        display:block;
+    }
+
+}
+
+@media screen and (max-width:475px) {
+    .SystemicBankTransfer input[type=file] {
+        width: 80% !important;
+    }
+
+    .SystemicBankTransfer .custumInpFile {
+        width: 90% !important;
+        left: 5%
+    }
+}

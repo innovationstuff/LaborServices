@@ -1,0 +1,6 @@
+1- Any Web Controller Should be inherit from >> LaborServices.Web.Controllers.AppBaseController
+
+2- Any Model Should be implement >> LaborServices.Entity.IEntityBase
+
+3- Any ViewModel Should be implement >> LaborServices.ViewModel.IViewModel
+

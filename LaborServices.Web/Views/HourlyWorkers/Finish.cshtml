@@ -1,0 +1,214 @@
+﻿@using LaborServices.Web.Models
+@model HourlyWorkersViewModel
+@{
+    ViewBag.Title = "اتمام التعاقد";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+
+<section class="loginPage">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-4 p-lg-5" style="margin: auto;width: 97%;">
+                        <div class="row text-left">
+                            <div class="col-12 text-center mb-3"><img src="~/Images/frontEnd/dalal.png" alt="دلال" /></div>
+                            <div class="col-12 col-sm-10 col-lg-8">
+                                <div class="p-2 bg-info text-white text-center"><span class="d-lg-none">(4)</span>&nbsp;@DbRes.T("ContractBasicInfo", "DalalResources")</div>
+                                <div class="container table-responsive-sm">
+                                    <div class="border p-2 mb-4">
+                                        <div class="panel-body">
+                                            <table class="table table-bordered table-sm table-hover @inputTextAlign">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>@DbRes.T("City", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.CityName)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@DbRes.T("District", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.DistrictName)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@DbRes.T("WorkersNum", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.NumOfWorkers)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@DbRes.T("VisitsNum", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.NumOfVisitsWritten)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@DbRes.T("ContractDuration", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.ContractDurationWritten)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@DbRes.T("TotalContractDuration", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.TotalContractDuration) Day</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@DbRes.T("SelectedDays", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.AvailableDaysJoined)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@DbRes.T("StartDay", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.StartDay)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@DbRes.T("Nationality", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.NationalityName)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@DbRes.T("HoursNum", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.NumOfHours)</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-2 bg-info text-white text-center">&nbsp;@DbRes.T("PackageDetails", "DalalResources")</div>
+                                <div class="container table-responsive-sm">
+                                    <div class="border p-2 mb-4">
+                                        <div class="panel-body">
+                                            <table class="table table-bordered table-sm table-hover @inputTextAlign">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>@DbRes.T("PackageType", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.PackageTypeName)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@DbRes.T("Price", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.TotalBeforeDiscount)<span class="smallText"> SAR </span></td>
+                                                    </tr>
+                                                    @if ((!string.IsNullOrEmpty(Model.Discount) && Decimal.Parse(Model.Discount) != 0m) ||
+                                                        (!string.IsNullOrEmpty(Model.TotalPromotionDiscountAmount) && Decimal.Parse(Model.TotalPromotionDiscountAmount) != 0m))
+                                                    {
+                                                        <tr>
+                                                            <td>@DbRes.T("Contract_PackagePriceAfterDiscount", "DalalResources")</td>
+                                                            <td>@Html.DisplayFor(m => Model.TotalPriceAfterPromotion)<span class="smallText"> SAR </span></td>
+                                                        </tr>
+                                                    }
+
+                                                    @if (!string.IsNullOrEmpty(Model.PromotionCode))
+                                                    {
+                                                        <tr>
+                                                            <td>@DbRes.T("Promotion", "DalalResources")</td>
+                                                            <td>@Html.DisplayFor(m => Model.PromotionName)</td>
+                                                        </tr>
+                                                    }
+                                                    <tr>
+                                                        <td>@DbRes.T("Vat Rate (%)", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.VatRate)</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>@DbRes.T("Vat Amount", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.VatAmount)<span class="smallText"> SAR </span></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>@DbRes.T("Total Price + Vat", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.TotalPriceWithVat)<span class="smallText"> SAR </span></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>@DbRes.T("Contract_NetPackagePrice", "DalalResources")</td>
+                                                        <td>@Html.DisplayFor(m => Model.TotalPriceWithVat)<span class="smallText"> SAR </span></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container @inputTextdirection" style="direction:ltr !important;">
+
+                                    @using (Html.BeginForm("Finish", "HourlyWorkers", FormMethod.Post))
+                                    {
+                                        <input class="btn btn-lg btn-info FakeLoader" type="submit" value="@DbRes.T("NextBtn", "Shared")" name="BtnNext" />
+                                        <input class="btn btn-lg btn-outline-secondary" type="submit" value="@DbRes.T("PrevBtn", "Shared")" name="BtnPrevious" />
+                                    }
+                                </div>
+
+                            </div>
+                            <div class="col-2 col-lg-4 d-none d-sm-block">
+                                <div class="">
+                                    <!-- ------------------------- -->
+                                    <div id="smartwizard" class="sw-main sw-theme-dots">
+                                        <ul class="nav nav-tabs step-anchor">
+                                            <li>
+                                                <a href="#step-1">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")  ( 1 )<br><small>@DbRes.T("StepOneDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-2">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 2 )<br><small>@DbRes.T("StepTwoDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-3">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 3 )<br><small>@DbRes.T("StepThreeDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                            <li class="active">
+                                                <a href="#step-4">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 4 )<br><small>@DbRes.T("StepFourDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-5">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 5 )<br><small>@DbRes.T("StepFiveDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-6">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 6 )<br><small>@DbRes.T("StepSixDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- ------------------------- -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts
+{
+    <script type="text/javascript">
+    var modelVal = JSON.parse(window.localStorage.getItem('modelVal'));
+
+    if (modelVal == null) {
+        window.location.replace('@Url.Action("Create")');
+	}
+
+	$(".FakeLoader").click(function () {
+		fakeLoaderFadeIn();
+	});
+    </script>
+
+    <script>
+        $(function () {
+
+            $("form").submit(function () {
+                $("#BtnNext").prop('disabled', "");
+            });
+        });
+    </script>
+}

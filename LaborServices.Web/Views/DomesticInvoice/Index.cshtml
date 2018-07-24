@@ -1,0 +1,94 @@
+﻿@model List<LaborServices.Web.Models.DomesticInvoice>
+@{
+}
+
+@{
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+}
+
+<section>
+
+    <div class="content profile">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-5" style="margin: auto;width: 97%;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="c1">
+                                    <h3>
+                                        <i id="contractsPlusIcon" class="fa fa-caret-down"></i>
+                                        @DbRes.T("DomesticInvoices", "DomesticInvoiceResources")
+                                    </h3>
+                                    <div class="border p-2 mb-4">
+                                        <div class="panel-body">
+                                            <table class="table table-sm table-bordered table-hover table-responsive-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="row">@DbRes.T("InvoiceNumberTh", "DomesticInvoiceResources")</th>
+                                                        <th scope="row">@DbRes.T("InvoiceContractTh", "DomesticInvoiceResources")</th>
+                                                        <th scope="row">@DbRes.T("InvoiceDueDateTh", "DomesticInvoiceResources")</th>
+                                                        <th scope="row">@DbRes.T("CustomerAmountTh", "DomesticInvoiceResources")</th>
+                                                        <th scope="row">@DbRes.T("InvoiceIsPaidTh", "DomesticInvoiceResources")</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="ulContracts">
+                                                    @foreach (LaborServices.Web.Models.DomesticInvoice item in Model)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                <a href="/@lang/DomesticInvoice/DomesticInvoice/@item.Id">@item.Number</a>
+
+                                                            </td>
+                                                            <td>
+                                                             @*<a href="/@lang/HourlyWorkers/Details/@item.ContractId">@item.Contract</a>*@
+                                                               @item.Contract
+                                                            </td>
+                                                            <td>
+                                                              <span>@item.DueDate.Value.ToShortDateString()</span>
+                                                            </td>
+                                                            <td>
+                                                             <span>@item.CustomerAmount.Value.ToString("F")</span>
+                                                            </td>
+                                                            <td>
+                                                             <span>@{
+                                                                 if (item.IsPaid == true)
+                                                                 {
+                                                                    <a href='#' class='btn btn-lg btn-success col-lg-9'>@DbRes.T("Paid", "Shared")</a>
+                                                                 }
+                                                                 else
+                                                                 {
+                                                                     <a href = '@Url.Action("IndividualOnlinePayment","Pay",new { area="",id=item.Id})' class='btn btn-lg btn-info col-lg-9'>@DbRes.T("PayBtn", "Shared")<i class='fa fa-lock fa-lg'></i></a>
+                                                                     }
+                                                                 }
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    @{
+
+                                            if (Model.Count == 0)
+                                            {
+                                            <span id="spanNoContracts" class="spanNoResult" style="display:inline-block;">@DbRes.T("NoInvoiceSpan", "DomesticInvoiceResources")</span> 
+                                            }
+                                          
+                                        }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@Scripts.Render("~/bundles/jquery")
+

@@ -1,0 +1,55 @@
+﻿
+
+<section class="footer">
+	<div class="container">
+		<div class="row">
+            <div class="a col-sm-12 col-md-4">
+                <h3>@DbRes.T("MasterContactUs", "HomeResources")</h3>
+                @*<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3622.36957606398!2d46.6981025!3d24.7827954!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd0287de8f77%3A0x4315df4eee215a35!2sAbdal+Recruitment+Company!5e0!3m2!1sen!2ssa!4v1522535979841" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>*@
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.369577392966!2d46.698102514349195!3d24.7827953544708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd0287de8f77%3A0x4315df4eee215a35!2sAbdal+Recruitment+Company!5e0!3m2!1sen!2seg!4v1524124996018" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+            </div>
+			<div class="b col-sm-12 col-md-4">
+				<div>
+					<a href="#"><i class="fa fa-map-marker"></i></a>
+                    <p>
+                        @DbRes.T("CompanyAddress", "HomeResources")
+                    </p>
+				</div>
+				<div>
+					<a href="#"><i class="fa fa-phone"></i></a>
+					<p>920033660</p>
+				</div>
+                <div>
+                    <a href="#"><i class="fa fa-mobile"></i></a>
+                    <p dir="ltr">011<span> </span>829<span> </span>9400</p>
+                </div>
+				<div>
+					<a href="#"><i class="fa fa-envelope"></i></a>
+					<p>info@abdal.sa</p>
+				</div>
+				<div>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<p dir="ltr">@@AbdalRecruit</p>
+				</div>
+			</div>
+			<div class="c col-sm-12 col-md-4">
+                <h3>@DbRes.T("ImportantLinks", "HomeResources")</h3>
+				<a href="@Url.Action("Index","Home")"><i class="fa fa-check"></i>@DbRes.T("Home", "HomeResources")</a>
+				<a href="@Url.Action("About","Home")"><i class="fa fa-check"></i>@DbRes.T("AboutCompany", "HomeResources")</a>
+				<a href="@Url.Action("Index", "HourlyWorkers")"><i class="fa fa-check"></i>@DbRes.T("Individuals", "HomeResources")</a>
+				<a href="@Url.Action("Index","Medical")"><i class="fa fa-check"></i>@DbRes.T("MedicalSector", "HomeResources")</a>
+				<a href="@Url.Action("Index","Business")"><i class="fa fa-check"></i>@DbRes.T("BusinessSector", "HomeResources")</a>
+				@*<a href="@Url.Action("Branches","Home")"><i class="fa fa-check"></i>@DbRes.T("OurBranches", "HomeResources")</a>*@
+				<a href="@Url.Action("Contact", "Home")"><i class="fa fa-check"></i>@DbRes.T("ContactUs", "HomeResources")</a>
+			</div>
+            <div class="d col-sm-12">
+                <h3>@DbRes.T("MailingList", "HomeResources")</h3>
+                <p>@DbRes.T("RegisterMailingList", "HomeResources")</p>
+                <div class="form-group">
+                    <input class="form-control" type="email" placeholder="ادخل البريد الإلكتروني">
+                    <a class="fa fa-envelope" href="#"></a>
+                </div>
+            </div>
+		</div>
+	</div>
+</section>

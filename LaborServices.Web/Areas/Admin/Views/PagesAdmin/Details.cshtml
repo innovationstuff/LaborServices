@@ -1,0 +1,88 @@
+﻿@model ApplicationPage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-profile">
+
+    <div class="row">
+
+        <!-- COL 1 -->
+        <div class="col-md-8 col-lg-6">
+            <section class="panel">
+                <div class="panel-body noradius padding-10">
+
+                    <h3 class="text-black">
+                        @Html.DisplayFor(model => model.NameEn) | @Html.DisplayFor(model => model.NameAr)
+                    </h3>
+
+                    <hr class="half-margins" />
+
+                    <ul>
+                        @if (string.IsNullOrEmpty(Model.Action) && Model.IsBaseParent == false)
+                        {
+                            <li><span>@Html.DisplayNameFor(model => model.PageUrl) :  </span>@Html.DisplayFor(model => model.PageUrl)</li>
+                            <li><span>@Html.DisplayNameFor(model => model.LinkTarget) :  </span>@Html.DisplayFor(model => model.LinkTarget)</li>
+                        }
+                        <li><span>@Html.DisplayNameFor(model => model.NoteAr) :   </span>@Html.DisplayFor(model => model.NoteAr)</li>
+                        <li><span>@Html.DisplayNameFor(model => model.NoteEn) :   </span>@Html.DisplayFor(model => model.NoteEn)</li>
+                        <li><span>@Html.DisplayNameFor(model => model.Active) :   </span>@Html.DisplayFor(model => model.Active)</li>
+                    </ul>
+                    <hr class="half-margins" />
+
+                    <h6>Actions</h6>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ApplicationPageId }) |
+                    @Html.ActionLink("Back to List", "Index")
+
+                </div>
+            </section>
+        </div><!-- /COL 1 -->
+
+        <div class="col-md-12 col-lg-5">
+
+            <!-- groups  -->
+            <section class="panel panel-default">
+                <header class="panel-heading">
+                    <h2 class="panel-title elipsis">
+                        <i class="fa fa-rss"></i> sub Pages
+                    </h2>
+                </header>
+
+                <div class="panel-body noradius padding-10">
+                    <div class="acidjs-css3-treeview" id="DrawerList">
+
+                        @if (Model.ChildernPages.Any())
+                        {
+                            @Html.BuildAdminNestedCheckBoxMenu(Model.ChildernPages.ToList(), "")
+                        }
+                    </div>
+                </div>
+            </section>
+            <section class="panel panel-default">
+                    <header class="panel-heading">
+                        <h2 class="panel-title elipsis">
+                            <i class="fa fa-rss"></i> page roles
+                        </h2>
+                    </header>
+
+                   <div class="panel-body noradius padding-10">
+                        @if (ViewBag.RolesCount != 0)
+                        {
+                            <ul class="bullet-list list-unstyled">
+                                @foreach (var item in ViewBag.RolesList)
+                                {
+                                    <li><h3>@item</h3></li>
+                                }
+                            </ul>
+                        }
+                    </div>
+
+                </section>
+
+        </div><!-- /COL 3 -->
+
+
+    </div>
+
+</div>

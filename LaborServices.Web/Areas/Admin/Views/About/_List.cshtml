@@ -1,0 +1,82 @@
+﻿@model IEnumerable<LaborServices.Model.About>
+
+@{
+	int count = 0;
+	string display = ViewBag.typ == 1 ? "table-cell" : "none";
+}
+<div class="table-responsive">
+	<table class="table table-vcenter table-hover table-striped table-bordered" id="tblWhoAreWe">
+		<thead>
+			<tr>
+				<th class="text-center">#</th>
+				<th class="text-center">النص-عربي </th>
+				<th class="text-center">النص-انجليزي </th>
+				<th class="text-center">الوصف-عربي </th>
+				<th class="text-center">الوصف-انجليزي </th>
+				<th style="display:@display" class="text-center">الصور</th>
+				<th class="text-center col-md-3"><i class="fa fa-flash"></i></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var itm in Model)
+			{
+				<tr id="tr@(itm.Id)">
+					<td>
+						@(++count)
+					</td>
+					<td>
+						@itm.TitleAr
+					</td>
+					<td>
+						@itm.TitleEN
+					</td>
+					<td>
+						@itm.DescriptionAr
+					</td>
+					<td>
+						@itm.DescriptionEN
+					</td>
+					<td style="display:@display">
+						@if (File.Exists(Server.MapPath(AppConstants.aboutFolder + itm.ImgUrl)))
+						{
+							<img style="width:200px;height:150px;" class="img-responsive" src="@Url.Content(AppConstants.aboutFolder + itm.ImgUrl)" />
+						}
+					</td>
+					<td>
+						<a href="@Url.Action("Edit", new { id = itm.Id })" class="btn btn-sm btn-success modal-link" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
+						<a onclick="ConfirmDelete(this.id)" id="@itm.Id" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times"></i></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+<!-- Delete Confirm Model -->
+<div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3>Delete</h3>
+			</div>
+			@using (Ajax.BeginForm("Delete", "About", new AjaxOptions { OnSuccess = "Success" }))
+			{
+			<input type="hidden" name="Id" id="DeletedID" />
+			@Html.AntiForgeryToken()
+			<div class="modal-body">
+				<div class="row-fluid">
+					<div class="control-group">
+						Are you sure you want to delete this item?
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+				<button class="btn btn-danger btn-preload" id="btnDelete" type="submit"><i class="icon-trash icon-white"></i> Delete</button>
+			</div>
+			}
+		</div>
+	</div>
+</div>
+

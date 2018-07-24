@@ -1,0 +1,28 @@
+﻿
+
+<script src="~/Scripts/Charts/Chart.bundle.js"></script>
+<script src="~/Scripts/Charts/utils.js"> </script>
+
+<style type="text/css">
+	#container {
+		height: 300px;
+		min-width: 310px;
+		max-width: 800px;
+	}
+
+	.highcharts-credits {
+		display: none;
+	}
+</style>
+
+<input type="hidden" id="Numbers" value="20, 35, 70" />
+<input type="hidden" id="Vals" value="العقود,المستخدمين,الشكاوي" />
+
+<div id="container">
+
+</div>
+<script>
+	$(document).ready(function () {
+		showCharts($("#Numbers").val().split(','), $("#Vals").val().split(','), "احصائيه", "الاحصائيه", "العدد");
+	});
+</script>

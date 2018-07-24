@@ -1,0 +1,136 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<root>
+   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+      <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+      <xsd:element name="root" msdata:IsDataSet="true">
+         <xsd:complexType>
+            <xsd:choice maxOccurs="unbounded">
+               <xsd:element name="metadata">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" use="required" type="xsd:string" />
+                     <xsd:attribute name="type" type="xsd:string" />
+                     <xsd:attribute name="mimetype" type="xsd:string" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="assembly">
+                  <xsd:complexType>
+                     <xsd:attribute name="alias" type="xsd:string" />
+                     <xsd:attribute name="name" type="xsd:string" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="data">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                        <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                     <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                     <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="resheader">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" />
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:choice>
+         </xsd:complexType>
+      </xsd:element>
+   </xsd:schema>
+   <resheader name="resmimetype">
+      <value>text/microsoft-resx</value>
+   </resheader>
+   <resheader name="version">
+      <value>2.0</value>
+   </resheader>
+   <resheader name="reader">
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <data name="AcceptBtn" xml:space="preserve">
+      <value>موافق</value>
+   </data>
+   <data name="CancelBtn" xml:space="preserve">
+      <value>إلغاء</value>
+   </data>
+   <data name="ChangeBtn" xml:space="preserve">
+      <value>تغيـــر</value>
+   </data>
+   <data name="CloseBtn" xml:space="preserve">
+      <value>إغلاق</value>
+   </data>
+   <data name="Contract" xml:space="preserve">
+      <value>العقد</value>
+   </data>
+   <data name="DearCustomer" xml:space="preserve">
+      <value>عزيزي العميل :</value>
+   </data>
+   <data name="DueDate" xml:space="preserve">
+      <value>تاريخ الأستحقاق</value>
+   </data>
+   <data name="FromDate" xml:space="preserve">
+      <value>من تاريخ</value>
+   </data>
+   <data name="Invoice" xml:space="preserve">
+      <value>فاتورة</value>
+   </data>
+   <data name="More.." xml:space="preserve">
+      <value>للمزيد..</value>
+   </data>
+   <data name="NextBtn" xml:space="preserve">
+      <value>التالي</value>
+   </data>
+   <data name="NotPaid" xml:space="preserve">
+      <value>لم تتم الدفع</value>
+   </data>
+   <data name="OrderNow" xml:space="preserve">
+      <value>اطلب الآن</value>
+   </data>
+   <data name="Paid" xml:space="preserve">
+      <value>تم الدفع</value>
+   </data>
+   <data name="PayBtn" xml:space="preserve">
+      <value>ادفع الآن</value>
+   </data>
+   <data name="PrevBtn" xml:space="preserve">
+      <value>السابق</value>
+   </data>
+   <data name="Reason" xml:space="preserve">
+      <value>السبب</value>
+   </data>
+   <data name="RedirectMsg" xml:space="preserve">
+      <value>سيتم التحويل بعد</value>
+   </data>
+   <data name="SaudiCurrencyShort" xml:space="preserve">
+      <value>ريال سعودي</value>
+   </data>
+   <data name="Seconds" xml:space="preserve">
+      <value>ثواني</value>
+   </data>
+   <data name="SelectStatus" xml:space="preserve">
+      <value>اختر الحالة</value>
+   </data>
+   <data name="Status" xml:space="preserve">
+      <value>الحالة</value>
+   </data>
+   <data name="SubmitBtn" xml:space="preserve">
+      <value>حفظ</value>
+   </data>
+   <data name="ThanksForChoosingUs" xml:space="preserve">
+      <value>شكرا لاختياركم شركتنا شركة ابدال للتوظيف والتشغيل</value>
+   </data>
+   <data name="ToDate" xml:space="preserve">
+      <value>الى تاريخ</value>
+   </data>
+</root>

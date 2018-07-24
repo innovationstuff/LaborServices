@@ -1,0 +1,12 @@
+﻿@model List<ApplicationPage>
+@{
+    Layout = "";
+}
+
+@Html.BuildNestedMenu(Model.ToList(), "treeview")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#treeview").shieldTreeView();
+    });
+</script>

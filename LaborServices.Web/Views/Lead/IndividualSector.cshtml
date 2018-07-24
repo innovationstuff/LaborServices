@@ -1,0 +1,400 @@
+﻿@using LaborServices.Web.Models
+@model IndividualLeadViewModel
+@{
+    ViewBag.Title = DbRes.T("IndividualLeadRequestTitle", "LeadResources");
+
+}
+@{
+
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+}
+
+<section>
+    <div class="content portal-content">
+        <div class="container">
+            <div class="row">
+        <div class="col-11 col-sm-10 col-md-9 col-lg-7 mt-4 p-0 mx-auto">
+                    <div class="bg-white text-dark rounded rounded-20px p-4 p-lg-4">
+                        <div class="form-group h2 text-primary text-center mb-5">@DbRes.T("IndividualLeadRequestTitle", "LeadResources")</div>
+                        @using (Html.BeginForm("IndividualSector", "Lead", FormMethod.Post, new { id = "form-main" }))
+                        {
+                            if(ViewBag.ErrorMessage != null)
+                            {
+                            <div class="alert alert-danger">
+                                <p>@ViewBag.ErrorMessage</p>
+                            </div>
+                            }
+
+                            @Html.AntiForgeryToken()
+                            <div class="mb-5">
+                                <p class="text-center h4 mb-3">@DbRes.T("ServiceDetailsHeader", "LeadResources")</p>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">@DbRes.T("Nationality", "DalalResources")</label>
+
+                                    <div class="col-sm-9 pr-md-1 pr-lg-0 inputArea">
+                                        @Html.DropDownListFor(m => m.RequiredNationality, new List<SelectListItem>(), DbRes.T("RequiredNationality_PH", "LeadResources"),
+new { @class = "form-control ", data_source = Url.Action("GetIndividualNationalities", "Service") })
+                                        @Html.ValidationMessageFor(m => m.RequiredNationality, "", new { @class = "text-danger lblValidation" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">@DbRes.T("Job", "DalalResources")</label>
+
+                                    <div class="col-sm-9 pr-md-1 pr-lg-0 inputArea">
+                                        @Html.DropDownListFor(m => m.RequiredProfession, new List<SelectListItem>(), DbRes.T("RequiredProfession_PH", "LeadResources"),
+new { @class = "form-control ", data_source = Url.Action("GetIndividualProfessions", "Service") })
+                                        @Html.ValidationMessageFor(m => m.RequiredProfession, "", new { @class = "text-danger lblValidation" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+
+                                    <label class="col-sm-3 col-form-label">@DbRes.T("ServiceDetails", "LeadResources")</label>
+
+                                    @Html.TextAreaFor(model => model.Description, new { placeholder = " مثال : عدد 10 عامل عادي - الراتب الشهري 2000 ريال - لمدة سنة - من الهند", @class = "form-control col-sm-9", @style = "font-size:14px" })
+                                </div>
+                            </div>
+
+
+                            <p class="text-center h4 mb-3">@DbRes.T("PersonalData", "LeadResources")</p>
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">@DbRes.T("Name", "ProfileResources")</label>
+
+                                <div class="col-sm-9 inputArea">
+                                    @Html.TextBoxFor(model => model.Name, null, new { @class = "form-control", @readonly = "readonly", placeholder = Html.DisplayNameFor(m => m.Name).ToString() })
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">@DbRes.T("PhoneNumber", "ProfileResources")</label>
+
+                                <div class="col-sm-9 inputArea">
+                                    @Html.TextBoxFor(model => model.Mobile, null, new { @class = "form-control", @readonly = "readonly", placeholder = Html.DisplayNameFor(m => m.Mobile).ToString() })
+                                    @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            if (String.IsNullOrEmpty(Model.Email))
+                            {
+                            <div class="form-group row">
+
+                                <label class="col-sm-3 col-form-label">@DbRes.T("Email", "ProfileResources")</label>
+
+                                <div class="col-sm-9 inputArea">
+                                   
+                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Email).ToString() })
+                                   
+
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            }
+                            else
+                            {
+                                @Html.HiddenFor(m => m.Email)
+                            }
+
+
+                            if (String.IsNullOrEmpty(Model.NationalityId))
+                            {
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">@DbRes.T("Nationality", "DalalResources")</label>
+
+                                <div class="col-sm-9 inputArea">
+                                   
+
+                                        @Html.DropDownListFor(m => m.NationalityId, new List<SelectListItem>(), DbRes.T("SelectNationality", "ProfileResources"),
+                                                                          new { @class = "form-control ", data_source = Url.Action("GetNationalities", "Service") })
+                                    
+
+                                    @Html.ValidationMessageFor(m => m.NationalityId, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+                            }
+                            else
+                            {
+                                @Html.HiddenFor(m => m.NationalityId)
+                            }
+
+
+                            if (!Model.GenderId.HasValue)
+                            {
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">@DbRes.T("Gender", "LeadResources")</label>
+                                <div class="col-sm-9 inputArea">
+
+                                   
+                                        @Html.DropDownListFor(model => model.GenderId, new List<SelectListItem>(), DbRes.T("Gender_PH", "ProfileResources"),
+                                                                    new { @class = "form-control", data_source = Url.Action("GetGenders", "Service") })
+                                   
+                                    @Html.ValidationMessageFor(m => m.GenderId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            }
+                            else
+                            {
+                                @Html.HiddenFor(m => m.GenderId)
+                            }
+
+                            if (Model.IdNumber == null)
+                            {
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">@DbRes.T("IdNumber", "ProfileResources")</label>
+
+                                <div class="col-sm-9 inputArea">
+                                    
+                                        @Html.TextBoxFor(model => model.IdNumber, null, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.IdNumber).ToString() })
+                                   
+
+                                    @Html.ValidationMessageFor(m => m.IdNumber, "", new { @class = "text-danger lblValidation" })
+                                    <div class="form-group">
+                                        <span id="errorLbl" class="text-danger field-validation-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                            else
+                            {
+                                @Html.HiddenFor(m => m.IdNumber)
+                            }
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">@DbRes.T("CityId", "DalalResources")</label>
+
+                                <div class="col-sm-9 inputArea">
+                                    @Html.DropDownListFor(m => m.CityId, new List<SelectListItem>(), DbRes.T("SelectCity", "ProfileResources"),
+                                                      new { @class = "form-control", data_source = Url.Action("GetCities", "Service") })
+                                    @Html.ValidationMessageFor(m => m.CityId, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+
+                            @*<div class="form-group row">
+                                                                <div class="col-sm-12 inputArea">
+                                                                    @Html.DropDownListFor(m => m.RegionId, new List<SelectListItem>(), DbRes.T("Region_PH", "ProfileResources"),
+                                new { @class = "form-control ", data_source = Url.Action("GetRegions", "Service") })
+                                                                    @Html.ValidationMessageFor(m => m.RegionId, "", new { @class = "text-danger lblValidation" })
+                                                                </div>
+                                                            </div>*@
+
+                            @*<div class="form-group row">
+                                    <div class="col-sm-12 inputArea">
+                                        @Html.DropDownListFor(m => m.DistrictId, new List<SelectListItem>(), Html.DisplayNameFor(m => m.DistrictId).ToString(), new { @class = "form-control " })
+                                        @Html.ValidationMessageFor(m => m.DistrictId, "", new { @class = "text-danger lblValidation" })
+                                    </div>
+                                </div>*@
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label pl-0"> @DbRes.T("Job", "DalalResources")</label>
+
+                                <div class="col-sm-9 inputArea">
+                                    @Html.TextBoxFor(model => model.JobTitle, null, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.JobTitle).ToString() })
+                                    @Html.ValidationMessageFor(m => m.JobTitle, "", new { @class = "text-danger lblValidation" })
+                                </div>
+                            </div>
+
+                            <div class="inputArea">
+                                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger lblValidation" })
+                            </div>
+
+                            <div class="form-group text-center">
+                                <input type="submit" class="btn btn-info" name="BtnSend" value="@DbRes.T("Send", "DalalResources")" />
+                            </div>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@section scripts{
+    <script src="~/Scripts/selectize-ready.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        var langu = "@lang";
+        function InitSelectize(selector, selectizeObj, url, valueField, labelField, requestParams, onChangeFunc) {
+
+            var $selectEntity = selector.selectize({
+                selectOnTab: true,
+                valueField: valueField,
+                labelField: labelField,
+                searchField: labelField,
+                create: false,
+                onChange: function (value) {
+                    if (typeof onChangeFunc === "function") {
+                        onChangeFunc(value);
+                    }
+                }
+            });
+
+            if (url != '' && url != null) {
+
+                var selectizeInstance = $selectEntity[0].selectize;
+                selectizeInstance.clear();
+                selectizeInstance.load(function (callback) {
+                    $.ajax({
+                        url: '' + url + '',
+                        type: 'GET',
+                        data: requestParams,
+                        error: function (e) {
+                            console.error(e.responseText);
+                            callback();
+                        },
+                        success: function (result) {
+                            callback(JSON.parse(result));
+                        }
+                    });
+                });
+            }
+
+            return $selectEntity;
+        }
+
+        $(function () {
+
+            //initlize dropdown lists
+            InitSelectize($('#RequiredNationality'), null, $('#RequiredNationality').data('source'), 'key', 'value', null, null);
+            InitSelectize($('#RequiredProfession'), null, $('#RequiredProfession').data('source'), 'key', 'value', null, null);
+            InitSelectize($('#CityId'), null, $('#CityId').data('source'), 'key', 'value', null, null);
+            //InitSelectize($('#RegionId'), null, $('#RegionId').data('source'), 'key', 'value', null, null);
+
+            if ($('select#NationalityId').length > 0) {
+                InitSelectize($('#NationalityId'), null, $('#NationalityId').data('source'), 'key', 'value', null, null);
+            }
+            if ($('select#GenderId').length > 0) {
+                InitSelectize($('#GenderId'), null, $('#GenderId').data('source'), 'key', 'value', null, null);
+            }
+
+            var validator = $("#form-main").validate();
+            //validator.settings.ignore = ":hidden:not([class~=selectized],#NationalityId,#GenderId,#IdNumber,#),:hidden > .selectized, .selectize-control .selectize-input input";
+            validator.settings.ignore = "";
+            $('input[type=submit][name=BtnSend]').click(function () {
+                debugger;
+                if ($("#IdNumber").val().trim().length == 10) {
+                    $("#errorLbl").text("");
+                }
+                else {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية يجب ال يكون عشرة ارقام");
+                            return false;
+                        }
+                        else {
+                            $("#errorLbl").text("the Id number must be 10 digits");
+                            return false;
+                        }
+                }
+                if ($("#NationalityId").text() == "السعودية") {
+                    if ($("#IdNumber").val().charAt(0) != 1) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية السعودى يجب ان يبدا ب 1");
+                            return false;
+                        }
+                        else {
+                            $("#errorLbl").text("Saudi Id number must start with 1");
+                            return false;
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+                else {
+                    if ($("#IdNumber").val().charAt(0) != 2) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية الغير سعودى يجب ان يبدا ب 2");
+                            return false;
+                        }
+                        else {
+                            $("#errorLbl").text("Non Saudi Id number must start with 2");
+                            return false;
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+            });
+
+            $("#IdNumber").keyup(function () {
+                if ($(this).val().trim().length == 10) {
+                    $("#errorLbl").text("");
+                }
+                else {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية يجب ال يكون عشرة ارقام");
+                        }
+                        else {
+                            $("#errorLbl").text("the Id number must be 10 digits");
+                        }
+
+
+                }
+
+                if ($("#NationalityId").text() == "السعودية") {
+                    if ($(this).val().charAt(0) != 1) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية السعودى يجب ان يبدا ب 1");
+                        }
+                        else {
+                            $("#errorLbl").text("Saudi Id number must start with 1");
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+                else {
+                    if ($(this).val().charAt(0) != 2) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية الغير سعودى يجب ان يبدا ب 2");
+                        }
+                        else {
+                            $("#errorLbl").text("Non Saudi Id number must start with 2");
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+            });
+            $('#NationalityId').on('change', function () {
+                debugger
+                if ($("#NationalityId").text() == "السعودية") {
+                    if ($("#IdNumber").val().charAt(0) != 1) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية السعودى يجب ان يبدا ب 1");
+                        }
+                        else {
+                            $("#errorLbl").text("Saudi Id number must start with 1");
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+                else {
+                    if ($("#IdNumber").val().charAt(0) != 2) {
+                        if (langu == "ar") {
+                            $("#errorLbl").text("رقم الهوية الغير سعودى يجب ان يبدا ب 2");
+                        }
+                        else {
+                            $("#errorLbl").text("Non Saudi Id number must start with 2");
+                        }
+                    }
+                    else {
+                        $("#errorLbl").text("");
+                    }
+                }
+            });
+        });
+    </script>
+
+}

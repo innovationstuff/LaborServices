@@ -1,0 +1,37 @@
+﻿@using LaborServices.Web.Models
+@model DomesticInvoice
+@{ 
+    System.Globalization.CultureInfo enUS = System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
+}
+<table class="table table-bordered border-black table-sm table-hover text-right">
+    <tbody>
+        <tr>
+            <td>@DbRes.T("InvoiceAmount", "Payment")</td>
+            <td><b> @Html.DisplayFor(m => Model.InvoiceAmount) <span class="smallText"> @DbRes.T("SaudiCurrencyShort", "Shared") </span> </b></td>
+        </tr>
+        <tr>
+            <td>@DbRes.T("TotalCost", "Payment")</td>
+            <td><b> @Html.DisplayFor(m => Model.TotalWithVat) <span class="smallText"> @DbRes.T("SaudiCurrencyShort", "Shared") </span> </b></td>
+        </tr>
+        <tr>
+            <td>@DbRes.T("Contract", "Shared")</td>
+            <td>@Html.DisplayFor(m => Model.Contract)</td>
+        </tr>
+        <tr>
+            <td>@DbRes.T("DueDate", "Shared")</td>
+            <td>@Html.DisplayFor(m => Model.DueDate)</td>
+        </tr>
+        <tr>
+            <td>@DbRes.T("FromDate", "Shared")</td>
+            <td>@Html.DisplayFor(m => Model.FromDate)</td>
+        </tr>
+        <tr>
+            <td>@DbRes.T("ToDate", "Shared")</td>
+            <td>@Html.DisplayFor(m => Model.ToDate)</td>
+        </tr>
+        <tr>
+            <td>@DbRes.T("InvoiceDaysCount", "Payment")</td>
+            <td>@Model.InvoiceDaysCount</td>
+        </tr>
+    </tbody>
+</table>

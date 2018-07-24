@@ -1,0 +1,906 @@
+﻿@using LaborServices.Web.Models
+@model HourlyWorkersViewModel
+@{
+    ViewBag.Title = DbRes.T("ContractRequestHeader", "DalalResources");
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-righ" : "text-left";
+
+    //if (User.IsInRole("Admin"))
+    //{
+    //    RedirectToAction("SelectClasses", "Registration");
+    //    Response.Write("don`t have apermision to access this page");
+    //    Response.Redirect(Url.Action("Index", "Home"));
+    //}
+}
+
+@section css{
+    @if (lang == "ar")
+    {
+        @Styles.Render("~/Content/datetimepicker-rtl")
+
+    }
+    else
+    {
+        @Styles.Render("~/Content/datetimepicker")
+
+    }
+
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.css">*@
+
+}
+
+@Html.Hidden("MorningOffset")
+@Html.Hidden("EveningOffset")
+
+
+
+<section class="loginPage">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 p-0">
+                    <div class="bg-white text-dark rounded rounded-20px p-4 p-lg-5" style="margin: auto;width: 97%;">
+                        <div class="row @(inputTextdirection)">
+                            <div class="col-12 text-center mb-3"><img src="~/Images/frontEnd/dalal.png" alt="دلال" /></div>
+                            <div class="col-12 col-sm-10 col-lg-8">
+                                <div class="p-2 mb-3 bg-info text-white text-center"><span class="d-lg-none">(1)</span>&nbsp;@DbRes.T("ContractRequestHeader", "DalalResources")</div>
+                                <div class="loginForm">
+                                    @using (Html.BeginForm("Create", "HourlyWorkers", FormMethod.Post))
+                                    {
+                                        @Html.HiddenFor(model => model.IsMorningShift)
+                                        @Html.HiddenFor(model => model.CityName)
+                                        @Html.HiddenFor(model => model.DistrictName)
+                                        @Html.HiddenFor(model => model.NationalityName)
+                                        @Html.HiddenFor(model => model.NumOfVisitsWritten)
+                                        @Html.HiddenFor(model => model.ContractDurationWritten)
+                                        @Html.HiddenFor(model => model.TotalPrice)
+                                        @Html.HiddenFor(model => model.TotalBeforeDiscount)
+
+                                        @Html.HiddenFor(model => model.Discount)
+                                        @Html.HiddenFor(model => model.VatRate)
+                                        @Html.HiddenFor(model => model.VatAmount)
+                                        @Html.HiddenFor(model => model.TotalPriceWithVat)
+
+                                        @Html.HiddenFor(model => model.TotalPromotionDiscountAmount)
+                                        @Html.HiddenFor(model => model.TotalPriceAfterPromotion)
+                                        @Html.HiddenFor(model => model.PromotionExtraVisits)
+
+                                        @Html.HiddenFor(model => model.PromotionName)
+
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label text-center">@DbRes.T("City", "DalalResources")</label>
+                                            <div class="col-sm-8 inputArea">
+                                                @Html.DropDownListFor(model => model.CityId, new List<SelectListItem>(), DbRes.T("City_PH", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                                                @Html.ValidationMessageFor(m => m.CityId, "", new { @class = "text-danger lblValidation" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label  text-center">@DbRes.T("District", "DalalResources")</label>
+                                            <div class="col-sm-8 inputArea">
+                                                @Html.DropDownListFor(model => model.DistrictId, new List<SelectListItem>(), DbRes.T("District_PH", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                                                @Html.ValidationMessageFor(m => m.DistrictId, "", new { @class = "text-danger lblValidation" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label  text-center">@DbRes.T("WorkersNum", "DalalResources")</label>
+                                            <div class="col-sm-8 inputArea">
+                                                @Html.DropDownListFor(model => model.NumOfWorkers, new List<SelectListItem>(), DbRes.T("WorkersNum_PH", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                                                @Html.ValidationMessageFor(m => m.NumOfWorkers, "", new { @class = "text-danger lblValidation" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label  text-center">@DbRes.T("VisitsNum", "DalalResources")</label>
+                                            <div class="col-sm-8 inputArea">
+                                                @Html.DropDownListFor(model => model.NumOfVisits, new List<SelectListItem>(), DbRes.T("VisitsNum_PH", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                                                @Html.ValidationMessageFor(m => m.NumOfVisits, "", new { @class = "text-danger lblValidation" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label  text-center">@DbRes.T("HoursNum", "DalalResources")</label>
+                                            <div class="col-sm-8 inputArea">
+                                                @Html.DropDownListFor(model => model.NumOfHours, new List<SelectListItem>(), DbRes.T("HoursNum_PH", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                                                @Html.ValidationMessageFor(m => m.NumOfHours, "", new { @class = "text-danger lblValidation" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row" id="divAvailableDays">
+                                            <label class="col-sm-4 col-form-label  text-center">@DbRes.T("AvaialbleDays", "DalalResources")</label>
+                                            <div class="col-sm-8 inputArea" id="AvailableDays">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row" id="StartDayContainer">
+                                            <label class="col-sm-4 col-form-label  text-center">@DbRes.T("StartDay", "DalalResources")</label>
+                                            <div class="col-sm-8 inputArea">
+                                                @*<input id="datepicker" type="text" class="form-control + @inputTextAlign" />*@
+                                                <div class="input-group date datetimepicker">
+
+                                                    @Html.EditorFor(model => model.StartDay, new { htmlAttributes = new { @class = "form-control dateInpt " + inputTextAlign, aria_describedby = "date-addon", onkeydown = "return false", style = "caret-color: transparent;" } })
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-info dateIcon" type="button"><span class="fa fa-calendar-o"></span></button>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.StartDay, "", new { @class = "text-danger lblValidation" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label  text-center">@DbRes.T("ContractDuration", "DalalResources")</label>
+                                            <div class="col-sm-8 inputArea">
+                                                @Html.DropDownListFor(model => model.ContractDuration, new List<SelectListItem>(), DbRes.T("ContractDuration_PH", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                                                @Html.ValidationMessageFor(m => m.ContractDuration, "", new { @class = "text-danger lblValidation" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            @Html.LabelFor(m => Model.PromotionCode, DbRes.T("PromotionCode", "DalalResources"), new { @class = "col-sm-4 col-form-label text-center" })
+                                            <div class="col-sm-8">
+                                                @Html.EditorFor(model => model.PromotionCode, new { htmlAttributes = new { @class = "form-control  rounded-0 " + inputTextAlign, placeholder = DbRes.T("PromotionCodePH", "DalalResources") } })
+                                                @Html.ValidationMessageFor(m => m.PromotionCode, "", new { @class = "text-danger lblValidation" })
+                                                <span id="promotion-name-lbl" class="text-success lblValidation field-validation-error">
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label  text-center">@DbRes.T("Nationality", "DalalResources")</label>
+                                            <div class="col-sm-8 inputArea">
+                                                @Html.DropDownListFor(model => model.Nationality, new List<SelectListItem>(), DbRes.T("Nationality_PH", "DalalResources"), new { @class = "form-control " + inputTextAlign })
+                                                @Html.ValidationMessageFor(m => m.Nationality, "", new { @class = "text-danger lblValidation" })
+                                            </div>
+                                        </div>
+
+                                        @*<div class="form-group row">
+                                                @Html.LabelFor(m => Model.AddressNotes, DbRes.T("PromotionCode", "DalalResources"), new { @class = "col-sm-4 col-form-label" })
+                                                <div class="col-sm-8">
+                                                    @Html.EditorFor(model => model.AddressNotes, new { htmlAttributes = new { @class = "form-control  rounded-0 " + inputTextAlign, placeholder = DbRes.T("PromotionCodePH", "DalalResources") } })
+                                                    @Html.ValidationMessageFor(m => m.AddressNotes, "", new { @class = "text-danger lblValidation" })
+                                                </div>
+                                            </div>*@
+
+
+
+                                        <div class="form-group row" id="divPackages">
+                                            <label class="col-sm-4 col-form-label text-center">@DbRes.T("ChoosePackage", "DalalResources")</label>
+                                            <div class="col-sm-8 inputArea" id="packages">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label text-center"></label>
+                                            <div class="col-sm-8 termsDiv">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        @Html.CheckBoxFor(m => m.AgreedToTerms)
+                                                        @DbRes.T("TermsConfirm", "DalalResources") <a href="@Url.Action("GetTerms")" class="modal-link"><u>@DbRes.T("Terms", "DalalResources")</u></a>
+                                                        @Html.ValidationMessageFor(m => m.AgreedToTerms, "", new { @class = "text-danger lblValidation" })
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label  text-center"></label>
+                                            <div class="col-sm-8 inputArea @inputTextdirection" style="direction:ltr !important;">
+                                                <input class="btn btn-lg btn-info" type="submit" value="@DbRes.T("NextBtn", "Shared")" name="BtnNext" id="nextBtn" />
+                                            </div>
+                                        </div>
+
+                                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })}
+                                </div>
+                            </div>
+                            <div class="col-2 col-lg-4 d-none d-sm-block">
+                                <div class="">
+                                    <!-- ------------------------- -->
+                                    <div id="smartwizard" class="sw-main sw-theme-dots">
+                                        <ul class="nav nav-tabs step-anchor">
+                                            <li class="active">
+                                                <a href="#step-1">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")  ( 1 )<br><small>@DbRes.T("StepOneDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-2">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 2 )<br><small>@DbRes.T("StepTwoDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-3">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 3 )<br><small>@DbRes.T("StepThreeDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-4">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 4 )<br><small>@DbRes.T("StepFourDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-5">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 5 )<br><small>@DbRes.T("StepFiveDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-6">
+                                                    <span class="d-lg-none">&nbsp;</span>
+                                                    <span class="d-none d-lg-block">@DbRes.T("Step", "DalalResources")   ( 6 )<br><small>@DbRes.T("StepSixDesc", "DalalResources") </small></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- ------------------------- -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+
+    @Scripts.Render("~/bundles/datetimepicker")
+    <script src="~/Scripts/selectize-ready.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.js"></script>*@
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#divAvailableDays').hide();
+            $('#divPackages').hide();
+
+
+            var IsAdmin = "@User.IsInRole("Admin")";
+            var lang = "@lang";
+            var message = "لا يمكن للادمن عمل عقد جديد";
+            debugger;
+            if (IsAdmin == 'True') {
+                if (lang== "en") {
+                    message = "Admin cannot create new contracts.";
+                }
+                swal(message)
+                    .then((value) => {
+                        window.location.href = "/@lang/Home/";
+                    });
+            }
+
+
+            //$("#datepicker").datepicker({
+            //    showOn: "button",
+            //    buttonImage: "images/calendar.gif",
+            //    buttonImageOnly: true,
+            //    buttonText: "Select date",
+            //    dateFormat: "dd/MM/yyyy",
+            //    beforeShowDay: function (date) {
+            //        var day = date.getDay();
+            //        return [(day != 1)];
+            //    }
+            //});
+        });
+
+
+         var langu="@lang";
+        window.localStorage.setItem('modelVal', '@Html.Raw(Json.Encode(Model))');
+        var modelVal =JSON.parse( window.localStorage.getItem('modelVal'));
+
+        var $availableDaysList = $("#AvailableDays");
+        var disabledDays = [];
+        var startDate = '',
+            contractDuration = '',
+            availableDaysChecked = [],
+            districtId = '',
+            nationalityId = '',
+            numOfVisits = 0,
+            numOfHours = 0,
+            numOfWorkers = 0,
+            cityId = '',
+            promotionCode=null,
+            $citySelect,
+            $districtSelect,
+            $nationalitySelect,
+            $numOfWorkersSelect,
+            $numOfHoursSelect,
+            $numOfVisitsSelect,
+            $contractDurationSelect;
+
+        function InitSelectize(selector, selectizeObj, url, valueField, labelField, requestParams, onChangeFunc) {
+
+            var $selectEntity = selector.selectize({
+                selectOnTab: true,
+                valueField: valueField,
+                labelField: labelField,
+                searchField: labelField,
+                create: false,
+                onChange: function (value) {
+                    if (typeof onChangeFunc === "function") {
+                        onChangeFunc(value);
+                    }
+                }
+            });
+
+            if (url != '' && url != null) {
+
+                var selectizeInstance = $selectEntity[0].selectize;
+                selectizeInstance.clearOptions();
+                selectizeInstance.load(function (callback) {
+                    $.ajax({
+                        url: '' + url + '',
+                        type: 'GET',
+                        data: requestParams,
+                        error: function (e) {
+                            console.error(e.responseText);
+                            callback();
+                        },
+                        success: function (result) {
+                            callback(JSON.parse(result));
+                            if (modelVal && modelVal[selectizeObj.name]) {
+                                selectizeInstance.setValue(modelVal[selectizeObj.name]);
+                            }
+                        }
+                    });
+                });
+            }
+
+            return $selectEntity;
+        }
+
+        function checkDisabledDays() {
+            disabledDays = [5]; // friday
+            $('#AvailableDays input[type=checkbox]').each(function () {
+                var $chk = $(this);
+                if (!$chk.is(":checked")) {
+                    disabledDays.push($chk.attr("id"));
+                }
+            });
+        }
+
+        function ToggleStartDate() {
+            checkDisabledDays();
+
+
+            if ($("#AvailableDays input[type=checkbox]:checked").length > 0) {
+                $("#StartDayContainer").show();
+            } else {
+                $("#StartDayContainer").hide();
+                $('#StartDay').val('');
+            }
+        }
+
+        function OnCityChange(value) {
+            if (value) {
+                localStorage.setItem('selectedContractCity', value);
+
+                InitSelectize($('#DistrictId'),@Html.NameFor(model => model.DistrictId), "@Url.Action("GetDistricts")", 'districtId', 'name', { "cityId": value });
+                var selectize = $("#CityId")[0].selectize;
+                var data = selectize.options[value];
+                $("#CityName").val(data.value);
+                GetPackages();
+            }
+        }
+
+        function OnDistrictChange(value) {
+
+            ToggleStartDate();
+            var selectize = $("#DistrictId")[0].selectize;
+            var data = selectize.options[value]; // <-- This is how to pull data-data from the original options
+
+            $availableDaysList.empty();
+
+            if (value) {
+
+                $("#DistrictName").val(data.name);
+
+                InitSelectize($('#Nationality'),@Html.NameFor(model => model.Nationality), "@Url.Action("GetNationalities")", 'key','value',{ "districtId": value });
+
+                var option = '';
+                option += '<div class="row pr-3">';
+
+                var daysList = data.days.split(',');
+                var id = 0;
+                var isChecked = false;
+                var selectedDays = [];
+                if (modelVal && modelVal["AvailableDays"]) {
+                    selectedDays= modelVal["AvailableDays"];
+                }
+                for (var i = 0; i < daysList.length; i++) {
+                    if (daysList[i] == "Sunday") {
+                        Dayname = daysList[i];
+                        if("@lang" =="ar" ){
+                            daysList[i] = "الأحد";
+                        }
+                        id = 0;
+                        isChecked =  selectedDays.indexOf(Dayname) > -1;
+                    } else if (daysList[i] == "Monday") {
+                        Dayname = daysList[i];
+                        if("@lang" =="ar" ){ daysList[i] = "الأثنين";}
+                        id = 1;
+                        isChecked =  selectedDays.indexOf(Dayname) > -1;
+
+                    } else if (daysList[i] == "Tuesday") {
+                        Dayname = daysList[i];
+                        if("@lang" =="ar" ){ daysList[i] = "الثلاثاء";}
+                        id = 2;
+                        isChecked =  selectedDays.indexOf(Dayname) > -1;
+
+                    } else if (daysList[i] == "Wednesday") {
+                        Dayname = daysList[i];
+                        if("@lang" =="ar" ){ daysList[i] = "الأربعاء";}
+                        id = 3;
+                        isChecked =  selectedDays.indexOf(Dayname) > -1;
+
+                    } else if (daysList[i] == "Thursday") {
+                        Dayname = daysList[i];
+                        if("@lang" =="ar" ){daysList[i] = "الخميس";}
+                        id = 4;
+                        isChecked =  selectedDays.indexOf(Dayname) > -1;
+
+                    }
+                    else if (daysList[i] == "Friday") {
+                        Dayname = daysList[i];
+                        if("@lang" =="ar" ){ daysList[i] = "الجمعه";}
+                        id = 5;
+                        isChecked =  selectedDays.indexOf(Dayname) > -1;
+
+                    }
+                    else if (daysList[i] == "Saturday") {
+                        Dayname = daysList[i];
+                        if("@lang" =="ar" ){daysList[i] = "السبت";}
+                        id = 6;
+                        isChecked =  selectedDays.indexOf(Dayname) > -1;
+                    }
+
+                    //option += '<div class="col-sm-6">' +
+                    //    '<div class="custom-control custom-checkbox dayOption">' +
+                    //    '<input type="checkbox" id= ' + id + ' name="AvailableDays" value="' + Dayname + '" ' + (isChecked ? "checked" : "") + ' />' +
+                    //    '<label class="custom-control-label">' + daysList[i] + '</label>' +
+                    //    '</div></div>';
+
+                    //option += '<div class="col-6 col-md-4">'+
+                    //    '<label class="custom-control custom-checkbox btn btn-outline-primary">'+
+                    //    '<input type="checkbox"  class="custom-control-input" id= ' +id +' name="AvailableDays" value="' + Dayname + '" '+(isChecked?"checked":"")+' />' +
+                    //    '<span class="custom-control-indicator"></span>'+
+                    //    '<span class="custom-control-description">'+daysList[i]+'</span>'+
+                    //    '</label></div>';
+
+
+//                     option += '<div class="col-sm-6">' +
+//                        '<div class="custom-control custom-checkbox dayOption">' +
+//                        '<input type="checkbox" id= ' + id + ' name="AvailableDays" value="' + Dayname + '" ' + (isChecked ? "checked" : "") + ' />' +
+//                        '<label class="custom-control-label">' + daysList[i] + '</label>' +
+//                        '</div></div>';
+
+                    option += '<div class="col-sm-6" dir="rtl">' +
+                        '<div class="custom-control custom-checkbox dayOption">' +
+                        '<label class="containercheck ">' + daysList[i] +
+                        '<input type="checkbox" id= ' + id + ' name="AvailableDays" value="' + Dayname + '" ' + (isChecked ? "checked" : "") + ' />' +
+                        '  <span class="checkmark"></span>' +
+                        '</label></div></div>';
+
+
+
+                }
+
+                option += '</div>';
+                $availableDaysList.append(option);
+
+                if (modelVal && modelVal["StartDay"]) {
+                    var startDay = new Date(parseInt(modelVal["StartDay"].substr(6)));
+                    var momentObj = moment(startDay).format('YYYY-MM-DD');
+                    $('.datetimepicker').data("DateTimePicker").date(momentObj);
+                }
+
+                $('#divAvailableDays').show();
+                ToggleStartDate();
+                GetPackages();
+            }
+        }
+
+        var validateStartDateWithOffsetHours = function (offsetHours) {
+            var dateTime_Now = new moment();
+            var startDate_moment = new moment($('.datetimepicker').data("DateTimePicker").date());
+            var startDate_withOffset = new moment(startDate_moment).set({ 'hour': 0, 'minute':0,'second': 0}).add(offsetHours, 'hour');
+            return dateTime_Now < startDate_withOffset;
+        };
+
+        function OnNationalityChange(value) {
+            if (value) {
+                var selectize = $("#Nationality")[0].selectize;
+                var data = selectize.options[value];
+                $("#NationalityName").val(data.value);
+                GetPackages();
+            }
+        }
+
+        function OnNumOfWorkersChange(value) {
+            if (value) {
+                GetPackages();
+            }
+        }
+
+        function OnHoursChange(value) {
+            if (value) {
+                GetPackages();
+            }
+        }
+
+        function OnNumberVisitsChange(value) {
+            $('#AvailableDays input[type=checkbox]').removeAttr('checked');
+            ToggleStartDate();
+
+            if (value) {
+                var selectize = $("#NumOfVisits")[0].selectize;
+                var data = selectize.options[value];
+                $("#NumOfVisitsWritten").val(data.value);
+                GetPackages();
+            }
+        }
+
+        function OnContractDurationChange(value) {
+            if (value) {
+                var selectize = $("#ContractDuration")[0].selectize;
+                var data = selectize.options[value];
+                $("#ContractDurationWritten").val(data.value);
+                GetPackages();
+            }
+        }
+
+        function GetParamters() {
+            startDate = $("#StartDay").val();
+            contractDuration = $contractDurationSelect ? $contractDurationSelect[0].selectize.getValue() : "";
+            availableDaysChecked = $("#AvailableDays  input[type=checkbox]:checked").map(function () { return $(this).val(); }).get();
+            districtId = $districtSelect ? $districtSelect[0].selectize.getValue() : "";
+            nationalityId = $nationalitySelect ? $nationalitySelect[0].selectize.getValue() : "";
+            numOfVisits = $numOfVisitsSelect ? $numOfVisitsSelect[0].selectize.getValue() : 0;
+            numOfHours = $numOfHoursSelect ? $numOfHoursSelect[0].selectize.getValue() : 0;
+            numOfWorkers = $numOfWorkersSelect ? $numOfWorkersSelect[0].selectize.getValue() : 0;
+            cityId = $citySelect ? $citySelect[0].selectize.getValue() : "";
+            promotionCode = $("#PromotionCode").val();
+        }
+
+        function GetPackages() {
+            GetParamters();
+            $("#packages").empty();
+            $("#TotalPrice").val("");
+            $("#TotalBeforeDiscount").val("");
+            $("#IsMorningShift").val("");
+
+            $("#Discount").val("");
+            $("#VatRate").val("");
+            $("#VatAmount").val("");
+            $("#TotalPriceWithVat").val("");
+
+            $("#TotalPromotionDiscountAmount").val("");
+            $("#TotalPriceAfterPromotion").val("");
+            $("#PromotionExtraVisits").val(0);
+
+            $("#PromotionName").val("");
+            $("#promotion-name-lbl").html("");
+
+
+
+            if (startDate &&
+                contractDuration &&
+                availableDaysChecked &&
+                districtId &&
+                nationalityId &&
+                numOfVisits &&
+                numOfHours &&
+                numOfWorkers &&
+                cityId) {
+                // getPackages
+
+                var packageDetails = {
+                    CityId: cityId,
+                    DistrictId: districtId,
+                    Empcount: numOfWorkers,
+                    NoOfVisits: numOfVisits,
+                    Weeklyvisits: numOfVisits,
+                    HoursCount: numOfHours,
+                    Days: availableDaysChecked.join(","),
+                    ContractStartDate: startDate,
+                    ContractDuration: contractDuration,
+                    NationalityId: nationalityId,
+                    PromotionCode: promotionCode
+                };
+
+                var hourlypricingId = "";
+                if (modelVal && modelVal["HourlypricingId"]) {
+                    hourlypricingId= modelVal["HourlypricingId"];
+                }
+                console.log(JSON.stringify(packageDetails));
+                $.ajax({
+                    url: '@Url.Action("GetPackages")',
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(packageDetails),
+                    dataType: "json",
+                    error: function (e) {
+                        console.error(e.responseText);
+                        //callback();
+                    },
+                    success: function (result) {
+
+                        if(result){
+                            var packages = "";
+                            $.each($.parseJSON(result), function (i, obj) {
+                                var id = "packageNum" + i;
+                                var value = obj.hourlypricingId;
+                                var shiftType = obj.shift == "Morning" ? "صباحا" : "مساء";
+                                var isChecked = (value === hourlypricingId) || (i === 0 && !hourlypricingId);
+                                var isAvailable = obj.isAvailable ? '' : 'disabled="disabled"';
+                                var isAvailableClass = obj.isAvailable ? 'available' : 'notAvailable';
+                                var activeClass = isChecked && obj.isAvailable ? "package-active" : "package-inactive";
+                                var title = obj.name;
+
+                                var notAvailableText = '';
+
+                                var isValidWithOffset = validateStartDateWithOffsetHours(+($('#' + obj.shift + 'Offset').val()));
+
+                                if (!obj.isAvailable || (shiftType == 'مساء' && numOfHours == 8) || !isValidWithOffset) {
+                                    obj.isAvailable = false;
+                                    isAvailable = obj.isAvailable ? '' : 'disabled="disabled"';
+                                    isAvailableClass = obj.isAvailable ? 'available' : 'notAvailable';
+                                    activeClass = isChecked && obj.isAvailable ? "package-active" : "package-inactive";
+                                    if (langu == "ar") {
+                                        notAvailableText = '<span class="notAvailableSpan">هذه الفترة غير متاحة , اختر ميعاد آخر</span>';
+                                    }
+                                    else {
+                                        notAvailableText = '<span class="notAvailableSpan">This period is not available, select another date</span>';
+                                    }
+                                }
+
+                                if (langu == "ar") {
+                                    packages += '<label class="mb-3 p-3 border  package ' + activeClass + ' ' + isAvailableClass + ' ">' +
+                                        notAvailableText +
+                                        '<div class="h5 pb-2">' + title + '</div>' +
+                                        '<input class="form-check-input packageRadio" type="radio" name="HourlypricingId" id="' + id +
+                                        '" value="' + value + '" data-shift="' + obj.shift + '" ' +
+                                        '" data-totalPrice="' + obj.totalPrice + '" data-totalbeforeDiscount="' + obj.totalbeforeDiscount + '" '
+                                        + ' data-discount="' + obj.discount + '" data-vatRate="' + obj.vatRate + '" data-vatAmount="' + obj.vatAmount + '" data-totalPriceWithVat="' + obj.totalPriceWithVat + '" '
+                                        + ' data-total-promotion-discount-amount="' + obj.totalPromotionDiscountAmount + '" data-total-price-after-promotion="' + obj.totalPriceAfterPromotion+'" '
+                                        + ' data-promotion-extra-visits="' + obj.promotionExtraVisits + '" '
+                                        + ' data-promotion-name="' + obj.promotionName + '" '
+                                        + (isChecked ? "checked" : "") + ' ' + isAvailable + ' />' +
+
+                                        ((obj.discount && Number(obj.discount)) || (obj.totalPromotionDiscountAmount && Number(obj.totalPromotionDiscountAmount)) ?
+
+                                        '<p class="mb-0"> السعر الأصلى <span class="text-danger"><strike> ' + obj.totalbeforeDiscount + '</strike> <span class="smallText">SAR(ريال سعودى)</span> </span> بعد الخصم <span class="text-primary"> ' + obj.totalPriceAfterPromotion + '  <span class="smallText">SAR(ريال سعودى)</span></span></p>'
+                                            :
+                                        '<p class="mb-0"> السعر الأصلى <span class="text-danger"><span> ' + obj.totalbeforeDiscount + '</span> <span class="smallText">SAR(ريال سعودى)</span> </span> </p>'
+                                        ) +
+                                        '<p class="mb-0"> القيمة المضافة <span> [' + obj.vatRate + ' % ] ' + obj.vatAmount + '  <span class="smallText">SAR(ريال سعودى)</span></p>' +
+                                        '<p class="mb-0"> السعر بعد القيمة المضافة <span> ' + obj.totalPriceWithVat + '  <span class="smallText">SAR(ريال سعودى)</span></span></p>' +
+                                        '</label>';
+                                }
+                                else {
+
+                                    packages += '<label class="mb-3 p-3 border  package ' + activeClass + ' ' + isAvailableClass + ' ">' +
+                                        notAvailableText +
+                                        '<div class="h5 pb-2">' + title + '</div>' +
+                                        '<input class="form-check-input packageRadio" type="radio" name="HourlypricingId" id="' + id +
+                                        '" value="' + value + '" data-shift="' + obj.shift + '" ' +
+                                        '" data-totalPrice="' + obj.totalPrice + '" data-totalbeforeDiscount="' + obj.totalbeforeDiscount + '" '
+                                        + ' data-discount="' + obj.discount + '" data-vatRate="' + obj.vatRate + '" data-vatAmount="' + obj.vatAmount + '" data-totalPriceWithVat="' + obj.totalPriceWithVat + '" '
+                                        + ' data-total-promotion-discount-amount="' + obj.totalPromotionDiscountAmount + '" data-total-price-after-promotion="' + obj.totalPriceAfterPromotion + '" '
+                                        + ' data-promotion-extra-visits="' + obj.promotionExtraVisits + '" '
+                                        + ' data-promotion-name="' + obj.promotionName + '" '
+                                        + (isChecked ? "checked" : "") + ' ' + isAvailable + ' />' +
+
+                                        ((obj.discount && Number(obj.discount)) || (obj.totalPromotionDiscountAmount && Number(obj.totalPromotionDiscountAmount)) ?
+
+                                        '<p class="mb-0">Original Price <span class="text-danger"><strike> ' + obj.totalbeforeDiscount + '</strike> <span class="smallText">SAR(Riyal Saudi)</span></span> after discount <span class="text-primary"> ' + obj.totalPriceAfterPromotion + '  <span class="smallText">SAR(Riyal Saudi)</span></span></p>'
+                                            :
+                                        '<p class="mb-0"> Original Price <span class="text-danger"><span> ' + obj.totalbeforeDiscount + '</span> <span class="smallText">SAR(Riyal Saudi)</span></span> </p>'
+                                        ) +
+                                        '<p class="mb-0"> Vat <span> [' + obj.vatRate + ' % ] ' + obj.vatAmount + '  <span class="smallText">SAR(Riyal Saudi)</span></p>' +
+                                        '<p class="mb-0"> Price after Vat<span> ' + obj.totalPriceWithVat + '  <span class="smallText">SAR(Riyal Saudi)</span></span></p>' +
+                                        '</label>';
+
+                                }
+
+
+                                if (isChecked) {
+                                    $("#TotalPrice").val(obj.totalPrice);
+                                    $("#TotalBeforeDiscount").val(obj.totalbeforeDiscount);
+                                    $("#IsMorningShift").val(obj.shift == "Morning");
+
+                                    $("#Discount").val(obj.discount);
+                                    $("#VatRate").val(obj.vatRate);
+                                    $("#VatAmount").val(obj.vatAmount);
+                                    $("#TotalPriceWithVat").val(obj.totalPriceWithVat);
+
+                                    $("#TotalPromotionDiscountAmount").val(obj.totalPromotionDiscountAmount);
+                                    $("#TotalPriceAfterPromotion").val(obj.totalPriceAfterPromotion);
+                                    $("#PromotionExtraVisits").val(obj.promotionExtraVisits || 0);
+                                    $("#PromotionName").val(obj.promotionName);
+                                    $("#promotion-name-lbl").html(obj.promotionName);
+
+
+                                }
+                            });
+                            $('#divPackages').show();
+                            $("#packages").html(packages);
+                        } else {
+                            $('#divPackages').hide();
+                            if (langu=="ar") {
+                                $("#packages").html("<p>عذرا لايوجد باقات متاحة لهذا الاختيار نرجو تغير معاير البحث والمحاولة مره أخرى</p>");
+                            }
+                            else {
+                                $("#packages").html("<p>Sorry there are no packages available for this selection Please change your search criteria and try again</p>");
+                            }
+
+                        }
+                    }
+                });
+
+            }
+        }
+        $(function () {
+            $.validator.setDefaults({ ignore: '' });
+            $.validator.unobtrusive.parse($("form"));
+            $('.datetimepicker').datetimepicker({
+                useCurrent: false,
+                minDate: moment().startOf('day'),
+                format: "DD/MM/YYYY",
+                locale: moment.locale('@dateLang'),
+                icons: {
+                    date: 'fa fa-calendar-o',
+                    up: 'fa fa-chevron-up',
+                    down: 'fa fa-chevron-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    clear: 'fa fa-eraser',
+                    close: 'fa fa-times'
+                }
+            }).on('dp.show',
+                function() {
+                    return $(this).data("DateTimePicker").daysOfWeekDisabled(disabledDays);
+                });
+
+
+            $(document).on('dp.change', '.datetimepicker', function() {
+                GetPackages();
+            });
+
+            ToggleStartDate();
+
+            //initlize dropdown lists
+            $citySelect = InitSelectize($('#CityId'),@Html.NameFor(model => model.CityId), "@Url.Action("GetCities")", 'key', 'value', null, OnCityChange);
+            $districtSelect = InitSelectize($('#DistrictId'),@Html.NameFor(model => model.DistrictId), '', 'districtId', 'name', null, OnDistrictChange);
+            $nationalitySelect = InitSelectize($('#Nationality'),@Html.NameFor(model => model.Nationality), '', 'key', 'value', null, OnNationalityChange);
+            $numOfWorkersSelect = InitSelectize($('#NumOfWorkers'),@Html.NameFor(model => model.NumOfWorkers), "@Url.Action("GetNumOfWorkers")", 'key', 'value', null, OnNumOfWorkersChange);
+            $numOfHoursSelect = InitSelectize($('#NumOfHours'),@Html.NameFor(model => model.NumOfHours), "@Url.Action("GetHours")", 'key', 'value', null, OnHoursChange);
+            $numOfVisitsSelect = InitSelectize($('#NumOfVisits'),@Html.NameFor(model => model.NumOfVisits), "@Url.Action("GetNumOfVisits")", 'key', 'value', null, OnNumberVisitsChange);
+            $contractDurationSelect = InitSelectize($('#ContractDuration'),@Html.NameFor(model => model.ContractDuration), "@Url.Action("GetContractDuration")", 'key', 'value', null, OnContractDurationChange);
+
+
+            //validate choose available Days
+            $(document).on("change", "#AvailableDays  input[type=checkbox]", function (e) {
+                numOfVisits = $("#NumOfVisits").val();
+                var $chk = $(this);
+
+                if (!numOfVisits) {
+                    swal("خطأ","من فضلك أختر عدد الزيارات أولا","error");
+                    $chk.prop('checked', false);
+                    return false;
+                }
+
+                $('#StartDay').val('');
+
+                var totalSelectedDays =$('#AvailableDays  input[type=checkbox]:checked').length;
+                if (totalSelectedDays > numOfVisits) {
+                    e.preventDefault();
+                    $chk.prop('checked', false);
+                    swal("خطأ","عدد الأيام غير مطابق لعدد الزيارات","error");
+                    return false;
+                }
+                ToggleStartDate();
+                GetPackages();
+            });
+
+            //validate choose packages
+            $(document).on("change", "input[type=radio][name=HourlypricingId]", function (e) {
+                if (this.value) {
+                    $("#TotalPrice").val($(this).data("totalprice"));
+                    $("#TotalBeforeDiscount").val($(this).data("totalbeforediscount"));
+
+                    var isMornignShift = $(this).data("shift") == "Morning";
+                    $("#IsMorningShift").val(isMornignShift);
+
+                    $("#Discount").val($(this).data("discount"));
+                    $("#VatRate").val($(this).data("vatrate"));
+                    $("#VatAmount").val($(this).data("vatamount"));
+                    $("#TotalPriceWithVat").val($(this).data("totalpricewithvat"));
+
+                    $("#TotalPromotionDiscountAmount").val($(this).data("total-promotion-discount-amount"));
+                    $("#TotalPriceAfterPromotion").val($(this).data("total-price-after-promotion"));
+                    $("#PromotionExtraVisits").val($(this).data("promotion-extra-visits") || 0);
+                    $("#PromotionName").val($(this).data("promotion-name"));
+                    $("#promotion-name-lbl").html($(this).data("promotion-name"));
+
+
+
+
+                } else {
+                    $("#TotalPrice").val("");
+                    $("#TotalBeforeDiscount").val("");
+                    $("#IsMorningShift").val("");
+
+                    $("#Discount").val("");
+                    $("#VatRate").val("");
+                    $("#VatAmount").val("");
+                    $("#TotalPriceWithVat").val("");
+
+                    $("#TotalPromotionDiscountAmount").val("");
+                    $("#TotalPriceAfterPromotion").val("");
+                    $("#PromotionExtraVisits").val(0);
+
+                    $("#PromotionName").val("");
+                    $("#promotion-name-lbl").html("");
+
+                }
+            });
+
+            $("#PromotionCode").on("change", function (e) {
+                GetPackages();
+            });
+
+            //validate form submit
+            $(document).on("click","#nextBtn", function(e) {
+                var totalSelectedDays =$('#AvailableDays  input[type=checkbox]:checked').length;
+                if (totalSelectedDays != numOfVisits) {
+                    e.preventDefault();
+                    swal("خطأ","عدد الأيام غير مطابق لعدد الزيارات","error");
+                    return false;
+                }
+                //if (!$('#AgreedToTerms').is(':checked')) {
+                //    e.preventDefault();
+                //    swal("خطأ","يجب الموافقة على الشروط والأحكام","error");
+                //    return false;
+                //}
+            });
+
+            $(document).on("click", ".package", function (e) {
+                if ($(this).hasClass('available')) {
+                    $(".package").removeClass("package-active").addClass("package-inactive");
+                    $(this).removeClass("package-inactive").addClass("package-active");
+                }
+            });
+
+            var defaultRangeValidator = $.validator.methods.range;
+            $.validator.methods.range = function (value, element, param) {
+                if (element.type === 'checkbox') {
+                    // if it's a checkbox return true if it is checked
+                    return element.checked;
+                } else {
+                    // otherwise run the default validation function
+                    return defaultRangeValidator.call(this, value, element, param);
+                }
+            }
+
+        });
+
+
+
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

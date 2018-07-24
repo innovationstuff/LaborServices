@@ -1,0 +1,121 @@
+﻿@model IEnumerable<LaborServices.Model.Branche>
+
+@{
+	int count = 0;
+}
+<style>
+	.th {
+		text-align: center;
+	}
+</style>
+<div class="branchesView">
+	<div class="table-responsive">
+		<table class="table table-vcenter table-hover table-striped table-bordered" id="tblWhoAreWe">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>الاسم-عربي </th>
+					<th>الاسم-انجليزي </th>
+					<th>الموقع-عربي </th>
+					<th>الموقع-انجليزي </th>
+					<th>لينك الموقع</th>
+					<th>رقم الهاتف</th>
+					<th class="text-center col-md-3"><i class="fa fa-flash"></i></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var itm in Model)
+			{
+					<tr id="tr@(itm.Id)">
+						<td>
+							@(++count)
+						</td>
+						<td>
+							@itm.NameAr
+						</td>
+						<td>
+							@itm.NameEn
+						</td>
+						<td>
+							@itm.LocationAr
+						</td>
+						<td>
+							@itm.LocationEn
+						</td>
+						<td>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#model@(itm.Id)">
+								عرض
+							</button>
+
+							<!-- Modal -->
+							<div class="modal fade" id="model@(itm.Id)" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"></h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<iframe src="@itm.MapLink" height="220" style="border:0;width:100%" allowfullscreen=""></iframe>
+											<div class="col-md-12">
+												<div class="text-center">
+													<h5 class="modal-title" id="exampleModalLabel">مواقع التواصل</h5>
+												</div>
+												<div class="social text-center">
+													<a class="fa fa-twitter" href="@itm.TwitterLink" target="_blank"></a>
+													<a class="fa fa-facebook" href="@itm.FaceBookLink" target="_blank"></a>
+													<a class="fa fa-instagram" href="@itm.InstagramLink" target="_blank"></a>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</td>
+						<td>
+							@itm.PhoneNumber
+						</td>
+						<td>
+							<a href="@Url.Action("Edit", new { id = itm.Id })" class="btn btn-sm btn-success modal-link" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
+							<a onclick="ConfirmDelete(this.id)" id="@itm.Id" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times"></i></a>
+						</td>
+					</tr>
+			}
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- Delete Confirm Model -->
+<div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3>Delete</h3>
+			</div>
+			@using (Ajax.BeginForm("Delete", "Branches", new AjaxOptions { OnSuccess = "Success" }))
+			{
+			<input type="hidden" name="Id" id="DeletedID" />
+			@Html.AntiForgeryToken()
+			<div class="modal-body">
+				<div class="row-fluid">
+					<div class="control-group">
+						Are you sure you want to delete this item?
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+				<button class="btn btn-danger btn-preload" id="btnDelete" type="submit"><i class="icon-trash icon-white"></i> Delete</button>
+			</div>
+			}
+		</div>
+	</div>
+</div>
+

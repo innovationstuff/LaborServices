@@ -1,0 +1,6 @@
+﻿@model Nullable<DateTime>
+
+@{
+    System.Globalization.CultureInfo enUS = System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
+    <label class="label"> @Model.Value.ToString("d", enUS)</label>
+}

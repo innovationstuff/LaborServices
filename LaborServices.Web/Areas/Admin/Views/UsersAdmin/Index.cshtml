@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "users";
+}
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+
+        <span class="elipsis">
+            <!-- panel title -->
+            <strong>Users</strong>
+        </span>
+
+        <!-- right options -->
+        <ul class="options pull-right list-inline">
+            <li><a href="#" class="opt panel_colapse" data-toggle="tooltip" title="Colapse" data-placement="bottom"></a></li>
+            <li><a href="#" class="opt panel_fullscreen hidden-xs" data-toggle="tooltip" title="Fullscreen" data-placement="bottom"><i class="fa fa-expand"></i></a></li>
+            <li><a href="#" class="opt panel_close" data-confirm-title="Confirm" data-confirm-message="Are you sure you want to remove this panel?" data-toggle="tooltip" title="Close" data-placement="bottom"><i class="fa fa-times"></i></a></li>
+            <li><a href="@Url.Action("Create")" class="btn btn-primary btn-xs white"><i class="fa fa-plus"></i>&nbsp;&nbsp;Create</a> </li>
+        </ul>
+        <!-- /right options -->
+    </div>
+    <div class="panel-body">
+
+        <div class="block full">
+            @using (Ajax.BeginForm("List", "UsersAdmin", null, new AjaxOptions { UpdateTargetId = "UsersList", LoadingElementId = "UsersSpinner" }, new { @class = "form-horizontal" }))
+            {
+                <div id="UsersList">
+                    @Html.Action("List")
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

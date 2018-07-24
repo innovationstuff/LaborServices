@@ -1,0 +1,1919 @@
+/* Very Small Screen */
+@media (max-width: 370px) {
+    .top {
+        display: none
+    }
+
+    .sw-theme-dots > ul.step-anchor {
+        display: none
+    }
+
+    .col-10 {
+        max-width: 100%;
+        flex: 0 0 100%
+    }
+
+    /**** Start Navbar ****/
+    .navbar {
+        margin-top: 0;
+        padding-bottom: 10px;
+        overflow: hidden
+    }
+
+        .navbar .navbar-nav {
+            position: relative;
+            left: 10px
+        }
+
+        .navBar .container {
+            max-width: 100%;
+            background: #315d8c
+        }
+
+        .navbar .navbar-toggler {
+            position: relative;
+            top: 5px;
+            left: 10px
+        }
+
+        .navbar .dropdown-toggle::after {
+            display: none
+        }
+
+        .navbar .nav-item {
+            text-align: left;
+            border: none
+        }
+
+        .navBar .navbar-brand {
+            text-align: right;
+            width: 40%
+        }
+
+            .navBar .navbar-brand img {
+                width: 65%
+            }
+
+        .navbar .nav-item .dropdown-item {
+            width: 95%
+        }
+    /**** End Navbar ****/
+
+    /**** Start Social Static Bar ****/
+    .nav-social {
+        direction: ltr;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        margin-top: 50px
+    }
+
+        .nav-social div {
+            display: inline-block
+        }
+
+        .nav-social a {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            font-size: 14px
+        }
+
+            .nav-social a:hover {
+                padding-right: 0;
+                width: 48px
+            }
+
+        .nav-social .phone {
+            width: 120px;
+            text-align: left;
+            padding-left: 15px
+        }
+
+            .nav-social .phone .num {
+                left: 33px
+            }
+
+        .nav-social a.phone:hover {
+            width: 130px
+        }
+    /**** End Social Static Bar ****/
+
+    /**** Start Footer ****/
+    .footer .b {
+        padding-top: 0
+    }
+
+        .footer .b div p {
+            font-size: 15px
+        }
+
+    .footer .c h3 {
+        padding-bottom: 0;
+        padding-top: 20px
+    }
+
+    .footer .c a {
+        font-size: 15px
+    }
+
+    .footer .d input {
+        width: 230px
+    }
+
+    .footer .d p {
+        padding-left: 0
+    }
+    /**** End Footer ****/
+
+    /*********** Start Individuals ***********/
+    .individuals .container {
+        padding: 30px;
+        margin-top: 0;
+        width: 95%
+    }
+
+    .individuals h2 img {
+        width: 75%
+    }
+
+    .individuals .main-p {
+        font-size: 13px
+    }
+
+    .individuals .col-md-6 {
+        padding: 0;
+        margin-bottom: 5px
+    }
+
+    .individuals .det .header h3 img {
+        width: 60%;
+        padding-right: 0
+    }
+
+    .individuals .det .header p {
+        font-size: 14px;
+        text-align: center;
+        padding-right: 0
+    }
+
+    .individuals .det .btm p {
+        height: auto;
+        padding-bottom: 20px;
+        font-size: 14px
+    }
+
+    .individuals .det .btm .more .right a {
+        font-size: 14px;
+        padding: 5px 15px
+    }
+    /*********** End Individuals ***********/
+
+    /*********** Start Medical ***********/
+    .medical {
+        margin: 0 0 100px 0
+    }
+
+        .medical .header h3 {
+            font-size: 28px
+        }
+
+        .medical .row .col-sm-6 {
+            margin-top: 40px
+        }
+
+        .medical .part1 h4 {
+            width: 78%;
+            left: 22%;
+            font-size: 15px;
+            padding: 15px 10px
+        }
+
+        .medical .part2 h4 {
+            width: 80%;
+            font-size: 16px;
+            padding: 15px 10px
+        }
+
+        .medical .part3 h4 {
+            font-size: 16px;
+            width: 70%;
+            left: 30%;
+            padding: 10px
+        }
+
+        .medical .header p,
+        .medical .part1 p,
+        .medical .part2 p,
+        .medical .part3 p {
+            font-size: 14px
+        }
+
+        .medical .part4 h4 {
+            width: 95%;
+            font-size: 16px;
+            padding: 8px
+        }
+
+        .medical .part4 p {
+            font-size: 14px
+        }
+
+    /*********** End Medical ***********/
+
+    /*********** Start Works ***********/
+    .works {
+        margin: 0 20px 100px 20px
+    }
+
+        .works .header img {
+            width: 70%
+        }
+
+        .works .header p {
+            width: 100%;
+            font-size: 14px
+        }
+
+        .works .body h2 {
+            width: 85%;
+            font-size: 24px
+        }
+
+        .works .body h4 {
+            font-size: 20px
+        }
+
+        .works .body p {
+            font-size: 14px
+        }
+
+        .works .leftPart {
+            padding-bottom: 40px
+        }
+
+            .works .leftPart img {
+                margin-top: 10%
+            }
+
+            .works .leftPart p {
+                width: 90%;
+                font-size: 14px
+            }
+
+            .works .leftPart .links a:nth-of-type(1) {
+                display: block;
+                width: 97%;
+                margin: auto
+            }
+
+            .works .leftPart .links a:nth-of-type(2) {
+                display: block;
+                width: 70%;
+                margin: auto;
+                margin-top: 10px
+            }
+    /*********** End Works ***********/
+
+    /*********** Start Welcome ***********/
+    .welcome {
+        margin: 0
+    }
+
+        .welcome .header h2 {
+            font-size: 23px
+        }
+
+        .welcome .header p {
+            font-size: 15px;
+            width: 90%;
+            margin: auto;
+            padding-top: 10px
+        }
+
+        .welcome .part1 .col-md-4:nth-of-type(2),
+        .welcome .part1 .col-md-4:nth-of-type(3) {
+            margin-top: 40px
+        }
+
+        .welcome .part1 p {
+            width: 95%
+        }
+
+        .welcome .part2 .sec1 h4,
+        .welcome .part2 .sec3 h4 {
+            width: 70%;
+            font-size: 18px;
+            padding: 18px 10px
+        }
+
+        .welcome .part2 .sec2 h4 {
+            width: 75%;
+            left: 25%;
+            font-size: 18px;
+            padding: 8px 10px
+        }
+
+        .welcome .part2 .sec1 p,
+        .welcome .part2 .sec2 p,
+        .welcome .part2 .sec3 p {
+            font-size: 14px;
+            padding: 20px 10px
+        }
+    /*********** End Welcome ***********/
+
+    /*********** Start About ***********/
+    .about {
+        margin: 0 0 50px 0
+    }
+
+        .about .part1 h2,
+        .about .part3 h2 {
+            width: 69%;
+            font-size: 24px
+        }
+        .about .part1 h2 {
+            padding: 20px 12px;
+        }
+         
+
+        .about .part2 h2 {
+            font-size: 24px;
+        }
+
+        .about .part1 h4,
+        .about .part3 h4 {
+            padding-left: 30px;
+            font-size: 23px;
+            width: 100%
+        }
+
+        .about .part1 p {
+            left: 5%;
+            width: 90%;
+            padding-left: 10px;
+            padding-top: 40px
+        }
+
+        .about .part3 p {
+            left: 5%;
+            width: 90%;
+            padding-right: 10px;
+            padding-top: 80px
+        }
+
+        .about h4 {
+            font-size: 22px
+        }
+
+        .about .part2 .btm .col-md-4 {
+            margin-top: 50px
+        }
+
+        .about .part1 .sec2 p {
+            font-size: 14px
+        }
+
+        .about .part2 .header p {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 20px
+        }
+
+    /*********** End About ***********/
+    /*********** Start Team ***********/
+    .team {
+        margin: 0
+    }
+
+        .team .container {
+            width: 95%
+        }
+    /*********** End Team ***********/
+
+    /*********** Start Branches ***********/
+    .branches {
+        margin: 0 0 50px 0
+    }
+
+        .branches .col-sm-6:nth-of-type(2),
+        .branches .col-sm-6:nth-of-type(4),
+        .branches .col-sm-6:nth-of-type(6) {
+            margin-top: 50px
+        }
+    /*********** End Branches ***********/
+
+    /*********** Start Profile ***********/
+    .profile .c1 h3,
+    .profile .c2 h3 {
+        font-size: 18px
+    }
+    /*********** End Profile ***********/
+
+    /*********** Start Complains ***********/
+    .complains {
+        margin: 0 0 50px 0
+    }
+
+        .complains .container {
+            width: 95%;
+            margin: auto
+        }
+
+        .complains h3 {
+            width: 100%;
+            font-size: 20px
+        }
+
+        .complains select,
+        .complains textarea,
+        .complains .submit {
+            width: 100%
+        }
+
+        .complains img {
+            width: 100%;
+            margin-top: 35px;
+        }
+    /*********** End Complains ***********/
+
+    /*********** Start Order ***********/
+    .order {
+        margin: 0 0 50px 0
+    }
+
+        .order .right {
+            margin-bottom: 50px
+        }
+
+            .order .right .mainUl li {
+                font-size: 15px
+            }
+
+                .order .right .mainUl li i {
+                    font-size: 25px
+                }
+
+                .order .right .mainUl li .subUl {
+                    left: auto;
+                    right: 0;
+                    top: 54px
+                }
+
+                    .order .right .mainUl li .subUl li label,
+                    .order .right .mainUl li .subUl li .form-control {
+                        width: 180px
+                    }
+
+                    .order .right .mainUl li .subUl li:first-of-type {
+                        border-radius: 0
+                    }
+
+        .order .left .col-xl-6:nth-of-type(2) {
+            margin-top: 15px
+        }
+
+        .order .left .iCard .photo {
+            display: block;
+            width: 100%;
+            font-size: 16px
+        }
+
+            .order .left .iCard .photo img {
+                max-height: 110px;
+                max-width: 110px
+            }
+
+        .order .left .iCard .des {
+            display: block;
+            width: 100%;
+            padding-left: 35px;
+            margin-top: 35px;
+            font-size: 15px
+        }
+
+            .order .left .iCard .des .submit {
+                text-align: center
+            }
+
+    /*********** End Order ***********/
+
+    /*********** Start Select ***********/
+    .select {
+        margin: 0 0 50px 0
+    }
+
+        .select .details {
+            padding-bottom: 50px
+        }
+
+        .select .c {
+            padding-top: 35px
+        }
+
+            .select .c img {
+                right: auto;
+                top: 5px
+            }
+
+            .select .c .des {
+                text-align: center;
+                padding-top: 10px
+            }
+
+            .select .c .sel {
+                width: 95%;
+                padding-top: 0;
+                margin-bottom: 25px
+            }
+
+    /*********** End Select ***********/
+
+    /*********** Start Prices ***********/
+
+    #carouselPrices {
+        min-height: 680px
+    }
+
+    .prices .Buttons {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        top: -65px
+    }
+
+        .prices .Buttons button {
+            margin: 2px
+        }
+
+    #carouselPrices .Baqa-item {
+        width: 230px
+    }
+
+    #carouselPrices .selected .Baqa-item {
+        transform: scale(1);
+        width: 200px
+    }
+
+    /*********** End Prices ***********/
+
+    /*********** Start Payment ***********/
+    .paymentD,
+    .paymentF {
+        margin: 0 0 50px 0;
+        padding: 0 5px
+    }
+
+        .paymentD .main .det {
+            padding-left: 0;
+            padding-top: 20px
+        }
+
+            .paymentD .main .det h3 {
+                font-size: 22px
+            }
+
+        .paymentD .body .a p,
+        .paymentD .body .b p {
+            font-size: 14px
+        }
+
+        .paymentD .timer {
+            font-size: 14px
+        }
+
+        .paymentF .failed p {
+            display: block;
+            margin-top: 5px;
+            top: 0;
+            padding-left: 0
+        }
+    /*********** End Payment ***********/
+
+    /*	Coming Soon	*/
+    .soon {
+        margin: 0 0 50px 0
+    }
+
+        .soon h3 {
+            width: 90%;
+            font-size: 38px
+        }
+}
+
+/* Small Screen */
+@media (min-width: 371px) and (max-width: 575px) {
+    .top {
+        display: none
+    }
+
+    .col-10 {
+        flex: 0 0 90.333333%;
+        max-width: 90.333333%
+    }
+
+    .col-2 {
+        position: absolute;
+        right: 0;
+        top: 110px
+    }
+
+    /**** Start Navbar ****/
+    .navbar {
+        margin-top: 0;
+        padding-bottom: 10px;
+        overflow: hidden
+    }
+
+        .navbar .navbar-nav {
+            position: relative;
+            left: 5px
+        }
+
+        .navBar .container {
+            max-width: 100%;
+            background: #315d8c
+        }
+
+        .navBar .navbar-brand {
+            width: 80%
+        }
+
+            .navBar .navbar-brand img {
+                width: 25%
+            }
+
+        .navbar .navbar-toggler {
+            position: relative;
+            top: 5px
+        }
+
+        .navbar .dropdown-toggle::after {
+            display: none
+        }
+
+        .navbar .nav-item {
+            text-align: left;
+            border: none
+        }
+
+            .navbar .nav-item .dropdown-item {
+                width: 65%
+            }
+    /**** End Navbar ****/
+
+
+    /**** Start Social Static Bar ****/
+    .nav-social {
+        direction: ltr;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        margin-top: 50px
+    }
+
+        .nav-social div {
+            display: inline-block
+        }
+
+        .nav-social a {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            font-size: 14px
+        }
+
+            .nav-social a:hover {
+                padding-right: 0;
+                width: 48px
+            }
+
+        .nav-social .phone {
+            width: 130px;
+            text-align: left;
+            padding-left: 15px
+        }
+
+            .nav-social .phone .num {
+                left: 40px
+            }
+
+        .nav-social a.phone:hover {
+            width: 130px
+        }
+    /**** End Social Static Bar ****/
+
+    /**** Start Footer ****/
+    .footer .b {
+        padding-top: 0
+    }
+
+        .footer .b div p {
+            font-size: 15px
+        }
+
+        .footer .b div:nth-of-type(1) p {
+            right: 0;
+            width: 85%
+        }
+
+        .footer .b div:nth-of-type(1) a {
+            top: -15px
+        }
+
+    .footer .c h3 {
+        padding-bottom: 0;
+        padding-top: 20px
+    }
+
+    .footer .c a {
+        font-size: 15px
+    }
+
+    .footer .d input {
+        width: 320px
+    }
+
+    .footer .d p {
+        padding-left: 0
+    }
+    /**** End Footer ****/
+
+    /*********** Start Individuals ***********/
+    .individuals .container {
+        padding: 30px;
+        margin-top: 0;
+        width: 95%
+    }
+
+    .individuals h2 img {
+        width: 66%
+    }
+
+    .individuals .main-p {
+        font-size: 13px
+    }
+
+    .individuals .col-md-6 {
+        padding: 0;
+        margin-bottom: 5px
+    }
+
+    .individuals .det .header h3 img {
+        width: 60%;
+        padding-right: 0
+    }
+
+    .individuals .det .header p {
+        font-size: 14px;
+        text-align: center;
+        padding-right: 0
+    }
+
+    .individuals .det .btm p {
+        height: auto;
+        padding-bottom: 20px;
+        font-size: 14px
+    }
+
+    .individuals .det .btm .more .right a {
+        font-size: 14px;
+        padding: 5px 15px
+    }
+    /*********** End Individuals ***********/
+
+    /*********** Start Medical ***********/
+    .medical {
+        margin: 0 0 100px 0
+    }
+
+        .medical .header h3 {
+            font-size: 25px
+        }
+
+        .medical .row .col-sm-6 {
+            width: 49%;
+            margin: auto
+        }
+
+            .medical .row .col-sm-6:nth-of-type(3),
+            .medical .row .col-sm-6:nth-of-type(4) {
+                margin-top: 40px
+            }
+
+        .medical .part1 h4 {
+            width: 75%;
+            left: 25%;
+            font-size: 16px;
+            padding: 15px 10px
+        }
+
+        .medical .part2 h4 {
+            width: 56%;
+            font-size: 16px;
+            padding: 15px 10px
+        }
+
+        .medical .part3 h4 {
+            width: 60%;
+            left: 40%;
+            font-size: 16px;
+            padding: 15px 10px
+        }
+
+        .medical .header p,
+        .medical .part1 p,
+        .medical .part2 p {
+            font-size: 14px
+        }
+
+        .medical .part4 h4 {
+            width: 95%;
+            font-size: 16px;
+            padding: 10px
+        }
+
+        .medical .part4 p {
+            font-size: 14px
+        }
+    /*********** End Medical ***********/
+
+    /*********** Start Works ***********/
+    .works {
+        margin: 0 20px 100px 20px
+    }
+
+        .works .header img {
+            width: 70%
+        }
+
+        .works .header p {
+            width: 100%;
+            font-size: 14px
+        }
+
+        .works .body h2 {
+            width: 75%;
+            font-size: 29px
+        }
+
+        .works .body h4 {
+            font-size: 21px
+        }
+
+        .works .body p {
+            font-size: 14px
+        }
+
+        .works .leftPart {
+            padding-bottom: 40px
+        }
+
+            .works .leftPart .links a:nth-of-type(1) {
+                display: block;
+                width: 70%;
+                margin: auto;
+                margin-bottom: 30px
+            }
+
+            .works .leftPart img {
+                margin-top: 10%
+            }
+
+            .works .leftPart p {
+                width: 90%;
+                font-size: 14px
+            }
+
+            .works .leftPart .links a:nth-of-type(2) {
+                padding: 10px 30px
+            }
+    /*********** End Works ***********/
+
+    /*********** Start Welcome ***********/
+    .welcome {
+        margin: 0
+    }
+
+        .welcome .header h2 {
+            font-size: 26px
+        }
+
+        .welcome .header p {
+            font-size: 15px;
+            width: 90%;
+            margin: auto;
+            padding-top: 10px
+        }
+
+        .welcome .part1 .col-md-4:nth-of-type(2),
+        .welcome .part1 .col-md-4:nth-of-type(3) {
+            margin-top: 40px
+        }
+
+        .welcome .part1 p {
+            width: 95%
+        }
+
+        .welcome .part2 .sec1 h4,
+        .welcome .part2 .sec3 h4 {
+            width: 66%;
+            font-size: 18px
+        }
+
+        .welcome .part2 .sec2 h4 {
+            width: 82%;
+            left: 18%;
+            font-size: 18px
+        }
+
+        .welcome .part2 .sec1 p,
+        .welcome .part2 .sec2 p,
+        .welcome .part2 .sec3 p {
+            font-size: 15px
+        }
+    /*********** End Welcome ***********/
+
+    /*********** Start About ***********/
+    .about {
+        margin: 0 0 50px 0
+    }
+
+        .about .part1 h2,
+        .about .part3 h2 {
+            width: 66%;
+            font-size: 28px
+        }
+
+        .about .part1 h4,
+        .about .part3 h4 {
+            padding-left: 40px;
+            font-size: 25px;
+            width: 100%
+        }
+
+        .about .part1 p {
+            left: 5%;
+            width: 90%;
+            padding-left: 10px;
+            padding-top: 40px
+        }
+
+        .about h4 {
+            font-size: 20px
+        }
+
+        .about .part2 .btm .col-md-4 {
+            margin-top: 50px
+        }
+
+        .about .part1 .sec2 p {
+            font-size: 14px
+        }
+
+        .about .part2 .header p {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 20px
+        }
+
+        .about .part3 p {
+            left: 5%;
+            width: 90%;
+            padding-right: 10px;
+            padding-top: 80px
+        }
+
+    /*********** End About ***********/
+
+    /*********** Start Team ***********/
+    .team {
+        margin: 0
+    }
+
+        .team .container {
+            width: 95%
+        }
+    /*********** End Team ***********/
+
+    /*********** Start Branches ***********/
+    .branches {
+        margin: 0 0 50px 0
+    }
+
+        .branches .col-sm-6:nth-of-type(2),
+        .branches .col-sm-6:nth-of-type(4),
+        .branches .col-sm-6:nth-of-type(6) {
+            margin-top: 50px
+        }
+    /*********** End Branches ***********/
+
+    /*********** Start Profile ***********/
+    .profile .c1 h3,
+    .profile .c2 h3 {
+        font-size: 20px
+    }
+    /*********** End Profile ***********/
+
+    /*********** Start Complains ***********/
+    .complains {
+        margin: 0 0 50px 0
+    }
+
+        .complains .container {
+            width: 95%;
+            margin: auto
+        }
+
+        .complains h3 {
+            width: 100%;
+            font-size: 22px
+        }
+
+        .complains select,
+        .complains textarea,
+        .complains .submit {
+            width: 100%
+        }
+
+        .complains img {
+            width: 100%;
+            margin-top: 35px;
+        }
+    /*********** End Complains ***********/
+
+    /*********** Start Order ***********/
+    .order {
+        margin: 0 0 50px 0
+    }
+
+        .order .right {
+            margin-bottom: 50px
+        }
+
+            .order .right .mainUl li .subUl {
+                left: auto;
+                right: 0;
+                top: 59px
+            }
+
+                .order .right .mainUl li .subUl li label,
+                .order .right .mainUl li .subUl li .form-control {
+                    width: 200px
+                }
+
+                .order .right .mainUl li .subUl li:first-of-type {
+                    border-radius: 0
+                }
+
+        .order .left .col-xl-6:nth-of-type(2) {
+            margin-top: 15px
+        }
+
+        .order .left .iCard .photo {
+            font-size: 15px
+        }
+
+            .order .left .iCard .photo img {
+                max-height: 110px;
+                max-width: 110px
+            }
+
+        .order .left .iCard .des {
+            width: 68%;
+            padding-left: 35px;
+            font-size: 14px
+        }
+    /*********** End Order ***********/
+
+    /*********** Start Select ***********/
+    .select {
+        margin: 0 0 50px 0
+    }
+
+        .select .details {
+            padding-bottom: 50px
+        }
+
+        .select .c {
+            padding-top: 35px
+        }
+
+            .select .c .des {
+                text-align: center;
+                padding-top: 10px
+            }
+
+            .select .c .sel {
+                width: 90%;
+                padding-top: 0;
+                margin-bottom: 25px
+            }
+
+    /*********** End Select ***********/
+
+
+    /*********** Start Prices ***********/
+
+    .prices {
+        margin: 0 0 50px 0
+    }
+
+        .prices .container {
+            padding: 0 15px
+        }
+
+    #carouselPrices {
+        min-height: 670px
+    }
+
+    .prices .Buttons {
+        left: 49%;
+        bottom: 10px
+    }
+
+    #carouselPrices .Baqa-item {
+        width: 230px
+    }
+
+    /*********** End Prices ***********/
+
+    /*********** Payment ***********/
+    .paymentD,
+    .paymentF {
+        margin: 0 0 50px 0;
+        padding: 0 10px
+    }
+
+        .paymentD .main .det {
+            padding-left: 0;
+            padding-top: 20px
+        }
+    /*********** End Payment ***********/
+
+    /*	Coming Soon	*/
+    .soon {
+        margin: 0 0 50px 0
+    }
+
+        .soon h3 {
+            width: 90%;
+            font-size: 38px
+        }
+}
+
+
+
+
+/*****   Start Other Team Css Code   *****/
+@media (max-width:574px) {
+    .slider01 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .ad img {
+        padding: 10px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .slider01 .container {
+        padding: 0;
+    }
+
+    .ad {
+        height: 271px;
+    }
+}
+
+*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575px) {
+    .slider01
+
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.ad img {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 199px;
+}
+
+.slider01 .container {
+    padding: 0;
+}
+
+
+/*********** Start Individuals ***********/
+.individuals .container {
+    width: 90%;
+    margin-top: 0
+}
+
+.individuals h2 {
+    font-size: 28px
+}
+
+.individuals .main-p {
+    font-size: 14px
+}
+
+.individuals .det {
+    width: 100%
+}
+
+    .individuals .det .header p {
+        font-size: 14px
+    }
+
+    .individuals .det .btm p {
+        height: auto;
+        padding-bottom: 20px;
+        font-size: 14px
+    }
+/*********** End Individuals ***********/
+}
+/*****   End Other Team Css Code   *****/
+
+
+/* Smart Phones */
+@media (min-width: 576px) and (max-width: 767px) {
+    .top {
+        display: none
+    }
+
+    /**** Start Navbar ****/
+    .navbar {
+        margin-top: 0;
+        padding-bottom: 10px;
+        overflow: hidden
+    }
+
+        .navbar .navbar-nav {
+            position: relative;
+            left: 10px
+        }
+
+        .navBar .container {
+            max-width: 100%;
+            background: #315d8c
+        }
+
+        .navBar .navbar-brand img {
+            width: 25%
+        }
+
+        .navbar .navbar-toggler {
+            position: relative;
+            top: 5px;
+            left: 10px
+        }
+
+        .navbar .dropdown-toggle::after {
+            display: none
+        }
+
+        .navbar .nav-item {
+            text-align: left;
+            border: none
+        }
+
+            .navbar .nav-item .dropdown-item {
+                width: 55%
+            }
+    /**** End Navbar ****/
+
+    /**** Start Footer ****/
+    .footer .b {
+        padding-top: 0
+    }
+
+        .footer .b div p {
+            font-size: 15px
+        }
+
+        .footer .b div:nth-of-type(1) p {
+            right: 0
+        }
+
+        .footer .b div:nth-of-type(1) a {
+            top: -15px
+        }
+
+    .footer .c h3 {
+        padding-bottom: 0;
+        padding-top: 20px
+    }
+
+    .footer .c a {
+        font-size: 15px
+    }
+
+    .footer .d input {
+        width: 300px
+    }
+
+    .footer .d p {
+        padding-left: 10px
+    }
+    /**** End Footer ****/
+
+    /*********** Start Individuals ***********/
+    .individuals h2 {
+        font-size: 28px
+    }
+
+    .individuals .main-p {
+        font-size: 14px
+    }
+
+    .individuals .det .btm p {
+        height: auto
+    }
+    /*********** End Individuals ***********/
+
+    /*********** Start Medical ***********/
+    .medical {
+        margin: 100px 0
+    }
+
+        .medical .container {
+            padding-right: 10px;
+            padding-left: 10px
+        }
+
+        .medical .header h3 {
+            font-size: 33px
+        }
+
+        .medical .row .col-sm-6:nth-of-type(3),
+        .medical .row .col-sm-6:nth-of-type(4) {
+            margin-top: 40px
+        }
+
+        .medical .part1 h4 {
+            width: 66%;
+            left: 34%;
+            font-size: 20px
+        }
+
+        .medical .part2 h4 {
+            width: 55%;
+            font-size: 20px
+        }
+
+        .medical .part3 h4 {
+            width: 50%;
+            left: 50%;
+            font-size: 20px
+        }
+
+        .medical .header p,
+        .medical .part1 p,
+        .medical .part2 p {
+            font-size: 14px
+        }
+
+        .medical .part4 h4 {
+            width: 95%;
+            font-size: 20px
+        }
+
+        .medical .part4 p {
+            font-size: 15px
+        }
+
+    /*********** End Medical ***********/
+
+    /*********** Start Works ***********/
+    .works {
+        margin: 100px 30px
+    }
+
+        .works .header p {
+            width: 100%
+        }
+
+        .works .body h2 {
+            width: 60%
+        }
+
+        .works .body h4 {
+            font-size: 23px
+        }
+
+        .works .leftPart {
+            padding-bottom: 40px
+        }
+
+            .works .leftPart img {
+                margin-top: 10%
+            }
+
+            .works .leftPart .links a:nth-of-type(2) {
+                padding: 10px 30px
+            }
+    /*********** End Works ***********/
+
+    /*********** Start Welcome ***********/
+    .welcome .header h2 {
+        font-size: 28px
+    }
+
+    .welcome .header p {
+        font-size: 15px
+    }
+
+    .welcome .part1 .col-md-4:nth-of-type(2),
+    .welcome .part1 .col-md-4:nth-of-type(3) {
+        margin-top: 40px
+    }
+
+    .welcome .part1 p {
+        width: 95%
+    }
+
+    .welcome .part2 .sec1 h4,
+    .welcome .part2 .sec3 h4 {
+        width: 45%;
+        font-size: 23px
+    }
+
+    .welcome .part2 .sec2 h4 {
+        width: 75%;
+        left: 25%;
+        font-size: 23px
+    }
+
+    .welcome .part2 .sec1 p,
+    .welcome .part2 .sec2 p,
+    .welcome .part2 .sec3 p {
+        font-size: 15px
+    }
+    /*********** End Welcome ***********/
+
+    /*********** Start About ***********/
+    .about .part1 h2 {
+        width: 55%
+    }
+
+    .about h4 {
+        font-size: 22px
+    }
+
+    .about .part1 p {
+        width: 70%;
+        left: 25%
+    }
+
+    .about .part2 .btm .col-md-4 {
+        margin-top: 50px
+    }
+
+    .about .part1 .sec2 p {
+        font-size: 15px
+    }
+
+    .about .part2 .header p {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 20px
+    }
+
+    .about .part3 p {
+        width: 60%;
+        left: 35%
+    }
+
+    .about .part3 h2 {
+        width: 55%
+    }
+    /*********** End About ***********/
+
+    /*********** Start Profile ***********/
+    .profile .c1 h3,
+    .profile .c2 h3 {
+        font-size: 20px
+    }
+    /*********** End Profile ***********/
+
+    /*********** Start Complains ***********/
+    .complains {
+        margin: 50px 0
+    }
+
+        .complains .container {
+            width: 95%;
+            margin: auto
+        }
+
+        .complains h3 {
+            width: 100%;
+            font-size: 22px
+        }
+
+        .complains select,
+        .complains textarea,
+        .complains .submit {
+            width: 100%
+        }
+
+        .complains img {
+            width: 100%;
+            margin-top: 150px;
+        }
+    /*********** End Complains ***********/
+
+    /*********** Start Order ***********/
+    .order .right {
+        margin-bottom: 50px
+    }
+
+        .order .right .mainUl li .subUl {
+            left: auto;
+            right: 0;
+            top: 59px
+        }
+
+            .order .right .mainUl li .subUl li label,
+            .order .right .mainUl li .subUl li .form-control {
+                width: 250px
+            }
+
+            .order .right .mainUl li .subUl li:first-of-type {
+                border-radius: 0
+            }
+
+    .order .left .col-xl-6:nth-of-type(2) {
+        margin-top: 15px
+    }
+    /*********** End Order ***********/
+
+    /*********** Start Select ***********/
+    .select .details {
+        padding-bottom: 50px
+    }
+
+    .select .c {
+        padding-top: 35px
+    }
+    /*********** End Select ***********/
+
+    /*********** Start Payment ***********/
+    .paymentD .main .det {
+        padding-left: 20px
+    }
+    /*********** End Payment ***********/
+
+}
+
+
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    /*****   Start Other Team Css Code   *****/
+    .slider01 {
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+    /*****   End Other Team Css Code   *****/
+
+    .top {
+        display: none
+    }
+
+    /**** Start Navbar ****/
+    .navbar {
+        margin-top: 0;
+        padding-bottom: 10px;
+        overflow: hidden
+    }
+
+        .navbar .navbar-nav {
+            position: relative;
+            left: 0
+        }
+
+        .navBar .container {
+            max-width: 100%;
+            background: #315d8c
+        }
+
+        .navBar .navbar-brand img {
+            width: 25%
+        }
+
+        .navbar .navbar-toggler {
+            position: relative;
+            top: 5px
+        }
+
+        .navbar .dropdown-toggle::after {
+            display: none
+        }
+
+        .navbar .nav-item {
+            text-align: left;
+            border: none
+        }
+
+            .navbar .nav-item .dropdown-item {
+                width: 40%
+            }
+    /**** End Navbar ****/
+
+    /*********** Start Individuals ***********/
+    .individuals .main-p {
+        font-size: 15px
+    }
+
+    .individuals .det .header p {
+        font-size: 14px
+    }
+
+    .individuals .det .btm p {
+        font-size: 14px;
+        height: 185px
+    }
+
+    .individuals .det .header h3 {
+        font-size: 19px;
+        padding-right: 12px
+    }
+
+    .individuals .det .header p {
+        font-size: 14px;
+        padding-right: 12px
+    }
+    /*********** End Individuals ***********/
+
+    /*********** Start Medical ***********/
+    .medical .part1 h4 {
+        width: 50%;
+        left: 50%;
+        font-size: 20px
+    }
+
+    .medical .part2 h4 {
+        width: 40%;
+        font-size: 20px
+    }
+
+    .medical .part3 h4 {
+        width: 45%;
+        left: 55%;
+        font-size: 20px
+    }
+
+    .medical .header p,
+    .medical .part1 p,
+    .medical .part2 p {
+        font-size: 15px
+    }
+
+    .medical .part4 h4 {
+        width: 75%;
+        font-size: 20px
+    }
+
+    .medical .part4 p {
+        font-size: 15px
+    }
+    /*********** End Medical ***********/
+
+    /*********** Start Works ***********/
+    .works .header p {
+        width: 95%
+    }
+
+    .works .body h2 {
+        width: 70%
+    }
+
+    .works .leftPart img {
+        margin-top: 90%
+    }
+
+    .works .leftPart .links a:nth-of-type(1) {
+        display: block;
+        width: 97%;
+        margin: auto
+    }
+
+    .works .leftPart .links a:nth-of-type(2) {
+        display: block;
+        width: 70%;
+        margin: auto;
+        margin-top: 10px
+    }
+    /*********** End Works ***********/
+
+    /*********** Start Welcome ***********/
+    .welcome .header p {
+        font-size: 15px
+    }
+
+    .welcome .part1 p {
+        width: 95%
+    }
+
+    .welcome .part2 .sec1 h4,
+    .welcome .part2 .sec3 h4 {
+        width: 38%
+    }
+
+    .welcome .part2 .sec2 h4 {
+        width: 55%;
+        left: 45%
+    }
+    /*********** End Welcome ***********/
+
+
+    /*********** Start About ***********/
+    .about .part1 h2 {
+        width: 40%
+    }
+
+    .about h4 {
+        font-size: 22px
+    }
+
+    .about .part1 .sec2 p {
+        font-size: 15px
+    }
+
+    .about .part2 .header p {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 20px
+    }
+
+    .about .part3 h2 {
+        width: 40%
+    }
+    /*********** End About ***********/
+
+    /*********** Start Profile ***********/
+    .profile .c1 h3,
+    .profile .c2 h3 {
+        font-size: 22px
+    }
+    /*********** End Profile ***********/
+
+    /*********** Start Complains ***********/
+    .complains {
+        margin: 50px 0
+    }
+
+        .complains .container {
+            width: 95%;
+            margin: auto
+        }
+
+        .complains h3 {
+            width: 100%;
+            font-size: 24px
+        }
+
+        .complains select,
+        .complains textarea,
+        .complains .submit {
+            width: 100%
+        }
+
+        .complains img {
+            width: 100%;
+            margin-top: 130px;
+        }
+    /*********** End Complains ***********/
+
+    /*********** Start Order ***********/
+    .order .left .col-xl-6:nth-of-type(2) {
+        margin-top: 15px
+    }
+
+    .order .right .mainUl li {
+        padding: 15px 16px;
+        font-size: 16px
+    }
+
+        .order .right .mainUl li i {
+            right: 8px
+        }
+
+        .order .right .mainUl li button {
+            padding: 10px 35px
+        }
+    /*********** End Order ***********/
+
+    /*********** Start Select ***********/
+    .select .c {
+        padding-top: 35px
+    }
+
+        .select .c .sel {
+            width: 95%
+        }
+    /*********** End Select ***********/
+
+}
+
+
+/* Medium Screen */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /**** Start Top Part ****/
+    .top .lang {
+        right: -85px
+    }
+    /**** End Top Part ****/
+
+    /**** Start Navbar ****/
+    .navbar .nav-item a {
+        width: 111px;
+        font-size: 15px;
+        padding-right: 3px !important;
+        padding-left: 5px !important
+    }
+
+    .navbar .dropdown-menu {
+        left: -38px
+    }
+    /**** End Navbar ****/
+
+    /*********** Start Individuals ***********/
+    .individuals .content .btm .more {
+        padding-top: 30px
+    }
+    /*********** End Individuals ***********/
+
+    /*********** Start Medical ***********/
+    .medical .part1 h4 {
+        width: 50%;
+        left: 50%
+    }
+
+    .medical .part2 h4 {
+        width: 40%
+    }
+
+    .medical .part4 h4 {
+        width: 65%
+    }
+    /*********** End Medical ***********/
+
+    /*********** Start Works ***********/
+    .works .body h2 {
+        width: 55%
+    }
+
+    .works .leftPart .links a:nth-of-type(1) {
+        display: block;
+        margin-bottom: 20px
+    }
+
+    .works .leftPart .links a:nth-of-type(2) {
+        margin: auto;
+        padding: 10px 30px
+    }
+    /*********** End Works ***********/
+
+    /*********** Start Welcome ***********/
+    .welcome .part2 .sec2 h4 {
+        width: 42%;
+        left: 58%
+    }
+    /*********** End Welcome ***********/
+
+    /*********** Start Complains ***********/
+    .complains {
+        margin: 50px 0
+    }
+
+        .complains h3 {
+            width: 90%;
+            font-size: 24px
+        }
+
+        .complains select,
+        .complains textarea,
+        .complains .submit {
+            width: 90%
+        }
+
+        .complains img {
+            width: 90%;
+            margin-top: 100px;
+        }
+    /*********** End Complains ***********/
+
+    /*********** Start Order ***********/
+    .order .left .col-xl-6:nth-of-type(2) {
+        margin-top: 15px
+    }
+    /*********** End Order ***********/
+
+}

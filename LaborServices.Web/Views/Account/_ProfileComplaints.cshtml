@@ -1,0 +1,65 @@
+﻿
+@using LaborServices.Web.Models
+
+@model List<CustomerTicket>
+@{
+    Layout = "";
+}
+
+@if (Model.Any())
+{
+    <div class="row">
+        <div class="col mt-4 p-0">
+            <div class="bg-white text-dark rounded rounded-20px p-5" style="margin: auto;width: 97%;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="border p-2 mb-4">
+                            <div class="panel-body">
+                                <table class="table table-sm table-bordered table-hover">
+                                    <thead class="thead-default">
+                                        <tr>
+                                            <th class="text-center">@Html.DisplayNameFor(m => m.First().TicketNumber)</th>
+                                            <th class="text-center">@Html.DisplayNameFor(m => m.First().Status)</th>
+                                            <th class="text-center">@Html.DisplayNameFor(m => m.First().ProblemType)</th>
+                                            <th class="text-center">@Html.DisplayNameFor(m => m.First().ClientClosedCode)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (CustomerTicket item in Model)
+                                        {
+                                            <tr>
+                                                <td><a href="@Url.Action("DalalDetails","Complaints",new { id = item.Id })">@Html.DisplayFor(m => item.TicketNumber)</a></td>
+                                                <td>@Html.DisplayFor(m => item.Status)</td>
+                                                <td>@Html.DisplayFor(m => item.ProblemType)</td>
+                                                <td>@Html.DisplayFor(m => item.ClientClosedCode)</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p class="text-center p-5">no results found</p>
+}
+<script type="text/javascript">
+                        $(function () {
+                            $('.dt').DataTable({
+                                "language": {
+                                    "lengthMenu": "show _MENU_ records per page",
+                                    "zeroRecords": "Nothing found - sorry",
+                                    "info": "Showing page _PAGE_ of _PAGES_",
+                                    "infoEmpty": "No records available",
+                                    "infoFiltered": "(filtered from _MAX_ total records)"
+                                }
+                            });
+                        });
+</script>

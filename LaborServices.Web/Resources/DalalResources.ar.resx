@@ -1,0 +1,437 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<root>
+   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+      <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+      <xsd:element name="root" msdata:IsDataSet="true">
+         <xsd:complexType>
+            <xsd:choice maxOccurs="unbounded">
+               <xsd:element name="metadata">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" use="required" type="xsd:string" />
+                     <xsd:attribute name="type" type="xsd:string" />
+                     <xsd:attribute name="mimetype" type="xsd:string" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="assembly">
+                  <xsd:complexType>
+                     <xsd:attribute name="alias" type="xsd:string" />
+                     <xsd:attribute name="name" type="xsd:string" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="data">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                        <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                     <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                     <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="resheader">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" />
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:choice>
+         </xsd:complexType>
+      </xsd:element>
+   </xsd:schema>
+   <resheader name="resmimetype">
+      <value>text/microsoft-resx</value>
+   </resheader>
+   <resheader name="version">
+      <value>2.0</value>
+   </resheader>
+   <resheader name="reader">
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <data name="Address Description" xml:space="preserve">
+      <value>العنوان</value>
+   </data>
+   <data name="Address Description PH" xml:space="preserve">
+      <value>مثال: بجوار مدرسة ....</value>
+   </data>
+   <data name="AvaialbleDays" xml:space="preserve">
+      <value>الأيام المتاحة</value>
+   </data>
+   <data name="BankTransfer" xml:space="preserve">
+      <value>تحويل بنكي</value>
+   </data>
+   <data name="BankTransferIsUploaded" xml:space="preserve">
+      <value>تم رفع ملف التحويل البنكي بنجاح</value>
+   </data>
+   <data name="BankTransferIsUploadedBefore" xml:space="preserve">
+      <value>تم رفع صورة التحويل البنكي من قبل!</value>
+   </data>
+   <data name="CancelledContractMsg" xml:space="preserve">
+      <value>هذا العقد ملغى .. إذا كانت تواجهك مشكلة برجاء التواصل معنا</value>
+   </data>
+   <data name="ChooseLocation" xml:space="preserve">
+      <value>اختر موقع الزيارة</value>
+   </data>
+   <data name="ChoosePackage" xml:space="preserve">
+      <value>اختر الفترة</value>
+   </data>
+   <data name="ChoosePaymentMethod" xml:space="preserve">
+      <value>اختر طريقة الدفع</value>
+   </data>
+   <data name="City" xml:space="preserve">
+      <value>المدينة</value>
+   </data>
+   <data name="City_PH" xml:space="preserve">
+      <value>اختر مدينة</value>
+   </data>
+   <data name="CityId" xml:space="preserve">
+      <value>المدينة</value>
+   </data>
+   <data name="Company" xml:space="preserve">
+      <value>الشركة</value>
+   </data>
+   <data name="CompanyActivity" xml:space="preserve">
+      <value>نشاط الشركة</value>
+   </data>
+   <data name="companyRep" xml:space="preserve">
+      <value>ممثل الشركة</value>
+   </data>
+   <data name="Contract_FinishRequestAlert" xml:space="preserve">
+      <value>شكرًا لكم .. تم تسجيل التعاقد بنجاح</value>
+   </data>
+   <data name="Contract_NetPackagePrice" xml:space="preserve">
+      <value>السعر النهائي</value>
+   </data>
+   <data name="Contract_PackagePriceAfterDiscount" xml:space="preserve">
+      <value>سعر الباقة بعد الخصم</value>
+   </data>
+   <data name="ContractBasicInfo" xml:space="preserve">
+      <value>البيانات الأساسية</value>
+   </data>
+   <data name="ContractDuration" xml:space="preserve">
+      <value>مدة التعاقد</value>
+   </data>
+   <data name="ContractDuration_PH" xml:space="preserve">
+      <value>اختر مدة التعاقد</value>
+   </data>
+   <data name="ContractIsCancelled" xml:space="preserve">
+      <value>العقد ملغى!</value>
+   </data>
+   <data name="ContractRequestHeader" xml:space="preserve">
+      <value>تقديم طلب عاملات بالساعة</value>
+   </data>
+   <data name="CreateComplaintButton" xml:space="preserve">
+      <value>حفظ</value>
+   </data>
+   <data name="DalalAdditionalWarning" xml:space="preserve">
+      <value>&lt;div class="my-3 h5 text-dark"&gt;
+                                        &lt;span class="text-primary"&gt;
+                                            في رمضان:
+                                        &lt;/span&gt;
+
+                                        &lt;ul&gt;
+                                            &lt;li&gt;
+                                                &amp;emsp;&amp;nbsp;	 التوزيع الصباحي بين 10:30 ص و  12:30 م
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                &amp;emsp;&amp;nbsp;	 و المسائي بعد الافطار بين 08:00 م و 10:00 م
+
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/div&gt;</value>
+   </data>
+   <data name="DalalFamilyWarning" xml:space="preserve">
+      <value>&lt;div class="my-3 h5 text-dark"&gt;
+                                       هذه الخدمة تقدم 
+                                        &lt;span class="text-primary"&gt;
+                                       للعائلات فقط
+                                        &lt;/span&gt; وفي حال عدم وجود سيدة بالمنزل نعتذر عن تقديم الخدمة
+                                    &lt;/div&gt;</value>
+   </data>
+   <data name="District" xml:space="preserve">
+      <value>الحي</value>
+   </data>
+   <data name="District_PH" xml:space="preserve">
+      <value>اختر الحي</value>
+   </data>
+   <data name="Enter House No" xml:space="preserve">
+      <value>أدخل رقم المنزل</value>
+   </data>
+   <data name="ExpectedVisitsAppointment" xml:space="preserve">
+      <value>مواعيد الزيارات المتوقعة</value>
+   </data>
+   <data name="FailedPaymentOperation" xml:space="preserve">
+      <value>فشل في عملية الدفع</value>
+   </data>
+   <data name="Floor No" xml:space="preserve">
+      <value>رقم الطابق</value>
+   </data>
+   <data name="Hourly Pricing" xml:space="preserve">
+      <value>الباقة</value>
+   </data>
+   <data name="HoursNum" xml:space="preserve">
+      <value>عدد الساعات</value>
+   </data>
+   <data name="HoursNum_PH" xml:space="preserve">
+      <value>اختر عدد ساعات الزيارة</value>
+   </data>
+   <data name="House No" xml:space="preserve">
+      <value>رقم المنزل</value>
+   </data>
+   <data name="House Type" xml:space="preserve">
+      <value>نوع المنزل</value>
+   </data>
+   <data name="Job" xml:space="preserve">
+      <value>الوظيفة</value>
+   </data>
+   <data name="LeadCreationSuccess" xml:space="preserve">
+      <value>تم بنجاح تقديم الطلب</value>
+   </data>
+   <data name="Nationality" xml:space="preserve">
+      <value>الجنسية</value>
+   </data>
+   <data name="Nationality_PH" xml:space="preserve">
+      <value>اختر جنسية</value>
+   </data>
+   <data name="No Visits Timing now" xml:space="preserve">
+      <value>لا توجد مواعيد للزيارة مسجلة الآن</value>
+   </data>
+   <data name="PackageDetails" xml:space="preserve">
+      <value>تفاصيل الباقة</value>
+   </data>
+   <data name="PackageType" xml:space="preserve">
+      <value>فترة الزيارة</value>
+   </data>
+   <data name="PaymentOperationDoneSuccessfully" xml:space="preserve">
+      <value>تمت عملية الدفع بنجاح ... شكرا لكم</value>
+   </data>
+   <data name="PaymentOperationFailed" xml:space="preserve">
+      <value>حدث خطأ في عملية الدفع ... برجاء المحاولة مرة أخرى</value>
+   </data>
+   <data name="PayOnline" xml:space="preserve">
+      <value>ادفع اونلاين</value>
+   </data>
+   <data name="PleaseChooseYourPreferredPaymentMethodFortheContract" xml:space="preserve">
+      <value>برجاء اختيار وسيلة الدفع المناسبة لكم للعقد</value>
+   </data>
+   <data name="PleasePay" xml:space="preserve">
+      <value>برجاء دفع مبلغ</value>
+   </data>
+   <data name="PleasePayOnlineForContract" xml:space="preserve">
+      <value>برجاء الدفع اونلاين للعقد</value>
+   </data>
+   <data name="PleaseUploadBankTransferStatementFortheContract" xml:space="preserve">
+      <value>نرجوا من سعادتكم رفع صورة التحويل البنكى الخاص بالعقد</value>
+   </data>
+   <data name="Price" xml:space="preserve">
+      <value>السعر</value>
+   </data>
+   <data name="Price Before Discount" xml:space="preserve">
+      <value>السعر قبل الخصم</value>
+   </data>
+   <data name="Promotion" xml:space="preserve">
+      <value>الخصم</value>
+   </data>
+   <data name="PromotionCode" xml:space="preserve">
+      <value>كود الخصم</value>
+   </data>
+   <data name="PromotionCodePH" xml:space="preserve">
+      <value>ادخل كود الخصم</value>
+   </data>
+   <data name="Rate" xml:space="preserve">
+      <value>التقييم</value>
+   </data>
+   <data name="rJobs" xml:space="preserve">
+      <value>المهن المطلوبة</value>
+   </data>
+   <data name="Salary" xml:space="preserve">
+      <value>الراتب</value>
+   </data>
+   <data name="Select Floor No" xml:space="preserve">
+      <value>اختر رقم الطابق</value>
+   </data>
+   <data name="Select House Type" xml:space="preserve">
+      <value>اختر نوع المنزل</value>
+   </data>
+   <data name="SelectContract" xml:space="preserve">
+      <value>اختر العقد</value>
+   </data>
+   <data name="SelectedDays" xml:space="preserve">
+      <value>الأيام المختارة</value>
+   </data>
+   <data name="SelectProblemType" xml:space="preserve">
+      <value>اختر نوع المشكلة</value>
+   </data>
+   <data name="SelectWorker" xml:space="preserve">
+      <value>اختر العامل/العاملة</value>
+   </data>
+   <data name="Send" xml:space="preserve">
+      <value>ارسال</value>
+   </data>
+   <data name="Shift" xml:space="preserve">
+      <value>الفترة</value>
+   </data>
+   <data name="ShopperResultHeader" xml:space="preserve">
+      <value>من فضلك اختر طريقة الدفع</value>
+   </data>
+   <data name="StartDay" xml:space="preserve">
+      <value>تاريخ أول زيارة</value>
+   </data>
+   <data name="Step" xml:space="preserve">
+      <value>الخطوة</value>
+   </data>
+   <data name="StepFiveDesc" xml:space="preserve">
+      <value>(إدخال البيانات الشخصية ( في حالة عدم أكتمالها</value>
+   </data>
+   <data name="StepFourDesc" xml:space="preserve">
+      <value>الاطلاع على تفاصيل العقد و إتمام التعاقد</value>
+   </data>
+   <data name="StepOneDesc" xml:space="preserve">
+      <value>اختيار بيانات المكان و وقت الزيارات و الأيام المتاحة و جنسية العاملات</value>
+   </data>
+   <data name="StepSixDesc" xml:space="preserve">
+      <value>الدفع و التمتع بخدمتنا المميزة</value>
+   </data>
+   <data name="StepThreeDesc" xml:space="preserve">
+      <value>تحديد الموقع على الخريطة و العنوان الدقيق</value>
+   </data>
+   <data name="StepTwoDesc" xml:space="preserve">
+      <value>عرض جدول الزيارات المتوقع</value>
+   </data>
+   <data name="SuccessMessageContract" xml:space="preserve">
+      <value>ملاحظة: لديك 3 ساعات فقط للدفع , عملية إلغاء العقد تتم بشكل تلقائى</value>
+   </data>
+   <data name="SuccessPaymentOperation" xml:space="preserve">
+      <value>عملية دفع ناجحة</value>
+   </data>
+   <data name="Terms" xml:space="preserve">
+      <value>الشروط والأحكام؟</value>
+   </data>
+   <data name="TermsConfirm" xml:space="preserve">
+      <value>موافق على</value>
+   </data>
+   <data name="TermsData" xml:space="preserve">
+      <value>&lt;div style="text-align:center; font-weight:bold"&gt;
+                   شروط وسياسات برنامج دلال
+                    &lt;/div&gt;
+                &lt;br /&gt;
+                &lt;br /&gt;
+&lt;p&gt;
+ 1-	يحق للعميل تأجيل موعد الزيارة التي تم سداد قيمتها ،  وذلك عن طريق تقديم طلب قبل 48 ساعة من الموعد المراد تأجيله بحد اقصى ( مرة واحد لباقة 4 زيارات ) ، (  مرتان لباقة 8 زيارات ) ، (  3 مرات لباقة 12 زيارة )              ( 4 مرات لباقة 24 زيارة ) ، ( 5 مرات لباقة 36 زيارة ) ، (  6 مرات لباقة 48 زيارة ) . مع ضرورة الالتزام بعدم انقطاع الزيارات لفترة تزيد عن (15) يوم.
+&lt;/p&gt;
+
+&lt;p&gt;
+ 2-  يحق للعميل تجميد الزيارات التي تم سداد قيمتها لمدة مماثلة لمدة الباقة.بشرط تحديد تاريخ إستنفاذ الزيارات .
+&lt;/p&gt;
+
+&lt;p&gt;
+ 3-	يتم جدولة الزيارات حسب الامكانية ويتم إعداده وفقا لقواعد و أحكام و إجراءات شركة ابدال التوظيف للاستقدام 
+&lt;/p&gt;
+
+&lt;p&gt;
+ 4-	يحق للعميل تثبيت العاملة ولكن بعد إخطار شركة ابدال بذلك وبشرط إمكانية توفير نفس العاملة ،  ولا يجوز إلغاء الزيارة بسبب عدم حضور نفس العاملة.
+&lt;/p&gt;
+
+&lt;p&gt;
+5-	في حالة الرغبة بتأجيل الزيارة خلال اقل من 48 ساعة او الالغاء تعتبر الزيارة منفذة ولا يحق للعميل استرداد قيمتها.
+&lt;/p&gt;
+&lt;p&gt;
+ 6-	يجب إستلام العاملة من طرف العميل لتبدأ الزيارة خلال 15 دقيقة بحد أقصي من وصول سيارة الشركة لمقر العميل ، ولا يجوز عدم استقبال العاملة خلال هذه الفترة.
+&lt;/p&gt;
+&lt;div&gt;
+7-	تمتد فترة التوزيع : 
+&lt;ul&gt;
+&lt;li&gt;
+&amp;emsp;&amp;nbsp;	 للزيارات الصباحية  من 07:30 الى 10:00 
+&lt;/li&gt;
+&lt;li&gt;
+&amp;emsp;&amp;nbsp;	الزيارات المسائية	 من 15:30 الى 18:00
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;p&gt;
+ 8-	يجب تسليم العاملة للمشرفة بعد انتهاء الزيارة بحد أقصي بـ 15 دقيقة من وصول سيارة الشركة.
+&lt;/p&gt;
+&lt;p&gt;
+9-	عند تأجيل الزيارة الصباحية او المسائية يتم التأجيل لنفس الفترة المتعاقد عليها.
+&lt;/p&gt;
+&lt;p&gt;
+10-	في حالة عدم وجود سيدة بمنزل العميل عند وصول العاملة تعتبر الزيارة ملغاة و لا تسترد قيمتها.
+&lt;/p&gt;
+&lt;p&gt;
+11-	الاعتداء على العاملة او المشرفة ( إعتداء لفظي  او إعتداء جسدي )  جريمة يعاقب عليها القانون بالسجن لمدة تصل الى 10 سنوات و غرامة مالية تصل الى مليون ريال وفقا للأنظمة السارية داخل المملكة العربية السعودية  ، و في حال وجود تقصير أو خطأ من قبل العاملة فيحق للعميل أخذ حقه من خلال التواصل على الرقم الموحد لشركة و رفع شكوى بالوقائع .
+&lt;/p&gt;
+&lt;p&gt;
+12-	في حالة عدم رضاء العميل عن مستوي الخدمة المقدمة خلال الساعة الاولى من الزيارة، يقوم بالاتصال بمشرفة التوزيع و يتم تعويضه بزيارة بديلة  في نفس الوقت أو  في موعد اجل، وفقا لإمكانية توفير العاملة من قبل شركة ابدال  و الاتفاق مع العميل .
+&lt;/p&gt;
+&lt;p&gt;
+13-	يلتزم العميل بالمحافظة على ممتلكاته الخاصة ، ويكون مسؤول عن المحافظة على الممتلكات الثمينة والمجوهرات وغيرها من المقتنيات الخاصة ، و في حالة رغبة العميل الإبلاغ عن أي مفقودات يكون خلال 24 ساعة كحد أقصي من تاريخ الزيارة ، ويتم التعامل مع البلاغ وفقا للإجراءات النظامية داخل المملكة العربية السعودية وعن طريق الجهات والسلطات الرسمية داخل المملكة .
+&lt;/p&gt;
+&lt;p&gt;
+14- يجب ان تتم الخدمة في المكان الذي تم تحديده مع حجز الباقة ولا يجوز تحويل الزيارات لعميل آخر او مكان آخر.
+&lt;/p&gt;
+</value>
+   </data>
+   <data name="TermsDataTitle" xml:space="preserve">
+      <value>شروط وسياسات برنامج دلال</value>
+   </data>
+   <data name="Total Price + Vat" xml:space="preserve">
+      <value>السعر الإجمالي + الضريبة</value>
+   </data>
+   <data name="Total Price Before Discount" xml:space="preserve">
+      <value>السعر قبل الخصم</value>
+   </data>
+   <data name="TotalContractDuration" xml:space="preserve">
+      <value>عدد الأيام</value>
+   </data>
+   <data name="TotalNumber" xml:space="preserve">
+      <value>العدد الكلى</value>
+   </data>
+   <data name="UploadBankTransferStatement" xml:space="preserve">
+      <value>ارفع صورة التحويل البنكي</value>
+   </data>
+   <data name="UploadedBankTransferBeforeMsg" xml:space="preserve">
+      <value>تم رفع صورة التحويل البنكي من قبل ... إذا كانت تواجهك مشكلة برجاء التواصل</value>
+   </data>
+   <data name="UploadedBankTransferMsg" xml:space="preserve">
+      <value>تم رفع ملف التحويل البنكي بنجاح ... شكرا لكم</value>
+   </data>
+   <data name="ValidationRequired" xml:space="preserve">
+      <value>هذا الحقل مطلوب</value>
+   </data>
+   <data name="Vat Amount" xml:space="preserve">
+      <value>قيمة الضريبة المضافة</value>
+   </data>
+   <data name="Vat Rate (%)" xml:space="preserve">
+      <value>الضريبة المضافة (%)</value>
+   </data>
+   <data name="Visits Timing" xml:space="preserve">
+      <value>مواعيد الزيارة</value>
+   </data>
+   <data name="VisitsNum" xml:space="preserve">
+      <value>عدد الزيارات</value>
+   </data>
+   <data name="VisitsNum_PH" xml:space="preserve">
+      <value>اختر عدد الزيارات</value>
+   </data>
+   <data name="WorkersNum" xml:space="preserve">
+      <value>عدد العاملات</value>
+   </data>
+   <data name="WorkersNum_PH" xml:space="preserve">
+      <value>اختر عدد العمالة</value>
+   </data>
+   <data name="YourContractNum" xml:space="preserve">
+      <value>:رقم العقد خاصتكم</value>
+   </data>
+</root>

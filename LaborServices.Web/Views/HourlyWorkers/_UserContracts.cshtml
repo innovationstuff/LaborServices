@@ -1,0 +1,44 @@
+﻿@using LaborServices.Web.Helpers
+@using LaborServices.Web.Models
+@model List<ServiceContractPerHour>
+@{
+    Layout = "";
+}
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered table-striped table-responsive">
+        <thead class="thead-default">
+            <tr>
+                <th class="text-center bg-info text-light">@Html.DisplayNameFor(m => m.First().ContractNum)</th>
+                <th class="text-center bg-info text-light">@Html.DisplayNameFor(m => m.First().HourlyPricingName)</th>
+                <th class="text-center bg-info text-light">@Html.DisplayNameFor(m => m.First().ShiftName)</th>
+                <th class="text-center bg-info text-light">@Html.DisplayNameFor(m => m.First().StartDay)</th>
+                <th class="text-center bg-info text-light">@Html.DisplayNameFor(m => m.First().NextAppointment)</th>
+                <th class="text-center bg-info text-light">@Html.DisplayNameFor(m => m.First().FinalPrice)</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (ServiceContractPerHour item in Model)
+            {
+                <tr>
+                    <td><a href="@Url.Action("Details","HourlyWorkers",new { id = item.ContractId })">@Html.DisplayFor(m => item.ContractNum)</a></td>
+                    <td>@Html.DisplayFor(m => item.HourlyPricingName)</td>
+                    <td>@Html.DisplayFor(m => item.ShiftName)</td>
+                    <td>@item.StartDay.ToDateTimeString()</td>
+                    <td>@item.NextAppointment.ToDateTimeString()</td>
+                    <td>@Html.DisplayFor(m => item.FinalPrice)</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+}
+else
+{
+    <p class="text-center p-5">no contracts found</p>
+}
+

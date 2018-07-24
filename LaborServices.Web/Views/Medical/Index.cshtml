@@ -1,0 +1,410 @@
+﻿
+@{
+    ViewBag.Title = "Medical Sector";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+@if (lang == "ar")
+{
+    <section class="medical">
+        <div class="container">
+            <div class="header">
+                <h3>القطاع الطبي</h3>
+                <p>
+                    نهتـم فـي شـركة أبـدال بتحقيـق تطلعـات العملاء وخلـق جـو مـن المصداقيـة والشـفافية فـي
+                    التعامـل مــع العميــل وذلــك بتوفـيـر الكــوادر الطبيــة والصحيــة لكافــة الفئــات المهنيــة مــن
+                    جنســيات متعــددة ونعمــل علــى جعــل أبــدال المصــدر الرئيســي فــي إســتقطاب القوى
+                    العاملــة للمنشــآت الصحيــة.
+                </p>
+            </div>
+            <div class="part1">
+                <h4>برنامج الكوادر الصحية للمنشأت الطبية</h4>
+                <div class="row">
+                    <div class="col-6 col-md-3">
+                        <img class="img-fluid" src="~/Images/frontEnd/m1.png" alt="...">
+                        <p>الكـــــوادر الطـبــيــــة والاستشارية بـكــافــــــة تخصصاتها الدارجة أوالنادرة</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <img class="img-fluid" src="~/Images/frontEnd/m2.png" alt="...">
+                        <p>التخصصات التمـريضية بكافة فئاتها</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <img class="img-fluid" src="~/Images/frontEnd/m3.png" alt="...">
+                        <p>التخصـصـــات الـفــنــيـــــة والإدارية المساعــدة</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <img class="img-fluid" src="~/Images/frontEnd/m4.png" alt="...">
+                        <p>التخصـصـات المهنـيــــة والمـســانــــدة </p>
+                    </div>
+                </div>
+            </div>
+            <div class="part2">
+                <h4>برنامج مساعد ( الكوادر الصحية للأفراد )</h4>
+                <div class="row justify-content-center">
+                    <div class=" col-6 col-md-4">
+                        <img class="img-fluid" src="~/Images/frontEnd/medical_4.png" alt="...">
+                        <p class="mb-4">الممرضة المنزلية </p>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <img class="img-fluid" src="~/Images/frontEnd/medical_2.png" alt="...">
+                        <p class="mb-4">العلاج الطبيعي المنزلي</p>
+                    </div>
+                    <div class="col-6 col-md-4 ">
+                        <img class="img-fluid" src="~/Images/frontEnd/medical_3.png" alt="...">
+                        <p class="mb-4">العلاج الوظيفي المنزلي</p>
+                    </div>
+                    <div class="col-6 col-md-4  ">
+                        <img class="img-fluid" src="~/Images/frontEnd/medical_1.png" alt="...">
+                        <p> المرافق الشخصى فى المستشفيات ورحلات العلاج</p>
+                    </div>
+                    <div class="col-6 col-md-4 ">
+                        <img class="img-fluid" src="~/Images/frontEnd/medical_5.png" alt="...">
+                        <p>المرافق الشخصي في المنازل</p>
+                    </div>
+                    @*<div class="col-sm-6 col-md-3">
+                            <img class="img-fluid" src="~/Images/frontEnd/m4.png" alt="...">
+                            <p>التخصـصـات المهنـيــــة والمـســانــــدة</p>
+                        </div>*@
+                </div>
+            </div>
+
+            <div class="part4">
+                <h4>بماذا نتميز</h4>
+                <div class="why">
+                    <p>
+                        <span>-</span>
+                        نتميــز بكــوادر مهنيــة تتمتــع بخبرات أكاديميــة طبيــة وتخصصيــة لتقــدم خدمــات
+                        الاستقدام لأقسام المستشــفيات المختلفــة .
+                    </p>
+                    <p>
+                        <span>-</span>
+                        نتميـز بكـوادر إداريـة خاضـت تجـارب إعتمـاد المستشـفيات لهيئات دوليـة أو محليـة
+                        والمقـدرة علـى فهـم نوعيـة الكـوادر المطلوبـة للمنشـأة الصحيـة وفـق تلـك
+                        الشروط واللوائـح.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        يتميـز فريـق عمـل أبـدال للأستقدام بفهـم كامـل لمدى وجوب إلتزام المستشـفيات
+                        بتعليمات الهيئــة الســعودية للتخصصــات الطبيــة ومتطلبــات التصنيــف المهنــي
+                        والمعادلات التخصصيــة القانونيـة للمهـن والتخصصـات المرتبطـة.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        الـكادر المهنـي فـي أبـدال علـى درايـة بأنظمـة وزارة الصحـة والشؤون الصحيـة
+                        المتعلقـة بالمستشــفيات والمرافــق الصحيــة بمختلــف أنشــطتها.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        شـبكة توظيـف دوليـة بمختلـف الجنسـيات العربيـة والأسيوية والأوروبيـة
+                        والأفريقيـة وفتـح أسـواق عمـل اخـرى تمتـاز بتخصصـات مطلوبـة للرعايـة الطبيـة.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        قاعدة بيانات تحتوي على مرشحين في التخصصات الطبية والتمريضية والمهنية.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        وجود تأشيرات لكافة المهن ،طبية أو تمريضية أو فنية أو مهنية.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        الأستباقية فـي الأجراءات الأدارية المرتبطـة بالقوانين الادارية الداخليـة كأجتياز
+                        المرشحين اختبــار البروميترك الألزامى لتســهيل الإجراءات اللاحقة (التصنيــف –
+                        التســجيل – التوثيــق – التراخيــص المؤقتــة – التراخيص النهائيــة – وثائــق)
+                        الأخطاء المهنيــة)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    @section scripts{
+        <style>
+            /*.medical .part2 h4 {
+                width: 45%;
+                right: 55%;
+            }*/
+
+            @@media (min-width: 768px) and (max-width: 991px) {
+                .medical .part2 h4 {
+                    width: 60%;
+                    right: 40%;
+                }
+            }
+
+            @@media (min-width: 992px) and (max-width: 1199px) {
+                .medical .part2 h4 {
+                    width: 53%;
+                    right: 47%
+                }
+            }
+
+
+            @@media (min-width: 576px) and (max-width: 767px) {
+                .medical .part2 h4 {
+                    width: 81%;
+                    right: 19%;
+                }
+            }
+
+
+
+            @@media (max-width: 575px) and (min-width: 370px) {
+                .medical .part2 h4 {
+                    width: 71%;
+                    right: 29%;
+                    font-size: 16px;
+                    padding: 15px 10px;
+                }
+            }
+
+            @@media (max-width: 420px) {
+                .medical .part2 h4 {
+                    width: 87.3%;
+                    right: 13.1%;
+                    font-size: 14px;
+                    padding: 15px 10px;
+                }
+            }
+
+
+            @@media (max-width: 320px) {
+                .medical .part2 h4 {
+                    width: 100%;
+                    right: 0%;
+                    font-size: 14px;
+                    padding: 15px 2px;
+                }
+
+                    .medical .part2 h4:before {
+                        display: none
+                    }
+            }
+
+
+            @@media (max-width: 370px) {
+                .medical .part1 h4 {
+                    width: 86%;
+                    font-size: 15px;
+                    padding: 15px 5px;
+                }
+            }
+        </style>
+
+    }
+}
+else
+{
+    <section class="medical">
+        <div class="container">
+            <div class="header">
+                <h3>Medical sector</h3>
+                <p>
+                    We are interested in the ABDAL company the expectations of customers and create an atmosphere of credibility and transparency in dealing with the client by providing medical and health staff for all professional groups of multiple nationalities and we are working to make the replacement of the main source in attracting manpower to health facilities.
+                </p>
+            </div>
+            <div class="part1">
+                <h4>Health cadres program for medical facilities</h4>
+                <div class="row">
+                    <div class="col-6 col-md-3">
+                        <img class="img-fluid" src="~/Images/frontEnd/m1.png" alt="...">
+                        <p>The medical and advisory staff in all its specialized or rare specialties</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <img class="img-fluid" src="~/Images/frontEnd/m2.png" alt="...">
+                        <p>Nursing specialties of all categories</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <img class="img-fluid" src="~/Images/frontEnd/m3.png" alt="...">
+                        <p>Technical and administrative assistance</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <img class="img-fluid" src="~/Images/frontEnd/m4.png" alt="...">
+                        <p>Professional and support specialties </p>
+                    </div>
+                </div>
+            </div>
+            <div class="part2">
+                <h4>MUSAAD Program (Health Personnel)</h4>
+                <div class="row justify-content-center">
+                    <div class=" col-6 col-md-4">
+                        <img class="img-fluid" src="~/Images/frontEnd/medical_4.png" alt="...">
+                        <p class="mb-4">Home nurse </p>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <img class="img-fluid" src="~/Images/frontEnd/medical_2.png" alt="...">
+                        <p class="mb-4">Home Physical Therapy</p>
+                    </div>
+                    <div class="col-6 col-md-4 ">
+                        <img class="img-fluid" src="~/Images/frontEnd/medical_3.png" alt="...">
+                        <p class="mb-4">Home Work Therapy</p>
+                    </div>
+                    <div class="col-6 col-md-4  ">
+                        <img class="img-fluid" src="~/Images/frontEnd/medical_1.png" alt="...">
+                        <p> Personal facilities in hospitals and treatment trips</p>
+                    </div>
+                    <div class="col-6 col-md-4 ">
+                        <img class="img-fluid" src="~/Images/frontEnd/medical_5.png" alt="...">
+                        <p>Personal facilities at home</p>
+                    </div>
+                    @*<div class="col-sm-6 col-md-3">
+                            <img class="img-fluid" src="~/Images/frontEnd/m4.png" alt="...">
+                            <p>التخصـصـات المهنـيــــة والمـســانــــدة</p>
+                        </div>*@
+                </div>
+            </div>
+
+            <div class="part4">
+                <h4>What is distinguished</h4>
+                <div class="why">
+                    <p>
+                        <span>-</span>
+                        We are distinguished by a professional cadre with academic and medical expertise to provide recruitment services to various hospital departments.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        We are distinguished by administrative cadres who have experienced the accreditation of hospitals to international or local bodies
+                        And the ability to understand the quality of cadres required for the health facility according to those
+                        Terms and Regulations.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        The recruitment team has a full understanding of how hospitals should be committed
+                        With the instructions of the Saudi Commission for Medical Specialties and the requirements for professional classification
+                        And specialized legal equivalents for professions and related disciplines.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        Professional staff in Abdal is familiar with the regulations of the Ministry of Health and Health Affairs
+                        For hospitals and health facilities in various activities.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        International recruitment network of various Arab, Asian and European nationalities
+                        And opening other labor markets with specialties required for medical care.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        The database contains candidates in medical, nursing and professional specialties.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        Visas for all professions, medical, nursing, technical or vocational.
+                    </p>
+                    <p>
+                        <span>-</span>
+                        Procrastination in the administrative procedures related to the internal administrative laws as a traversal
+                        Candidates are tested for mandatory biodetermination to facilitate subsequent procedures (Classification -
+                        Registration - Documentation - Temporary Licenses - Final Licenses - Documents)
+                        Professional errors)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    @section scripts{
+    <style>
+            /*.medical .part2 h4 {
+                width: 45%;
+                right: 55%;
+            }*/
+
+            @@media (min-width: 768px) and (max-width: 991px) {
+                .medical .part2 h4 {
+                    width: 60%;
+                    right: 0%;
+                }
+            }
+
+            @@media (min-width: 768px) and (max-width: 991px) {
+                .medical .part1 h4 {
+                    width: 60%;
+                    right: 0%;
+                    left: 40%;
+                }
+            }
+
+            @@media (min-width: 992px) and (max-width: 1199px) {
+                .medical .part2 h4 {
+                    width: 53%;
+                    right: 47%
+                }
+            }
+
+
+            @@media (min-width: 576px) and (max-width: 767px) {
+                .medical .part2 h4 {
+                    width: 81%;
+                    right: 0;
+                }
+            }
+
+
+
+            @@media (max-width: 575px) and (min-width: 370px) {
+                .medical .part2 h4 {
+                    width: 71%;
+                    right: 29%;
+                    font-size: 16px;
+                    padding: 15px 10px;
+                }
+            }
+
+            @@media (max-width: 575px) and (min-width: 370px) {
+                .medical .part1 h4 {
+                    width: 96%;
+                    left: 4%;
+                    font-size: 16px;
+                    padding: 15px 10px;
+                }
+            }
+
+            @@media (max-width: 420px) {
+                .medical .part2 h4 {
+                    width: 87.3%;
+                    right: 0.1%;
+                    font-size: 14px;
+                    padding: 15px 10px;
+                }
+            }
+
+
+            @@media (max-width: 320px) {
+                .medical .part2 h4 {
+                    width: 100%;
+                    right: 0%;
+                    font-size: 14px;
+                    padding: 15px 2px;
+                }
+
+                    .medical .part2 h4:before {
+                        display: none
+                    }
+            }
+
+
+            @@media (max-width: 387px) {
+                .medical .part1 h4 {
+                    width: 104%;
+                    font-size: 15px;
+                    padding: 15px 5px;
+                    left: -4%;
+                }
+                .medical .part1 h4::after{display:none}
+
+            }
+    </style>
+
+    }
+}
+
+
+

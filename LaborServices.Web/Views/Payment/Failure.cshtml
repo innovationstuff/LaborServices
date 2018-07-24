@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Failure";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+
+@if (lang == "ar")
+{
+    <section class="loginPage">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col mt-4 p-0">
+                        <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-50">
+                            <div class="text-center">
+                                <h2 style="color:red;">خطأ فى  الدفع</h2>
+                                <p>
+                                    خطأ فى عملية الدفع
+                                </p>
+                                <p>
+                                    برجاء المحاولة مرة اخرى
+                                </p>
+
+                                <div class="mt-3">
+                                    <a href="@Url.Action("DalalShopperResult","Payment", new {area="",id=ViewBag.id})" class="btn btn-lg btn-info">
+                                        @DbRes.T("PayBtn", "Shared")  <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                    </a>
+                                </div>
+
+                                <p>
+                                    <b>السبب</b>  : @ViewBag.Reason
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <section class="loginPage">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col mt-4 p-0">
+                        <div class="bg-white text-dark rounded rounded-20px p-5 m-auto w-md-50">
+                            <div class="text-center">
+                                <h2 style="color:red;">Payment Failure</h2>
+                                <p>
+                                    Payment transaction failure
+                                </p>
+                                <p>
+                                    <b>Reason</b>  : @ViewBag.Reason
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+
+

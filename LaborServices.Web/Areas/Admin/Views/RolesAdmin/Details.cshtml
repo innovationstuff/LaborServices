@@ -1,0 +1,91 @@
+﻿@model ApplicationRole
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-profile">
+
+    <div class="row">
+
+        <!-- COL 1 -->
+        <div class="col-md-8 col-lg-6">
+            <section class="panel">
+                <div class="panel-body noradius padding-10">
+
+                    <h3 class="text-black">
+                        @Html.DisplayFor(model => model.Name) <a href="@Url.Action("Create", new {id = Model.Id})" class="btn btn-sm btn-brown" data-toggle="tooltip" data-placement="top" title="Copy Role"><i class="fa fa-copy"></i></a>
+                    </h3>
+                    <hr class="half-margins" />
+                    <h6> Role pages</h6>
+                    <ul class="list-unstyled size-13">
+                        @foreach (var page in Model.ApplicationPages)
+                        {
+                            <li><i class="fa fa-check"></i>@page.NameEn | @page.NameAr</li>
+                        }
+                    </ul>
+                    <hr class="half-margins" />
+
+                    <h6>Actions</h6>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+
+                </div>
+            </section>
+        </div><!-- /COL 1 -->
+
+        <div class="col-md-12 col-lg-5">
+
+            <!-- groups  -->
+            <section class="panel panel-default">
+                <header class="panel-heading">
+                    <h2 class="panel-title elipsis">
+                        <i class="fa fa-rss"></i> users in that Role
+                    </h2>
+                </header>
+                <div class="panel-body noradius padding-10">
+                    @if (ViewBag.UserCount != 0)
+                    {
+                        <ul class="bullet-list list-unstyled">
+                            @foreach (var item in ViewBag.Users)
+                            {
+                                <li><h3>@item.UserName</h3></li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </section>
+
+            <section class="panel panel-default">
+                <header class="panel-heading">
+                    <h2 class="panel-title elipsis">
+                        <i class="fa fa-rss"></i> Teams
+                    </h2>
+                </header>
+                <div class="panel-body noradius padding-10">
+
+                    <ul class="bullet-list list-unstyled">
+                        @if (ViewBag.Groups != null)
+                        {
+                            foreach (var item in (List<ApplicationGroup>)ViewBag.Groups)
+                            {
+                                <li>
+                                    <h3>@item.Name</h3>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </section>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+

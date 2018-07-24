@@ -1,0 +1,54 @@
+﻿@model Setting
+@{
+    Layout = "";
+}
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.SettingId)
+@Html.HiddenFor(model => model.SettingDataType)
+@Html.HiddenFor(model => model.SettingName)
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(model => model.SettingDescription, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.SettingDescription, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SettingDescription)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SettingValue, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.SettingValue, new { @class = "form-control", type = "@ViewBag.inputType" })
+            @Html.ValidationMessageFor(model => model.SettingValue)
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $.validator.setDefaults({ ignore: '' });
+        $.validator.unobtrusive.parse($("form"));
+
+         @if (Model.SettingDataType ==  DataTypes.MultiText)
+            {
+               <text>
+                     var path = '@Url.Content("~/Scripts/")';
+                     loadScript(path + "selectize.js", function () {
+                       loadScript(path + "selectize-ready.js", function () {
+                        $("#SettingValue").selectize({
+                            delimiter: ',',
+                            persist: false,
+                            create: function (input) {
+                                return { value: input, text: input }
+                              }
+                           });
+                     });
+                 });
+                </text>
+           }
+    });
+</script>

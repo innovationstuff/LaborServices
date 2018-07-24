@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "ErrorTest";
+}
+
+@section css{
+    @Styles.Render("~/Content/site-DalalCrm-ErrorTest")
+}
+
+
+
+<section class="errorTest">
+    <div class="container">
+        <div class="content my-5 py-5 px-2 text-center">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="text-center mb-5 pb-4">
+                        <p class="h1 text-danger">خطأ !</p>
+                        <p class="display-6 py-3">لقد حدثت مشكلة ما</p>
+                        <a href="/" class="backBtn">عودة</a>
+                    </div>
+                </div><!--col-->
+
+                <div class="col-md-6">
+                    <img class="img-fluid" width="200px" src="~/Images/frontEnd/error.png" />
+                </div><!--col-->
+
+            </div><!--row-->
+        </div><!--content-->
+    </div><!--container-->
+</section>

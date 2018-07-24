@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Dalal";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+@section css
+{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css" />
+}
+<section class="contactData">
+    <div class="container">
+        @using (Ajax.BeginForm("DalalList", "Complaints", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "listItems" }, new { id = "frmGetComplaints" }))
+        {
+        <div class="row">
+            <div class="col mt-4 p-0">
+                <div class="bg-white text-dark rounded rounded-20px p-5" style="margin: auto;width: 97%;">
+                    <div class="text-center">
+                        <div class="form-group h4 text-primary">الشكاوي</div>
+                        <div class="row">
+                            <div class="col-9 col-md-9 col-sm-12">
+                                @Html.DropDownList("status", new List<SelectListItem>(), "Select a status", new { @class = "form-control" })
+                            </div>
+                            <div class="col-3 col-md-3 col-sm-12">
+                                <a href="@Url.Action("CreateDalal")" class="btn btn-outline-primary">
+                                    create new Ticket
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                <div id="listItems">
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+            }
+
+        </div>
+           
+</section>
+
+@section scripts{
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
+    <script type="text/javascript">
+        function InitSelectize(selector, selectizeObj, url, valueField, labelField, requestParams, onChangeFunc) {
+
+            var $selectEntity = selector.selectize({
+                selectOnTab: true,
+                valueField: valueField,
+                labelField: labelField,
+                searchField: labelField,
+                create: false,
+                onChange: function (value) {
+                    if (typeof onChangeFunc === "function") {
+                        onChangeFunc(value);
+                    }
+                }
+            });
+
+            if (url != '' && url != null) {
+
+                var selectizeInstance = $selectEntity[0].selectize;
+                selectizeInstance.clear();
+                selectizeInstance.load(function (callback) {
+                    $.ajax({
+                        url: '' + url + '',
+                        type: 'GET',
+                        data: requestParams,
+                        error: function (e) {
+                            console.error(e.responseText);
+                            callback();
+                        },
+                        success: function (result) {
+                            callback(JSON.parse(result));
+                        }
+                    });
+                });
+            }
+
+            return $selectEntity;
+        }
+        function OnStatusChange() {
+            $("#frmGetComplaints").submit();
+        }
+
+        $(function () {
+            InitSelectize($('#status'), "status", "@Url.Action("GetStatus")", 'key', 'value', null, OnStatusChange);
+            $("#frmGetComplaints").submit();
+        });
+    </script>
+}

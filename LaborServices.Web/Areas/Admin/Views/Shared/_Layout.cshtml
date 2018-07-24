@@ -1,0 +1,134 @@
+﻿@{
+    var routeData = ViewContext.RouteData.Values;
+    var lang = (string)routeData["lang"];
+    var language = lang == "ar" ? Language.Arabic : Language.English;
+    string languageText = Language.English.ToString();
+    string action = (string)ViewContext.RouteData.Values["action"];
+}
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Labor admin </title>
+    <meta name="description" content="" />
+    <meta name="Author" content="NRF" />
+    <!-- mobile settings -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <!-- WEB FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext" rel="stylesheet" type="text/css" />
+
+    <!-- CORE CSS -->
+    @Styles.Render("~/Content/bootstrap")
+
+    <!-- THEME CSS -->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/theme")
+    @if (language == Language.Arabic)
+    {
+        @Styles.Render("~/Content/rtlCss")
+    }
+    @RenderSection("css", required: false)
+    <!-- arabic files -->
+
+
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- JAVASCRIPT FILES -->
+    @Scripts.Render("~/bundles/jquery")
+</head>
+
+<body>
+    <!--fake loader start-->
+    <div id="fakeLoader"></div>
+    <!--fake loader end-->
+    <!-- WRAPPER -->
+    <div id="wrapper" class="clearfix">
+
+        @Html.Partial("_Navbar")
+        <!-- /ASIDE -->
+        <!-- HEADER -->
+        <header id="header">
+
+            <!-- Mobile Button -->
+            <button id="mobileMenuBtn"></button>
+
+            <!-- Logo -->
+            <span class="logo pull-left">
+                <img src='@Url.Content("~/images/logo_light.png")' alt="admin panel" height="35" />
+            </span>
+
+            <nav>
+                <!-- LOGGED USER MENU -->
+                @Html.Partial("_LoginPartial")
+                <!-- /LOGGED USER MENU -->
+            </nav>
+
+        </header>
+        <!-- /HEADER -->
+        <!--
+        MIDDLE
+        -->
+        <section id="middle">
+            <div id="content" class="dashboard padding-20">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        @RenderBody()
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- /MIDDLE -->
+        <!--modal start-->
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div id="modalDialog" class="modal-dialog">
+                <div class="modal-content" id="modalContent">
+                </div>
+            </div>
+        </div>
+        <!--modal end-->
+    </div>
+
+    <script type="text/javascript"> var plugin_path = '@Url.Content("~/Scripts/plugins/")';</script>
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="~/Scripts/app.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('.block-options .fa').click(function () {
+                var el = $(this).parents(".block").children(".block-body");
+                if ($(this).hasClass("fa-chevron-down")) {
+                    $(this).removeClass("fa-chevron-down").addClass("fa-chevron-up");
+                    el.slideUp(200);
+                } else {
+                    $(this).removeClass("fa-chevron-up").addClass("fa-chevron-down");
+                    el.slideDown(200);
+                }
+            });
+
+            $('#modal').on('hidden.bs.modal',
+                function () {
+                    var createAnother = $(this).find('.modal-footer').find('#CreateAnother')[0];
+                    if (createAnother != undefined) {
+                        if ($("#CreateAnother").is(":checked")) {
+                            location.reload();
+                        }
+                    }
+                });
+
+            $(document).ajaxStart(function () {
+                fakeLoaderFadeIn();
+            });
+
+            $(document).ajaxStop(function () {
+                fakeLoaderFadeOut();
+            });
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ApplicationRole>
+
+@{
+    Layout = "";
+    int pageNumber = (int)ViewBag.PageNumber;
+    int pageSize = (int)ViewBag.PageSize;
+
+    var row = pageNumber == 1 ? pageNumber : ((pageNumber * pageSize) - (pageSize - 1));
+}
+
+<div class="table-responsive">
+    <table class="table table-vcenter table-hover table-striped table-bordered">
+        <tr>
+            <th class="text-center">#</th>
+
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                actions
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            if (string.Equals(item.Name.ToLower(), AppConstants.AdminRoleName, StringComparison.InvariantCultureIgnoreCase) == false)
+            {
+                 <tr>
+                    <td class="text-center">
+                        @(row++)
+                    </td>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </th>
+                    <td class="text-center">
+                        <a href="@Url.Action("Edit", new {id = item.Id})" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
+                        <a href="@Url.Action("Details", new {id = item.Id})" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Info"><i class="fa fa-info"></i></a>
+                        <a href="@Url.Action("Delete", new {id = item.Id})" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-times"></i></a>
+                        <a href="@Url.Action("Create", new {id = item.Id})" class="btn btn-sm btn-brown" data-toggle="tooltip" data-placement="top" title="Copy Role"><i class="fa fa-copy"></i></a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("List",
+    new { page, keyword = ViewBag.Keyword }),
+            PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "RolesList" }))
+
+

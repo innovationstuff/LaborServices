@@ -1,0 +1,65 @@
+﻿@model LaborServices.Model.About
+@using (Ajax.BeginForm("Edit", "About", new AjaxOptions {OnSuccess = "EditingModal", HttpMethod = "post", UpdateTargetId = "divEditing" }))
+{
+	<div class="modal-dialog" role="document" id="divEditing">
+		<div class="modal-content">
+			<div class="modal-header text-left">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3>Edit</h3>
+			</div>
+
+			@Html.AntiForgeryToken()
+			@Html.HiddenFor(x => x.Id, new { @class = "EditingIDClass" })
+			@Html.HiddenFor(x => x.ImgUrl, new { @class = "ImgUrltxt" })
+			<div class="" id="Edit">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.TitleAr)
+							@Html.TextBoxFor(x => x.TitleAr, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.TitleAr) })
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.TitleEN)
+							@Html.TextBoxFor(x => x.TitleEN, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.TitleEN) })
+						</div>
+					</div>
+					@if (Model.Type == 1)
+					{
+						<div class="form-group">
+							<div class="col-md-10">
+								<img class="img img-responsive" style="width:100%;height:200px;" src="@Url.Content(AppConstants.aboutFolder + Model.ImgUrl)" />
+							</div>
+						</div>
+						<div class="col-md-10 text-left">
+							<a class="btn btn-link" onclick="$('#changeImg').slideToggle()">change</a>
+						</div>
+						<div class="form-group" id="changeImg" style="display:none">
+							<div class="col-md-10">
+								<input type="file" class="form-control" name="ImgFile" id="EditImg" />
+							</div>
+						</div>
+					}
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.DescriptionAr)
+							@Html.TextAreaFor(x => x.DescriptionAr, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.DescriptionAr) })
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.ValidationMessageFor(x => x.DescriptionEN)
+							@Html.TextAreaFor(x => x.DescriptionEN, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.DescriptionEN) })
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" id="closeModal" data-dismiss="modal" aria-hidden="true">Cancel</button>
+					<button class="btn btn-primary" id="btnSaveEditing" type="submit"><i class="icon-trash icon-white"></i> Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+<script src="~/Scripts/about.js"></script>

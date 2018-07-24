@@ -1,0 +1,39 @@
+@font-face {font-family: 'AraAlharbiSyria-Alqusair-Regular';src: url('AraAlharbiSyria-Alqusair-Regular.otf');}
+@font-face {font-family: 'bukraregular';src: url('bukraregular.otf');}
+@font-face {font-family: 'poste_solid';src: url('poste_solid.ttf');}
+@font-face {font-family: 'poste_wired';src: url('poste_wired.ttf');}
+@font-face {font-family: 'robotoThin';src: url('Roboto-Thin.ttf');}
+@font-face {font-family: 'robotoLight';src: url('Roboto-Light.ttf');}
+@font-face {font-family: 'robotoRegular';src: url('Roboto-Regular.ttf');}
+@font-face {font-family: 'robotoMedium';src: url('Roboto-Medium.ttf');}
+@font-face {font-family: 'robotoBold';src: url('Roboto-Bold.ttf');}
+/**/
+@font-face {
+    font-family: 'TheMixArabicPlain';
+    src: url('TheMixArabicPlain.eot');
+    src: url('TheMixArabicPlain.eot') format('embedded-opentype'),
+         url('TheMixArabicPlain.woff2') format('woff2'),
+         url('TheMixArabicPlain.woff') format('woff'),
+         url('TheMixArabicPlain.ttf') format('truetype'),
+         url('TheMixArabicPlain.svg#TheMixArabicPlain') format('svg');
+}
+@font-face {
+    font-family: 'TheMixArabicSemiBold';
+    src: url('TheMixArabicSemiBold.eot');
+    src: url('TheMixArabicSemiBold.eot') format('embedded-opentype'),
+         url('TheMixArabicSemiBold.woff2') format('woff2'),
+         url('TheMixArabicSemiBold.woff') format('woff'),
+         url('TheMixArabicSemiBold.ttf') format('truetype'),
+         url('TheMixArabicSemiBold.svg#TheMixArabicSemiBold') format('svg');
+}
+@font-face {
+    font-family: 'TheMixArabicBold';
+    src: url('TheMixArabicBold.eot');
+    src: url('TheMixArabicBold.eot') format('embedded-opentype'),
+         url('TheMixArabicBold.woff2') format('woff2'),
+         url('TheMixArabicBold.woff') format('woff'),
+         url('TheMixArabicBold.ttf') format('truetype'),
+         url('TheMixArabicBold.svg#TheMixArabicBold') format('svg');
+}
+
+body{font-family: 'TheMixArabicPlain';}

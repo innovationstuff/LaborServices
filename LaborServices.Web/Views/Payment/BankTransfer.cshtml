@@ -1,0 +1,86 @@
+﻿@using LaborServices.Web.Models
+@model ServiceContractPerHour
+
+@{
+    ViewBag.Title = "SystemicBankTransfer";
+}
+
+@section css{
+    @Styles.Render("~/Content/site-payment-bankTransfer")
+}
+
+<section class="SystemicBankTransfer">
+    <div class="container">
+        <div class="content my-5 text-center px-1">
+            <h2 class="pt-4 pb-1"> @DbRes.T("BankTransfer", "DalalResources")</h2>
+            <p class="price mx-auto text-white mt-0 mt-md-3 mb-0"><b class="d-block">@Html.DisplayFor(m => Model.HourlyPricingCost.NetPrice)</b><small>@DbRes.T("SaudiCurrencyShort", "Shared")</small></p>
+            <p class="d-block mb-1 mt-2 mb-3">عقد <B>@Html.DisplayFor(m => Model.ContractNum)</B></p>
+
+            <p><b>@DbRes.T("DearCustomer", "Shared") </b>  @Html.DisplayFor(m => Model.Customer)</p>
+            <p>@DbRes.T("PleaseUploadBankTransferStatementFortheContract", "DalalResources") <b>@Html.DisplayFor(m => Model.ContractNum)</b> </p>
+
+            <div class="w-50 mx-auto p-2 tabelContainer">
+                <table class="table table-bordered border-black table-sm table-hover text-right">
+                    <tbody>
+                        <tr>
+                            <td>@DbRes.T("Total Price + Vat", "DalalResources")</td>
+                            <td><b> @Html.DisplayFor(m => Model.HourlyPricingCost.NetPrice) <span class="smallText"> @DbRes.T("SaudiCurrencyShort", "Shared") </span> </b></td>
+                        </tr>
+                        @*<tr>
+                        <td>@DbRes.T("ContractNum", "DalalResources")</td>
+                        <td>@Html.DisplayFor(m => Model.ContractNum)</td>
+                    </tr>*@
+                        <tr>
+                            <td>@DbRes.T("ContractDuration", "DalalResources")</td>
+                            <td>@Html.DisplayFor(m => Model.ContractDurationName)</td>
+                        </tr>
+                        <tr>
+                            <td>@DbRes.T("WorkersNum", "DalalResources")</td>
+                            <td>@Html.DisplayFor(m => Model.NumOfWorkers)</td>
+                        </tr>
+                        <tr>
+                            <td>@DbRes.T("VisitsNum", "DalalResources")</td>
+                            <td>@Html.DisplayFor(m => Model.NumOfVisits)</td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+                <div class="mx-auto p-2 ">
+                    <div> <b>رجاء تسديد المبغ على حساب</b></div>
+                    <div> رقم حساب الراجحى : 678608010012228</div>
+                    <div>
+                        :ايبان
+                    </div>
+                    <div>
+                        SA2780000678608010012228
+                    </div>
+                    <div>
+                        ورفع صورة التحويل للتمكن من تفعيل العقد
+                        باستخدام الرابط التالى:
+                    </div>
+
+                </div>
+            </div>
+            @using (Html.BeginForm("SystemicBankTransfer", "DalalCrm", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Hidden("id")
+        <div class="form-group mt-1" dir="ltr">
+            <div class="custumInpFile"><i class="fa fa-cloud-upload fa-lg mt-1"></i> @DbRes.T("UploadBankTransferStatement", "DalalResources") </div>
+            <input type="file" class="form-control-file w-50 mx-auto" id="BankFile" name="BankFile">
+            <button type="submit" class="btn btn-primary mb-2 mt-4">@DbRes.T("SubmitBtn", "Shared")</button>
+
+        </div>
+
+}
+
+            <p class="pb-3 pt-3">@DbRes.T("ThanksForChoosingUs", "Shared")</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+

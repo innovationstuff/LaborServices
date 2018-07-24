@@ -1,0 +1,271 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<root>
+   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+      <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+      <xsd:element name="root" msdata:IsDataSet="true">
+         <xsd:complexType>
+            <xsd:choice maxOccurs="unbounded">
+               <xsd:element name="metadata">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" use="required" type="xsd:string" />
+                     <xsd:attribute name="type" type="xsd:string" />
+                     <xsd:attribute name="mimetype" type="xsd:string" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="assembly">
+                  <xsd:complexType>
+                     <xsd:attribute name="alias" type="xsd:string" />
+                     <xsd:attribute name="name" type="xsd:string" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="data">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                        <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                     <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                     <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="resheader">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" />
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:choice>
+         </xsd:complexType>
+      </xsd:element>
+   </xsd:schema>
+   <resheader name="resmimetype">
+      <value>text/microsoft-resx</value>
+   </resheader>
+   <resheader name="version">
+      <value>2.0</value>
+   </resheader>
+   <resheader name="reader">
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <data name="AboutUserSpan" xml:space="preserve">
+      <value>About</value>
+   </data>
+   <data name="Add" xml:space="preserve">
+      <value>Add</value>
+   </data>
+   <data name="AddPhoneNumber" xml:space="preserve">
+      <value>Add Phone Number</value>
+   </data>
+   <data name="Anerrorhasoccurred" xml:space="preserve">
+      <value>An error has occurred.</value>
+   </data>
+   <data name="Change" xml:space="preserve">
+      <value>Change</value>
+   </data>
+   <data name="ChangePassword" xml:space="preserve">
+      <value>Change Password</value>
+   </data>
+   <data name="ChangeYourPassword" xml:space="preserve">
+      <value>Change your password</value>
+   </data>
+   <data name="ClickHereToLogIn" xml:space="preserve">
+      <value>click here to log in</value>
+   </data>
+   <data name="ClientClosedCodeTH" xml:space="preserve">
+      <value>Client Closed Code</value>
+   </data>
+   <data name="ConfirmPassword" xml:space="preserve">
+      <value>Confirm Password</value>
+   </data>
+   <data name="ContactTH" xml:space="preserve">
+      <value>Contact</value>
+   </data>
+   <data name="ContractDateTH" xml:space="preserve">
+      <value>Contract Date</value>
+   </data>
+   <data name="ContractNumTH" xml:space="preserve">
+      <value>Contract Number</value>
+   </data>
+   <data name="ContractTH" xml:space="preserve">
+      <value>Contract</value>
+   </data>
+   <data name="CreateNewAccount" xml:space="preserve">
+      <value>Create New Account</value>
+   </data>
+   <data name="DalalComplaints" xml:space="preserve">
+      <value>Dalal Complaints</value>
+   </data>
+   <data name="EditProfile" xml:space="preserve">
+      <value>Edit Profile</value>
+   </data>
+   <data name="EditProfileBtn" xml:space="preserve">
+      <value>Edit</value>
+   </data>
+   <data name="Email" xml:space="preserve">
+      <value>Email</value>
+   </data>
+   <data name="EnterVerificationCode" xml:space="preserve">
+      <value>Enter Verification Code</value>
+   </data>
+   <data name="FinalPriceTH" xml:space="preserve">
+      <value>Final Price</value>
+   </data>
+   <data name="FirstName" xml:space="preserve">
+      <value>First Name</value>
+   </data>
+   <data name="ForgetyourpasswordLink" xml:space="preserve">
+      <value>Forget your password ?</value>
+   </data>
+   <data name="ForgotYourPassword" xml:space="preserve">
+      <value>Forgot Your Password</value>
+   </data>
+   <data name="Gender_PH" xml:space="preserve">
+      <value>Select Gender</value>
+   </data>
+   <data name="hdrComplaintsSpan" xml:space="preserve">
+      <value>Complaints</value>
+   </data>
+   <data name="hdrContractsSpan" xml:space="preserve">
+      <value>Contracts</value>
+   </data>
+   <data name="IdNumber" xml:space="preserve">
+      <value>ID Number</value>
+   </data>
+   <data name="IndividualsComplaints" xml:space="preserve">
+      <value>Individuals Complaints</value>
+   </data>
+   <data name="JobTitle" xml:space="preserve">
+      <value>Job Title</value>
+   </data>
+   <data name="LastName" xml:space="preserve">
+      <value>Last Name</value>
+   </data>
+   <data name="LogIn" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="LoginBtn" xml:space="preserve">
+      <value>Login</value>
+   </data>
+   <data name="ManageYourAccount" xml:space="preserve">
+      <value>Manage your account</value>
+   </data>
+   <data name="MiddleName" xml:space="preserve">
+      <value>Middle Name</value>
+   </data>
+   <data name="Mobile" xml:space="preserve">
+      <value>Mobile</value>
+   </data>
+   <data name="Name" xml:space="preserve">
+      <value>Name</value>
+   </data>
+   <data name="NewPassword" xml:space="preserve">
+      <value>New Password</value>
+   </data>
+   <data name="NoComplaintsSpan" xml:space="preserve">
+      <value>There is no complaints found.</value>
+   </data>
+   <data name="NoContractsSpan" xml:space="preserve">
+      <value>There is no contracts found.</value>
+   </data>
+   <data name="NotRegisteredYetRegisterNow" xml:space="preserve">
+      <value>Not Registered Yet ? Register now</value>
+   </data>
+   <data name="Number" xml:space="preserve">
+      <value>Number</value>
+   </data>
+   <data name="OldPassword" xml:space="preserve">
+      <value>Old Password</value>
+   </data>
+   <data name="Password" xml:space="preserve">
+      <value>Password</value>
+   </data>
+   <data name="PhoneNumber" xml:space="preserve">
+      <value>Phone Number</value>
+   </data>
+   <data name="phonenumberverified" xml:space="preserve">
+      <value>phone number verified.</value>
+   </data>
+   <data name="PickPassword" xml:space="preserve">
+      <value>Pick a password</value>
+   </data>
+   <data name="ProblemTypeTH" xml:space="preserve">
+      <value>Problem Type</value>
+   </data>
+   <data name="Profile" xml:space="preserve">
+      <value>Profile</value>
+   </data>
+   <data name="Region_PH" xml:space="preserve">
+      <value>Select a region</value>
+   </data>
+   <data name="Register" xml:space="preserve">
+      <value>Register</value>
+   </data>
+   <data name="RememberMe" xml:space="preserve">
+      <value>Remember me ?</value>
+   </data>
+   <data name="Reset" xml:space="preserve">
+      <value>Reset</value>
+   </data>
+   <data name="ResetPassword" xml:space="preserve">
+      <value>ResetPassword</value>
+   </data>
+   <data name="ResetPasswordConfirmation" xml:space="preserve">
+      <value>Reset Password Confirmation</value>
+   </data>
+   <data name="SectorTypeTH" xml:space="preserve">
+      <value>Sector Type</value>
+   </data>
+   <data name="SelectCity" xml:space="preserve">
+      <value>Select City</value>
+   </data>
+   <data name="SelectNationality" xml:space="preserve">
+      <value>Select Nationality</value>
+   </data>
+   <data name="SendCodeBySms" xml:space="preserve">
+      <value>Send Code By SMS</value>
+   </data>
+   <data name="SendVerificationCode" xml:space="preserve">
+      <value>Send Verification Code</value>
+   </data>
+   <data name="StatusNameTH" xml:space="preserve">
+      <value>Status</value>
+   </data>
+   <data name="StatusTH" xml:space="preserve">
+      <value>Status</value>
+   </data>
+   <data name="Submit" xml:space="preserve">
+      <value>Submit</value>
+   </data>
+   <data name="TicketNumberTH" xml:space="preserve">
+      <value>Ticket Number</value>
+   </data>
+   <data name="VerifyPhoneNumber" xml:space="preserve">
+      <value>Verify Phone Number</value>
+   </data>
+   <data name="Yourpasswordhasbeenchanged" xml:space="preserve">
+      <value>Your password has been changed</value>
+   </data>
+   <data name="YourPasswordHasBeenReset" xml:space="preserve">
+      <value>Your Password Has Been Reset</value>
+   </data>
+   <data name="Yourpasswordhasbeenset" xml:space="preserve">
+      <value>Your password has been set</value>
+   </data>
+   <data name="Yourphonenumberwasremoved." xml:space="preserve">
+      <value>Your phone number was removed.</value>
+   </data>
+   <data name="Yourtwofactorproviderhasbeenset" xml:space="preserve">
+      <value>Your two factor provider has been set.</value>
+   </data>
+</root>

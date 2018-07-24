@@ -1,0 +1,178 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<root>
+   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+      <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+      <xsd:element name="root" msdata:IsDataSet="true">
+         <xsd:complexType>
+            <xsd:choice maxOccurs="unbounded">
+               <xsd:element name="metadata">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" use="required" type="xsd:string" />
+                     <xsd:attribute name="type" type="xsd:string" />
+                     <xsd:attribute name="mimetype" type="xsd:string" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="assembly">
+                  <xsd:complexType>
+                     <xsd:attribute name="alias" type="xsd:string" />
+                     <xsd:attribute name="name" type="xsd:string" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="data">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                        <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                     <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                     <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                     <xsd:attribute ref="xml:space" />
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="resheader">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                     </xsd:sequence>
+                     <xsd:attribute name="name" type="xsd:string" use="required" />
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:choice>
+         </xsd:complexType>
+      </xsd:element>
+   </xsd:schema>
+   <resheader name="resmimetype">
+      <value>text/microsoft-resx</value>
+   </resheader>
+   <resheader name="version">
+      <value>2.0</value>
+   </resheader>
+   <resheader name="reader">
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+   </resheader>
+   <data name="AboutCompany" xml:space="preserve">
+      <value>عن الشركة</value>
+   </data>
+   <data name="AboutUs" xml:space="preserve">
+      <value>عن الشركة</value>
+   </data>
+   <data name="BusinessSector" xml:space="preserve">
+      <value>قطاع الأعمال</value>
+   </data>
+   <data name="ChangePass" xml:space="preserve">
+      <value>تغيير كلمة المرور؟</value>
+   </data>
+   <data name="CompanyAddress" xml:space="preserve">
+      <value>المقر الرئيسي : الدائري الشمالي ,حي التعاون , الرياض 12478</value>
+   </data>
+   <data name="ContactUs" xml:space="preserve">
+      <value>اتصل بنا</value>
+   </data>
+   <data name="Credentials" xml:space="preserve">
+      <value>الإدارة</value>
+   </data>
+   <data name="ForgetPass" xml:space="preserve">
+      <value>نسيت كلمة المرور؟</value>
+   </data>
+   <data name="Home" xml:space="preserve">
+      <value>الرئيسية</value>
+   </data>
+   <data name="ImportantLinks" xml:space="preserve">
+      <value>روابط قد تهمك</value>
+   </data>
+   <data name="Individual_AbdalHeaderDesc" xml:space="preserve">
+      <value>تقوم شركة ابدال للتوظيف بتوفير عمالة منزلية تناسب طلبات الأفراد بدءاً من السائق الخاص والمعاونة المنزلية وصولاً الى الممرض/ الممرضة والطباخ الخاص والمزارع.</value>
+   </data>
+   <data name="Individual_DalaDescDtails" xml:space="preserve">
+      <value>خدمـة لسـاعات محـددة وأيـام محـددة حسـب الاتفـاق مـع العميـل ، لا تتطلـب إقامـة العمالـة لـدى العميـل,يتم خلالهـا إيصـال العمالـة للعميـل علـى أن يبـدأ حسـاب وقـت الخدمـة منـذ وصـول العمالـة الـى منـزل العميـل.</value>
+   </data>
+   <data name="Individual_DalalTitle" xml:space="preserve">
+      <value>خدمة العمالة المنزلية بالساعة</value>
+   </data>
+   <data name="Individual_EnaihDescDetails" xml:space="preserve">
+      <value>خدمـة الرعايـة المنزليـة لكبـار السـن وذوي الأحتياجات الخاصـة وخدمـة المرافـق الصحـي الخـاص أو المرافقـة الصحيـة الخاصـة.</value>
+   </data>
+   <data name="Individual_EnaihTitle" xml:space="preserve">
+      <value>خدمة التمريض المنزلي</value>
+   </data>
+   <data name="Individual_TadbeerDescDetails" xml:space="preserve">
+      <value>المـوارد البشـرية للعمـل فـي منـازل عائـلات المواطنـين والمقيمين، لمهـن متعـددة مـن جنسـيات مختلفـة.مع الحرص علــى توفـيـر موظفـيـن متعاقديــن مدربين ً تدريبــا ً جيــدا، يتفهمــون الثقافــة المحليــة ومتطلبــات العمــل المنزلــي. وتتحمــل الشــركة مســؤولية إدارة الموظفــن المتعاقديــن للعمــل.</value>
+   </data>
+   <data name="Individual_TadbeerTitle" xml:space="preserve">
+      <value>خدمة العمالة المنزلية بالشهر</value>
+   </data>
+   <data name="Individual_WasatahDescDetails" xml:space="preserve">
+      <value>خدمــات الوســاطة فــي اســتقدام المــوارد البشــرية المنزليــة للمنشأت التــي لديهــا تأشيــراتهم الخاصــة، حيــث تقــوم الشــركة ً بجلــب الكــوادر وفقــا لمتطلباتهــم، خــلال فتــرة زمنيــة وجيــزة.</value>
+   </data>
+   <data name="Individual_WasatahTitle" xml:space="preserve">
+      <value>خدمات الوساطة في استخدام الأفراد</value>
+   </data>
+   <data name="Individuals" xml:space="preserve">
+      <value>قطاع الأفراد</value>
+   </data>
+   <data name="Login" xml:space="preserve">
+      <value>تسجيل دخول</value>
+   </data>
+   <data name="Login_Short" xml:space="preserve">
+      <value>دخول</value>
+   </data>
+   <data name="Logout" xml:space="preserve">
+      <value>تسجيل خروج</value>
+   </data>
+   <data name="MailingList" xml:space="preserve">
+      <value>القائمة البريدية</value>
+   </data>
+   <data name="MasterContactUs" xml:space="preserve">
+      <value>تواصل معنا</value>
+   </data>
+   <data name="MedicalSector" xml:space="preserve">
+      <value>القطاع الطبي</value>
+   </data>
+   <data name="MyAccount" xml:space="preserve">
+      <value>حسابي</value>
+   </data>
+   <data name="Others" xml:space="preserve">
+      <value>أخرى</value>
+   </data>
+   <data name="OurBranches" xml:space="preserve">
+      <value>فروعنا</value>
+   </data>
+   <data name="OurMissions" xml:space="preserve">
+      <value>رسالة الشركة</value>
+   </data>
+   <data name="OurPrograms_DalalDesc" xml:space="preserve">
+      <value>تبدأ مدة الزيارة من أربع ساعات</value>
+   </data>
+   <data name="OurPrograms_EnaihDesc" xml:space="preserve">
+      <value>لرعاية كبار السن وذوي الاحتياجات الخاصة (ممرضة، مرافق شخصي، ...)</value>
+   </data>
+   <data name="OurPrograms_JahezDesc" xml:space="preserve">
+      <value>عمالة لكافة القطاعات وجميع المهن بتعاقد مرن (بالساعات، بالأيام، بالأسابيع،...)</value>
+   </data>
+   <data name="OurPrograms_TadbeerDesc" xml:space="preserve">
+      <value>سائق خاص، عاملة منزلية، مربية، حارس، ..</value>
+   </data>
+   <data name="OurServices" xml:space="preserve">
+      <value>برامجنـــــا</value>
+   </data>
+   <data name="Profile" xml:space="preserve">
+      <value>الصفحة الشخصية</value>
+   </data>
+   <data name="Register" xml:space="preserve">
+      <value>تسجيل جديد</value>
+   </data>
+   <data name="RegisterMailingList" xml:space="preserve">
+      <value>أشترك فى القائمة البريدية</value>
+   </data>
+   <data name="Signup" xml:space="preserve">
+      <value>تسجيل جديد</value>
+   </data>
+</root>

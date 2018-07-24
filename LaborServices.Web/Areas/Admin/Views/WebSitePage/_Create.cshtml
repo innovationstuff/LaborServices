@@ -1,0 +1,78 @@
+﻿@model WebSitePage
+@{
+    ViewBag.Title = "Create";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+}
+
+<div class="page-profile">
+    @using (Html.BeginForm("Create", "WebSitePage"))
+    {
+        <div class="row">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="col-md-12 col-lg-12">
+                <section class="panel">
+                    <div class="panel-heading panel-heading-transparent">
+                        <strong>Create new Page section</strong>
+                    </div>
+                    <div class="panel-body noradius padding-10">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PageName)
+                            @Html.EditorFor(model => model.PageName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PageName)
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TitleEn)
+                            @Html.TextBoxFor(model => model.TitleEn, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.TitleEn)
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TitleAr)
+                            @Html.TextBoxFor(model => model.TitleAr, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.TitleAr)
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DescriptionEn)
+                            @Html.TextAreaFor(model => model.DescriptionEn, new { @class = "ckeditor" })
+                            @Html.ValidationMessageFor(model => model.DescriptionEn)
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DescriptionAr)
+                            @Html.TextAreaFor(model => model.DescriptionAr, new { @class = "ckeditor" })
+                            @Html.ValidationMessageFor(model => model.DescriptionAr)
+                        </div>
+                        
+                        <hr class="half-margins" />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                                @Html.ActionLink("Back to List", "Index")
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div><!-- /COL 1 -->
+        </div>
+
+    }
+</div>
+
+
+ @section scripts{
+    @*@Scripts.Render("~/bundles/ckeditor")*@
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<script src="~/Scripts/ckfinder/ckfinder.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $.validator.setDefaults({ ignore: '' });
+            $.validator.unobtrusive.parse($("form"));
+        });
+    </script>
+}

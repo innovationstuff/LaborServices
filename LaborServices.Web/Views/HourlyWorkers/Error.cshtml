@@ -1,0 +1,25 @@
+﻿@model LaborServices.Web.Models.HourlyWorkersViewModel
+@{
+    ViewBag.Title = "حدث خطأ غير متوقع";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+    string inputTextAlign = lang == "ar" ? "text-right" : "text-left";
+    string inputTextdirection = lang == "ar" ? "text-left" : "text-right";
+}
+
+<section class="loginPage">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 m-auto @inputTextdirection" style="direction:ltr !important;">
+                <div class="alert alert-danger" role="alert">
+                    <strong>خطأ</strong>  حدث خطأ غير متوقع
+                </div>
+                @using (Html.BeginForm("NextStep", "HourlyWorkers", FormMethod.Post))
+                {
+                    <input class="btn btn-outline-primary btn-lg btn-block" type="submit" value="Try agin" name="BtnNext" />
+                }
+            </div>
+        </div>
+    </div>
+</section>

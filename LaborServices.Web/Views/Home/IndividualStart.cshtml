@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Individual Services";
+    var routeData = ViewContext.RouteData.Values;
+    string lang = routeData["lang"] as string;
+    string dateLang = lang == "ar" ? "ar-ly" : "en";
+}
+
+<section class="individuals">
+    <div class="container">
+        <h2><img src="~/Images/frontEnd/individuals.png" alt="..."></h2>
+        <p class="main-p">
+            @DbRes.T("Individual_AbdalHeaderDesc", "HomeResources")
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="det">
+                    <div class="header">
+                        <h3><img class="img-fluid" src="~/Images/frontEnd/dlal-ar.png"></h3>
+                        <p>@DbRes.T("Individual_DalalTitle", "HomeResources")</p>
+                    </div>
+                    <div class="btm">
+                        <p>@DbRes.T("Individual_DalaDescDtails", "HomeResources")</p>
+
+                        <div class="more">
+                            <div class="right">
+                                <a href="@Url.Action("Index", "HourlyWorkers")">
+                                    @DbRes.T("OrderNow", "Shared")
+                                </a>
+                            </div>
+                            <div class="left"><img src="~/Images/frontEnd/i1.png" alt="..."></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="det">
+                    <div class="header">
+                        <h3><img class="img-fluid" src="~/Images/frontEnd/tdbeer-ar.png"></h3>
+                        <p>@DbRes.T("Individual_TadbeerTitle", "HomeResources")</p>
+                    </div>
+                    <div class="btm">
+                        <p>@DbRes.T("Individual_TadbeerDescDetails", "HomeResources")</p>
+                        <div class="more">
+                            <div class="right"><a href="@Url.Action("IndividualSector","Lead")"> @DbRes.T("OrderNow", "Shared")</a></div>
+                            <div class="left"><img src="~/Images/frontEnd/i2.png" alt="..."></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="det">
+                    <div class="header">
+                        <h3><img class="img-fluid" src="~/Images/frontEnd/Enaih-Logo.jpeg"></h3>
+                        <p>@DbRes.T("Individual_EnaihTitle", "HomeResources")</p>
+                    </div>
+                    <div class="btm">
+                        <p>@DbRes.T("Individual_EnaihDescDetails", "HomeResources")</p>
+                        <div class="more">
+                            <div class="right"><a href="@Url.Action("Soon","Home")">@DbRes.T("More..", "Shared")</a></div>
+                            <div class="left"><img src="~/Images/frontEnd/i3.png" alt="..."></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="det">
+                    <div class="header">
+                        <h3><img class="img-fluid" src="~/Images/frontEnd/Wasatah-Logo.jpg"></h3>
+                        <p>@DbRes.T("Individual_WasatahTitle", "HomeResources")</p>
+                    </div>
+                    <div class="btm">
+                        <p>@DbRes.T("Individual_WasatahDescDetails", "HomeResources")</p>
+                        <div class="more">
+                            <div class="right"><a href="@Url.Action("Soon","Home")">@DbRes.T("More..", "Shared")</a></div>
+                            <div class="left"><img src="~/Images/frontEnd/i4.png" alt="..."></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

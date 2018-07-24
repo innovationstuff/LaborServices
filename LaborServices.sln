@@ -1,0 +1,101 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaborServices.Manager", "LaborServices.Managers\LaborServices.Manager.csproj", "{9F270332-5940-4A24-BD94-092AD7C244DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaborServices.Entity", "LaborServices.Model\LaborServices.Entity.csproj", "{66AFC234-5C85-4D96-80EE-BFEFB7EB19FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaborServices.DataAccess", "LaborServices.DataAccess\LaborServices.DataAccess.csproj", "{A5EAD5E0-EE31-4991-AAC6-19E48D93D8DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaborServices.ViewModel", "LaborServices.ViewModel\LaborServices.ViewModel.csproj", "{8130ADDC-8471-45C8-9D53-3E51E06A3C15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaborServices.Utility", "LaborServices.Utility\LaborServices.Utility.csproj", "{FFB7307E-FFE8-4C8A-B967-A4D254DD7E4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaborServices.Web", "LaborServices.Web\LaborServices.Web.csproj", "{95D9276B-71A1-417A-86E2-A6637A62D4A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaborServices.API", "LaborServices.API\LaborServices.API.csproj", "{9CACD546-F89A-467D-9411-76C89A7157F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadMe", "ReadMe", "{96CDAC3E-F261-40B6-BF93-3DAF8882CBEA}"
+	ProjectSection(SolutionItems) = preProject
+		ConventionAgreement.txt = ConventionAgreement.txt
+		DevelopmentNotes_and_ToDo.txt = DevelopmentNotes_and_ToDo.txt
+		DevelopmentRulesAgreement.txt = DevelopmentRulesAgreement.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9886009C-AAC8-4AE9-AEE2-BB6E902931E9}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\UI\Labor Website\Abdal Full Project\ar\imgs\favicon.png = ..\..\UI\Labor Website\Abdal Full Project\ar\imgs\favicon.png
+		MKHTest02.js = MKHTest02.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F270332-5940-4A24-BD94-092AD7C244DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F270332-5940-4A24-BD94-092AD7C244DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F270332-5940-4A24-BD94-092AD7C244DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F270332-5940-4A24-BD94-092AD7C244DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66AFC234-5C85-4D96-80EE-BFEFB7EB19FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66AFC234-5C85-4D96-80EE-BFEFB7EB19FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66AFC234-5C85-4D96-80EE-BFEFB7EB19FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66AFC234-5C85-4D96-80EE-BFEFB7EB19FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5EAD5E0-EE31-4991-AAC6-19E48D93D8DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5EAD5E0-EE31-4991-AAC6-19E48D93D8DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5EAD5E0-EE31-4991-AAC6-19E48D93D8DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5EAD5E0-EE31-4991-AAC6-19E48D93D8DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8130ADDC-8471-45C8-9D53-3E51E06A3C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8130ADDC-8471-45C8-9D53-3E51E06A3C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8130ADDC-8471-45C8-9D53-3E51E06A3C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8130ADDC-8471-45C8-9D53-3E51E06A3C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFB7307E-FFE8-4C8A-B967-A4D254DD7E4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB7307E-FFE8-4C8A-B967-A4D254DD7E4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB7307E-FFE8-4C8A-B967-A4D254DD7E4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB7307E-FFE8-4C8A-B967-A4D254DD7E4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95D9276B-71A1-417A-86E2-A6637A62D4A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D9276B-71A1-417A-86E2-A6637A62D4A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D9276B-71A1-417A-86E2-A6637A62D4A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D9276B-71A1-417A-86E2-A6637A62D4A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CACD546-F89A-467D-9411-76C89A7157F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CACD546-F89A-467D-9411-76C89A7157F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CACD546-F89A-467D-9411-76C89A7157F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CACD546-F89A-467D-9411-76C89A7157F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DBE29AF-9ACF-4145-98E2-1886566CDBF4}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://innovationsoft.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LaborServices.DataAccess\\LaborServices.DataAccess.csproj
+		SccProjectName1 = LaborServices.DataAccess
+		SccLocalPath1 = LaborServices.DataAccess
+		SccProjectUniqueName2 = LaborServices.Managers\\LaborServices.Manager.csproj
+		SccProjectName2 = LaborServices.Managers
+		SccLocalPath2 = LaborServices.Managers
+		SccProjectUniqueName3 = LaborServices.Model\\LaborServices.Entity.csproj
+		SccProjectName3 = LaborServices.Model
+		SccLocalPath3 = LaborServices.Model
+		SccProjectUniqueName4 = LaborServices.Utility\\LaborServices.Utility.csproj
+		SccProjectName4 = LaborServices.Utility
+		SccLocalPath4 = LaborServices.Utility
+		SccProjectUniqueName5 = LaborServices.ViewModel\\LaborServices.ViewModel.csproj
+		SccProjectName5 = LaborServices.ViewModel
+		SccLocalPath5 = LaborServices.ViewModel
+		SccProjectUniqueName6 = LaborServices.Web\\LaborServices.Web.csproj
+		SccProjectName6 = LaborServices.Web
+		SccLocalPath6 = LaborServices.Web
+		SccProjectUniqueName7 = LaborServices.API\\LaborServices.API.csproj
+		SccProjectName7 = LaborServices.API
+		SccLocalPath7 = LaborServices.API
+	EndGlobalSection
+EndGlobal

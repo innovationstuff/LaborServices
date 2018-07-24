@@ -1,0 +1,312 @@
+/* 
+	Theme name:smart18
+	Theme coder:Safia Ameen
+	psd designer:Safia Ameen
+	FirstColor:#99031e (red)
+	SecondColor:#18314f(blue)>>headers
+	
+*/
+
+/* P U B L I C   S T Y L E    R U L E S*/
+body{
+	background: url(../../Images/frontEnd/bg05.png) no-repeat center center fixed;
+	background-size: cover;
+	direction: rtl;
+	color: #656565;
+}
+a:hover{
+	text-decoration: none!important;
+}
+input{
+	 font-size: 14px;
+    display: block;
+    width: 200px;
+    padding: 5px;
+    height: 35px;
+    margin-bottom: 4px;
+    background-color:#5a778ceb;
+    border: none;
+}
+input::placeholder {
+    color: #fff;
+    opacity: 1; /* Firefox */
+}
+/*
+.log-in{
+	font-weight: bolder;
+}
+*/
+/*
+.log-in .row:first-child{
+	margin-top: -10px;
+    margin-left: -235px;
+}
+*/
+.log-in label{    
+	    margin-left: -22px;}
+/******************************* start nav ***************************/
+ul.navbar-nav{
+/*	background: #235486de;*/
+    width: 100%;
+/*    height: 43px;*/
+}
+.navbar-dark .navbar-nav .nav-link{
+	color: #fff;
+}
+nav li a{
+	border-left: 5px solid #083c71;
+    font-size: 17px;
+    vertical-align: middle;
+    line-height: 43px;
+    padding: 0 7px 0 13px !important;
+    width: 152px;
+    text-align: center;
+    height: 43px;
+}
+nav li:last-child a{
+	border-left: none;
+}
+/******************************* end nav ***************************/
+/******** logo part ********/
+.logo img{
+	width: 300px;
+}
+/******************************* start slider ***************************/
+.slider01 {
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+.slider01 img{
+	margin: auto;
+}
+.slider01 .carousel-caption{
+	 font-size: 23px;
+     padding-left: 0; 
+     margin-left: 0; 
+     left: 166px;
+     top: 96px;
+}
+.carousel {
+    border-radius: 36px;
+    overflow: hidden;
+}
+.font{
+	 font-family: 'AraAlharbiSyria-Alqusair-Regular';
+}
+/******************************* end slider ***************************/
+
+/******************************* start content ***************************/
+.content{
+	margin-bottom: 40px
+}
+.content h4{    
+    background-color: #356793;
+    width: 100%;
+    border-radius: 7px;
+    padding: 9px;
+	color: #fff;
+    margin-top: 20px;
+}
+.content h4:hover{
+	opacity: 0.8;
+}
+.ad{
+	height: 275px;
+	overflow: hidden;
+}
+.ad img{
+	border-radius: 13px;
+	margin: auto;
+	width: 95%;
+}
+.ad ul{
+	list-style: none;
+}
+.news{
+	background: #fff;
+    height: 200px;
+    padding: 20px 0;
+		overflow: hidden;
+
+}
+
+.news img{
+	    padding: 7px;
+    width: 98px;
+    height: 55px;
+    background-color: #0e426a;
+}
+.news .single-news{
+    padding: 10px;
+    border-top: 1px solid #eee;
+	font-size: 14px;
+}
+.news-data{
+	margin-bottom: 5px;
+}
+.single-news .news-data span{
+	    font-size: 10px;
+    color: #b6b6b6;
+}
+
+.single-news hr{
+	width: 100%;
+	border-top: 1px solid #eee;
+}
+.x2{
+	background-color: #ffffffc2;
+    height: 200px;
+}
+.x2 h3{
+	    color: #8c67ac;
+    text-align: center;
+    font-size: 38px;
+}
+.x2 p{
+	    color: #8c67ac;
+    font-weight: 200;
+    text-align: center;
+    font-family: 'bukraregular';
+}
+.x2 span{
+    color: #0e426a;
+}
+.x2 .x22{
+	font-size: 56px;
+}
+.x3{background-color: #ffffffb3;
+    height: 200px;
+    padding: 10px;
+    font-size: 15px;
+    overflow: hidden;}
+/******************************* end content ***************************/
+/******* start social blocks  **********/
+.nav-social{
+	position: fixed;
+    transition: 0.5s;
+    z-index: 1070;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    transition: all ease-in-out 0.5s;
+}
+.nav-social a.phone:hover {
+       width: 176px;
+	padding-right: 96px;
+}
+
+.nav-social a.phone:hover{
+	padding-right: 96px;
+}
+.nav-social a:hover {
+    padding-right: 20px;
+    width: 65px;
+}
+.nav-social .phone {
+    background: #8c67ac;
+	overflow: hidden;
+	direction: ltr;
+}
+.num{
+	position: absolute;
+	left: 56px;
+}
+.nav-social .twitter {
+    background: #00ACED;
+}
+.nav-social .facebook {
+	background: #3B579D;
+}
+.nav-social a {
+    display: block;
+    float: right;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    color: #FFF;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 48px;
+    background: #b32dbb;
+    position: relative;
+	transition: all 0.5s ease-in-out;
+	direction: ltr;
+}
+/******* end social blocks   **********/
+
+/*start social4mobile*/
+.social4mobile{
+	       height: 35px;
+    line-height: 30px;
+    text-align: center;
+    margin: 10px;
+    padding: 0 10px;
+    direction: ltr;
+}
+.social4mobile li{
+text-align: center;
+	display: inline-block;
+}
+.social4mobile li .fa{
+	background-color: #fff;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    margin: 2px;
+}
+.num-mobile{    background-color: #fff;
+    padding: 1px 3px;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-left: -4px;}
+/*end social4mobile*/
+
+/******************************* start footer  ***************************/
+.footer{
+	background-color: #175177;
+    color: #fff;
+    padding: 40px;
+}
+
+.footer p{
+	font-size: 14px;
+    text-align: right;
+}
+.footer  ul{
+padding-top: 32px;
+	list-style: none;
+    font-size: 14px;
+/*	text-align: center;*/
+}
+.footer03 a
+{color: #fff;
+    background: #59a5d6;
+    font-size: 22px;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    text-align: center;}
+.footer03 .fa{
+	font-size: 22px;
+}
+.mabe i{    color: #fff;
+    padding-left: 4px;
+}
+a.mail-box{    display: inline-block;
+    background: #26b2ed;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 4px;
+    margin-right: -6px;
+    margin-top: -2px;}
+
+#phone-num {
+    width: 75%
+}
+/******************************* end footer   ***************************/
+/*******************************   ***************************/
